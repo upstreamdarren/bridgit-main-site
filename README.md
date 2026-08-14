@@ -6,14 +6,14 @@ designed to deploy as a static Cloudflare Pages project.
 ## Local development
 
 ```sh
-npm install
-npm run dev
+pnpm install
+pnpm dev
 ```
 
 ## Production build
 
 ```sh
-npm run build
+pnpm build
 ```
 
 Cloudflare Pages settings:
