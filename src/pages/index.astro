@@ -2,11 +2,19 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 
 const steps = [
-  ["01", "Reach", "Connect with people earlier, through the channels they already use."],
-  ["02", "Advice", "Give trusted, personalised guidance at any time of day."],
-  ["03", "Coach", "Offer ongoing encouragement, check-ins and practical next steps."],
-  ["04", "Connect", "Make warm links to local services, professionals and peers."],
-  ["05", "Scale", "Give teams the insight and tools to support more people well."]
+  ["01", "Choose your team", "Select priority problems and the human expertise the coaches should scale."],
+  ["02", "Train them", "Use approved local content, tone, pathways, safeguards and handover rules to your real-world support."],
+  ["03", "Deploy them", "Launch through web, voice, hosted links, QR codes and trusted partners."],
+  ["04", "See impact", "Track people supported, needs, actions, check-ins, feedback and handovers."]
+];
+
+const partners = [
+  ["BCP Council", "/images/partners/bcp-council.png"],
+  ["Dudley Metropolitan Borough Council", "/images/partners/dudley-council.png"],
+  ["Cambridgeshire County Council", "/images/partners/cambridgeshire-council.png"],
+  ["Peterborough City Council", "/images/partners/peterborough-council.png"],
+  ["Sandwell Council", "/images/partners/sandwell-council.webp"],
+  ["Microsoft", "/images/partners/microsoft.png"]
 ];
 
 const services = [
@@ -26,32 +34,32 @@ const services = [
   <section class="hero section">
     <div class="shell hero-grid">
       <div class="hero-copy">
-        <p class="eyebrow">AI-powered coaching for councils, charities and social enterprises</p>
+        <p class="eyebrow dark">AI-powered coaching for councils, charities and social enterprises</p>
         <h1>Turn the knowledge of your best people into support that <span>never switches off.</span></h1>
-        <p class="lead">Bridgit turns your knowledge, services and local information into digital coaches that guide people 24/7, respond as needs change and help your team understand the impact being created.</p>
+        <p class="lead">Bridgit helps organisations turn their knowledge, services and local information into digital coaches. They provide trusted guidance 24/7, check in as people’s needs change and help teams reach more people while measuring the impact created.</p>
         <div class="button-row">
           <a class="button" href="#how-it-works">See how Bridgit works</a>
           <a class="button button-secondary" href="#book-a-call">Book a discovery call</a>
         </div>
         <a class="support-link" href="https://local.bridgit.care/">Looking for support? Find your local Bridgit service <span aria-hidden="true">→</span></a>
       </div>
-      <div class="hero-visual" aria-label="Bridgit connects people, coaches and local support">
-        <div class="orbit orbit-one"></div>
-        <div class="orbit orbit-two"></div>
-        <div class="coach-card coach-card-main"><span class="coach-avatar">B</span><strong>Your Bridgit coach</strong><small>Personal support, 24/7</small></div>
-        <div class="coach-card coach-card-one"><span>✓</span><strong>Trusted advice</strong></div>
-        <div class="coach-card coach-card-two"><span>↗</span><strong>Local connections</strong></div>
-        <div class="coach-card coach-card-three"><span>♥</span><strong>Ongoing check-ins</strong></div>
+      <div class="hero-media">
+        <img src="/images/support-process.png" alt="Bridgit turns human expertise into multiple digital coaches, supports more people and measures impact" width="1536" height="1024" />
       </div>
     </div>
   </section>
 
   <section class="proof section-compact" aria-label="Bridgit reach">
     <div class="shell proof-grid">
-      <div><strong>180,000+</strong><span>people supported</span></div>
-      <div><strong>40</strong><span>UK regions</span></div>
-      <div><strong>30+</strong><span>specialised AI coaches</span></div>
-      <p>Trusted by councils, charities, employers and social enterprises across the UK.</p>
+      <div><strong>200,000+</strong><span>people supported</span></div>
+      <div><strong>40</strong><span>UK local authority areas</span></div>
+      <div><strong>Trusted by</strong><span>councils, charities and social enterprises</span></div>
+    </div>
+    <div class="shell trusted-partners" aria-label="Selected Bridgit partners">
+      <p>Working with organisations across the UK</p>
+      <div class="partner-logos">
+        {partners.map(([name, src]) => <img src={src} alt={name} loading="lazy" />)}
+      </div>
     </div>
   </section>
 
@@ -65,7 +73,7 @@ const services = [
   <section class="section how" id="how-it-works">
     <div class="shell">
       <p class="eyebrow dark">How it works</p>
-      <div class="section-heading"><h2>From first contact to long-term change.</h2><p>One connected model helps partners extend reach, improve outcomes and reduce pressure on services.</p></div>
+      <div class="section-heading"><h2>Build a digital team around your expertise.</h2><p>Choose where coaches can help, train them in your approved approach, deploy them through trusted channels and see the impact they create.</p></div>
       <ol class="steps">
         {steps.map(([number, title, copy]) => (
           <li><span>{number}</span><h3>{title}</h3><p>{copy}</p></li>
