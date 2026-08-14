@@ -44,12 +44,20 @@
 .use-cases{background:#fff}
 .usecase-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
 .usecase-card{overflow:hidden;display:grid;grid-template-columns:140px 1fr;align-items:center;min-height:260px;border:1px solid #e9e1f1;border-radius:var(--radius);background:linear-gradient(145deg,#faf7fd,#fff);box-shadow:0 12px 34px rgba(48,23,79,.07)}
-.usecase-card>img{display:block;width:132px;height:132px;margin-left:18px;border-radius:50%;object-fit:cover}
+.usecase-card>img{display:block;width:132px;height:132px;margin-left:18px;border:5px solid #fff;border-radius:34px;object-fit:cover;box-shadow:0 12px 28px rgba(77,32,116,.16)}
 .usecase-card-copy{padding:26px 24px 26px 18px}
 .usecase-card h3{margin:0 0 10px;color:var(--purple);font-size:27px}
 .usecase-card p{margin:0 0 18px;color:var(--muted);font-size:15px}
 .usecase-links{display:flex;flex-wrap:wrap;gap:8px 16px}
 .usecase-links a{color:var(--purple-dark);font-weight:900;font-size:14px;text-underline-offset:4px}
+.usecase-card-bespoke{grid-column:1/-1;overflow:hidden;position:relative;grid-template-columns:auto 1fr;gap:18px 28px;min-height:0;padding:34px 38px;color:#fff;border:0;background:radial-gradient(circle at 8% 20%,rgba(255,255,255,.16),transparent 28%),linear-gradient(112deg,#42117b 0%,#7425be 55%,#167ca6 100%);box-shadow:0 18px 46px rgba(54,20,94,.2)}
+.usecase-card-bespoke:after{content:"?";position:absolute;right:21%;top:50%;transform:translateY(-50%);color:rgba(255,255,255,.055);font-size:240px;font-weight:900;line-height:1}
+.bespoke-mark{position:relative;z-index:1;display:grid;place-items:center;width:86px;height:86px;border:1px solid rgba(255,255,255,.3);border-radius:28px;background:rgba(255,255,255,.14);font-size:52px;font-weight:900;line-height:1}
+.bespoke-copy{position:relative;z-index:1;max-width:720px}
+.usecase-card-bespoke .bespoke-kicker{margin:0 0 6px;color:#f2c5ff;font-size:13px;font-weight:900;letter-spacing:.12em;text-transform:uppercase}
+.usecase-card-bespoke h3{margin:0 0 8px;color:#fff;font-size:30px}
+.usecase-card-bespoke p:last-child{margin:0;color:#f3ecf9;font-size:16px}
+.usecase-card-bespoke .button{position:relative;z-index:1;grid-column:2;justify-self:start;padding:12px 20px;white-space:nowrap;background:#fff;color:var(--purple);box-shadow:none}
 .coach-demo{color:#fff;background:linear-gradient(112deg,#42117b 0%,#7425be 52%,#167ca6 100%)}
 .coach-demo-inner{display:grid;grid-template-columns:.85fr 1.15fr;gap:80px;align-items:center}
 .coach-demo h2{margin:0;font-size:clamp(42px,5vw,64px)}
@@ -63,8 +71,8 @@
 .calendly-card{overflow:hidden;min-height:710px;border:1px solid #e4d8ef;border-radius:28px;background:#fff;box-shadow:var(--shadow)}
 .calendly-frame{display:block;width:100%;height:710px;border:0}
 
-@media(max-width:1000px){.usecase-grid{grid-template-columns:repeat(2,1fr)}.usecase-card{grid-template-columns:120px 1fr}.usecase-card>img{width:108px;height:108px;margin-left:14px}.booking-grid{grid-template-columns:1fr}.booking-copy{padding-top:0}}
-@media(max-width:700px){.usecase-grid,.coach-demo-inner{grid-template-columns:1fr}.coach-demo-inner{gap:30px}.usecase-card{grid-template-columns:105px 1fr;min-height:220px}.usecase-card>img{width:94px;height:94px;margin-left:12px}.usecase-card-copy{padding:22px 18px 22px 12px}.calendly-card,.calendly-frame{min-height:680px;height:680px}}
+@media(max-width:1000px){.usecase-grid{grid-template-columns:repeat(2,1fr)}.usecase-card{grid-template-columns:120px 1fr}.usecase-card>img{width:108px;height:108px;margin-left:14px}.usecase-card-bespoke{grid-template-columns:auto 1fr;padding:32px}.usecase-card-bespoke .button{grid-column:2;justify-self:start}.booking-grid{grid-template-columns:1fr}.booking-copy{padding-top:0}}
+@media(max-width:700px){.usecase-grid,.coach-demo-inner{grid-template-columns:1fr}.coach-demo-inner{gap:30px}.usecase-card{grid-template-columns:105px 1fr;min-height:220px}.usecase-card>img{width:94px;height:94px;margin-left:12px;border-radius:27px}.usecase-card-copy{padding:22px 18px 22px 12px}.usecase-card-bespoke{grid-template-columns:1fr;gap:18px;padding:28px;min-height:0}.bespoke-mark{width:68px;height:68px;border-radius:22px;font-size:42px}.usecase-card-bespoke .button{grid-column:auto;justify-self:start}.calendly-card,.calendly-frame{min-height:680px;height:680px}}
 
 /* Balanced opening layout and support selector */
 .hero.section{padding:clamp(36px,4vw,56px) 0}
