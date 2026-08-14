@@ -140,8 +140,6 @@
 .hero h1{font-size:clamp(42px,4.5vw,58px)}
 .hero .lead{font-size:clamp(17px,1.7vw,19px);line-height:1.55}
 .hero .button-row{margin:24px 0 18px}
-.hero-human-note{max-width:650px;margin:20px 0 0;padding:14px 16px;border-left:4px solid var(--pink);border-radius:0 14px 14px 0;background:#f7f1fb;color:var(--muted);font-size:15px;line-height:1.5}
-.hero-human-note strong{color:var(--purple)}
 html,body{overflow-x:hidden}
 .hero-media{align-self:center}
 .support-trigger{display:grid;grid-template-columns:30px 1fr auto;align-items:center;gap:12px;width:min(100%,540px);padding:14px 16px;border:1px solid #dfd0ee;border-radius:16px;background:rgba(255,255,255,.88);color:var(--purple-dark);font:inherit;text-align:left;cursor:pointer;box-shadow:0 10px 26px rgba(49,18,83,.08);transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease}
