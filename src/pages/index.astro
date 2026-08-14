@@ -1,21 +1,13 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import SupportSelector from "../components/SupportSelector.astro";
+import partners from "../data/partners.json";
 
 const steps = [
   ["01", "Choose your team", "Select priority problems and the human expertise the coaches should scale."],
   ["02", "Train them", "Use approved local content, tone, pathways, safeguards and handover rules to your real-world support."],
   ["03", "Deploy them", "Launch through web, voice, hosted links, QR codes and trusted partners."],
   ["04", "See impact", "Track people supported, needs, actions, check-ins, feedback and handovers."]
-];
-
-const partners = [
-  ["BCP Council", "/images/partners/bcp-council.png"],
-  ["Dudley Metropolitan Borough Council", "/images/partners/dudley-council.png"],
-  ["Cambridgeshire County Council", "/images/partners/cambridgeshire-council.png"],
-  ["Peterborough City Council", "/images/partners/peterborough-council.png"],
-  ["Sandwell Council", "/images/partners/sandwell-council.webp"],
-  ["Microsoft", "/images/partners/microsoft.png"]
 ];
 
 const useCases = [
@@ -62,11 +54,23 @@ const useCases = [
       <div><strong>40</strong><span>UK local authority areas</span></div>
       <div><strong>Trusted by</strong><span>councils, charities and social enterprises</span></div>
     </div>
-    <div class="shell trusted-partners" aria-label="Selected Bridgit partners">
-      <p>Working with organisations across the UK</p>
-      <div class="partner-logos">
-        {partners.map(([name, src]) => <img src={src} alt={name} loading="lazy" />)}
+    <div class="trusted-partners" aria-label="Bridgit clients and delivery partners">
+      <p class="shell">Trusted by organisations across the UK</p>
+      <div class="partner-marquee">
+        <div class="partner-track">
+          <div class="partner-set">
+            {partners.map(({ name, file }) => (
+              <span class="partner-logo"><img src={`/images/clients/${file}`} alt={name} loading="lazy" /></span>
+            ))}
+          </div>
+          <div class="partner-set" aria-hidden="true">
+            {partners.map(({ file }) => (
+              <span class="partner-logo"><img src={`/images/clients/${file}`} alt="" loading="lazy" /></span>
+            ))}
+          </div>
+        </div>
       </div>
+      <p class="partner-total shell">49 clients and delivery partners—and growing.</p>
     </div>
   </section>
 
