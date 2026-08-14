@@ -17,13 +17,13 @@ const partners = [
   ["Microsoft", "/images/partners/microsoft.png"]
 ];
 
-const services = [
-  ["Adult carers", "Practical, personalised support for people providing unpaid care.", "https://carers.bridgit.care/", "purple"],
-  ["Young carers", "Friendly guidance for young people balancing life, school and caring.", "https://young.bridgit.care/", "blue"],
-  ["Employers", "Support for employees, managers and carer-friendly workplaces.", "https://employers.bridgit.care/", "pink"],
-  ["Local support", "Help residents find the right local service before needs escalate.", "https://local.bridgit.care/", "green"],
-  ["Care leavers", "A steady source of guidance for young people moving into adulthood.", "https://next.bridgit.care/", "orange"],
-  ["Healthy ageing", "Tools that help people stay active, connected and independent.", "https://agewell.bridgit.care/", "teal"]
+const useCases = [
+  { title: "Adult carers", copy: "Personalised guidance for unpaid carers, hidden carers and people balancing work with caring.", image: "/images/use-cases/adult-carers.png", service: "https://carers.bridgit.care/", caseStudy: "https://bridgit.care/wp-content/uploads/2025/10/Carers-1pp-Case-Study.pdf" },
+  { title: "Young carers", copy: "Friendly support for young people balancing school, home life and a caring role.", image: "/images/use-cases/young-carers.png", service: "https://young.bridgit.care/", caseStudy: "https://bridgit.care/wp-content/uploads/2025/10/Young-Carers-1pp-Case-Study.pdf" },
+  { title: "Employers", copy: "Practical help for employees, managers and organisations building carer-friendly workplaces.", image: "/images/use-cases/employers.png", service: "https://employers.bridgit.care/" },
+  { title: "Local support", copy: "A clear route into trusted local help for residents who may not know where to turn.", image: "/images/use-cases/local-support.png", service: "https://local.bridgit.care/" },
+  { title: "Care leavers", copy: "A steady source of guidance for young people navigating housing, health, education and adulthood.", image: "/images/use-cases/care-leavers.png", service: "https://next.bridgit.care/", caseStudy: "https://bridgit.care/wp-content/uploads/2025/10/Next-1pp-Case-Study.pdf" },
+  { title: "Healthy ageing", copy: "Early, practical support that helps people stay active, connected and independent.", image: "/images/use-cases/healthy-ageing.png", service: "https://agewell.bridgit.care/", caseStudy: "https://bridgit.care/wp-content/uploads/2025/10/AgeWell-1pp-Case-Study.pdf" }
 ];
 ---
 
@@ -82,17 +82,37 @@ const services = [
     </div>
   </section>
 
-  <section class="section services" id="support">
+  <section class="section use-cases" id="support">
     <div class="shell">
-      <p class="eyebrow dark">Meet the coaches</p>
-      <div class="section-heading"><h2>Specialist support for different moments in life.</h2><p>Each service combines expert knowledge with local information, practical tools and a friendly, accessible experience.</p></div>
-      <div class="service-grid">
-        {services.map(([title, copy, href, colour]) => (
-          <article class={`service-card ${colour}`}>
-            <div class="service-icon" aria-hidden="true">{title.charAt(0)}</div>
-            <h3>{title}</h3><p>{copy}</p><a href={href}>Explore support <span aria-hidden="true">→</span></a>
+      <p class="eyebrow dark">Where Bridgit helps</p>
+      <div class="section-heading"><h2>Start with a proven template. Make it yours.</h2><p>Use an established model for a priority community, then shape the knowledge, pathways and safeguards around your organisation.</p></div>
+      <div class="usecase-grid">
+        {useCases.map(({ title, copy, image, service, caseStudy }) => (
+          <article class="usecase-card">
+            <img src={image} alt="" loading="lazy" width="500" height="500" />
+            <div class="usecase-card-copy">
+              <h3>{title}</h3>
+              <p>{copy}</p>
+              <div class="usecase-links">
+                <a href={service}>Explore service <span aria-hidden="true">→</span></a>
+                {caseStudy && <a href={caseStudy}>Read case study</a>}
+              </div>
+            </div>
           </article>
         ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section coach-demo" aria-labelledby="coach-demo-title">
+    <div class="shell coach-demo-inner">
+      <div>
+        <p class="eyebrow">Try it yourself</p>
+        <h2 id="coach-demo-title">Ask a Bridgit coach.</h2>
+      </div>
+      <div>
+        <p>Our Local Support coach is available on this page to answer questions and show how a real Bridgit conversation feels. Use the coach button in the bottom-right corner to start.</p>
+        <p class="coach-note">One clear coach here. Specialist coaches can be introduced on future campaign pages.</p>
       </div>
     </div>
   </section>
@@ -108,10 +128,24 @@ const services = [
     </div>
   </section>
 
-  <section class="section callout" id="book-a-call">
-    <div class="shell callout-inner">
-      <div><p class="eyebrow dark">Book a discovery call</p><h2>Let’s explore where a Bridgit coach could make the biggest difference.</h2></div>
-      <div><p>Meet the team, see how the model works and discuss a practical route from your existing knowledge to scalable, measurable support.</p><a class="button" href="mailto:contact@bridgit.care?subject=Bridgit%20discovery%20call">Arrange a call</a></div>
+  <section class="section booking" id="book-a-call">
+    <div class="shell booking-grid">
+      <div class="booking-copy">
+        <p class="eyebrow dark">Book a discovery call</p>
+        <h2>Let’s explore where a Bridgit coach could make the biggest difference.</h2>
+        <p>Choose a convenient 30-minute slot with Laura to discuss your priority audiences, existing expertise and a practical route to launch.</p>
+      </div>
+      <div class="calendly-card">
+        <iframe
+          class="calendly-frame"
+          title="Book a 30-minute Bridgit discovery call with Laura"
+          src="https://calendly.com/laura-upstreamoutcomes/30min?embed_domain=bridgit.care&embed_type=Inline&hide_event_type_details=1&hide_gdpr_banner=1&primary_color=c300ff"
+          loading="lazy"
+        ></iframe>
+      </div>
     </div>
   </section>
+
+  <elevenlabs-convai agent-id="agent_5201k71y8ypmea297zpcnb7jq104"></elevenlabs-convai>
+  <script is:inline src="https://unpkg.com/@elevenlabs/convai-widget-embed" async type="text/javascript"></script>
 </BaseLayout>
