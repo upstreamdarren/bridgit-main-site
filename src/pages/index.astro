@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import SupportSelector from "../components/SupportSelector.astro";
 
 const steps = [
   ["01", "Choose your team", "Select priority problems and the human expertise the coaches should scale."],
@@ -41,13 +42,19 @@ const useCases = [
           <a class="button" href="#how-it-works">See how Bridgit works</a>
           <a class="button button-secondary" href="#book-a-call">Book a discovery call</a>
         </div>
-        <a class="support-link" href="https://local.bridgit.care/">Looking for support? Find your local Bridgit service <span aria-hidden="true">→</span></a>
+        <button class="support-trigger" type="button" data-support-open aria-haspopup="dialog">
+          <span aria-hidden="true">♥</span>
+          <span><strong>Looking for support?</strong> Choose the right Bridgit service</span>
+          <span aria-hidden="true">→</span>
+        </button>
       </div>
       <div class="hero-media">
         <img src="/images/support-process.png" alt="Bridgit turns human expertise into multiple digital coaches, supports more people and measures impact" width="1536" height="1024" />
       </div>
     </div>
   </section>
+
+  <SupportSelector />
 
   <section class="proof section-compact" aria-label="Bridgit reach">
     <div class="shell proof-grid">

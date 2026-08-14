@@ -1,0 +1,51 @@
+---
+const supportOptions = [
+  { title: "Adult carers", detail: "Support when you care for another adult", href: "https://carers.bridgit.care/", image: "/images/support-selector/adult-carers.webp" },
+  { title: "Young carers", detail: "Help for young people with caring roles", href: "https://young.bridgit.care/", image: "/images/support-selector/young-carers.webp" },
+  { title: "Employers", detail: "Support for employees and workplaces", href: "https://employers.bridgit.care/", image: "/images/support-selector/employers.webp" },
+  { title: "Local support", detail: "Find trusted help near you", href: "https://local.bridgit.care/", image: "/images/support-selector/local-support.webp" },
+  { title: "Care leavers", detail: "Guidance for life after care", href: "https://next.bridgit.care/", image: "/images/support-selector/care-leavers.webp" },
+  { title: "Ageing well", detail: "Stay active, connected and independent", href: "https://agewell.bridgit.care/", image: "/images/support-selector/ageing-well.webp" },
+  { title: "Moving to the UK", detail: "Help settling into life and work in the UK", href: "https://ai.myuk.life/", image: "/images/support-selector/moving-to-uk.webp" }
+];
+---
+
+<dialog class="support-dialog" data-support-dialog aria-labelledby="support-dialog-title">
+  <div class="support-dialog-inner">
+    <div class="support-dialog-heading">
+      <div>
+        <p class="eyebrow dark">Find the right Bridgit service</p>
+        <h2 id="support-dialog-title">Who are you looking to support?</h2>
+        <p>Choose the area that best matches what you need.</p>
+      </div>
+      <button class="support-dialog-close" type="button" aria-label="Close support choices" data-support-close>×</button>
+    </div>
+    <div class="support-option-grid">
+      {supportOptions.map(({ title, detail, href, image }) => (
+        <a class="support-option" href={href}>
+          <img src={image} alt="" width="720" height="540" />
+          <span class="support-option-copy"><strong>{title}</strong><small>{detail}</small></span>
+        </a>
+      ))}
+    </div>
+  </div>
+</dialog>
+
+<script>
+  const supportDialog = document.querySelector("[data-support-dialog]");
+  const supportOpeners = document.querySelectorAll("[data-support-open]");
+  const supportCloser = document.querySelector("[data-support-close]");
+
+  const closeSupportDialog = () => {
+    supportDialog?.close();
+  };
+
+  supportOpeners.forEach((opener) => opener.addEventListener("click", () => {
+    supportDialog?.showModal();
+  }));
+
+  supportCloser?.addEventListener("click", closeSupportDialog);
+  supportDialog?.addEventListener("click", (event) => {
+    if (event.target === supportDialog) closeSupportDialog();
+  });
+</script>

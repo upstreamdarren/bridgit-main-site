@@ -65,3 +65,38 @@
 
 @media(max-width:1000px){.usecase-grid{grid-template-columns:repeat(2,1fr)}.usecase-card{grid-template-columns:120px 1fr}.usecase-card>img{width:108px;height:108px;margin-left:14px}.booking-grid{grid-template-columns:1fr}.booking-copy{padding-top:0}}
 @media(max-width:700px){.usecase-grid,.coach-demo-inner{grid-template-columns:1fr}.coach-demo-inner{gap:30px}.usecase-card{grid-template-columns:105px 1fr;min-height:220px}.usecase-card>img{width:94px;height:94px;margin-left:12px}.usecase-card-copy{padding:22px 18px 22px 12px}.calendly-card,.calendly-frame{min-height:680px;height:680px}}
+
+/* Balanced opening layout and support selector */
+.hero.section{padding:clamp(36px,4vw,56px) 0}
+.hero-grid{grid-template-columns:1fr 1fr;gap:48px;min-height:500px}
+.hero-copy{max-width:570px}
+.hero h1{font-size:clamp(42px,4.5vw,58px)}
+.hero .lead{font-size:clamp(17px,1.7vw,19px);line-height:1.55}
+.hero .button-row{margin:24px 0 18px}
+.hero-media{align-self:center}
+.support-trigger{display:grid;grid-template-columns:30px 1fr auto;align-items:center;gap:12px;width:min(100%,540px);padding:14px 16px;border:1px solid #dfd0ee;border-radius:16px;background:rgba(255,255,255,.88);color:var(--purple-dark);font:inherit;text-align:left;cursor:pointer;box-shadow:0 10px 26px rgba(49,18,83,.08);transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease}
+.support-trigger:hover{transform:translateY(-2px);border-color:#b991dc;box-shadow:0 14px 34px rgba(49,18,83,.14)}
+.support-trigger>span:first-child{display:grid;place-items:center;width:30px;height:30px;border-radius:10px;background:linear-gradient(135deg,#efe5ff,#dff4ff);color:var(--pink)}
+.support-trigger>span:nth-child(2){display:flex;flex-wrap:wrap;gap:0 5px}
+.support-trigger>span:last-child{font-size:22px}
+.support-dialog{width:min(1100px,calc(100% - 32px));max-height:min(90vh,900px);padding:0;border:0;border-radius:28px;background:#fff;color:var(--ink);box-shadow:0 32px 100px rgba(20,8,36,.35)}
+.support-dialog::backdrop{background:rgba(23,16,36,.72);backdrop-filter:blur(6px)}
+.support-dialog-inner{padding:28px}
+.support-dialog-heading{display:flex;align-items:flex-start;justify-content:space-between;gap:28px;margin-bottom:22px}
+.support-dialog-heading h2{margin:0;font-size:clamp(32px,4vw,50px)}
+.support-dialog-heading p:last-child{margin:10px 0 0;color:var(--muted)}
+.support-dialog-close{flex:0 0 auto;display:grid;place-items:center;width:46px;height:46px;border:1px solid #dfd5e8;border-radius:50%;background:#fff;color:var(--purple-dark);font:400 32px/1 Arial,sans-serif;cursor:pointer}
+.support-dialog-close:hover{background:var(--mist)}
+.support-option-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.support-option{position:relative;overflow:hidden;min-height:185px;border-radius:18px;background:#ddd;color:#fff;text-decoration:none;box-shadow:0 9px 24px rgba(25,12,39,.12);transition:transform .2s ease,box-shadow .2s ease}
+.support-option:hover{transform:translateY(-3px);box-shadow:0 14px 30px rgba(25,12,39,.2)}
+.support-option:focus-visible{outline:4px solid #3aa7d6;outline-offset:3px}
+.support-option img{display:block;width:100%;height:100%;min-height:185px;object-fit:cover;transition:transform .3s ease}
+.support-option:hover img{transform:scale(1.035)}
+.support-option:after{content:"";position:absolute;inset:35% 0 0;background:linear-gradient(transparent,rgba(19,8,30,.9))}
+.support-option-copy{position:absolute;z-index:1;inset:auto 18px 16px;display:flex;flex-direction:column}
+.support-option-copy strong{font-size:23px;line-height:1.1}
+.support-option-copy small{margin-top:5px;color:#f2edf7;font-size:13px;line-height:1.35}
+
+@media(max-width:900px){.hero-grid{grid-template-columns:1fr;min-height:auto}.hero-copy{max-width:760px}.hero-media{max-width:760px}.support-option-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.hero h1{font-size:clamp(40px,12vw,52px)}.support-trigger{grid-template-columns:30px 1fr auto}.support-dialog{width:min(100% - 16px,1100px);border-radius:20px}.support-dialog-inner{padding:22px 16px}.support-dialog-heading{gap:14px}.support-dialog-close{width:40px;height:40px}.support-option-grid{grid-template-columns:1fr}.support-option,.support-option img{min-height:180px}.support-option-copy strong{font-size:21px}}
