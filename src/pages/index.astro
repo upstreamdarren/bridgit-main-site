@@ -236,4 +236,35 @@ const useCases = [
     markdown-link-include-www="true"
   ></elevenlabs-convai>
   <script is:inline src="https://unpkg.com/@elevenlabs/convai-widget-embed" async type="text/javascript"></script>
+  <script is:inline>
+    customElements.whenDefined("elevenlabs-convai").then(() => {
+      const widget = document.querySelector("elevenlabs-convai");
+      let attempts = 0;
+
+      const connectFlagOverride = () => {
+        const root = widget?.shadowRoot;
+        if (!root) {
+          if (attempts++ < 300) requestAnimationFrame(connectFlagOverride);
+          return;
+        }
+
+        const useBritishFlag = () => {
+          root.querySelectorAll('img[src*="/flags/circle-flags/us.svg"]').forEach((flag) => {
+            flag.src = "/images/uk-flag-round.svg";
+            flag.alt = "UK flag";
+          });
+        };
+
+        useBritishFlag();
+        new MutationObserver(useBritishFlag).observe(root, {
+          childList: true,
+          subtree: true,
+          attributes: true,
+          attributeFilter: ["src"]
+        });
+      };
+
+      connectFlagOverride();
+    });
+  </script>
 </BaseLayout>
