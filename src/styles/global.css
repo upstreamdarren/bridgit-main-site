@@ -140,6 +140,9 @@
 .hero h1{font-size:clamp(42px,4.5vw,58px)}
 .hero .lead{font-size:clamp(17px,1.7vw,19px);line-height:1.55}
 .hero .button-row{margin:24px 0 18px}
+.hero-human-note{max-width:650px;margin:20px 0 0;padding:14px 16px;border-left:4px solid var(--pink);border-radius:0 14px 14px 0;background:#f7f1fb;color:var(--muted);font-size:15px;line-height:1.5}
+.hero-human-note strong{color:var(--purple)}
+html,body{overflow-x:hidden}
 .hero-media{align-self:center}
 .support-trigger{display:grid;grid-template-columns:30px 1fr auto;align-items:center;gap:12px;width:min(100%,540px);padding:14px 16px;border:1px solid #dfd0ee;border-radius:16px;background:rgba(255,255,255,.88);color:var(--purple-dark);font:inherit;text-align:left;cursor:pointer;box-shadow:0 10px 26px rgba(49,18,83,.08);transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease}
 .support-trigger:hover{transform:translateY(-2px);border-color:#b991dc;box-shadow:0 14px 34px rgba(49,18,83,.14)}
@@ -165,7 +168,18 @@
 .support-option-copy strong{font-size:23px;line-height:1.1}
 .support-option-copy small{margin-top:5px;color:#f2edf7;font-size:13px;line-height:1.35}
 
+.human-first{padding:clamp(70px,8vw,108px) 0;background:#fff}
+.human-first-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(50px,8vw,110px);align-items:start}
+.human-first h2{max-width:560px;margin:0;font-size:clamp(40px,5vw,62px)}
+.human-first-copy>p{margin:0 0 28px;color:var(--muted);font-size:21px}
+.human-first-points{display:grid;gap:12px}
+.human-first-points article{display:flex;gap:16px;padding:18px 20px;border:1px solid #e4daec;border-radius:18px;background:#faf8fc}
+.human-first-points article>span{color:var(--pink);font-size:13px;font-weight:900}
+.human-first-points h3{margin:0 0 5px;color:var(--purple);font-size:20px}
+.human-first-points p{margin:0;color:var(--muted);font-size:15px}
+
 @media(max-width:900px){.hero-grid{grid-template-columns:1fr;min-height:auto}.hero-copy{max-width:760px}.hero-media{max-width:760px}.support-option-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:900px){.human-first-grid{grid-template-columns:1fr}.human-first h2{max-width:760px}}
 @media(max-width:560px){.hero h1{font-size:clamp(40px,12vw,52px)}.support-trigger{grid-template-columns:30px 1fr auto}.support-dialog{width:min(100% - 16px,1100px);border-radius:20px}.support-dialog-inner{padding:22px 16px}.support-dialog-heading{gap:14px}.support-dialog-close{width:40px;height:40px}.support-option-grid{grid-template-columns:1fr}.support-option{height:180px}.support-option-copy strong{font-size:21px}}
 
 /* Sales landing pages and testimonial video */

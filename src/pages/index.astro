@@ -31,7 +31,8 @@ const useCases = [
       <div class="hero-copy">
         <p class="eyebrow dark">AI-powered coaching for councils, charities and social enterprises</p>
         <h1>Turn the knowledge of your best people into support that <span>never switches off.</span></h1>
-        <p class="lead">Bridgit helps organisations turn their knowledge, services and local information into digital coaches. They provide trusted guidance 24/7, check in as people’s needs change and help teams reach more people while measuring the impact created.</p>
+        <p class="lead">Bridgit helps organisations turn their knowledge, services and local information into digital coaches. They extend your team with trusted guidance 24/7, preventative check-ins and practical support—giving real people more time for the work that needs human judgement and care.</p>
+        <p class="hero-human-note"><strong>Built to extend teams, not replace them.</strong> Reduce repeat questions and routine admin so your people can focus on relationships, safeguarding and those with the greatest needs.</p>
         <div class="button-row">
           <a class="button" href="#how-it-works">See how Bridgit works</a>
           <a class="button button-secondary" href="#book-a-call">Book a discovery call</a>
@@ -75,10 +76,27 @@ const useCases = [
     </div>
   </section>
 
+  <section class="section human-first" aria-labelledby="human-first-title">
+    <div class="shell human-first-grid">
+      <div>
+        <p class="eyebrow dark">People stay at the centre</p>
+        <h2 id="human-first-title">More preventative support. More human time where it matters most.</h2>
+      </div>
+      <div class="human-first-copy">
+        <p>Bridgit is not about replacing frontline professionals. It gives people useful early support while taking repetitive work away from stretched teams.</p>
+        <div class="human-first-points">
+          <article><span aria-hidden="true">01</span><div><h3>Prevent problems escalating</h3><p>Offer clear guidance and check-ins before needs become more complex or urgent.</p></div></article>
+          <article><span aria-hidden="true">02</span><div><h3>Reduce repetitive admin</h3><p>Handle common questions, summaries, support plans and routine follow-up consistently.</p></div></article>
+          <article><span aria-hidden="true">03</span><div><h3>Protect time for human support</h3><p>Keep your team focused on relationships, risk, judgement and people who need more help.</p></div></article>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="section how" id="how-it-works">
     <div class="shell">
       <p class="eyebrow dark">How it works</p>
-      <div class="section-heading"><h2>Build a digital team around your expertise.</h2><p>Choose where coaches can help, train them in your approved approach, deploy them through trusted channels and see the impact they create.</p></div>
+      <div class="section-heading"><h2>Build a digital team around—not instead of—your people.</h2><p>Choose where coaches can provide early help or reduce repetitive work, train them in your approved approach and keep clear routes to real people when judgement or deeper support is needed.</p></div>
       <ol class="steps">
         {steps.map(([number, title, copy]) => (
           <li><span>{number}</span><h3>{title}</h3><p>{copy}</p></li>
@@ -87,7 +105,7 @@ const useCases = [
       <div class="support-journey" aria-labelledby="support-journey-title">
         <div class="journey-heading">
           <div><p class="eyebrow dark">An example support journey</p><h3 id="support-journey-title">From a first question to the right human help.</h3></div>
-          <p>A person can begin with the simplest channel and move into deeper support only when they need it. Their context travels with them, so nobody has to start their story again.</p>
+          <p>A person receives useful preventative support straight away and moves to a real team member when risk, complexity or deeper help requires it. Their context travels with them, so nobody has to start their story again.</p>
         </div>
         <ol class="journey-stages">
           <li class="journey-stage journey-voice">
@@ -174,7 +192,7 @@ const useCases = [
         <p>Each coach can turn a conversation into practical next steps, continue supporting the person and give your team a clearer view of what is needed.</p>
       </div>
       <div class="feature-list">
-        <article><span>01</span><div><h3>Smart support plans</h3><p>Personalised, practical plans created from each person’s needs.</p></div></article>
+        <article><span>01</span><div><h3>Smart support plans</h3><p>Personalised next steps created without adding another routine admin task for your team.</p></div></article>
         <article><span>02</span><div><h3>Continuous coaching</h3><p>Regular check-ins and appropriate escalation when needs change.</p></div></article>
         <article><span>03</span><div><h3>Better team insight</h3><p>A clearer view of demand, progress and the outcomes your service creates.</p></div></article>
       </div>
@@ -283,8 +301,8 @@ const useCases = [
     <div class="shell teams-grid">
       <div class="teams-copy">
         <p class="eyebrow">The people behind the AI</p>
-        <h2>Human experience, amplified by technology.</h2>
-        <p>Bridgit is built by a UK social enterprise team working alongside councils, charities, frontline professionals and people with lived experience. We turn trusted human expertise into digital coaches without losing the warmth, judgement and safeguards that make support work.</p>
+        <h2>Human expertise stays at the centre.</h2>
+        <p>Bridgit is built by a UK social enterprise team working alongside councils, charities, frontline professionals and people with lived experience. Our coaches handle early guidance, repeat questions, check-ins and routine admin so real people can spend more time on relationships, safeguarding, complex decisions and those who need them most.</p>
         <a class="button button-light" href="#book-a-call">Meet us and share your challenge</a>
       </div>
       <figure class="team-photo">
