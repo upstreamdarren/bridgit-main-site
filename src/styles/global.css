@@ -183,6 +183,8 @@ html,body{overflow-x:hidden}
 .audience-hero{position:relative;overflow:hidden;color:#fff;background:radial-gradient(circle at 78% 20%,rgba(46,182,206,.34),transparent 30%),radial-gradient(circle at 6% 90%,rgba(224,59,182,.28),transparent 32%),linear-gradient(130deg,#351065,#6424ba 58%,#165c87)}
 .audience-social-enterprise .audience-hero{background:radial-gradient(circle at 80% 15%,rgba(105,185,86,.24),transparent 28%),radial-gradient(circle at 4% 88%,rgba(216,58,174,.3),transparent 32%),linear-gradient(130deg,#291043,#6320a1 56%,#176d77)}
 .audience-local-authorities .audience-hero{background:radial-gradient(circle at 78% 16%,rgba(76,183,208,.38),transparent 30%),radial-gradient(circle at 7% 90%,rgba(216,58,174,.24),transparent 34%),linear-gradient(130deg,#29104e,#4b258b 55%,#135e84)}
+.audience-nhs .audience-hero{background:radial-gradient(circle at 80% 16%,rgba(42,180,194,.34),transparent 30%),radial-gradient(circle at 5% 90%,rgba(216,58,174,.22),transparent 34%),linear-gradient(130deg,#25205f,#413b9b 54%,#087789)}
+.audience-corporate .audience-hero{background:radial-gradient(circle at 80% 16%,rgba(224,59,182,.3),transparent 30%),radial-gradient(circle at 5% 90%,rgba(76,183,208,.28),transparent 34%),linear-gradient(130deg,#24103f,#51218f 52%,#173f78)}
 .audience-hero-grid{display:grid;grid-template-columns:1.06fr .94fr;gap:clamp(48px,7vw,92px);align-items:center;min-height:650px}
 .audience-hero h1{font-size:clamp(46px,5.6vw,72px)}
 .audience-hero .lead{max-width:700px}

@@ -1,0 +1,84 @@
+---
+import AudienceLanding from "../components/AudienceLanding.astro";
+
+const page = {
+  title: "Corporate partnerships for measurable social impact | Bridgit Care",
+  description: "Use Bridgit to support your own people or fund social enterprises to deliver measurable, technology-enabled support in communities.",
+  pageClass: "audience-corporate",
+  eyebrow: "For corporate partners and social-value leaders",
+  heroTitle: "Put your social impact strategy to work.",
+  heroIntro: "Bridgit gives corporate partners two practical routes to impact: use trusted AI coaches to support your own workforce, customers or communities—or fund social enterprises to extend their services with the same technology.",
+  heroNote: "One governed delivery model. Local expertise stays local. Reach and outcomes become easier to evidence.",
+  heroImage: "/images/use-cases-v2/employers.webp",
+  heroAlt: "A stylised portrait representing a corporate social-impact leader",
+  heroHighlights: ["Support your own people", "Fund member-led delivery", "Report shared outcomes"],
+  partnershipLabel: "Built for social-enterprise partnerships",
+  partnershipText: "Bridgit is an accredited Social Enterprise UK member. Our partner model helps corporate organisations turn social-value priorities into useful support delivered with credible, mission-led organisations.",
+  partnerLogos: [{ src: "/images/landing/social-enterprise-uk-member.webp", alt: "Social Enterprise UK Certified Member", className: "logo-seuk" }],
+  challengeEyebrow: "The corporate impact challenge",
+  challengeTitle: "Good intent is easier to fund than it is to turn into repeatable impact.",
+  challengeIntro: "Corporate teams are balancing employee and customer needs, community investment, procurement commitments and ESG reporting—often through separate projects with different measures and little shared delivery infrastructure.",
+  challenges: [
+    { title: "Support is fragmented", copy: "Workforce, vulnerable-customer and community programmes often sit in different teams even when the underlying needs overlap." },
+    { title: "Investment stays project by project", copy: "One-off grants can create valuable activity but rarely leave social enterprises with reusable capability that extends their reach." },
+    { title: "Evidence is difficult to compare", copy: "Partners need a credible story about people reached, needs identified and actions taken without imposing heavy reporting on delivery organisations." }
+  ],
+  story: {
+    eyebrow: "A typical partner journey",
+    title: "Meet Leah. She has an impact commitment but no simple way to deliver it at scale.",
+    intro: "Leah represents corporate social-value, ESG and community-investment leaders who need to connect strategy, credible delivery partners and evidence without building another programme from scratch.",
+    personName: "Leah, social-impact lead",
+    personContext: "Responsible for a priority such as health equity, financial resilience, employability or community wellbeing across several places and teams.",
+    personImage: "/images/use-cases-v2/employers.webp",
+    personAlt: "Illustrated portrait representing Leah, a corporate social-impact lead",
+    beforeTitle: "Leah has activity, but not a connected delivery model",
+    beforeItems: [
+      "Internal customer and workforce needs are handled separately from community investment.",
+      "Potential social-enterprise partners have expertise and trust but limited digital capacity.",
+      "Every funded project uses different measures, making shared impact difficult to explain.",
+      "The programme risks becoming a short campaign rather than lasting service capability."
+    ],
+    afterTitle: "Leah can activate one priority through two routes",
+    afterItems: [
+      "Bridgit can support the organisation’s own customers, employees or community network through an approved coach.",
+      "The partner can sponsor a focused cohort of social enterprises to use the same delivery capability locally.",
+      "Each member keeps its expertise, relationships and service ownership while Bridgit provides the enabling layer.",
+      "Reach, needs, actions, referrals and learning roll into a clear shared impact story."
+    ],
+    outcome: "Leah turns a strategic commitment into practical support now and reusable capacity for social enterprises—without replacing the people or organisations communities trust."
+  },
+  solutionEyebrow: "Two routes to partnership",
+  solutionTitle: "Deploy directly. Invest through others. Or connect both.",
+  solutionIntro: "Begin with one outcome—such as care, health, homes, financial resilience, work or wellbeing—and choose the route that fits your organisation and social-value commitments.",
+  solutionSteps: [
+    { title: "Support your own people", copy: "Deploy a coach for employees, customers, suppliers or communities using your approved guidance, pathways and safeguards." },
+    { title: "Fund member-led delivery", copy: "Sponsor a focused cohort of social enterprises so trusted local organisations can extend their own services with Bridgit." },
+    { title: "Design governance together", copy: "Agree the priority population, partner roles, content ownership, consent, escalation, measures and a focused pilot scope." },
+    { title: "See and scale the impact", copy: "Bring reach, needs, actions, referrals and learning into one comparable report, then grow what proves useful." }
+  ],
+  gainsTitle: "What a Bridgit partnership can deliver",
+  gainsIntro: "A practical bridge between corporate capability, social-enterprise trust and measurable support for people.",
+  gains: [
+    { title: "Useful support for your stakeholders", copy: "Offer always-available guidance to employees, vulnerable customers or the communities around your operations." },
+    { title: "Durable social-enterprise capacity", copy: "Help mission-led organisations build a reusable delivery capability rather than funding only short-term activity." },
+    { title: "Visible contract social value", copy: "Connect investment to a live place, contract or strategic outcome through credible local delivery partners." },
+    { title: "Comparable evidence", copy: "Use common measures across a cohort while preserving each organisation’s local service model and relationships." },
+    { title: "Responsible technology adoption", copy: "Combine clear governance and human handovers with practical implementation support and learning." },
+    { title: "A route to scale", copy: "Start with one partner, one challenge and a small cohort, then extend across sites, suppliers, clients or regions." }
+  ],
+  personValueTitle: "Earlier, easier access to useful help",
+  personValue: "Employees, customers and community members receive personalised guidance and a route to trusted human support when they need more.",
+  organisationValueTitle: "One investment, two forms of value",
+  organisationValue: "Your organisation can improve support within its own footprint while enabling social enterprises to deliver more—and report the combined impact clearly.",
+  caseStudies: [
+    { eyebrow: "Illustrative sponsored cohort", title: "One partner. One priority. Several trusted delivery organisations.", copy: "A partner chooses an outcome such as care, secure homes or employment. A small cohort of social enterprises configures local coaches using a shared governance and measurement framework.", result: "Local expertise remains with each member while the partner receives a coherent view of reach, action and learning.", href: "/social-enterprises", linkLabel: "See how Bridgit helps social enterprises" },
+    { eyebrow: "Reference delivery pattern", title: "Digital support connected to a real place.", copy: "Brum Chat demonstrates how conversational guidance can connect people to trusted local routes while creating insight for a wider partnership.", result: "An adaptable model for corporate community investment, customer support and contract social value.", href: "https://brum.chat/", linkLabel: "Explore Brum Chat" }
+  ],
+  testimonialTitle: "See the kind of partnership we can build together.",
+  testimonialCopy: "This video is a temporary example. It can be replaced with a corporate partner or funded social-enterprise story as the first cohort develops.",
+  bookingTitle: "Bring us one outcome you want to move.",
+  bookingCopy: "Book 30 minutes with Laura to explore direct deployment, a sponsored social-enterprise cohort, or a combined model around your customers, workforce, contracts or communities."
+};
+---
+
+<AudienceLanding {...page} />

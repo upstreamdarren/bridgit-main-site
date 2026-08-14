@@ -1,0 +1,83 @@
+---
+import AudienceLanding from "../components/AudienceLanding.astro";
+
+const page = {
+  title: "Preventative support beyond the appointment | Bridgit Care",
+  description: "Bridgit helps NHS and community partners connect people to personalised non-clinical guidance, local support and safe human handovers beyond appointments.",
+  pageClass: "audience-nhs",
+  eyebrow: "For NHS and community health partners",
+  heroTitle: "Support people beyond the appointment.",
+  heroIntro: "Health is shaped by what happens between clinical contacts. Bridgit gives people personalised, preventative guidance around caring, wellbeing, money, housing, work, recovery and community connection—without adding another queue for clinical teams.",
+  heroNote: "Always-available non-clinical support, connected to local pathways and real people when they are needed.",
+  heroImage: "/images/use-cases-v2/healthy-ageing.webp",
+  heroAlt: "A stylised portrait representing people staying well with community support",
+  heroHighlights: ["Help between appointments", "Earlier practical action", "Safe human handovers"],
+  partnershipLabel: "Designed for integrated care",
+  partnershipText: "Bridgit brings together approved health information, community services and practical coaching in one accessible journey. It complements clinical care while keeping pathway ownership, safeguarding and escalation with the right teams.",
+  partnerLogos: [{ src: "/images/clients/dorset-general-practice.jpg", alt: "Dorset General Practice" }],
+  challengeEyebrow: "The challenge beyond clinical care",
+  challengeTitle: "A short appointment cannot resolve everything affecting someone’s health.",
+  challengeIntro: "People often leave with wider practical, social and emotional needs still unresolved. Those pressures can slow recovery, undermine self-management and lead to avoidable repeat contact.",
+  challenges: [
+    { title: "Non-clinical needs stay hidden", copy: "Caring responsibilities, money worries, housing, loneliness and confidence may be central to health but difficult to explore in a time-limited appointment." },
+    { title: "Support routes are fragmented", copy: "People receive leaflets, links and referrals from different services, then have to decide what applies and what to do first." },
+    { title: "Clinical capacity absorbs navigation", copy: "Skilled staff repeatedly answer routine questions and reconnect people to support that could have been available earlier." }
+  ],
+  story: {
+    eyebrow: "A typical patient journey",
+    title: "Meet Jean. Her clinical plan is only one part of what she needs.",
+    intro: "Jean represents people managing a health condition alongside caring, financial and wellbeing pressures. None of those needs alone requires an emergency response, but together they make recovery harder.",
+    personName: "Jean, 66",
+    personContext: "Managing a long-term condition after a recent appointment while caring for her husband and worrying about household costs.",
+    personImage: "/images/use-cases-v2/healthy-ageing.webp",
+    personAlt: "Illustrated portrait representing Jean, a person managing her health at home",
+    beforeTitle: "Jean leaves knowing the clinical advice, but not how to make it work",
+    beforeItems: [
+      "She has questions once she is home but does not want to bother a busy clinical team.",
+      "Caring and money pressures make it difficult to follow the plan consistently.",
+      "She is given several support options but cannot tell which one to try first.",
+      "Her wider needs remain unseen until she returns for another appointment."
+    ],
+    afterTitle: "Jean has practical support between contacts",
+    afterItems: [
+      "She can talk or type to an approved coach when questions arise at home.",
+      "A simple plan connects health guidance with realistic caring, money and wellbeing actions.",
+      "Check-ins help her stay on track and identify when something has changed.",
+      "If clinical or specialist help is needed, a safe handover routes her back to a real person with useful context."
+    ],
+    outcome: "Jean feels more confident managing day to day, while NHS teams protect clinical time for the situations that need professional judgement and care."
+  },
+  solutionEyebrow: "How Bridgit helps",
+  solutionTitle: "A governed support layer around your pathways.",
+  solutionIntro: "Start with one priority pathway or population. Bridgit turns approved knowledge, local services and handover rules into a coach that supports people consistently across the channels they already use.",
+  solutionSteps: [
+    { title: "Choose the pathway", copy: "Focus on a population or problem where practical guidance between contacts can improve confidence, prevention or recovery." },
+    { title: "Train the coach safely", copy: "Use approved content, local pathways, tone, boundaries, safeguarding and escalation rules owned by your teams." },
+    { title: "Make access simple", copy: "Offer support through voice, web, WhatsApp, QR codes, hosted links or a fuller advice and coaching app." },
+    { title: "Learn and improve", copy: "See anonymised patterns in need, engagement, actions, referrals and check-ins to strengthen pathways and community partnerships." }
+  ],
+  gainsTitle: "What Bridgit gives NHS partners",
+  gainsIntro: "More continuity for people, stronger prevention and clearer insight—without positioning technology as a replacement for clinical or community professionals.",
+  gains: [
+    { title: "Support between appointments", copy: "Give people a trusted place to ask questions and take practical next steps when services are closed." },
+    { title: "Earlier action", copy: "Help people address manageable social and practical pressures before they undermine health or recovery." },
+    { title: "Better self-management", copy: "Turn broad guidance into personalised actions, reminders and confidence-building check-ins." },
+    { title: "Stronger carer and family support", copy: "Recognise the people around the patient and connect them to relevant advice and local help." },
+    { title: "Protected human capacity", copy: "Reduce repetitive navigation and routine admin so professionals can focus on risk, relationships and clinical judgement." },
+    { title: "Insight into wider need", copy: "Understand recurring non-clinical pressures, pathway use and gaps in community provision." }
+  ],
+  personValueTitle: "Support that fits real life",
+  personValue: "People receive clear, personalised next steps around the wider factors affecting their health, with a route back to human care when needed.",
+  organisationValueTitle: "Continuity without another clinical queue",
+  organisationValue: "Teams extend preventative support, strengthen community pathways and see where non-clinical needs are creating pressure.",
+  caseStudies: [
+    { eyebrow: "Transferable prevention model", title: "Connecting practical guidance to local support.", copy: "Bridgit services already combine conversational guidance, personalised actions, ongoing check-ins and local pathways across care, wellbeing, money and community support.", result: "The same governed pattern can be configured around an NHS pathway, population and local partnership.", href: "/local-authorities", linkLabel: "Explore the connected support model" }
+  ],
+  testimonialTitle: "Hear what connected, preventative support can feel like.",
+  testimonialCopy: "This video is a temporary example. It can be replaced with an NHS partner story showing how Bridgit works alongside clinical, community and voluntary-sector teams.",
+  bookingTitle: "Choose one pathway where support should continue.",
+  bookingCopy: "Book 30 minutes with Laura to map the population, approved knowledge, community routes, safeguards and measures for a focused NHS pilot."
+};
+---
+
+<AudienceLanding {...page} />
