@@ -2,10 +2,25 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import TestimonialVideo from "./TestimonialVideo.astro";
 import BookingSection from "./BookingSection.astro";
+import BeforeAfterStory from "./BeforeAfterStory.astro";
 
 interface ContentItem { title: string; copy: string; }
 interface Logo { src: string; alt: string; className?: string; }
 interface CaseStudy { eyebrow: string; title: string; copy: string; result: string; href: string; linkLabel: string; }
+interface Story {
+  eyebrow: string;
+  title: string;
+  intro: string;
+  personName: string;
+  personContext: string;
+  personImage: string;
+  personAlt: string;
+  beforeTitle: string;
+  beforeItems: string[];
+  afterTitle: string;
+  afterItems: string[];
+  outcome: string;
+}
 interface Props {
   title: string;
   description: string;
@@ -24,6 +39,7 @@ interface Props {
   challengeTitle: string;
   challengeIntro: string;
   challenges: ContentItem[];
+  story: Story;
   solutionEyebrow: string;
   solutionTitle: string;
   solutionIntro: string;
@@ -94,6 +110,8 @@ const props = Astro.props;
         </div>
       </div>
     </section>
+
+    <BeforeAfterStory {...props.story} />
 
     <section class="section audience-solution" id="how-we-help">
       <div class="shell">

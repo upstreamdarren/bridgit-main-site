@@ -1,0 +1,59 @@
+---
+interface Props {
+  eyebrow: string;
+  title: string;
+  intro: string;
+  personName: string;
+  personContext: string;
+  personImage: string;
+  personAlt: string;
+  beforeTitle: string;
+  beforeItems: string[];
+  afterTitle: string;
+  afterItems: string[];
+  outcome: string;
+}
+
+const props = Astro.props;
+const headingId = `story-${props.personName.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`;
+---
+
+<section class="section before-after" aria-labelledby={headingId}>
+  <div class="shell">
+    <div class="section-heading audience-heading before-after-heading">
+      <div><p class="eyebrow dark">{props.eyebrow}</p><h2 id={headingId}>{props.title}</h2></div>
+      <p>{props.intro}</p>
+    </div>
+
+    <div class="before-after-grid">
+      <article class="story-panel story-before">
+        <p class="story-state"><span aria-hidden="true">?</span> Before support</p>
+        <div class="story-person">
+          <img src={props.personImage} alt={props.personAlt} width="112" height="112" loading="lazy" />
+          <div><h3>{props.personName}</h3><p>{props.personContext}</p></div>
+        </div>
+        <h4>{props.beforeTitle}</h4>
+        <ul>
+          {props.beforeItems.map((item) => <li><span aria-hidden="true">—</span>{item}</li>)}
+        </ul>
+      </article>
+
+      <div class="story-bridge" aria-hidden="true">
+        <span>With Bridgit</span>
+        <svg viewBox="0 0 88 34" role="presentation"><path d="M2 17h76M65 4l14 13-14 13" /></svg>
+      </div>
+
+      <article class="story-panel story-after">
+        <p class="story-state"><span aria-hidden="true">✓</span> Supported earlier</p>
+        <div class="story-after-heading">
+          <span aria-hidden="true">✓</span>
+          <div><h3>{props.afterTitle}</h3><p>Practical help continues beyond the first conversation.</p></div>
+        </div>
+        <ul>
+          {props.afterItems.map((item) => <li><span aria-hidden="true">✓</span>{item}</li>)}
+        </ul>
+        <p class="story-outcome"><strong>The difference:</strong> {props.outcome}</p>
+      </article>
+    </div>
+  </div>
+</section>
