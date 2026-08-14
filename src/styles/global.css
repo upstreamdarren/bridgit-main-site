@@ -56,6 +56,8 @@
 .journey-stage>p{margin:0;color:var(--muted);font-size:14px;line-height:1.48}
 .journey-text .journey-number{background:#278fca}.journey-text .journey-channel{color:#267ca9}.journey-app .journey-number{background:#d63ab7}.journey-app .journey-channel{color:#b5299a}.journey-human .journey-number{background:#559d35}.journey-human .journey-channel{color:#39792d}
 .journey-note{margin:28px 0 0;padding:16px 20px;border-radius:16px;background:linear-gradient(100deg,#efe5ff,#e6f6fb);color:var(--purple-dark);text-align:center}
+.journey-try{margin:12px 0 0;padding:12px 18px;border:1px solid #decfea;border-radius:14px;background:#fff;color:var(--muted);text-align:center;font-size:15px}
+.journey-try strong{color:var(--purple)}
 @media(max-width:1050px){.journey-stages{grid-template-columns:repeat(2,1fr)}.journey-stage:nth-child(2):after{display:none}}
 @media(max-width:700px){.support-journey{padding:26px 18px}.journey-heading{grid-template-columns:1fr;gap:18px}.journey-stages{grid-template-columns:1fr;gap:26px}.journey-stage:nth-child(2):after{display:block}.journey-stage:not(:last-child):after{top:auto;bottom:-14px;left:calc(50% - 5px);transform:rotate(135deg)}.journey-illustration{height:142px}.journey-illustration svg{height:138px}}
 
@@ -96,11 +98,6 @@
 .usecase-card-bespoke h3{margin:0 0 8px;color:#fff;font-size:30px}
 .usecase-card-bespoke p:last-child{margin:0;color:#f3ecf9;font-size:16px}
 .usecase-card-bespoke .button{position:relative;z-index:1;grid-column:2;justify-self:start;padding:12px 20px;white-space:nowrap;background:#fff;color:var(--purple);box-shadow:none}
-.coach-demo{color:var(--ink);background:#fff}
-.coach-demo-inner{display:grid;grid-template-columns:.85fr 1.15fr;gap:80px;align-items:center;padding:clamp(38px,5vw,66px);border:1px solid #e7dced;border-radius:34px;background:radial-gradient(circle at 7% 12%,rgba(214,58,183,.12),transparent 30%),radial-gradient(circle at 92% 86%,rgba(39,143,202,.15),transparent 32%),linear-gradient(135deg,#fbf8fd,#f3f8fc);box-shadow:0 20px 54px rgba(48,23,79,.09)}
-.coach-demo h2{margin:0;font-size:clamp(42px,5vw,64px)}
-.coach-demo-inner>div:last-child>p:first-child{margin:0;font-size:22px;color:var(--muted)}
-.coach-note{display:inline-block;margin:24px 0 0;padding:10px 14px;border:1px solid #ddcce9;border-radius:12px;background:rgba(255,255,255,.8);color:var(--purple-dark);font-size:14px;font-weight:800}
 /* Service benefits and the human team behind Bridgit */
 .service-benefits{padding-top:64px;padding-bottom:72px;background:#fff;border-top:1px solid #ece5f2}
 .service-benefits-heading{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(36px,7vw,90px);align-items:end;margin-bottom:34px}
@@ -131,7 +128,7 @@
 
 @media(max-width:1000px){.channels-grid{grid-template-columns:1fr}.channels-copy{grid-column:1;grid-row:1;max-width:820px}.channels-visual{grid-column:1;grid-row:2;width:min(720px,100%);min-height:auto;margin:auto}.channels-product{width:106%;margin-left:-3%}.usecase-grid{grid-template-columns:repeat(2,1fr)}.usecase-card{grid-template-columns:120px 1fr}.usecase-card>img{width:108px;height:108px;margin-left:14px}.usecase-card-bespoke{grid-template-columns:auto 1fr;padding:32px}.usecase-card-bespoke .button{grid-column:2;justify-self:start}.booking-grid{grid-template-columns:1fr}.booking-copy{padding-top:0}}
 @media(max-width:900px){.service-benefits-heading,.teams-grid{grid-template-columns:1fr}.service-benefits .feature-list,.feature-list{grid-template-columns:1fr}.team-photo{max-width:760px}.team-photo-frame{transform:none}}
-@media(max-width:700px){.channel-list,.usecase-grid,.coach-demo-inner{grid-template-columns:1fr}.channel-list article{min-height:0}.channels-visual{border-radius:28px}.coach-demo-inner{gap:30px}.usecase-card{grid-template-columns:105px 1fr;min-height:220px}.usecase-card>img{width:94px;height:94px;margin-left:12px;border-radius:27px}.usecase-card-copy{padding:22px 18px 22px 12px}.usecase-card-bespoke{grid-template-columns:1fr;gap:18px;padding:28px;min-height:0}.bespoke-mark{width:68px;height:68px;border-radius:22px;font-size:42px}.usecase-card-bespoke .button{grid-column:auto;justify-self:start}.calendly-card,.calendly-frame{min-height:680px;height:680px}}
+@media(max-width:700px){.channel-list,.usecase-grid{grid-template-columns:1fr}.channel-list article{min-height:0}.channels-visual{border-radius:28px}.usecase-card{grid-template-columns:105px 1fr;min-height:220px}.usecase-card>img{width:94px;height:94px;margin-left:12px;border-radius:27px}.usecase-card-copy{padding:22px 18px 22px 12px}.usecase-card-bespoke{grid-template-columns:1fr;gap:18px;padding:28px;min-height:0}.bespoke-mark{width:68px;height:68px;border-radius:22px;font-size:42px}.usecase-card-bespoke .button{grid-column:auto;justify-self:start}.calendly-card,.calendly-frame{min-height:680px;height:680px}}
 
 /* Balanced opening layout and support selector */
 .hero.section{padding:clamp(36px,4vw,56px) 0}
