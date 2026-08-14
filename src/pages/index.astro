@@ -127,7 +127,7 @@ const useCases = [
         <h2 id="coach-demo-title">Ask a Bridgit coach.</h2>
       </div>
       <div>
-        <p>Our Local Support coach is available on this page to answer questions and show how a real Bridgit conversation feels. Use the coach button in the bottom-right corner to start.</p>
+        <p>Our main Bridgit coach is available on this page to answer questions about Bridgit, our services and how we work. Use the coach button in the bottom-right corner to start.</p>
         <p class="coach-note">One clear coach here. Specialist coaches can be introduced on future campaign pages.</p>
       </div>
     </div>
@@ -162,6 +162,20 @@ const useCases = [
     </div>
   </section>
 
-  <elevenlabs-convai agent-id="agent_5201k71y8ypmea297zpcnb7jq104"></elevenlabs-convai>
+  <elevenlabs-convai
+    agent-id="agent_9001k5y0ara8ej0tqx19x61wcqkq"
+    variant="expanded"
+    dismissible="true"
+    avatar-orb-color-1="#4f8fc0"
+    avatar-orb-color-2="#a329b8"
+    action-text="Ask Bridgit"
+    start-call-text="Talk to Bridgit"
+    end-call-text="End conversation"
+    expand-text="Open Bridgit coach"
+    listening-text="Bridgit is listening…"
+    speaking-text="Bridgit is speaking…"
+    markdown-link-allowed-hosts="bridgit.care"
+    markdown-link-include-www="true"
+  ></elevenlabs-convai>
   <script is:inline src="https://unpkg.com/@elevenlabs/convai-widget-embed" async type="text/javascript"></script>
 </BaseLayout>
