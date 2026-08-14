@@ -40,7 +40,8 @@ const supportOptions = [
     supportDialog?.close();
   };
 
-  supportOpeners.forEach((opener) => opener.addEventListener("click", () => {
+  supportOpeners.forEach((opener) => opener.addEventListener("click", (event) => {
+    event.preventDefault();
     supportDialog?.showModal();
   }));
 
