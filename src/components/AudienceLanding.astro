@@ -1,0 +1,155 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import TestimonialVideo from "./TestimonialVideo.astro";
+import BookingSection from "./BookingSection.astro";
+
+interface ContentItem { title: string; copy: string; }
+interface Logo { src: string; alt: string; className?: string; }
+interface CaseStudy { eyebrow: string; title: string; copy: string; result: string; href: string; linkLabel: string; }
+interface Props {
+  title: string;
+  description: string;
+  pageClass: string;
+  eyebrow: string;
+  heroTitle: string;
+  heroIntro: string;
+  heroNote: string;
+  heroImage: string;
+  heroAlt: string;
+  heroHighlights: string[];
+  partnershipLabel: string;
+  partnershipText: string;
+  partnerLogos: Logo[];
+  challengeEyebrow: string;
+  challengeTitle: string;
+  challengeIntro: string;
+  challenges: ContentItem[];
+  solutionEyebrow: string;
+  solutionTitle: string;
+  solutionIntro: string;
+  solutionSteps: ContentItem[];
+  gainsTitle: string;
+  gainsIntro: string;
+  gains: ContentItem[];
+  personValueTitle: string;
+  personValue: string;
+  organisationValueTitle: string;
+  organisationValue: string;
+  caseStudies: CaseStudy[];
+  testimonialTitle: string;
+  testimonialCopy: string;
+  quote?: string;
+  quoteAttribution?: string;
+  bookingTitle: string;
+  bookingCopy: string;
+}
+
+const props = Astro.props;
+---
+
+<BaseLayout title={props.title} description={props.description}>
+  <div class:list={["audience-page", props.pageClass]}>
+    <section class="section audience-hero">
+      <div class="shell audience-hero-grid">
+        <div class="audience-hero-copy">
+          <p class="eyebrow">{props.eyebrow}</p>
+          <h1>{props.heroTitle}</h1>
+          <p class="lead">{props.heroIntro}</p>
+          <p class="audience-hero-note">{props.heroNote}</p>
+          <div class="button-row">
+            <a class="button button-pink" href="#book-a-call">Book a discovery call</a>
+            <a class="button button-secondary" href="#how-we-help">See how it works</a>
+          </div>
+        </div>
+        <div class="audience-hero-visual">
+          <div class="audience-image-wrap"><img src={props.heroImage} alt={props.heroAlt} width="700" height="700" /></div>
+          <div class="hero-highlight-list" aria-label="Key service features">
+            {props.heroHighlights.map((item, index) => <span><b>{String(index + 1).padStart(2, "0")}</b>{item}</span>)}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="partner-proof section-compact" aria-label={props.partnershipLabel}>
+      <div class="shell partner-proof-inner">
+        <div><p class="eyebrow dark">{props.partnershipLabel}</p><p>{props.partnershipText}</p></div>
+        <div class="partner-proof-logos">
+          <img src="/images/bridgit-care-logo.png" alt="Bridgit Care" />
+          <span aria-hidden="true">+</span>
+          {props.partnerLogos.map((logo) => <img src={logo.src} alt={logo.alt} class={logo.className} />)}
+        </div>
+      </div>
+    </section>
+
+    <section class="section audience-challenge">
+      <div class="shell">
+        <div class="section-heading audience-heading">
+          <div><p class="eyebrow dark">{props.challengeEyebrow}</p><h2>{props.challengeTitle}</h2></div>
+          <p>{props.challengeIntro}</p>
+        </div>
+        <div class="challenge-grid">
+          {props.challenges.map((item, index) => (
+            <article><span>{String(index + 1).padStart(2, "0")}</span><h3>{item.title}</h3><p>{item.copy}</p></article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section audience-solution" id="how-we-help">
+      <div class="shell">
+        <div class="section-heading audience-heading">
+          <div><p class="eyebrow">{props.solutionEyebrow}</p><h2>{props.solutionTitle}</h2></div>
+          <p>{props.solutionIntro}</p>
+        </div>
+        <ol class="solution-flow">
+          {props.solutionSteps.map((item, index) => (
+            <li><span>{String(index + 1).padStart(2, "0")}</span><div><h3>{item.title}</h3><p>{item.copy}</p></div></li>
+          ))}
+        </ol>
+      </div>
+    </section>
+
+    <section class="section audience-gains">
+      <div class="shell">
+        <div class="section-heading audience-heading">
+          <h2>{props.gainsTitle}</h2><p>{props.gainsIntro}</p>
+        </div>
+        <div class="gains-grid">
+          {props.gains.map((item) => <article><span aria-hidden="true">✓</span><div><h3>{item.title}</h3><p>{item.copy}</p></div></article>)}
+        </div>
+        <div class="dual-value">
+          <div class="dual-value-title"><p class="eyebrow">Every conversation creates value twice</p><h3>Better support for people. Better intelligence for services.</h3></div>
+          <article><span>For people</span><h4>{props.personValueTitle}</h4><p>{props.personValue}</p></article>
+          <article><span>For your organisation</span><h4>{props.organisationValueTitle}</h4><p>{props.organisationValue}</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section case-study-section">
+      <div class="shell">
+        <div class="section-heading audience-heading"><div><p class="eyebrow dark">Evidence in practice</p><h2>Start with what has already worked.</h2></div><p>Use proven delivery patterns, then shape the coaches, pathways and measures around your own service.</p></div>
+        <div class:list={["case-study-grid", { "case-study-grid-single": props.caseStudies.length === 1 }]}>
+          {props.caseStudies.map((study) => (
+            <article class="case-study-card">
+              <p class="case-study-kicker">{study.eyebrow}</p>
+              <h3>{study.title}</h3>
+              <p>{study.copy}</p>
+              <strong>{study.result}</strong>
+              <a href={study.href}>{study.linkLabel} <span aria-hidden="true">→</span></a>
+            </article>
+          ))}
+          {props.quote && (
+            <blockquote class="partner-quote">
+              <span aria-hidden="true">“</span>
+              <p>{props.quote}</p>
+              <cite>{props.quoteAttribution}</cite>
+            </blockquote>
+          )}
+        </div>
+      </div>
+    </section>
+
+    <TestimonialVideo title={props.testimonialTitle} copy={props.testimonialCopy} compact />
+    <BookingSection title={props.bookingTitle} copy={props.bookingCopy} />
+  </div>
+</BaseLayout>

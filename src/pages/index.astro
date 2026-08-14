@@ -1,6 +1,8 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import SupportSelector from "../components/SupportSelector.astro";
+import TestimonialVideo from "../components/TestimonialVideo.astro";
+import BookingSection from "../components/BookingSection.astro";
 import partners from "../data/partners.json";
 
 const steps = [
@@ -271,6 +273,12 @@ const useCases = [
     </div>
   </section>
 
+  <TestimonialVideo
+    eyebrow="From our partners"
+    title="Hear what working with Bridgit feels like."
+    copy="Real partnerships are how useful technology becomes trusted support. Hear how Bridgit works alongside organisations to turn local expertise into wider reach and practical impact."
+  />
+
   <section class="section teams">
     <div class="shell teams-grid">
       <div class="teams-copy">
@@ -286,23 +294,7 @@ const useCases = [
     </div>
   </section>
 
-  <section class="section booking" id="book-a-call">
-    <div class="shell booking-grid">
-      <div class="booking-copy">
-        <p class="eyebrow dark">Book a discovery call</p>
-        <h2>Let’s explore where a Bridgit coach could make the biggest difference.</h2>
-        <p>Choose a convenient 30-minute slot with Laura to discuss your priority audiences, existing expertise and a practical route to launch.</p>
-      </div>
-      <div class="calendly-card">
-        <iframe
-          class="calendly-frame"
-          title="Book a 30-minute Bridgit discovery call with Laura"
-          src="https://calendly.com/laura-upstreamoutcomes/30min?embed_domain=bridgit.care&embed_type=Inline&hide_event_type_details=1&hide_gdpr_banner=1&primary_color=c300ff"
-          loading="lazy"
-        ></iframe>
-      </div>
-    </div>
-  </section>
+  <BookingSection />
 
   <elevenlabs-convai
     agent-id="agent_9001k5y0ara8ej0tqx19x61wcqkq"

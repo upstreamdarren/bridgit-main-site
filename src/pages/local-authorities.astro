@@ -1,0 +1,60 @@
+---
+import AudienceLanding from "../components/AudienceLanding.astro";
+
+const page = {
+  title: "AI-powered early support for local authorities | Bridgit Care",
+  description: "Give residents an always-on digital front door to neighbourhood support, local services and warm human handovers with Bridgit.",
+  pageClass: "audience-local-authorities",
+  eyebrow: "For local authorities and neighbourhood partnerships",
+  heroTitle: "Reach residents before they reach crisis.",
+  heroIntro: "Bridgit gives councils a simple digital front door to early help—providing personalised guidance 24/7, connecting residents to local and neighbourhood support, and revealing where demand and unmet need are growing.",
+  heroNote: "A preventative support layer that works across council teams, VCSE partners and trusted community places.",
+  heroImage: "/images/use-cases-v2/local-support.webp",
+  heroAlt: "A stylised portrait representing a resident finding local support",
+  heroHighlights: ["One place to start", "Neighbourhood pathways", "Insight across demand"],
+  partnershipLabel: "Reference model: Brum Chat",
+  partnershipText: "Brum Chat shows how one resident-facing service can connect personalised advice, local support and trusted neighbourhood partners while giving organisations insight into engagement and impact.",
+  partnerLogos: [{ src: "/images/clients/birmingham-city-council.png", alt: "Birmingham City Council", className: "logo-birmingham" }],
+  challengeEyebrow: "The challenge for local authorities",
+  challengeTitle: "Residents experience one life—not a set of service departments.",
+  challengeIntro: "Need often crosses housing, money, care, work, health and community connection. Yet residents may not know where to begin, and teams repeatedly handle the same navigation questions.",
+  challenges: [
+    { title: "Need is hidden until it escalates", copy: "People often reach statutory services only when a manageable problem has become more complex, urgent and expensive." },
+    { title: "The front door is fragmented", copy: "Information sits across teams, directories and partner organisations, leaving residents to work out the system for themselves." },
+    { title: "Demand is hard to see as a whole", copy: "Councils need a clearer picture of what residents ask for, which pathways work and where gaps or neighbourhood pressures are emerging." }
+  ],
+  solutionEyebrow: "How Bridgit helps",
+  solutionTitle: "One connected support layer across neighbourhoods.",
+  solutionIntro: "Bridgit combines accessible conversations, approved council information, local VCSE pathways and warm handovers so early help feels like one journey rather than a collection of websites.",
+  solutionSteps: [
+    { title: "Open a simple front door", copy: "Residents begin by phone, WhatsApp, web widget, QR code, hosted link or a fuller support app—whichever feels easiest." },
+    { title: "Understand the whole situation", copy: "Coaches ask clear questions and provide relevant guidance across connected needs rather than treating each topic in isolation." },
+    { title: "Activate neighbourhood support", copy: "Connect people to council pathways, local organisations, community assets and trusted places such as Warm Welcome Spaces." },
+    { title: "Escalate with context", copy: "When human help is needed, share the relevant story with consent so the resident does not have to begin again." }
+  ],
+  gainsTitle: "What Bridgit gives local authorities",
+  gainsIntro: "Earlier help for residents, less avoidable friction for teams and a stronger evidence base for prevention and neighbourhood working.",
+  gains: [
+    { title: "Earlier identification of need", copy: "Surface hidden carers, vulnerability and emerging risks before they become crisis demand." },
+    { title: "24/7 support capacity", copy: "Give residents useful guidance outside office hours without adding another queue to manage." },
+    { title: "Smarter local navigation", copy: "Connect people to the right council, community and VCSE support at the right time." },
+    { title: "Reduced repetitive contact", copy: "Handle routine questions and first-line guidance consistently while preserving specialist capacity." },
+    { title: "Neighbourhood insight", copy: "Understand needs, engagement, service gaps and outcomes across places and communities." },
+    { title: "A governable route to AI", copy: "Start with a focused problem, approved knowledge and clear ownership, then scale when value and trust are proven." }
+  ],
+  personValueTitle: "A clear next step, wherever they begin",
+  personValue: "Residents get personalised guidance, local options and a route to real support without needing to understand council structures first.",
+  organisationValueTitle: "A clearer view of pressure and prevention",
+  organisationValue: "Teams see what people need, where demand is growing, which pathways are used and where service gaps need attention.",
+  caseStudies: [
+    { eyebrow: "Birmingham: Brum Chat", title: "A digital front door connected to neighbourhood support.", copy: "Brum Chat brings together personalised guidance across social care, housing, money, wellbeing, work and local services. Warm Welcome partners can promote support and use a portal to understand local engagement and impact.", result: "One approachable resident journey, backed by council information and trusted community organisations.", href: "https://brum.chat/", linkLabel: "Explore Brum Chat" },
+    { eyebrow: "Peterborough City Council", title: "Local activation helped reach more unpaid carers.", copy: "Council leadership combined the digital service with frontline presentations, community champions, radio and accessible multilingual material.", result: "A 10% increase in previously unidentified unpaid carers supported in a matter of months.", href: "https://bridgit.care/supporting-unpaid-carers-peterborough-city-council/blog", linkLabel: "Read the Peterborough story" }
+  ],
+  testimonialTitle: "Hear how Bridgit works alongside public-service teams.",
+  testimonialCopy: "Hear how partnership turns council and community expertise into approachable resident support while protecting the role of local teams.",
+  bookingTitle: "Choose one service problem worth solving first.",
+  bookingCopy: "Book 30 minutes with Laura to map the resident journey, local knowledge, safeguards, partner routes and measures for a focused council pilot."
+};
+---
+
+<AudienceLanding {...page} />

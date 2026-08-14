@@ -1,11 +1,8 @@
 ---
-const helpLinks = [
-  ["Adult carers", "https://carers.bridgit.care/"],
-  ["Young carers", "https://young.bridgit.care/"],
-  ["Employers", "https://employers.bridgit.care/"],
-  ["Local support", "https://local.bridgit.care/"],
-  ["Care leavers", "https://next.bridgit.care/"],
-  ["Healthy ageing", "https://agewell.bridgit.care/"]
+const solutionLinks = [
+  ["Carer services", "/carer-services"],
+  ["Social enterprises", "/social-enterprises"],
+  ["Local authorities", "/local-authorities"]
 ];
 ---
 
@@ -19,14 +16,15 @@ const helpLinks = [
       <span></span><span></span><span></span>
     </button>
     <nav class="site-nav" id="site-menu" aria-label="Main navigation" data-menu>
-      <a href="#how-it-works">How it works</a>
+      <a href="/#how-it-works">How it works</a>
       <details>
-        <summary>Get help</summary>
+        <summary>Who we help</summary>
         <div class="nav-panel">
-          {helpLinks.map(([label, href]) => <a href={href}>{label}</a>)}
+          {solutionLinks.map(([label, href]) => <a href={href}>{label}</a>)}
         </div>
       </details>
       <a href="/blog">Blog</a>
+      <a class="nav-support-link" href="https://carers.bridgit.care/">Looking for support?</a>
       <a class="button button-small" href="/#book-a-call">Book a call</a>
     </nav>
   </div>
