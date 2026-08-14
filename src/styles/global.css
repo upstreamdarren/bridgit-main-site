@@ -45,7 +45,22 @@
 @media(max-width:900px){.hero-grid{grid-template-columns:1fr;gap:36px}.steps{grid-template-columns:repeat(2,1fr)}.steps li:nth-child(2):after{display:none}}
 @media(max-width:600px){.brand-logo{width:132px}.hero-media{border-radius:20px}.proof-grid{grid-template-columns:1fr}.partner-set{gap:30px;padding-right:30px}.partner-logo{flex-basis:164px;width:164px;height:78px}.partner-logo img{max-width:154px;max-height:60px}.steps{grid-template-columns:1fr}.steps li:after{display:none}}
 
-/* Use cases, live coach and booking */
+/* Support channels, use cases, live coach and booking */
+.channels{overflow:hidden;background:linear-gradient(135deg,#fff 0%,#f8f4fc 58%,#edf8ff 100%)}
+.channels-grid{display:grid;grid-template-columns:1.04fr .96fr;gap:clamp(40px,6vw,86px);align-items:center}
+.channels-copy h2{margin:0;font-size:clamp(40px,5vw,62px)}
+.channels-intro{max-width:700px;margin:22px 0 30px;color:var(--muted);font-size:20px}
+.channel-list{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.channel-list article{display:flex;gap:14px;min-height:152px;padding:20px;border:1px solid #e8deef;border-radius:20px;background:rgba(255,255,255,.86);box-shadow:0 10px 28px rgba(48,23,79,.055)}
+.channel-icon{display:grid;place-items:center;flex:0 0 44px;width:44px;height:44px;border-radius:14px;background:linear-gradient(135deg,#eee4ff,#def5ff);color:var(--purple)}
+.channel-icon svg{width:25px;height:25px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.channel-list h3{margin:1px 0 7px;color:var(--purple);font-size:21px}
+.channel-list p{margin:0;color:var(--muted);font-size:14px;line-height:1.48}
+.channels-visual{position:relative;display:grid;place-items:center;min-height:560px;border-radius:40% 60% 45% 55%/55% 40% 60% 45%;background:radial-gradient(circle at 35% 35%,rgba(214,58,183,.22),transparent 32%),radial-gradient(circle at 70% 68%,rgba(39,143,202,.3),transparent 36%),#f0e9fa}
+.channels-visual:before,.channels-visual:after{content:"";position:absolute;border-radius:50%;border:1px solid rgba(100,36,186,.18)}
+.channels-visual:before{inset:8%}
+.channels-visual:after{inset:18%}
+.channels-product{position:relative;z-index:1;display:block;width:118%;max-width:none;height:auto;margin-left:-8%;filter:drop-shadow(0 28px 28px rgba(41,18,66,.18))}
 .use-cases{background:#fff}
 .usecase-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
 .usecase-card{overflow:hidden;display:grid;grid-template-columns:140px 1fr;align-items:center;min-height:260px;border:1px solid #e9e1f1;border-radius:var(--radius);background:linear-gradient(145deg,#faf7fd,#fff);box-shadow:0 12px 34px rgba(48,23,79,.07)}
@@ -76,8 +91,8 @@
 .calendly-card{overflow:hidden;min-height:710px;border:1px solid #e4d8ef;border-radius:28px;background:#fff;box-shadow:var(--shadow)}
 .calendly-frame{display:block;width:100%;height:710px;border:0}
 
-@media(max-width:1000px){.usecase-grid{grid-template-columns:repeat(2,1fr)}.usecase-card{grid-template-columns:120px 1fr}.usecase-card>img{width:108px;height:108px;margin-left:14px}.usecase-card-bespoke{grid-template-columns:auto 1fr;padding:32px}.usecase-card-bespoke .button{grid-column:2;justify-self:start}.booking-grid{grid-template-columns:1fr}.booking-copy{padding-top:0}}
-@media(max-width:700px){.usecase-grid,.coach-demo-inner{grid-template-columns:1fr}.coach-demo-inner{gap:30px}.usecase-card{grid-template-columns:105px 1fr;min-height:220px}.usecase-card>img{width:94px;height:94px;margin-left:12px;border-radius:27px}.usecase-card-copy{padding:22px 18px 22px 12px}.usecase-card-bespoke{grid-template-columns:1fr;gap:18px;padding:28px;min-height:0}.bespoke-mark{width:68px;height:68px;border-radius:22px;font-size:42px}.usecase-card-bespoke .button{grid-column:auto;justify-self:start}.calendly-card,.calendly-frame{min-height:680px;height:680px}}
+@media(max-width:1000px){.channels-grid{grid-template-columns:1fr}.channels-copy{max-width:820px}.channels-visual{width:min(720px,100%);min-height:auto;margin:auto}.channels-product{width:106%;margin-left:-3%}.usecase-grid{grid-template-columns:repeat(2,1fr)}.usecase-card{grid-template-columns:120px 1fr}.usecase-card>img{width:108px;height:108px;margin-left:14px}.usecase-card-bespoke{grid-template-columns:auto 1fr;padding:32px}.usecase-card-bespoke .button{grid-column:2;justify-self:start}.booking-grid{grid-template-columns:1fr}.booking-copy{padding-top:0}}
+@media(max-width:700px){.channel-list,.usecase-grid,.coach-demo-inner{grid-template-columns:1fr}.channel-list article{min-height:0}.channels-visual{border-radius:28px}.coach-demo-inner{gap:30px}.usecase-card{grid-template-columns:105px 1fr;min-height:220px}.usecase-card>img{width:94px;height:94px;margin-left:12px;border-radius:27px}.usecase-card-copy{padding:22px 18px 22px 12px}.usecase-card-bespoke{grid-template-columns:1fr;gap:18px;padding:28px;min-height:0}.bespoke-mark{width:68px;height:68px;border-radius:22px;font-size:42px}.usecase-card-bespoke .button{grid-column:auto;justify-self:start}.calendly-card,.calendly-frame{min-height:680px;height:680px}}
 
 /* Balanced opening layout and support selector */
 .hero.section{padding:clamp(36px,4vw,56px) 0}
