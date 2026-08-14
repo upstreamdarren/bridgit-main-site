@@ -1,0 +1,109 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const steps = [
+  ["01", "Reach", "Connect with people earlier, through the channels they already use."],
+  ["02", "Advice", "Give trusted, personalised guidance at any time of day."],
+  ["03", "Coach", "Offer ongoing encouragement, check-ins and practical next steps."],
+  ["04", "Connect", "Make warm links to local services, professionals and peers."],
+  ["05", "Scale", "Give teams the insight and tools to support more people well."]
+];
+
+const services = [
+  ["Adult carers", "Practical, personalised support for people providing unpaid care.", "https://carers.bridgit.care/", "purple"],
+  ["Young carers", "Friendly guidance for young people balancing life, school and caring.", "https://young.bridgit.care/", "blue"],
+  ["Employers", "Support for employees, managers and carer-friendly workplaces.", "https://employers.bridgit.care/", "pink"],
+  ["Local support", "Help residents find the right local service before needs escalate.", "https://local.bridgit.care/", "green"],
+  ["Care leavers", "A steady source of guidance for young people moving into adulthood.", "https://next.bridgit.care/", "orange"],
+  ["Healthy ageing", "Tools that help people stay active, connected and independent.", "https://agewell.bridgit.care/", "teal"]
+];
+---
+
+<BaseLayout
+  title="Bridgit Care | AI-powered coaching for stronger communities"
+  description="Bridgit Care helps councils, charities and social enterprises scale trusted support with safe, accessible AI coaches."
+>
+  <section class="hero section">
+    <div class="shell hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow">AI-powered coaching for councils, charities and social enterprises</p>
+        <h1>Turn the knowledge of your best people into support that <span>never switches off.</span></h1>
+        <p class="lead">Bridgit turns your knowledge, services and local information into digital coaches that guide people 24/7, respond as needs change and help your team understand the impact being created.</p>
+        <div class="button-row">
+          <a class="button" href="#how-it-works">See how Bridgit works</a>
+          <a class="button button-secondary" href="#book-a-call">Book a discovery call</a>
+        </div>
+        <a class="support-link" href="https://local.bridgit.care/">Looking for support? Find your local Bridgit service <span aria-hidden="true">→</span></a>
+      </div>
+      <div class="hero-visual" aria-label="Bridgit connects people, coaches and local support">
+        <div class="orbit orbit-one"></div>
+        <div class="orbit orbit-two"></div>
+        <div class="coach-card coach-card-main"><span class="coach-avatar">B</span><strong>Your Bridgit coach</strong><small>Personal support, 24/7</small></div>
+        <div class="coach-card coach-card-one"><span>✓</span><strong>Trusted advice</strong></div>
+        <div class="coach-card coach-card-two"><span>↗</span><strong>Local connections</strong></div>
+        <div class="coach-card coach-card-three"><span>♥</span><strong>Ongoing check-ins</strong></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="proof section-compact" aria-label="Bridgit reach">
+    <div class="shell proof-grid">
+      <div><strong>180,000+</strong><span>people supported</span></div>
+      <div><strong>40</strong><span>UK regions</span></div>
+      <div><strong>30+</strong><span>specialised AI coaches</span></div>
+      <p>Trusted by councils, charities, employers and social enterprises across the UK.</p>
+    </div>
+  </section>
+
+  <section class="section intro">
+    <div class="shell split-heading">
+      <div><p class="eyebrow dark">Smarter support, made human</p><h2>Help more people without stretching your team further.</h2></div>
+      <div><p class="lead-small">From carers and young people to workplaces and whole communities, Bridgit gives people guidance when they need it and gives organisations the insight to reach further and intervene earlier.</p><p>We are a UK social enterprise built around a simple mission: no one should face life’s challenges alone.</p></div>
+    </div>
+  </section>
+
+  <section class="section how" id="how-it-works">
+    <div class="shell">
+      <p class="eyebrow dark">How it works</p>
+      <div class="section-heading"><h2>From first contact to long-term change.</h2><p>One connected model helps partners extend reach, improve outcomes and reduce pressure on services.</p></div>
+      <ol class="steps">
+        {steps.map(([number, title, copy]) => (
+          <li><span>{number}</span><h3>{title}</h3><p>{copy}</p></li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <section class="section services" id="support">
+    <div class="shell">
+      <p class="eyebrow dark">Meet the coaches</p>
+      <div class="section-heading"><h2>Specialist support for different moments in life.</h2><p>Each service combines expert knowledge with local information, practical tools and a friendly, accessible experience.</p></div>
+      <div class="service-grid">
+        {services.map(([title, copy, href, colour]) => (
+          <article class={`service-card ${colour}`}>
+            <div class="service-icon" aria-hidden="true">{title.charAt(0)}</div>
+            <h3>{title}</h3><p>{copy}</p><a href={href}>Explore support <span aria-hidden="true">→</span></a>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section teams">
+    <div class="shell teams-grid">
+      <div class="teams-copy"><p class="eyebrow">For service teams</p><h2>AI that supports your users and your people.</h2><p>Keep people engaged between appointments, reduce repetitive admin and help frontline teams act with confidence.</p><a class="button button-light" href="#book-a-call">Talk through your challenge</a></div>
+      <div class="feature-list">
+        <article><span>01</span><div><h3>Smart support plans</h3><p>Personalised, practical plans created from each person’s needs.</p></div></article>
+        <article><span>02</span><div><h3>Continuous coaching</h3><p>Regular check-ins and appropriate escalation when needs change.</p></div></article>
+        <article><span>03</span><div><h3>Better team insight</h3><p>A clearer view of demand, progress and the outcomes your service creates.</p></div></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section callout" id="book-a-call">
+    <div class="shell callout-inner">
+      <div><p class="eyebrow dark">Book a discovery call</p><h2>Let’s explore where a Bridgit coach could make the biggest difference.</h2></div>
+      <div><p>Meet the team, see how the model works and discuss a practical route from your existing knowledge to scalable, measurable support.</p><a class="button" href="mailto:contact@bridgit.care?subject=Bridgit%20discovery%20call">Arrange a call</a></div>
+    </div>
+  </section>
+</BaseLayout>
