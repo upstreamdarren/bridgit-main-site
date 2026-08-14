@@ -32,6 +32,8 @@ interface Props {
   heroImage: string;
   heroAlt: string;
   heroHighlights: string[];
+  supportUrl?: string;
+  supportLabel?: string;
   partnershipLabel: string;
   partnershipText: string;
   partnerLogos: Logo[];
@@ -80,6 +82,13 @@ const props = Astro.props;
             <a class="button button-pink" href="#book-a-call">Book a discovery call</a>
             <a class="button button-secondary" href="#how-we-help">See how it works</a>
           </div>
+          {props.supportUrl && (
+            <a class="audience-help-link" href={props.supportUrl}>
+              <span aria-hidden="true">♥</span>
+              <span><strong>Looking for help?</strong> {props.supportLabel ?? "Open the Bridgit support service"}</span>
+              <span aria-hidden="true">→</span>
+            </a>
+          )}
         </div>
         <div class="audience-hero-visual">
           <div class="audience-image-wrap"><img src={props.heroImage} alt={props.heroAlt} width="700" height="700" /></div>
@@ -95,7 +104,7 @@ const props = Astro.props;
         <div><p class="eyebrow dark">{props.partnershipLabel}</p><p>{props.partnershipText}</p></div>
         <div class="partner-proof-logos">
           <img src="/images/bridgit-care-logo.png" alt="Bridgit Care" />
-          <span aria-hidden="true">+</span>
+          {props.partnerLogos.length > 0 && <span aria-hidden="true">+</span>}
           {props.partnerLogos.map((logo) => <img src={logo.src} alt={logo.alt} class={logo.className} />)}
         </div>
       </div>
@@ -155,29 +164,31 @@ const props = Astro.props;
       </div>
     </section>
 
-    <section class="section case-study-section">
-      <div class="shell">
-        <div class="section-heading audience-heading"><div><p class="eyebrow dark">Evidence in practice</p><h2>Start with what has already worked.</h2></div><p>Use proven delivery patterns, then shape the coaches, pathways and measures around your own service.</p></div>
-        <div class:list={["case-study-grid", { "case-study-grid-single": props.caseStudies.length === 1 }]}>
-          {props.caseStudies.map((study) => (
-            <article class="case-study-card">
-              <p class="case-study-kicker">{study.eyebrow}</p>
-              <h3>{study.title}</h3>
-              <p>{study.copy}</p>
-              <strong>{study.result}</strong>
-              <a href={study.href}>{study.linkLabel} <span aria-hidden="true">→</span></a>
-            </article>
-          ))}
-          {props.quote && (
-            <blockquote class="partner-quote">
-              <span aria-hidden="true">“</span>
-              <p>{props.quote}</p>
-              <cite>{props.quoteAttribution}</cite>
-            </blockquote>
-          )}
+    {props.caseStudies.length > 0 && (
+      <section class="section case-study-section">
+        <div class="shell">
+          <div class="section-heading audience-heading"><div><p class="eyebrow dark">Evidence in practice</p><h2>Start with what has already worked.</h2></div><p>Use proven delivery patterns, then shape the coaches, pathways and measures around your own service.</p></div>
+          <div class:list={["case-study-grid", { "case-study-grid-single": props.caseStudies.length === 1 && props.quote, "case-study-grid-one": props.caseStudies.length === 1 && !props.quote }]}>
+            {props.caseStudies.map((study) => (
+              <article class="case-study-card">
+                <p class="case-study-kicker">{study.eyebrow}</p>
+                <h3>{study.title}</h3>
+                <p>{study.copy}</p>
+                <strong>{study.result}</strong>
+                <a href={study.href}>{study.linkLabel} <span aria-hidden="true">→</span></a>
+              </article>
+            ))}
+            {props.quote && (
+              <blockquote class="partner-quote">
+                <span aria-hidden="true">“</span>
+                <p>{props.quote}</p>
+                <cite>{props.quoteAttribution}</cite>
+              </blockquote>
+            )}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    )}
 
     <TestimonialVideo title={props.testimonialTitle} copy={props.testimonialCopy} compact />
     <BookingSection title={props.bookingTitle} copy={props.bookingCopy} />

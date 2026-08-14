@@ -12,12 +12,15 @@ const steps = [
 ];
 
 const useCases = [
-  { title: "Adult carers", copy: "Personalised guidance for unpaid carers, hidden carers and people balancing work with caring.", image: "/images/use-cases-v2/adult-carers.webp", service: "https://carers.bridgit.care/", caseStudy: "https://bridgit.care/wp-content/uploads/2025/10/Carers-1pp-Case-Study.pdf" },
-  { title: "Young carers", copy: "Friendly support for young people balancing school, home life and a caring role.", image: "/images/use-cases-v2/young-carers.webp", service: "https://young.bridgit.care/", caseStudy: "https://bridgit.care/wp-content/uploads/2025/10/Young-Carers-1pp-Case-Study.pdf" },
-  { title: "Employers", copy: "Practical help for employees, managers and organisations building carer-friendly workplaces.", image: "/images/use-cases-v2/employers.webp", service: "https://employers.bridgit.care/" },
-  { title: "Local support", copy: "A clear route into trusted local help for residents who may not know where to turn.", image: "/images/use-cases-v2/local-support.webp", service: "https://local.bridgit.care/" },
-  { title: "Care leavers", copy: "A steady source of guidance for young people navigating housing, health, education and adulthood.", image: "/images/use-cases-v2/care-leavers.webp", service: "https://next.bridgit.care/", caseStudy: "https://bridgit.care/wp-content/uploads/2025/10/Next-1pp-Case-Study.pdf" },
-  { title: "Healthy ageing", copy: "Early, practical support that helps people stay active, connected and independent.", image: "/images/use-cases-v2/healthy-ageing.webp", service: "https://agewell.bridgit.care/", caseStudy: "https://bridgit.care/wp-content/uploads/2025/10/AgeWell-1pp-Case-Study.pdf" }
+  { title: "Adult carers", copy: "Reach hidden and unpaid carers earlier with personalised guidance, practical plans and local pathways.", image: "/images/use-cases-v2/adult-carers.webp", href: "/carer-services" },
+  { title: "Young carers", copy: "Give young people age-appropriate help around school, home life, wellbeing and a caring role.", image: "/images/use-cases-v2/young-carers.webp", href: "/young-carers" },
+  { title: "Employers", copy: "Help employees manage caring and life pressures before they become absence, burnout or exit.", image: "/images/use-cases-v2/employers.webp", href: "/employers" },
+  { title: "Local support", copy: "Create one approachable route into council, neighbourhood and community help.", image: "/images/use-cases-v2/local-support.webp", href: "/local-authorities" },
+  { title: "Care leavers", copy: "Keep practical guidance close while young adults navigate housing, money, health, education and work.", image: "/images/use-cases-v2/care-leavers.webp", href: "/care-leavers" },
+  { title: "Healthy ageing", copy: "Help older adults stay active, connected and independent through earlier practical support.", image: "/images/use-cases-v2/healthy-ageing.webp", href: "/healthy-ageing" },
+  { title: "Social enterprises", copy: "Turn trusted service models into scalable digital support and measurable social impact.", image: "/images/landing/challenges/social-enterprises.webp", href: "/social-enterprises" },
+  { title: "NHS partners", copy: "Extend preventative, non-clinical support around appointments and community pathways.", image: "/images/landing/challenges/nhs.webp", href: "/nhs" },
+  { title: "Corporate partners", copy: "Support your own people or invest in social enterprises to extend community impact.", image: "/images/landing/corporate-partners-hero.webp", href: "/corporate-partners" }
 ];
 ---
 
@@ -222,18 +225,17 @@ const useCases = [
 
   <section class="section use-cases" id="support">
     <div class="shell">
-      <p class="eyebrow dark">Start with the problem you know best</p>
-      <div class="section-heading"><h2>Different communities. The same connected model.</h2><p>Begin with a proven coach for one priority group, then shape its knowledge, pathways, safeguards and human handovers around your organisation.</p></div>
+      <p class="eyebrow dark">Choose the area you want to improve</p>
+      <div class="section-heading"><h2>Different communities. The same connected model.</h2><p>Explore how Bridgit can support each priority group or partner model. Every card now opens a complete solution page with the challenge, user journey, delivery model and outcomes in one place.</p></div>
       <div class="usecase-grid">
-        {useCases.map(({ title, copy, image, service, caseStudy }) => (
+        {useCases.map(({ title, copy, image, href }) => (
           <article class="usecase-card">
             <img src={image} alt="" loading="lazy" width="500" height="500" />
             <div class="usecase-card-copy">
               <h3>{title}</h3>
               <p>{copy}</p>
               <div class="usecase-links">
-                <a href={service}>Explore service <span aria-hidden="true">→</span></a>
-                {caseStudy && <a href={caseStudy}>Read case study</a>}
+                <a href={href}>Explore this solution <span aria-hidden="true">→</span></a>
               </div>
             </div>
           </article>

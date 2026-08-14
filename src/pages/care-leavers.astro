@@ -1,0 +1,77 @@
+---
+import AudienceLanding from "../components/AudienceLanding.astro";
+
+const page = {
+  title: "Digital support for care leavers | Bridgit Care",
+  description: "Give care-experienced young adults consistent, practical guidance across housing, money, health, education and work with Bridgit.",
+  pageClass: "audience-care-leavers",
+  eyebrow: "For leaving-care teams, local authorities and trusted partners",
+  heroTitle: "Keep guidance close when independence becomes complicated.",
+  heroIntro: "Bridgit gives care leavers one steady place to work through housing, money, health, education, employment and daily-life questions—between appointments and beyond office hours.",
+  heroNote: "Practical coaching that strengthens the relationship with personal advisers rather than trying to replace it.",
+  heroImage: "/images/use-cases-v2/care-leavers.webp",
+  heroAlt: "A warm illustration representing a care-experienced young adult",
+  heroHighlights: ["One place to begin", "Guidance between appointments", "Warm adviser handovers"],
+  supportUrl: "https://next.bridgit.care/",
+  supportLabel: "Open support for care leavers",
+  partnershipLabel: "Built for connected transition support",
+  partnershipText: "Bring your local offer, adviser knowledge, housing and education pathways, safeguards and trusted partner services into one consistent coaching journey.",
+  partnerLogos: [],
+  challengeEyebrow: "The challenge for leaving-care services",
+  challengeTitle: "Independence arrives with several systems to understand at once.",
+  challengeIntro: "A housing letter, money worry or missed appointment can quickly affect health, confidence, education and work. Personal advisers matter enormously, but cannot be present for every small question.",
+  challengeImage: "/images/landing/challenges/care-leavers.webp",
+  challengeImageAlt: "A care-experienced young adult organising housing, work and wellbeing responsibilities in a first home",
+  challengeVisualTitle: "A first set of keys can come with a whole new set of pressures.",
+  challengeVisualCopy: "Young adults are expected to navigate tenancy, bills, appointments, study and work while building confidence and support networks. Fragmented information makes every next step harder than it needs to be.",
+  challenges: [
+    { title: "Questions happen between contacts", copy: "Small practical worries often arise after an appointment, when the personal adviser is helping somebody else." },
+    { title: "Systems are fragmented", copy: "Housing, money, health, education and employment use different language, processes and access routes." },
+    { title: "Continuity is difficult to maintain", copy: "Repeated changes and handovers can leave young adults retelling their story or disengaging from support." }
+  ],
+  story: {
+    eyebrow: "A typical care leaver journey",
+    title: "Meet Amara. One missed payment is starting to affect everything else.",
+    intro: "Amara represents young adults building an independent life while learning several unfamiliar systems at the same time.",
+    personName: "Amara, 20",
+    personContext: "Lives in her first tenancy, works part-time and is deciding whether to return to college.",
+    personImage: "/images/use-cases-v2/care-leavers.webp",
+    personAlt: "Illustrated portrait representing Amara, a care-experienced young adult",
+    beforeTitle: "Amara does not know which problem to solve first",
+    beforeItems: ["A confusing bill has become arrears and she is worried about contacting the landlord.", "Work shifts clash with appointments and information sits across several websites.", "She saves questions for her adviser, then forgets or feels embarrassed when they meet.", "Housing, money and confidence begin to affect her plans for study and work."],
+    afterTitle: "Amara has one plan and an adviser who can join at the right time",
+    afterItems: ["A coach helps her understand the immediate issue without judgement.", "Housing, money, work and education actions are prioritised in one manageable plan.", "Check-ins help her complete small steps and notice when circumstances change.", "With consent, her adviser receives the relevant context when negotiation or specialist help is needed."],
+    outcome: "Amara keeps momentum and asks for help earlier, while her adviser spends more time on relationships, advocacy and decisions that need a real person."
+  },
+  solutionEyebrow: "How Bridgit helps",
+  solutionTitle: "A consistent coaching layer around the local offer.",
+  solutionIntro: "Turn approved leaving-care guidance and partner pathways into a coach that remains available between human contacts and across important transitions.",
+  solutionSteps: [
+    { title: "Start with their question", copy: "Let young adults begin in plain language without needing to understand service structures." },
+    { title: "Connect the pressures", copy: "Recognise how housing, money, health, education, work and confidence affect one another." },
+    { title: "Create manageable actions", copy: "Turn guidance into a personal plan with proportionate prompts and check-ins." },
+    { title: "Bring advisers in", copy: "Use consented handovers and agreed escalation routes when advocacy, judgement or safeguarding is needed." }
+  ],
+  gainsTitle: "What Bridgit gives leaving-care teams",
+  gainsIntro: "More consistent support between appointments and clearer insight, with personal advisers focused on relationships and specialist intervention.",
+  gains: [
+    { title: "Support beyond office hours", copy: "Give young adults a trusted place to begin when a practical worry cannot wait." },
+    { title: "One connected plan", copy: "Bring several life areas into a sequence of achievable next steps." },
+    { title: "Better preparation", copy: "Help young adults arrive at adviser conversations with clearer questions and useful context." },
+    { title: "Stronger local offer", copy: "Make entitlements, services and partner routes easier to discover and understand." },
+    { title: "Protected adviser capacity", copy: "Reduce repeat navigation while preserving human time for advocacy, trust and risk." },
+    { title: "Visible patterns", copy: "See recurring needs, actions, engagement and pathway gaps across the cohort." }
+  ],
+  personValueTitle: "More confidence and one clear next step",
+  personValue: "Young adults can act earlier, keep track of a personal plan and reach their adviser when human help adds most value.",
+  organisationValueTitle: "Continuity between human contacts",
+  organisationValue: "Teams extend practical guidance while retaining ownership of relationships, safeguards and the local offer.",
+  caseStudies: [{ eyebrow: "Care leavers in practice", title: "A digital coach for the journey into adulthood.", copy: "Bridgit's Next model brings practical guidance and ongoing coaching together across the questions care leavers face.", result: "A reusable delivery pattern that can be trained around each local offer and adviser pathway.", href: "https://bridgit.care/wp-content/uploads/2025/10/Next-1pp-Case-Study.pdf", linkLabel: "Read the care leavers case study" }],
+  testimonialTitle: "Hear how digital continuity can strengthen adviser relationships.",
+  testimonialCopy: "See how practical guidance between appointments can help young adults make progress while keeping real people central.",
+  bookingTitle: "Let's build a more connected transition journey.",
+  bookingCopy: "Book 30 minutes with Laura to map your local offer, adviser workflow, safeguards and a focused first coach for care leavers."
+};
+---
+
+<AudienceLanding {...page} />
