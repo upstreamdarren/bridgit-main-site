@@ -38,6 +38,10 @@ interface Props {
   challengeEyebrow: string;
   challengeTitle: string;
   challengeIntro: string;
+  challengeImage: string;
+  challengeImageAlt: string;
+  challengeVisualTitle: string;
+  challengeVisualCopy: string;
   challenges: ContentItem[];
   story: Story;
   solutionEyebrow: string;
@@ -103,6 +107,14 @@ const props = Astro.props;
           <div><p class="eyebrow dark">{props.challengeEyebrow}</p><h2>{props.challengeTitle}</h2></div>
           <p>{props.challengeIntro}</p>
         </div>
+        <figure class="audience-challenge-visual">
+          <img src={props.challengeImage} alt={props.challengeImageAlt} width="1536" height="1024" loading="lazy" />
+          <figcaption>
+            <p class="eyebrow dark">What this feels like in real life</p>
+            <h3>{props.challengeVisualTitle}</h3>
+            <p>{props.challengeVisualCopy}</p>
+          </figcaption>
+        </figure>
         <div class="challenge-grid">
           {props.challenges.map((item, index) => (
             <article><span>{String(index + 1).padStart(2, "0")}</span><h3>{item.title}</h3><p>{item.copy}</p></article>
