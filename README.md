@@ -18,9 +18,10 @@ npm run build
 
 Cloudflare Pages settings:
 
-- Build command: `npm run build`
+- Build command: `pnpm run build`
 - Build output directory: `dist`
 - Production branch: `main`
+- Pages project: `https://bridgit-main-site.pages.dev`
 
 Every non-production branch can be deployed to a Cloudflare preview URL before
 it is merged.
