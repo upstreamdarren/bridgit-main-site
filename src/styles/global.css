@@ -122,14 +122,19 @@
 @media(max-width:700px){.channel-list,.usecase-grid{grid-template-columns:1fr}.channel-list article{min-height:0}.channels-visual{border-radius:28px}.usecase-card{grid-template-columns:105px 1fr;min-height:220px}.usecase-card>img{width:94px;height:94px;margin-left:12px;border-radius:27px}.usecase-card-copy{padding:22px 18px 22px 12px}.usecase-card-bespoke{grid-template-columns:1fr;gap:18px;padding:28px;min-height:0}.bespoke-mark{width:68px;height:68px;border-radius:22px;font-size:42px}.usecase-card-bespoke .button{grid-column:auto;justify-self:start}.calendly-card,.calendly-frame{min-height:680px;height:680px}}
 
 /* Balanced opening layout and support selector */
-.hero.section{padding:clamp(36px,4vw,56px) 0}
-.hero-grid{grid-template-columns:1fr 1fr;gap:48px;min-height:500px}
-.hero-copy{max-width:570px}
-.hero h1{font-size:clamp(42px,4.5vw,58px)}
+.hero.section{padding:clamp(42px,5vw,70px) 0}
+.hero .shell{width:min(1480px,calc(100% - 64px))}
+.hero-grid{grid-template-columns:minmax(480px,.88fr) minmax(620px,1.12fr);gap:clamp(40px,5vw,76px);min-height:570px}
+.hero-copy{max-width:640px}
+.hero h1{font-size:clamp(46px,4.3vw,66px)}
 .hero .lead{font-size:clamp(17px,1.7vw,19px);line-height:1.55}
 .hero .button-row{margin:24px 0 18px}
 html,body{overflow-x:hidden}
-.hero-media{align-self:center}
+.hero-media{position:relative;align-self:center;overflow:visible;border-radius:0;background:none;box-shadow:none}
+.hero-media>img{display:block;width:100%;border-radius:34px;box-shadow:0 26px 70px rgba(48,23,79,.13)}
+.hero-visual-note{position:absolute;z-index:2;padding:11px 15px;border:1px solid rgba(100,36,186,.15);border-radius:999px;background:rgba(255,255,255,.95);color:var(--purple-dark);font-size:13px;font-weight:900;box-shadow:0 12px 28px rgba(48,23,79,.15);backdrop-filter:blur(8px)}
+.hero-visual-note-one{left:5%;top:7%}
+.hero-visual-note-two{right:4%;bottom:7%}
 .support-trigger{display:grid;grid-template-columns:30px 1fr auto;align-items:center;gap:12px;width:min(100%,540px);padding:14px 16px;border:1px solid #dfd0ee;border-radius:16px;background:rgba(255,255,255,.88);color:var(--purple-dark);font:inherit;text-align:left;cursor:pointer;box-shadow:0 10px 26px rgba(49,18,83,.08);transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease}
 .support-trigger:hover{transform:translateY(-2px);border-color:#b991dc;box-shadow:0 14px 34px rgba(49,18,83,.14)}
 .support-trigger>span:first-child{display:grid;place-items:center;width:30px;height:30px;border-radius:10px;background:linear-gradient(135deg,#efe5ff,#dff4ff);color:var(--pink)}
@@ -173,10 +178,10 @@ html,body{overflow-x:hidden}
 .problem-bridge>span{color:#f4b6e6;font-size:13px;font-weight:900;letter-spacing:.12em;text-transform:uppercase}
 .problem-bridge p{margin:0;font-size:19px}
 
-@media(max-width:900px){.hero-grid{grid-template-columns:1fr;min-height:auto}.hero-copy{max-width:760px}.hero-media{max-width:760px}.support-option-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:1100px){.hero .shell{width:min(1180px,calc(100% - 40px))}.hero-grid{grid-template-columns:1fr;min-height:auto}.hero-copy{max-width:820px}.hero-media{width:100%;max-width:900px}.support-option-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:900px){.problem-heading{grid-template-columns:1fr}.problem-heading h2{max-width:760px}.problem-visual{min-height:660px}.problem-visual:after{background:linear-gradient(180deg,rgba(249,246,252,.99) 0%,rgba(249,246,252,.93) 42%,rgba(249,246,252,.16) 72%,transparent 100%)}.problem-visual-copy{width:100%;padding:42px}.problem-stats{grid-template-columns:1fr}.problem-stats article{min-height:0}.problem-bridge{grid-template-columns:1fr;gap:8px}}
 @media(max-width:600px){.problem-visual{min-height:720px;border-radius:26px}.problem-visual>img{object-position:66% center}.problem-visual-copy{padding:28px 24px}.problem-visual-copy>p:last-child{font-size:16px}.problem-bridge{padding:22px}.problem-bridge p{font-size:17px}}
-@media(max-width:560px){.hero h1{font-size:clamp(40px,12vw,52px)}.support-trigger{grid-template-columns:30px 1fr auto}.support-dialog{width:min(100% - 16px,1100px);border-radius:20px}.support-dialog-inner{padding:22px 16px}.support-dialog-heading{gap:14px}.support-dialog-close{width:40px;height:40px}.support-option-grid{grid-template-columns:1fr}.support-option{height:180px}.support-option-copy strong{font-size:21px}}
+@media(max-width:560px){.hero h1{font-size:clamp(40px,12vw,52px)}.hero-media>img{border-radius:24px}.hero-visual-note{position:relative;display:inline-flex;margin:10px 6px 0 0;font-size:12px}.hero-visual-note-one,.hero-visual-note-two{inset:auto}.support-trigger{grid-template-columns:30px 1fr auto}.support-dialog{width:min(100% - 16px,1100px);border-radius:20px}.support-dialog-inner{padding:22px 16px}.support-dialog-heading{gap:14px}.support-dialog-close{width:40px;height:40px}.support-option-grid{grid-template-columns:1fr}.support-option{height:180px}.support-option-copy strong{font-size:21px}}
 
 /* Sales landing pages and testimonial video */
 #how-it-works,#book-a-call,#how-we-help{scroll-margin-top:96px}
