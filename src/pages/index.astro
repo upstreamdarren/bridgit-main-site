@@ -22,15 +22,15 @@ const useCases = [
 ---
 
 <BaseLayout
-  title="Bridgit Care | AI-powered coaching for stronger communities"
-  description="Bridgit Care helps councils, charities and social enterprises scale trusted support with safe, accessible AI coaches."
+  title="Bridgit Care | Extend human support with trusted AI coaches"
+  description="Bridgit helps councils, NHS partners, charities, social enterprises and responsible businesses extend trusted support with safe, accessible AI coaches."
 >
   <section class="hero section">
     <div class="shell hero-grid">
       <div class="hero-copy">
-        <p class="eyebrow dark">AI-powered coaching for councils, charities and social enterprises</p>
+        <p class="eyebrow dark">AI-powered coaching for organisations that support people</p>
         <h1>Turn the knowledge of your best people into support that <span>never switches off.</span></h1>
-        <p class="lead">Bridgit helps organisations turn their knowledge, services and local information into digital coaches. They extend your team with trusted guidance 24/7, preventative check-ins and practical support—giving real people more time for the work that needs human judgement and care.</p>
+        <p class="lead">Bridgit turns your trusted knowledge, services and local pathways into digital coaches. They give people practical guidance and preventative support around the clock—while your team keeps its time for judgement, relationships and care.</p>
         <div class="button-row">
           <a class="button" href="#how-it-works">See how Bridgit works</a>
           <a class="button button-secondary" href="#book-a-call">Book a discovery call</a>
@@ -72,27 +72,54 @@ const useCases = [
     </div>
   </section>
 
-  <section class="section human-first" aria-labelledby="human-first-title">
-    <div class="shell human-first-grid">
-      <div>
-        <p class="eyebrow dark">People stay at the centre</p>
-        <h2 id="human-first-title">More preventative support. More human time where it matters most.</h2>
-      </div>
-      <div class="human-first-copy">
-        <p>Bridgit is not about replacing frontline professionals. It gives people useful early support while taking repetitive work away from stretched teams.</p>
-        <div class="human-first-points">
-          <article><span aria-hidden="true">01</span><div><h3>Prevent problems escalating</h3><p>Offer clear guidance and check-ins before needs become more complex or urgent.</p></div></article>
-          <article><span aria-hidden="true">02</span><div><h3>Reduce repetitive admin</h3><p>Handle common questions, summaries, support plans and routine follow-up consistently.</p></div></article>
-          <article><span aria-hidden="true">03</span><div><h3>Protect time for human support</h3><p>Keep your team focused on relationships, risk, judgement and people who need more help.</p></div></article>
+  <section class="section problem" aria-labelledby="problem-title">
+    <div class="shell">
+      <div class="problem-heading">
+        <div>
+          <p class="eyebrow dark">The pressure every service recognises</p>
+          <h2 id="problem-title">Need is growing faster than traditional support can stretch.</h2>
         </div>
+        <p>Across health, care, housing, money, work and community life, people need useful help earlier. But knowledge is fragmented, opening hours are limited and skilled teams are already carrying more demand than their time allows.</p>
+      </div>
+
+      <figure class="problem-visual">
+        <img src="/images/homepage-problem-pressure.webp" alt="People balancing connected caring, health, work, housing and money pressures while a small support team handles multiple routes" width="1536" height="1024" loading="lazy" />
+        <figcaption class="problem-visual-copy">
+          <p class="eyebrow dark">People do not experience one problem at a time</p>
+          <h3>One question can hide a whole chain of need.</h3>
+          <p>A caring role affects work. Poor health affects confidence and income. A housing worry becomes a wellbeing crisis. People are left to join up separate information, services and appointments themselves—often repeating their story at every door.</p>
+        </figcaption>
+      </figure>
+
+      <div class="problem-stats" aria-label="Evidence of growing support demand and workforce pressure">
+        <article>
+          <strong>5.0m</strong>
+          <p>people in England and Wales were providing unpaid care at the 2021 Census.</p>
+          <a href="https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/healthandwellbeing/bulletins/unpaidcareenglandandwales/census2021">ONS source <span aria-hidden="true">→</span></a>
+        </article>
+        <article>
+          <strong>2.8m</strong>
+          <p>working-age people in the UK were economically inactive because of long-term sickness in early 2026.</p>
+          <a href="https://www.ons.gov.uk/employmentandlabourmarket/peopleinwork/employmentandemployeetypes/bulletins/employmentintheuk/latest">ONS source <span aria-hidden="true">→</span></a>
+        </article>
+        <article>
+          <strong>111,000</strong>
+          <p>adult social care posts in England were vacant on an average day in 2024/25.</p>
+          <a href="https://www.skillsforcare.org.uk/news-and-events/news/vacancy-rates-in-social-care-return-to-pre-Covid-levels">Skills for Care source <span aria-hidden="true">→</span></a>
+        </article>
+      </div>
+
+      <div class="problem-bridge">
+        <span>What has to change</span>
+        <p><strong>Support needs to begin earlier, continue between appointments and connect to a real person when it becomes complex.</strong> That means extending the reach of good teams—not replacing them.</p>
       </div>
     </div>
   </section>
 
   <section class="section how" id="how-it-works">
     <div class="shell">
-      <p class="eyebrow dark">How it works</p>
-      <div class="section-heading"><h2>Build a digital team around—not instead of—your people.</h2><p>Choose where coaches can provide early help or reduce repetitive work, train them in your approved approach and keep clear routes to real people when judgement or deeper support is needed.</p></div>
+      <p class="eyebrow dark">The Bridgit response</p>
+      <div class="section-heading"><h2>Build a digital team around—not instead of—your people.</h2><p>Turn the knowledge you already trust into earlier help, consistent follow-up and clearer handovers. Your people stay in control; Bridgit extends when and where their support can reach.</p></div>
       <ol class="steps">
         {steps.map(([number, title, copy]) => (
           <li><span>{number}</span><h3>{title}</h3><p>{copy}</p></li>
@@ -199,9 +226,9 @@ const useCases = [
   <section class="section channels" aria-labelledby="channels-title">
     <div class="shell channels-grid">
       <div class="channels-copy">
-        <p class="eyebrow dark">Support, wherever people are</p>
+        <p class="eyebrow dark">Support that follows the person</p>
         <h2 id="channels-title">One coach. Every channel.</h2>
-        <p class="channels-intro">People can reach the same trusted Bridgit support in the way that works best for them—by message, by voice, on your website or through a complete advice and coaching app.</p>
+        <p class="channels-intro">Once the support is connected, access should be simple. People can reach the same trusted Bridgit coach by message, voice, your website or a complete advice and coaching app.</p>
         <div class="channel-list">
           <article>
             <span class="channel-icon" aria-hidden="true">
@@ -246,8 +273,8 @@ const useCases = [
 
   <section class="section use-cases" id="support">
     <div class="shell">
-      <p class="eyebrow dark">Where Bridgit helps</p>
-      <div class="section-heading"><h2>Start with a proven template. Make it yours.</h2><p>Use an established model for a priority community, then shape the knowledge, pathways and safeguards around your organisation.</p></div>
+      <p class="eyebrow dark">Start with the problem you know best</p>
+      <div class="section-heading"><h2>Different communities. The same connected model.</h2><p>Begin with a proven coach for one priority group, then shape its knowledge, pathways, safeguards and human handovers around your organisation.</p></div>
       <div class="usecase-grid">
         {useCases.map(({ title, copy, image, service, caseStudy }) => (
           <article class="usecase-card">
