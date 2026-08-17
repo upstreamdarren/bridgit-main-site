@@ -1,0 +1,60 @@
+---
+interface Props {
+  agentId: string;
+  actionText: string;
+  coachName?: string;
+}
+
+const {
+  agentId,
+  actionText,
+  coachName = "Bridgit"
+} = Astro.props;
+---
+
+<elevenlabs-convai
+  agent-id={agentId}
+  variant="expandable"
+  dismissible="true"
+  action-text={actionText}
+  start-call-text={`Talk with ${coachName}`}
+  end-call-text="Finish conversation"
+  expand-text={`Open ${coachName} coach`}
+  listening-text={`${coachName} is listening…`}
+  speaking-text={`${coachName} is speaking…`}
+  markdown-link-allowed-hosts="bridgit.care"
+  markdown-link-include-www="true"
+></elevenlabs-convai>
+
+<script is:inline src="https://unpkg.com/@elevenlabs/convai-widget-embed" async type="text/javascript"></script>
+<script is:inline>
+  customElements.whenDefined("elevenlabs-convai").then(() => {
+    const widget = document.querySelector("elevenlabs-convai");
+    let attempts = 0;
+
+    const connectFlagOverride = () => {
+      const root = widget?.shadowRoot;
+      if (!root) {
+        if (attempts++ < 300) requestAnimationFrame(connectFlagOverride);
+        return;
+      }
+
+      const useBritishFlag = () => {
+        root.querySelectorAll('img[src*="/flags/circle-flags/us.svg"]').forEach((flag) => {
+          flag.src = "https://bridgit-main-site.pages.dev/images/uk-flag-round.svg";
+          flag.alt = "UK flag";
+        });
+      };
+
+      useBritishFlag();
+      new MutationObserver(useBritishFlag).observe(root, {
+        childList: true,
+        subtree: true,
+        attributes: true,
+        attributeFilter: ["src"]
+      });
+    };
+
+    connectFlagOverride();
+  });
+</script>
