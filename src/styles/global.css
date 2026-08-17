@@ -532,6 +532,7 @@ html,body{overflow-x:hidden}
 .coach-starters-panel li button:focus-visible{outline:3px solid #2f8fc5;outline-offset:2px}
 .coach-starters-panel p{margin:0;color:var(--muted);font-size:11px;font-weight:800}
 .coach-launcher{position:relative;display:flex;align-items:center;gap:10px;padding:8px 16px 8px 8px;border:1px solid #e2d5ee;border-radius:999px;background:#fff;color:var(--purple-dark);font:900 14px/1.2 "Nunito",Arial,sans-serif;cursor:pointer;box-shadow:0 14px 38px rgba(36,17,60,.22);transition:transform .2s ease,box-shadow .2s ease}
+.coach-launcher[hidden]{display:none}
 .coach-launcher:hover{transform:translateY(-2px);box-shadow:0 18px 44px rgba(36,17,60,.28)}
 .coach-launcher:focus-visible{outline:3px solid #2f8fc5;outline-offset:3px}
 .coach-launcher[aria-busy="true"]{cursor:wait;opacity:.78}
