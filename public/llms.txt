@@ -1,0 +1,18 @@
+# Bridgit Care
+
+Bridgit helps organisations extend trusted human support through accessible AI-powered digital coaches, preventative guidance, practical plans and warm handovers.
+
+## Main pages
+
+- [Home](https://bridgit.care/)
+- [Adult carer services](https://bridgit.care/carer-services)
+- [Council Front Door](https://bridgit.care/local-authorities)
+- [Social enterprises](https://bridgit.care/social-enterprises)
+- [Young carers](https://bridgit.care/young-carers)
+- [Employers](https://bridgit.care/employers)
+- [Care leavers](https://bridgit.care/care-leavers)
+- [Healthy ageing](https://bridgit.care/healthy-ageing)
+- [NHS partners](https://bridgit.care/nhs)
+- [Corporate partners](https://bridgit.care/corporate-partners)
+- [Leadership team](https://bridgit.care/leadership-team)
+- [Contact and book a call](https://bridgit.care/#book-a-call)

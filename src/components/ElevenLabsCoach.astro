@@ -14,6 +14,11 @@ const {
 } = Astro.props;
 
 const starterId = `coach-starters-${agentId}`;
+const widgetConfig = {
+  agentId,
+  actionText,
+  coachName
+};
 ---
 
 {commonQuestions.length > 0 && (
@@ -41,31 +46,30 @@ const starterId = `coach-starters-${agentId}`;
   </aside>
 )}
 
-<elevenlabs-convai
-  id={`elevenlabs-coach-${agentId}`}
-  agent-id={agentId}
-  variant="expandable"
-  dismissible="true"
-  action-text={actionText}
-  start-call-text={`Talk with ${coachName}`}
-  end-call-text="Finish conversation"
-  expand-text={`Open ${coachName} coach`}
-  listening-text={`${coachName} is listening…`}
-  speaking-text={`${coachName} is speaking…`}
-  disable-banner="true"
-  markdown-link-allowed-hosts="bridgit.care"
-  markdown-link-include-www="true"
-></elevenlabs-convai>
+<button
+  class="coach-launcher"
+  type="button"
+  data-elevenlabs-launcher
+  data-widget-config={JSON.stringify(widgetConfig)}
+>
+  <span class="coach-launcher-mark" aria-hidden="true">b</span>
+  <span>{actionText}</span>
+</button>
+<div data-elevenlabs-container></div>
 
-<script is:inline src="https://unpkg.com/@elevenlabs/convai-widget-embed" async type="text/javascript"></script>
 <script is:inline>
-  customElements.whenDefined("elevenlabs-convai").then(() => {
-    const widget = document.querySelector("elevenlabs-convai");
+  (() => {
+    const launcher = document.querySelector("[data-elevenlabs-launcher]");
+    const container = document.querySelector("[data-elevenlabs-container]");
     const starters = document.querySelector("[data-coach-starters]");
     const starterToggle = starters?.querySelector("[data-coach-starters-toggle]");
     const starterPanel = starters?.querySelector("[data-coach-starters-panel]");
     const starterClose = starters?.querySelector("[data-coach-starters-close]");
-    let attempts = 0;
+    if (!launcher || !container) return;
+
+    const config = JSON.parse(launcher.dataset.widgetConfig || "{}");
+    let widget;
+    let loading;
 
     const setStartersOpen = (open) => {
       if (!starterToggle || !starterPanel) return;
@@ -80,33 +84,45 @@ const starterId = `coach-starters-${agentId}`;
     document.addEventListener("keydown", (event) => {
       if (event.key === "Escape") setStartersOpen(false);
     });
-    widget?.addEventListener("elevenlabs-convai:call", () => {
-      if (starters) starters.hidden = true;
-    });
+    const ensureWidgetScript = () => {
+      if (customElements.get("elevenlabs-convai")) return Promise.resolve();
+      if (loading) return loading;
 
-    const connectFlagOverride = () => {
+      loading = new Promise((resolve, reject) => {
+        const script = document.createElement("script");
+        script.src = "https://unpkg.com/@elevenlabs/convai-widget-embed@0.16.0/dist/index.js";
+        script.async = true;
+        script.dataset.elevenlabsScript = "true";
+        script.addEventListener("load", () => customElements.whenDefined("elevenlabs-convai").then(resolve), { once: true });
+        script.addEventListener("error", reject, { once: true });
+        document.head.append(script);
+      });
+
+      return loading;
+    };
+
+    const customiseWidget = () => {
       const root = widget?.shadowRoot;
-      if (!root) {
-        if (attempts++ < 300) requestAnimationFrame(connectFlagOverride);
+      if (!root) return false;
+
+      root.querySelectorAll('img[src*="/flags/circle-flags/us.svg"]').forEach((flag) => {
+        flag.src = "/images/uk-flag-round.svg";
+        flag.alt = "UK flag";
+      });
+
+      root.querySelectorAll("a, div, p, span").forEach((element) => {
+        const label = element.textContent?.trim();
+        if (/^Powered by (ElevenLabs|ElevenAgents)$/i.test(label)) element.style.display = "none";
+      });
+      return true;
+    };
+
+    const connectCustomisation = () => {
+      if (!customiseWidget()) {
+        requestAnimationFrame(connectCustomisation);
         return;
       }
-
-      const customiseWidget = () => {
-        root.querySelectorAll('img[src*="/flags/circle-flags/us.svg"]').forEach((flag) => {
-          flag.src = "https://bridgit-main-site.pages.dev/images/uk-flag-round.svg";
-          flag.alt = "UK flag";
-        });
-
-        root.querySelectorAll("a, div, p, span").forEach((element) => {
-          const label = element.textContent?.trim();
-          if (/^Powered by (ElevenLabs|ElevenAgents)$/i.test(label)) {
-            element.style.display = "none";
-          }
-        });
-      };
-
-      customiseWidget();
-      new MutationObserver(customiseWidget).observe(root, {
+      new MutationObserver(customiseWidget).observe(widget.shadowRoot, {
         childList: true,
         subtree: true,
         attributes: true,
@@ -114,6 +130,41 @@ const starterId = `coach-starters-${agentId}`;
       });
     };
 
-    connectFlagOverride();
-  });
+    launcher.addEventListener("click", async () => {
+      if (widget) return;
+      launcher.setAttribute("aria-busy", "true");
+
+      try {
+        await ensureWidgetScript();
+        widget = document.createElement("elevenlabs-convai");
+        const attributes = {
+          id: `elevenlabs-coach-${config.agentId}`,
+          "agent-id": config.agentId,
+          variant: "expandable",
+          dismissible: "true",
+          "default-expanded": "true",
+          "action-text": config.actionText,
+          "start-call-text": `Talk with ${config.coachName}`,
+          "end-call-text": "Finish conversation",
+          "expand-text": `Open ${config.coachName} coach`,
+          "listening-text": `${config.coachName} is listening…`,
+          "speaking-text": `${config.coachName} is speaking…`,
+          "disable-banner": "true",
+          "markdown-link-allowed-hosts": "bridgit.care",
+          "markdown-link-include-www": "true"
+        };
+        Object.entries(attributes).forEach(([name, value]) => widget.setAttribute(name, value));
+        widget.addEventListener("elevenlabs-convai:call", () => {
+          if (starters) starters.hidden = true;
+        });
+        container.append(widget);
+        launcher.hidden = true;
+        if (starters) starters.hidden = true;
+        connectCustomisation();
+      } catch (error) {
+        console.error("Unable to load the Bridgit coach", error);
+        launcher.removeAttribute("aria-busy");
+      }
+    });
+  })();
 </script>
