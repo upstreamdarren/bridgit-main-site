@@ -112,7 +112,9 @@ const widgetConfig = {
 
       root.querySelectorAll("a, div, p, span").forEach((element) => {
         const label = element.textContent?.trim();
-        if (/^Powered by (ElevenLabs|ElevenAgents)$/i.test(label)) element.style.display = "none";
+        if (/^Powered by (ElevenLabs|ElevenAgents)$/i.test(label)) {
+          element.style.setProperty("display", "none", "important");
+        }
       });
       return true;
     };
