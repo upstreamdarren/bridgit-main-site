@@ -41,13 +41,14 @@ const widgetConfig = {
       <ul>
         {commonQuestions.map((question) => (
           <li>
-            <button type="button" data-coach-question={question}>
-              <span>{question}</span><span aria-hidden="true">→</span>
+            <span>{question}</span>
+            <button type="button" data-coach-copy={question} aria-label={`Copy question: ${question}`}>
+              <span data-copy-label>Copy</span>
             </button>
           </li>
         ))}
       </ul>
-      <p>Choose a question to open the coach and send it automatically.</p>
+      <p>Copy a question, open Bridgit and paste it into the message box.</p>
     </div>
   </aside>
 )}
@@ -58,7 +59,7 @@ const widgetConfig = {
   data-elevenlabs-launcher
   data-widget-config={JSON.stringify(widgetConfig)}
 >
-  <span class="coach-launcher-mark" aria-hidden="true">b</span>
+  <span class="coach-launcher-mark" aria-hidden="true"><img src="/images/bridgit-care-logo.png" alt="" /></span>
   <span>{actionText}</span>
 </button>
 <div data-elevenlabs-container></div>
@@ -71,7 +72,7 @@ const widgetConfig = {
     const starterToggle = starters?.querySelector("[data-coach-starters-toggle]");
     const starterPanel = starters?.querySelector("[data-coach-starters-panel]");
     const starterClose = starters?.querySelector("[data-coach-starters-close]");
-    const starterButtons = starters?.querySelectorAll("[data-coach-question]") ?? [];
+    const copyButtons = starters?.querySelectorAll("[data-coach-copy]") ?? [];
     if (!launcher || !container) return;
 
     const config = JSON.parse(launcher.dataset.widgetConfig || "{}");
@@ -178,79 +179,23 @@ const widgetConfig = {
       }
     };
 
-    const sendStarterWhenReady = (question) => {
-      let rootAttempts = 0;
-      const waitForWidget = () => {
-        rootAttempts += 1;
-        const root = widget?.shadowRoot;
-        if (!root) {
-          if (rootAttempts < 600) requestAnimationFrame(waitForWidget);
-          return;
-        }
-
-        let messageEntryOpened = false;
-        const tryToSend = () => {
-          if (!messageEntryOpened) {
-            const messageEntry = [...root.querySelectorAll("button")].find((button) =>
-              /message|chat/i.test(`${button.getAttribute("aria-label") ?? ""} ${button.textContent ?? ""}`)
-            );
-            if (messageEntry) {
-              messageEntry.click();
-              messageEntryOpened = true;
-            }
-          }
-
-          const input = root.querySelector('textarea, input[placeholder*="message" i], input[type="text"]');
-          if (!input) return false;
-
-          const valueSetter = Object.getOwnPropertyDescriptor(
-            input instanceof HTMLTextAreaElement ? HTMLTextAreaElement.prototype : HTMLInputElement.prototype,
-            "value"
-          )?.set;
-          valueSetter?.call(input, question);
-          input.dispatchEvent(new InputEvent("input", { bubbles: true, inputType: "insertText", data: question }));
-          input.dispatchEvent(new Event("change", { bubbles: true }));
-
-          requestAnimationFrame(() => {
-            const submit = input.closest("form")?.querySelector('button[type="submit"]') ??
-              [...root.querySelectorAll("button")].find((button) =>
-                /send/i.test(`${button.getAttribute("aria-label") ?? ""} ${button.getAttribute("title") ?? ""}`)
-              );
-            if (submit && !submit.disabled) {
-              submit.click();
-            } else {
-              input.dispatchEvent(new KeyboardEvent("keydown", { key: "Enter", code: "Enter", bubbles: true }));
-              input.dispatchEvent(new KeyboardEvent("keyup", { key: "Enter", code: "Enter", bubbles: true }));
-            }
-          });
-          return true;
-        };
-
-        if (tryToSend()) return;
-
-        const observer = new MutationObserver(() => {
-          if (tryToSend()) observer.disconnect();
-        });
-        observer.observe(root, { childList: true, subtree: true });
-
-        // Keep the selected question ready while a first-time visitor reads
-        // and accepts ElevenLabs' required consent notice.
-        window.setTimeout(() => observer.disconnect(), 300000);
-      };
-
-      requestAnimationFrame(waitForWidget);
-    };
-
     launcher.addEventListener("click", launchWidget);
-    starterButtons.forEach((button) => {
+    copyButtons.forEach((button) => {
       button.addEventListener("click", async () => {
-        const question = button.dataset.coachQuestion;
+        const question = button.dataset.coachCopy;
         if (!question) return;
-        button.setAttribute("aria-busy", "true");
-        setStartersOpen(false);
-        const activeWidget = await launchWidget();
-        button.removeAttribute("aria-busy");
-        if (activeWidget) sendStarterWhenReady(question);
+        const label = button.querySelector("[data-copy-label]");
+        try {
+          await navigator.clipboard.writeText(question);
+          if (label) label.textContent = "Copied";
+          setStartersOpen(false);
+          window.setTimeout(() => {
+            if (label) label.textContent = "Copy";
+          }, 1800);
+        } catch (error) {
+          console.error("Unable to copy the suggested question", error);
+          if (label) label.textContent = "Select text";
+        }
       });
     });
   })();

@@ -4,6 +4,7 @@ import TestimonialVideo from "./TestimonialVideo.astro";
 import BookingSection from "./BookingSection.astro";
 import BeforeAfterStory from "./BeforeAfterStory.astro";
 import ElevenLabsCoach from "./ElevenLabsCoach.astro";
+import HeroExplainer from "./HeroExplainer.astro";
 
 interface ContentItem { title: string; copy: string; }
 interface Logo { src: string; alt: string; className?: string; }
@@ -33,6 +34,13 @@ interface Props {
   heroImage: string;
   heroAlt: string;
   heroHighlights: string[];
+  heroVideo?: {
+    videoId: string;
+    videoHash: string;
+    title: string;
+    eyebrow?: string;
+    duration?: string;
+  };
   supportUrl?: string;
   supportLabel?: string;
   partnershipLabel: string;
@@ -96,7 +104,15 @@ const props = Astro.props;
           )}
         </div>
         <div class="audience-hero-visual">
-          <div class="audience-image-wrap"><img src={props.heroImage} alt={props.heroAlt} width="700" height="700" /></div>
+          {props.heroVideo ? (
+            <HeroExplainer
+              {...props.heroVideo}
+              thumbnail={props.heroImage}
+              thumbnailAlt={props.heroAlt}
+            />
+          ) : (
+            <div class="audience-image-wrap"><img src={props.heroImage} alt={props.heroAlt} width="700" height="700" /></div>
+          )}
           <div class="hero-highlight-list" aria-label="Key service features">
             {props.heroHighlights.map((item, index) => <span><b>{String(index + 1).padStart(2, "0")}</b>{item}</span>)}
           </div>

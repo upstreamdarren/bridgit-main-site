@@ -1,0 +1,64 @@
+---
+interface Props {
+  videoId: string;
+  videoHash: string;
+  thumbnail: string;
+  thumbnailAlt: string;
+  eyebrow?: string;
+  title: string;
+  duration?: string;
+}
+
+const {
+  videoId,
+  videoHash,
+  thumbnail,
+  thumbnailAlt,
+  eyebrow = "Watch the explainer",
+  title,
+  duration = "A short introduction"
+} = Astro.props;
+
+const embedUrl = `https://player.vimeo.com/video/${videoId}?h=${videoHash}&autoplay=1&title=0&byline=0&portrait=0`;
+---
+
+<div class="hero-explainer" data-hero-explainer>
+  <button
+    class="hero-explainer-cover"
+    type="button"
+    aria-label={`Play video: ${title}`}
+    data-hero-explainer-play
+    data-video-src={embedUrl}
+    data-video-title={`${title} — Bridgit explainer video`}
+  >
+    <img src={thumbnail} alt={thumbnailAlt} width="700" height="700" />
+    <span class="hero-explainer-shade" aria-hidden="true"></span>
+    <span class="hero-explainer-copy">
+      <span class="hero-explainer-eyebrow">{eyebrow}</span>
+      <strong>{title}</strong>
+      <small>{duration}</small>
+    </span>
+    <span class="hero-explainer-play" aria-hidden="true">
+      <span>▶</span>
+    </span>
+  </button>
+</div>
+
+<script is:inline>
+  (() => {
+    document.querySelectorAll("[data-hero-explainer]").forEach((explainer) => {
+      const playButton = explainer.querySelector("[data-hero-explainer-play]");
+      if (!playButton) return;
+
+      playButton.addEventListener("click", () => {
+        const iframe = document.createElement("iframe");
+        iframe.src = playButton.dataset.videoSrc;
+        iframe.title = playButton.dataset.videoTitle;
+        iframe.allow = "autoplay; fullscreen; picture-in-picture; clipboard-write";
+        iframe.allowFullscreen = true;
+        iframe.referrerPolicy = "strict-origin-when-cross-origin";
+        explainer.replaceChildren(iframe);
+      }, { once: true });
+    });
+  })();
+</script>
