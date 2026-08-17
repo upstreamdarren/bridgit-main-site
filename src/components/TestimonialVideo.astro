@@ -1,34 +1,124 @@
 ---
+type TestimonialId = "andy" | "jenni" | "ali" | "lauren";
+
 interface Props {
   eyebrow?: string;
   title?: string;
   copy?: string;
   compact?: boolean;
+  featuredTestimonial?: TestimonialId;
 }
+
+const testimonials = [
+  { id: "andy", name: "Andy Mitchell", organisation: "Unity Enterprise", initials: "AM", video: "https://player.vimeo.com/video/1218923915?h=60e1e49977&title=0&byline=0&portrait=0" },
+  { id: "jenni", name: "Jenni Wood", organisation: "Durham County Carers Support", initials: "JW", video: "https://player.vimeo.com/video/1218923914?h=78036541a0&title=0&byline=0&portrait=0" },
+  { id: "ali", name: "Ali Mohammed", organisation: "Derbyshire Carers Association", initials: "AM", video: "https://player.vimeo.com/video/1218923903?h=db7124ca88&title=0&byline=0&portrait=0" },
+  { id: "lauren", name: "Lauren Giddins", organisation: "Thrive", initials: "LG", video: "https://player.vimeo.com/video/1218923916?h=707e9c800e&title=0&byline=0&portrait=0" }
+] as const;
 
 const {
   eyebrow = "Partner perspective",
   title = "Hear what partnership looks like in practice.",
   copy = "A short conversation about extending trusted support, working alongside local teams and creating measurable impact.",
-  compact = false
+  compact = false,
+  featuredTestimonial = "andy"
 } = Astro.props;
+
+const featured = testimonials.find((testimonial) => testimonial.id === featuredTestimonial) ?? testimonials[0];
+const orderedTestimonials = [featured, ...testimonials.filter((testimonial) => testimonial.id !== featured.id)];
 ---
 
-<section class:list={["section", "testimonial-video", { "testimonial-video-compact": compact }]} aria-labelledby="testimonial-video-title">
-  <div class="shell testimonial-video-grid">
-    <div class="testimonial-video-copy">
-      <p class="eyebrow dark">{eyebrow}</p>
-      <h2 id="testimonial-video-title">{title}</h2>
+<section class:list={["section", "testimonial-video", { "testimonial-video-compact": compact }]} aria-labelledby="testimonial-video-title" data-testimonial-carousel>
+  <div class="shell">
+    <div class="testimonial-video-heading">
+      <div class="testimonial-video-copy">
+        <p class="eyebrow dark">{eyebrow}</p>
+        <h2 id="testimonial-video-title">{title}</h2>
+      </div>
       <p>{copy}</p>
     </div>
-    <div class="video-frame">
-      <iframe
-        src="https://player.vimeo.com/video/1211378313?title=0&byline=0&portrait=0"
-        title="Bridgit partner testimonial"
-        allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
-        loading="lazy"
-        allowfullscreen
-      ></iframe>
+
+    <div class="testimonial-feature">
+      <div class="video-frame testimonial-player">
+        <iframe
+          src={featured.video}
+          title={`${featured.name}, ${featured.organisation} — Bridgit partner testimonial`}
+          allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
+          loading="lazy"
+          allowfullscreen
+          data-testimonial-frame
+        ></iframe>
+      </div>
+      <div class="testimonial-feature-copy" aria-live="polite">
+        <span>Featured partner story</span>
+        <strong data-testimonial-name>{featured.name}</strong>
+        <p data-testimonial-organisation>{featured.organisation}</p>
+        <p class="testimonial-watch-note">Press play to hear their experience of working with Bridgit.</p>
+      </div>
+    </div>
+
+    <div class="testimonial-carousel-footer">
+      <p><strong>More partner stories</strong><span data-testimonial-status>1 of {orderedTestimonials.length}</span></p>
+      <div class="testimonial-arrow-controls" aria-label="Testimonial controls">
+        <button type="button" aria-label="Show previous testimonial" data-testimonial-previous>←</button>
+        <button type="button" aria-label="Show next testimonial" data-testimonial-next>→</button>
+      </div>
+    </div>
+
+    <div class="testimonial-selector" aria-label="Choose a partner testimonial">
+      {orderedTestimonials.map((testimonial, index) => (
+        <button
+          type="button"
+          class:list={["testimonial-selector-card", { "is-active": index === 0 }]}
+          aria-pressed={index === 0 ? "true" : "false"}
+          data-testimonial-choice
+          data-video={testimonial.video}
+          data-name={testimonial.name}
+          data-organisation={testimonial.organisation}
+        >
+          <span class="testimonial-initials" aria-hidden="true">{testimonial.initials}</span>
+          <span><strong>{testimonial.name}</strong><small>{testimonial.organisation}</small></span>
+          <span class="testimonial-play" aria-hidden="true">▶</span>
+        </button>
+      ))}
     </div>
   </div>
 </section>
+
+<script is:inline>
+  document.querySelectorAll("[data-testimonial-carousel]").forEach((carousel) => {
+    const frame = carousel.querySelector("[data-testimonial-frame]");
+    const name = carousel.querySelector("[data-testimonial-name]");
+    const organisation = carousel.querySelector("[data-testimonial-organisation]");
+    const status = carousel.querySelector("[data-testimonial-status]");
+    const choices = [...carousel.querySelectorAll("[data-testimonial-choice]")];
+    const previous = carousel.querySelector("[data-testimonial-previous]");
+    const next = carousel.querySelector("[data-testimonial-next]");
+    if (!frame || choices.length === 0) return;
+
+    let activeIndex = 0;
+    const selectTestimonial = (index) => {
+      activeIndex = (index + choices.length) % choices.length;
+      const choice = choices[activeIndex];
+      const video = choice.dataset.video;
+      const person = choice.dataset.name;
+      const partner = choice.dataset.organisation;
+      if (video && frame.getAttribute("src") !== video) frame.setAttribute("src", video);
+      if (person) {
+        frame.setAttribute("title", `${person}, ${partner ?? "Bridgit partner"} — Bridgit partner testimonial`);
+        if (name) name.textContent = person;
+      }
+      if (organisation && partner) organisation.textContent = partner;
+      if (status) status.textContent = `${activeIndex + 1} of ${choices.length}`;
+      choices.forEach((button, buttonIndex) => {
+        const selected = buttonIndex === activeIndex;
+        button.classList.toggle("is-active", selected);
+        button.setAttribute("aria-pressed", String(selected));
+      });
+    };
+
+    choices.forEach((choice, index) => choice.addEventListener("click", () => selectTestimonial(index)));
+    previous?.addEventListener("click", () => selectTestimonial(activeIndex - 1));
+    next?.addEventListener("click", () => selectTestimonial(activeIndex + 1));
+  });
+</script>

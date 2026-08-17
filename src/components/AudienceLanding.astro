@@ -61,6 +61,7 @@ interface Props {
   caseStudies: CaseStudy[];
   testimonialTitle: string;
   testimonialCopy: string;
+  featuredTestimonial?: "andy" | "jenni" | "ali" | "lauren";
   quote?: string;
   quoteAttribution?: string;
   bookingTitle: string;
@@ -200,7 +201,7 @@ const props = Astro.props;
       </section>
     )}
 
-    <TestimonialVideo title={props.testimonialTitle} copy={props.testimonialCopy} compact />
+    <TestimonialVideo title={props.testimonialTitle} copy={props.testimonialCopy} compact featuredTestimonial={props.featuredTestimonial} />
     <BookingSection title={props.bookingTitle} copy={props.bookingCopy} />
     {props.agentId && (
       <ElevenLabsCoach
