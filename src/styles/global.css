@@ -216,15 +216,15 @@ html,body{overflow-x:hidden}
 .hero-explainer iframe{display:block;width:100%;height:100%;border:0}
 .hero-explainer-cover{position:relative;display:block;width:100%;height:100%;padding:0;overflow:hidden;border:0;background:#160b29;color:#fff;font:inherit;text-align:left;cursor:pointer}
 .hero-explainer-cover>img{display:block;width:100%;height:100%;object-fit:cover;object-position:center;transform:scale(1.01);transition:transform .45s ease,filter .45s ease}
-.hero-explainer-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(16,6,32,.08) 20%,rgba(19,8,37,.88) 100%)}
-.hero-explainer-copy{position:absolute;left:28px;right:106px;bottom:27px;display:grid;gap:5px}
+.hero-explainer-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(17,7,34,.82) 0%,rgba(17,7,34,.18) 45%,rgba(17,7,34,.48) 100%)}
+.hero-explainer-copy{position:absolute;left:28px;right:28px;top:25px;display:grid;gap:5px}
 .hero-explainer-eyebrow{color:#f3b0e4;font-size:11px;font-weight:900;letter-spacing:.1em;text-transform:uppercase}
 .hero-explainer-copy strong{max-width:390px;font-size:clamp(22px,2.5vw,32px);line-height:1.08;letter-spacing:-.025em}
 .hero-explainer-copy small{margin-top:3px;color:#eee7f4;font-size:13px;font-weight:800}
-.hero-explainer-play{position:absolute;right:28px;bottom:30px;display:grid;place-items:center;width:62px;height:62px;border:1px solid rgba(255,255,255,.55);border-radius:50%;background:linear-gradient(135deg,#5d9fd0,#c12db5);box-shadow:0 12px 28px rgba(15,5,32,.35);transition:transform .25s ease,box-shadow .25s ease}
+.hero-explainer-play{position:absolute;left:50%;top:61%;display:grid;place-items:center;width:68px;height:68px;border:1px solid rgba(255,255,255,.6);border-radius:50%;background:linear-gradient(135deg,#5d9fd0,#c12db5);box-shadow:0 12px 28px rgba(15,5,32,.35);transform:translate(-50%,-50%);transition:transform .25s ease,box-shadow .25s ease}
 .hero-explainer-play>span{margin-left:4px;font-size:20px}
 .hero-explainer-cover:hover>img{transform:scale(1.045);filter:saturate(1.06)}
-.hero-explainer-cover:hover .hero-explainer-play{transform:scale(1.07);box-shadow:0 16px 34px rgba(15,5,32,.42)}
+.hero-explainer-cover:hover .hero-explainer-play{transform:translate(-50%,-50%) scale(1.07);box-shadow:0 16px 34px rgba(15,5,32,.42)}
 .hero-explainer-cover:focus-visible{outline:4px solid #79d6ea;outline-offset:-5px}
 .audience-image-wrap{position:relative;width:min(420px,82%);aspect-ratio:1;border-radius:46% 54% 42% 58%/48% 42% 58% 52%;overflow:hidden;border:1px solid rgba(255,255,255,.35);box-shadow:0 30px 70px rgba(15,5,32,.3);background:#fff}
 .audience-image-wrap:after{content:"";position:absolute;inset:0;background:linear-gradient(145deg,rgba(100,36,186,.1),transparent 45%,rgba(38,144,198,.14));pointer-events:none}
