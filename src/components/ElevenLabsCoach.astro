@@ -21,48 +21,50 @@ const widgetConfig = {
 };
 ---
 
-{commonQuestions.length > 0 && (
-  <aside class="coach-starters" data-coach-starters>
-    <button
-      class="coach-starters-toggle"
-      type="button"
-      aria-expanded="false"
-      aria-controls={starterId}
-      data-coach-starters-toggle
-    >
-      <span class="coach-starters-mark" aria-hidden="true">?</span>
-      <span><strong>Not sure what to ask?</strong><small>Try a common question</small></span>
-    </button>
-    <div class="coach-starters-panel" id={starterId} hidden data-coach-starters-panel>
-      <div class="coach-starters-heading">
-        <div><span>Conversation starters</span><strong>Try asking {coachName}...</strong></div>
-        <button type="button" aria-label="Close conversation starters" data-coach-starters-close>&times;</button>
+<div class="coach-dock">
+  {commonQuestions.length > 0 && (
+    <aside class="coach-starters" data-coach-starters>
+      <button
+        class="coach-starters-toggle"
+        type="button"
+        aria-label="Show suggested questions"
+        aria-expanded="false"
+        aria-controls={starterId}
+        data-coach-starters-toggle
+      >
+        <span class="coach-starters-mark" aria-hidden="true">?</span>
+      </button>
+      <div class="coach-starters-panel" id={starterId} hidden data-coach-starters-panel>
+        <div class="coach-starters-heading">
+          <div><span>Conversation starters</span><strong>Try asking {coachName}...</strong></div>
+          <button type="button" aria-label="Close conversation starters" data-coach-starters-close>&times;</button>
+        </div>
+        <ul>
+          {commonQuestions.map((question) => (
+            <li>
+              <span>{question}</span>
+              <button type="button" data-coach-copy={question} aria-label={`Copy question: ${question}`}>
+                <span data-copy-label>Copy</span>
+              </button>
+            </li>
+          ))}
+        </ul>
+        <p>Copy a question, open Bridgit and paste it into the message box.</p>
       </div>
-      <ul>
-        {commonQuestions.map((question) => (
-          <li>
-            <span>{question}</span>
-            <button type="button" data-coach-copy={question} aria-label={`Copy question: ${question}`}>
-              <span data-copy-label>Copy</span>
-            </button>
-          </li>
-        ))}
-      </ul>
-      <p>Copy a question, open Bridgit and paste it into the message box.</p>
-    </div>
-  </aside>
-)}
+    </aside>
+  )}
 
-<button
-  class="coach-launcher"
-  type="button"
-  data-elevenlabs-launcher
-  data-widget-config={JSON.stringify(widgetConfig)}
->
-  <span class="coach-launcher-mark" aria-hidden="true"><img src="/images/bridgit-care-logo.png" alt="" /></span>
-  <span>{actionText}</span>
-</button>
-<div data-elevenlabs-container></div>
+  <button
+    class="coach-launcher"
+    type="button"
+    data-elevenlabs-launcher
+    data-widget-config={JSON.stringify(widgetConfig)}
+  >
+    <span class="coach-launcher-mark" aria-hidden="true"><img src="/images/bridgit-care-logo.png" alt="" /></span>
+    <span>{actionText}</span>
+  </button>
+  <div data-elevenlabs-container></div>
+</div>
 
 <script is:inline>
   (() => {
