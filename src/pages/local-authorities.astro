@@ -7,11 +7,11 @@ const page = {
   pageClass: "audience-local-authorities",
   eyebrow: "For councils, neighbourhood teams and VCSE partnerships",
   heroTitle: "A smarter front door. A stronger neighbourhood network.",
-  heroIntro: "Bridgit unleashes the power of your whole local offer—connecting residents to council services, VCSE partners and community assets through one approachable conversation, then keeping them connected as their needs change.",
-  heroNote: "Reduce avoidable front-door demand without replacing your systems or your people. Start with a directory, approved sources and the teams who know your communities.",
+  heroIntro: "Bridgit unleashes the power of your whole local offer—connecting residents to council services, VCSE partners and community assets through one approachable conversation, then turning each journey into useful service intelligence.",
+  heroNote: "Reduce avoidable front-door demand and see what residents need, which pathways work and where gaps are emerging—without replacing your systems or your people.",
   heroImage: "/images/use-cases-v2/local-support.webp",
   heroAlt: "A council neighbourhood worker helping a resident find local support",
-  heroHighlights: ["One connected front door", "Council + VCSE pathways", "Lower repeat demand"],
+  heroHighlights: ["One connected front door", "Council + VCSE pathways", "Live neighbourhood insight"],
   supportUrl: "https://local.bridgit.care/",
   supportLabel: "Find support in your area",
   partnershipLabel: "Built with councils. Proven in neighbourhoods.",
@@ -95,6 +95,31 @@ const page = {
 ---
 
 <AudienceLanding {...page}>
+  <section slot="before-challenge" class="section council-pressure" aria-labelledby="council-pressure-title">
+    <div class="shell">
+      <div class="section-heading audience-heading council-pressure-heading">
+        <div>
+          <p class="eyebrow dark">The pressure is visible in the numbers</p>
+          <h2 id="council-pressure-title">More complex need is reaching services later.</h2>
+        </div>
+        <p>Councils are being asked to resolve rising and increasingly connected need with less room for prevention. A clearer front door matters because the cost of people getting lost is measured in both outcomes and capacity.</p>
+      </div>
+
+      <div class="council-stat-grid">
+        <article><strong>+15%</strong><h3>More adult social-care requests</h3><p>Between 2015/16 and 2023/24, while only 2% more people accessed support.</p></article>
+        <article><strong>1 in 2</strong><h3>EHC plans issued on time</h3><p>Only half met the statutory 20-week deadline in 2023.</p></article>
+        <article><strong>3,800</strong><h3>Families beyond the B&amp;B limit</h3><p>Nearly 3,800 families spent longer than the six-week legal limit in temporary B&amp;B accommodation.</p></article>
+        <article><strong>£12.1bn</strong><h3>Spent on late intervention</h3><p>Children’s social-care late-intervention spend rose as prevention spend fell to £2.8bn.</p></article>
+      </div>
+
+      <div class="council-prevention-case">
+        <span aria-hidden="true">↗</span>
+        <p><strong>Prevention has measurable value.</strong> LGA evidence estimates earlier adult social-care support can return more than £3 for every £1 invested.</p>
+      </div>
+      <p class="council-stat-source">Sources: <a href="https://www.nao.org.uk/press-releases/whole-government-response-essential-to-local-authorities-financial-sustainability/" target="_blank" rel="noopener">National Audit Office, 2025</a> and <a href="https://www.local.gov.uk/publications/spending-review-2025-submission-annexes" target="_blank" rel="noopener">Local Government Association Spending Review submission</a>.</p>
+    </div>
+  </section>
+
   <section slot="after-challenge" class="section council-system-section" aria-labelledby="connected-system-title">
     <div class="shell">
       <div class="section-heading audience-heading">
@@ -147,6 +172,49 @@ const page = {
       <div class="council-journey-line" aria-label="The connected resident journey">
         <span>First question</span><b aria-hidden="true">→</b><span>Clear guidance</span><b aria-hidden="true">→</b><span>Local action</span><b aria-hidden="true">→</b><span>Ongoing check-ins</span><b aria-hidden="true">→</b><span>Warm human handover</span>
       </div>
+    </div>
+  </section>
+
+  <section slot="after-solution" class="section council-intelligence" aria-labelledby="council-intelligence-title">
+    <div class="shell">
+      <div class="section-heading audience-heading">
+        <div>
+          <p class="eyebrow">The intelligence layer</p>
+          <h2 id="council-intelligence-title">See the pressure before it becomes a crisis.</h2>
+        </div>
+        <p>Every conversation helps a resident now and creates a structured signal for the council. Bridgit shows what people are trying to solve, where they are sent, whether pathways work and where the local offer is falling short.</p>
+      </div>
+
+      <div class="council-intelligence-grid">
+        <div class="council-insight-cards">
+          <article><span>01</span><div><h3>What residents need</h3><p>See presenting issues, connected needs and changing demand by neighbourhood, cohort and channel.</p></div></article>
+          <article><span>02</span><div><h3>Where people are connected</h3><p>Understand which council, VCSE and community pathways are recommended, opened and followed.</p></div></article>
+          <article><span>03</span><div><h3>Where pathways fail</h3><p>Find dead ends, repeated searches, abandoned routes and handovers that are not completing.</p></div></article>
+          <article><span>04</span><div><h3>Where unmet need is emerging</h3><p>Spot recurring questions with no adequate local response and gaps that are becoming tomorrow’s demand.</p></div></article>
+        </div>
+
+        <div class="council-dashboard" aria-label="Illustrative council service intelligence dashboard">
+          <div class="council-dashboard-header"><div><span>Illustrative insight view</span><strong>Neighbourhood demand</strong></div><span class="dashboard-live"><i></i> Live signals</span></div>
+          <div class="dashboard-chart">
+            <div class="dashboard-chart-heading"><strong>What residents are trying to solve</strong><span>Last 30 days</span></div>
+            <div class="dashboard-bar"><span>Housing &amp; repairs</span><i><b style="width:86%"></b></i><em>↑</em></div>
+            <div class="dashboard-bar"><span>Money &amp; benefits</span><i><b style="width:72%"></b></i><em>↑</em></div>
+            <div class="dashboard-bar"><span>Caring &amp; support</span><i><b style="width:58%"></b></i><em>→</em></div>
+            <div class="dashboard-bar"><span>Wellbeing &amp; isolation</span><i><b style="width:46%"></b></i><em>↑</em></div>
+          </div>
+          <div class="dashboard-pathways">
+            <div><span>Pathway health</span><strong>Warm handovers completed</strong><b>Working</b></div>
+            <div><span>Emerging gap</span><strong>Evening debt advice</strong><b>Review</b></div>
+          </div>
+          <div class="dashboard-alert"><span>!</span><div><strong>Unmet need signal</strong><p>Repeated requests are appearing where no suitable local pathway is currently available.</p></div></div>
+        </div>
+      </div>
+
+      <div class="council-intelligence-questions">
+        <strong>Questions your teams can answer:</strong>
+        <span>What demand is growing?</span><span>Which referrals complete?</span><span>Where do residents drop out?</span><span>What support is missing?</span>
+      </div>
+      <p class="council-intelligence-note">Role-based reporting, consented handovers and aggregate insight help teams improve services without asking residents to repeat their story.</p>
     </div>
   </section>
 

@@ -39,9 +39,15 @@ const widgetConfig = {
         <button type="button" aria-label="Close conversation starters" data-coach-starters-close>&times;</button>
       </div>
       <ul>
-        {commonQuestions.map((question) => <li>&ldquo;{question}&rdquo;</li>)}
+        {commonQuestions.map((question) => (
+          <li>
+            <button type="button" data-coach-question={question}>
+              <span>{question}</span><span aria-hidden="true">→</span>
+            </button>
+          </li>
+        ))}
       </ul>
-      <p>Open the coach below and ask by text or voice.</p>
+      <p>Choose a question to open the coach and send it automatically.</p>
     </div>
   </aside>
 )}
@@ -65,6 +71,7 @@ const widgetConfig = {
     const starterToggle = starters?.querySelector("[data-coach-starters-toggle]");
     const starterPanel = starters?.querySelector("[data-coach-starters-panel]");
     const starterClose = starters?.querySelector("[data-coach-starters-close]");
+    const starterButtons = starters?.querySelectorAll("[data-coach-question]") ?? [];
     if (!launcher || !container) return;
 
     const config = JSON.parse(launcher.dataset.widgetConfig || "{}");
@@ -132,8 +139,8 @@ const widgetConfig = {
       });
     };
 
-    launcher.addEventListener("click", async () => {
-      if (widget) return;
+    const launchWidget = async () => {
+      if (widget) return widget;
       launcher.setAttribute("aria-busy", "true");
 
       try {
@@ -163,10 +170,88 @@ const widgetConfig = {
         launcher.hidden = true;
         if (starters) starters.hidden = true;
         connectCustomisation();
+        return widget;
       } catch (error) {
         console.error("Unable to load the Bridgit coach", error);
         launcher.removeAttribute("aria-busy");
+        return null;
       }
+    };
+
+    const sendStarterWhenReady = (question) => {
+      let rootAttempts = 0;
+      const waitForWidget = () => {
+        rootAttempts += 1;
+        const root = widget?.shadowRoot;
+        if (!root) {
+          if (rootAttempts < 600) requestAnimationFrame(waitForWidget);
+          return;
+        }
+
+        let messageEntryOpened = false;
+        const tryToSend = () => {
+          if (!messageEntryOpened) {
+            const messageEntry = [...root.querySelectorAll("button")].find((button) =>
+              /message|chat/i.test(`${button.getAttribute("aria-label") ?? ""} ${button.textContent ?? ""}`)
+            );
+            if (messageEntry) {
+              messageEntry.click();
+              messageEntryOpened = true;
+            }
+          }
+
+          const input = root.querySelector('textarea, input[placeholder*="message" i], input[type="text"]');
+          if (!input) return false;
+
+          const valueSetter = Object.getOwnPropertyDescriptor(
+            input instanceof HTMLTextAreaElement ? HTMLTextAreaElement.prototype : HTMLInputElement.prototype,
+            "value"
+          )?.set;
+          valueSetter?.call(input, question);
+          input.dispatchEvent(new InputEvent("input", { bubbles: true, inputType: "insertText", data: question }));
+          input.dispatchEvent(new Event("change", { bubbles: true }));
+
+          requestAnimationFrame(() => {
+            const submit = input.closest("form")?.querySelector('button[type="submit"]') ??
+              [...root.querySelectorAll("button")].find((button) =>
+                /send/i.test(`${button.getAttribute("aria-label") ?? ""} ${button.getAttribute("title") ?? ""}`)
+              );
+            if (submit && !submit.disabled) {
+              submit.click();
+            } else {
+              input.dispatchEvent(new KeyboardEvent("keydown", { key: "Enter", code: "Enter", bubbles: true }));
+              input.dispatchEvent(new KeyboardEvent("keyup", { key: "Enter", code: "Enter", bubbles: true }));
+            }
+          });
+          return true;
+        };
+
+        if (tryToSend()) return;
+
+        const observer = new MutationObserver(() => {
+          if (tryToSend()) observer.disconnect();
+        });
+        observer.observe(root, { childList: true, subtree: true });
+
+        // Keep the selected question ready while a first-time visitor reads
+        // and accepts ElevenLabs' required consent notice.
+        window.setTimeout(() => observer.disconnect(), 300000);
+      };
+
+      requestAnimationFrame(waitForWidget);
+    };
+
+    launcher.addEventListener("click", launchWidget);
+    starterButtons.forEach((button) => {
+      button.addEventListener("click", async () => {
+        const question = button.dataset.coachQuestion;
+        if (!question) return;
+        button.setAttribute("aria-busy", "true");
+        setStartersOpen(false);
+        const activeWidget = await launchWidget();
+        button.removeAttribute("aria-busy");
+        if (activeWidget) sendStarterWhenReady(question);
+      });
     });
   })();
 </script>
