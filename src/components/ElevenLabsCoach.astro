@@ -3,16 +3,46 @@ interface Props {
   agentId: string;
   actionText: string;
   coachName?: string;
+  commonQuestions?: string[];
 }
 
 const {
   agentId,
   actionText,
-  coachName = "Bridgit"
+  coachName = "Bridgit",
+  commonQuestions = []
 } = Astro.props;
+
+const starterId = `coach-starters-${agentId}`;
 ---
 
+{commonQuestions.length > 0 && (
+  <aside class="coach-starters" data-coach-starters>
+    <button
+      class="coach-starters-toggle"
+      type="button"
+      aria-expanded="false"
+      aria-controls={starterId}
+      data-coach-starters-toggle
+    >
+      <span class="coach-starters-mark" aria-hidden="true">?</span>
+      <span><strong>Not sure what to ask?</strong><small>Try a common question</small></span>
+    </button>
+    <div class="coach-starters-panel" id={starterId} hidden data-coach-starters-panel>
+      <div class="coach-starters-heading">
+        <div><span>Conversation starters</span><strong>Try asking {coachName}...</strong></div>
+        <button type="button" aria-label="Close conversation starters" data-coach-starters-close>&times;</button>
+      </div>
+      <ul>
+        {commonQuestions.map((question) => <li>&ldquo;{question}&rdquo;</li>)}
+      </ul>
+      <p>Open the coach below and ask by text or voice.</p>
+    </div>
+  </aside>
+)}
+
 <elevenlabs-convai
+  id={`elevenlabs-coach-${agentId}`}
   agent-id={agentId}
   variant="expandable"
   dismissible="true"
@@ -22,6 +52,7 @@ const {
   expand-text={`Open ${coachName} coach`}
   listening-text={`${coachName} is listening…`}
   speaking-text={`${coachName} is speaking…`}
+  disable-banner="true"
   markdown-link-allowed-hosts="bridgit.care"
   markdown-link-include-www="true"
 ></elevenlabs-convai>
@@ -30,7 +61,28 @@ const {
 <script is:inline>
   customElements.whenDefined("elevenlabs-convai").then(() => {
     const widget = document.querySelector("elevenlabs-convai");
+    const starters = document.querySelector("[data-coach-starters]");
+    const starterToggle = starters?.querySelector("[data-coach-starters-toggle]");
+    const starterPanel = starters?.querySelector("[data-coach-starters-panel]");
+    const starterClose = starters?.querySelector("[data-coach-starters-close]");
     let attempts = 0;
+
+    const setStartersOpen = (open) => {
+      if (!starterToggle || !starterPanel) return;
+      starterToggle.setAttribute("aria-expanded", String(open));
+      starterPanel.hidden = !open;
+    };
+
+    starterToggle?.addEventListener("click", () => {
+      setStartersOpen(starterToggle.getAttribute("aria-expanded") !== "true");
+    });
+    starterClose?.addEventListener("click", () => setStartersOpen(false));
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") setStartersOpen(false);
+    });
+    widget?.addEventListener("elevenlabs-convai:call", () => {
+      if (starters) starters.hidden = true;
+    });
 
     const connectFlagOverride = () => {
       const root = widget?.shadowRoot;
@@ -39,15 +91,22 @@ const {
         return;
       }
 
-      const useBritishFlag = () => {
+      const customiseWidget = () => {
         root.querySelectorAll('img[src*="/flags/circle-flags/us.svg"]').forEach((flag) => {
           flag.src = "https://bridgit-main-site.pages.dev/images/uk-flag-round.svg";
           flag.alt = "UK flag";
         });
+
+        root.querySelectorAll("a, div, p, span").forEach((element) => {
+          const label = element.textContent?.trim();
+          if (/^Powered by (ElevenLabs|ElevenAgents)$/i.test(label)) {
+            element.style.display = "none";
+          }
+        });
       };
 
-      useBritishFlag();
-      new MutationObserver(useBritishFlag).observe(root, {
+      customiseWidget();
+      new MutationObserver(customiseWidget).observe(root, {
         childList: true,
         subtree: true,
         attributes: true,

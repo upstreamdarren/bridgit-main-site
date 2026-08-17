@@ -67,6 +67,7 @@ interface Props {
   bookingCopy: string;
   agentId?: string;
   coachActionText?: string;
+  coachQuestions?: string[];
 }
 
 const props = Astro.props;
@@ -203,6 +204,7 @@ const props = Astro.props;
       <ElevenLabsCoach
         agentId={props.agentId}
         actionText={props.coachActionText ?? "Ask Bridgit"}
+        commonQuestions={props.coachQuestions ?? []}
       />
     )}
   </div>

@@ -420,3 +420,24 @@ html,body{overflow-x:hidden}
 @media(max-width:1000px){.leadership-hero-grid,.leadership-team-heading{grid-template-columns:1fr}.leader-card{grid-column:span 3}.leader-card:nth-child(4){grid-column:span 3}.leader-card:last-child{grid-column:2/span 4}.leadership-values{grid-template-columns:1fr 1fr}.leadership-values article:last-child{grid-column:1/-1}}
 @media(max-width:650px){.leadership-values{grid-template-columns:1fr}.leadership-values article:last-child{grid-column:auto}.leader-grid{grid-template-columns:1fr}.leader-card,.leader-card:nth-child(4),.leader-card:last-child{grid-column:auto}.leadership-team-heading{gap:18px}.leader-copy{padding:24px 22px 26px}}
 @media(hover:none){.leader-card:hover .leader-photo-real{opacity:1;transform:scale(1.012)}.leader-card:hover .leader-photo-ai{opacity:0;transform:scale(1.045)}.leader-card:hover .leader-alter-ego{opacity:0;transform:translateY(-8px)}.leader-card.is-showing-ai .leader-photo-real{opacity:0;transform:scale(1.055)}.leader-card.is-showing-ai .leader-photo-ai{opacity:1;transform:scale(1)}.leader-card.is-showing-ai .leader-alter-ego{opacity:1;transform:none}}
+
+/* ElevenLabs coach conversation starters */
+.coach-starters{position:fixed;right:22px;bottom:104px;z-index:9998;width:min(360px,calc(100vw - 32px));font-family:"Nunito",Arial,sans-serif}
+.coach-starters[hidden],.coach-starters-panel[hidden]{display:none}
+.coach-starters-toggle{display:flex;align-items:center;gap:11px;margin-left:auto;padding:10px 15px 10px 10px;border:1px solid #e4d9ef;border-radius:999px;background:rgba(255,255,255,.97);color:var(--purple-dark);font:inherit;text-align:left;cursor:pointer;box-shadow:0 12px 34px rgba(36,17,60,.18);backdrop-filter:blur(12px)}
+.coach-starters-toggle:hover{transform:translateY(-1px);box-shadow:0 15px 38px rgba(36,17,60,.23)}
+.coach-starters-toggle>span:last-child{display:grid;line-height:1.18}
+.coach-starters-toggle strong{font-size:13px}
+.coach-starters-toggle small{margin-top:2px;color:var(--muted);font-size:11px;font-weight:800}
+.coach-starters-mark{display:grid;place-items:center;flex:0 0 34px;width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,#5ea8d8,#c12cb2);color:#fff;font-size:20px;font-weight:900}
+.coach-starters-panel{position:absolute;right:0;bottom:62px;width:100%;padding:19px;border:1px solid #e3d7ee;border-radius:22px;background:rgba(255,255,255,.98);color:var(--ink);box-shadow:0 22px 60px rgba(36,17,60,.24);backdrop-filter:blur(16px)}
+.coach-starters-heading{display:flex;align-items:flex-start;justify-content:space-between;gap:14px}
+.coach-starters-heading>div{display:grid}
+.coach-starters-heading span{color:var(--pink);font-size:10px;font-weight:900;letter-spacing:.1em;text-transform:uppercase}
+.coach-starters-heading strong{margin-top:3px;font-size:18px}
+.coach-starters-heading button{display:grid;place-items:center;flex:0 0 30px;width:30px;height:30px;padding:0;border:0;border-radius:50%;background:#f2edf7;color:var(--purple-dark);font:800 20px/1 Arial,sans-serif;cursor:pointer}
+.coach-starters-panel ul{display:grid;gap:8px;margin:15px 0 12px;padding:0;list-style:none}
+.coach-starters-panel li{padding:10px 12px;border:1px solid #e8def1;border-radius:13px;background:linear-gradient(135deg,#fbf8fe,#f2f8fc);color:#3f3151;font-size:13px;font-weight:800;line-height:1.35}
+.coach-starters-panel p{margin:0;color:var(--muted);font-size:11px;font-weight:800}
+
+@media(max-width:600px){.coach-starters{right:14px;bottom:88px;width:calc(100vw - 28px)}.coach-starters-panel{padding:17px}.coach-starters-toggle strong{font-size:12px}.coach-starters-toggle small{font-size:10px}}

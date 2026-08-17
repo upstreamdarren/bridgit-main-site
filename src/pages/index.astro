@@ -2,6 +2,7 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import TestimonialVideo from "../components/TestimonialVideo.astro";
 import BookingSection from "../components/BookingSection.astro";
+import ElevenLabsCoach from "../components/ElevenLabsCoach.astro";
 import partners from "../data/partners.json";
 
 const steps = [
@@ -288,20 +289,15 @@ const useCases = [
 
   <BookingSection />
 
-  <elevenlabs-convai
-    agent-id="agent_9001k5y0ara8ej0tqx19x61wcqkq"
-    variant="expandable"
-    dismissible="true"
-    action-text="Ask Bridgit"
-    start-call-text="Talk with Bridgit"
-    end-call-text="Finish conversation"
-    expand-text="Open Bridgit coach"
-    listening-text="Bridgit is listening…"
-    speaking-text="Bridgit is speaking…"
-    markdown-link-allowed-hosts="bridgit.care"
-    markdown-link-include-www="true"
-  ></elevenlabs-convai>
-  <script is:inline src="https://unpkg.com/@elevenlabs/convai-widget-embed" async type="text/javascript"></script>
+  <ElevenLabsCoach
+    agentId="agent_9001k5y0ara8ej0tqx19x61wcqkq"
+    actionText="Ask Bridgit"
+    commonQuestions={[
+      "What does Bridgit do?",
+      "How could Bridgit support our organisation?",
+      "What would a first project look like?"
+    ]}
+  />
   <script is:inline>
     document.querySelectorAll("[data-solution-carousel]").forEach((carousel) => {
       const track = carousel.querySelector("[data-solution-track]");
@@ -338,34 +334,5 @@ const useCases = [
       updateCarousel();
     });
 
-    customElements.whenDefined("elevenlabs-convai").then(() => {
-      const widget = document.querySelector("elevenlabs-convai");
-      let attempts = 0;
-
-      const connectFlagOverride = () => {
-        const root = widget?.shadowRoot;
-        if (!root) {
-          if (attempts++ < 300) requestAnimationFrame(connectFlagOverride);
-          return;
-        }
-
-        const useBritishFlag = () => {
-          root.querySelectorAll('img[src*="/flags/circle-flags/us.svg"]').forEach((flag) => {
-            flag.src = "https://bridgit-main-site.pages.dev/images/uk-flag-round.svg";
-            flag.alt = "UK flag";
-          });
-        };
-
-        useBritishFlag();
-        new MutationObserver(useBritishFlag).observe(root, {
-          childList: true,
-          subtree: true,
-          attributes: true,
-          attributeFilter: ["src"]
-        });
-      };
-
-      connectFlagOverride();
-    });
   </script>
 </BaseLayout>

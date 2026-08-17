@@ -24,7 +24,7 @@ const definitions = [
     knowledgeFile: "../docs/elevenlabs/knowledge/adult-carers.md",
     knowledgeName: "Bridgit Sales Knowledge - Adult Carer Services v1",
     firstMessage:
-      "Hi, I'm Bridgit. I can show you how digital coaches help carer services reach hidden and unpaid carers earlier while keeping human expertise at the centre. What kind of organisation are you from, and what challenge are you exploring?",
+      "Hi, I'm Bridgit. I can show you how digital coaches help carer services reach hidden and unpaid carers earlier while keeping human expertise at the centre. You could ask: How can we reach hidden carers earlier? How would Bridgit work alongside our team? Or what would a practical first deployment look like? What would be most useful to explore?",
     widgetLabel: "Ask about carer services"
   },
   {
@@ -34,8 +34,8 @@ const definitions = [
     knowledgeFile: "../docs/elevenlabs/knowledge/local-support.md",
     knowledgeName: "Bridgit Sales Knowledge - Local Support v1",
     firstMessage:
-      "Hi, I'm Bridgit. I can explain how councils and neighbourhood partners use digital coaches to offer earlier, joined-up support while protecting specialist team capacity. Which resident journey or service-pressure challenge are you looking at?",
-    widgetLabel: "Ask about local support"
+      "Hi, I'm Bridgit. I can explain how councils and neighbourhood partners use digital coaches to offer earlier, joined-up support while protecting specialist team capacity. You could ask: How can we reduce pressure on our front door? How do council and VCSE pathways connect? Or what would you need from us to get started? What would be most useful to explore?",
+    widgetLabel: "Ask about Council Front Door"
   },
   {
     slug: "social-enterprises",
@@ -44,7 +44,7 @@ const definitions = [
     knowledgeFile: "../docs/elevenlabs/knowledge/social-enterprises.md",
     knowledgeName: "Bridgit Sales Knowledge - Social Enterprises v1",
     firstMessage:
-      "Hi, I'm Bridgit. I can help you explore how a digital coach could extend your social enterprise's service model without losing its purpose or human relationships. What does your organisation do, and what would you most like to scale?",
+      "Hi, I'm Bridgit. I can help you explore how a digital coach could extend your social enterprise's service model without losing its purpose or human relationships. You could ask: How could a coach help us reach more people? How could we evidence social impact? Or what is the simplest first use case to launch? What would be most useful to explore?",
     widgetLabel: "Ask about scaling impact"
   }
 ];
