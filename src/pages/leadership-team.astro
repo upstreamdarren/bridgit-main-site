@@ -1,0 +1,139 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import BookingSection from "../components/BookingSection.astro";
+
+const leaders = [
+  {
+    name: "Darren Crombie",
+    role: "Founder · social impact",
+    photo: "/images/leadership/darren-crombie.webp",
+    aiPhoto: "/images/leadership/darren-crombie-ai.webp",
+    alterEgo: "The Social Impact Pathfinder",
+    bio: "Darren founded Bridgit around a simple belief: trusted support should be easier to reach. He works with partners, people with lived experience and the team to turn real-world gaps into practical digital services.",
+    passion: "Using technology for social good—and making sure it gives people more time to be human."
+  },
+  {
+    name: "Cankat Saraç",
+    role: "Innovation Lead · AI & product",
+    photo: "/images/leadership/cankat-sarac.webp",
+    aiPhoto: "/images/leadership/cankat-sarac-ai.webp",
+    alterEgo: "The Practical Inventor",
+    bio: "An electronics engineer, software developer and AI specialist, Cankat helps turn ambitious ideas into dependable products. He brings curiosity, technical depth and a strong instinct for building things that matter.",
+    passion: "Making advanced technology feel useful, understandable and ready for the real world."
+  },
+  {
+    name: "Kateule Bwalya",
+    role: "Leadership team · strategy & stewardship",
+    photo: "/images/leadership/kateule-bwalya.webp",
+    aiPhoto: "/images/leadership/kateule-bwalya-ai.webp",
+    alterEgo: "The Responsible AI Guardian",
+    bio: "Kateule brings thoughtful challenge to Bridgit’s direction and growth. His focus is helping the team make clear decisions, ask the difficult questions and build impact on sound foundations.",
+    passion: "Big ideas with strong stewardship, good judgement and a clear benefit for the people they affect."
+  },
+  {
+    name: "Laura Allbuary",
+    role: "Partnerships · growth & relationships",
+    photo: "/images/leadership/laura-allbuary.webp",
+    aiPhoto: "/images/leadership/laura-allbuary-ai.webp",
+    alterEgo: "The Connection Constellation",
+    bio: "Laura starts with people, not pitches. She helps organisations explore where Bridgit could make a genuine difference, brings the right voices into the conversation and keeps partnerships moving with warmth and momentum.",
+    passion: "Connecting good people around practical ideas that can grow into lasting social impact."
+  },
+  {
+    name: "Jack Ford",
+    role: "Leadership team · product & delivery",
+    photo: "/images/leadership/jack-ford.webp",
+    aiPhoto: "/images/leadership/jack-ford-ai.webp",
+    alterEgo: "The Product Wizard",
+    bio: "Jack helps turn a promising idea into something clear, usable and deliverable. He brings calm problem-solving to the details that make a service work well for partners, teams and the people using it.",
+    passion: "Removing complexity until the next step feels obvious—and making useful things properly useful."
+  }
+];
+---
+
+<BaseLayout
+  title="Meet the Bridgit leadership team | Bridgit Care"
+  description="Meet the people leading Bridgit Care: a social enterprise team combining lived experience, partnerships, product thinking and responsible AI to extend human support."
+>
+  <section class="section leadership-hero">
+    <div class="shell leadership-hero-grid">
+      <div>
+        <p class="eyebrow dark">Meet the humans behind the helpful machines</p>
+        <h1>Serious about impact.<br /><span>Not too serious about ourselves.</span></h1>
+      </div>
+      <div class="leadership-hero-copy">
+        <p>Bridgit is led by people who care about social impact, useful technology and the human relationships that make support work.</p>
+        <p>We bring different disciplines and perspectives to the same question: <strong>how can more people get good help earlier, without stretching great teams even further?</strong></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section leadership-principles" aria-labelledby="principles-title">
+    <div class="shell">
+      <div class="section-heading">
+        <div><p class="eyebrow dark">What holds us together</p><h2 id="principles-title">Technology in service of people.</h2></div>
+        <p>We build with partners and people with lived experience, stay honest about where AI should stop, and design every coach to strengthen—not replace—the human support around it.</p>
+      </div>
+      <div class="leadership-values">
+        <article><span aria-hidden="true">01</span><h3>Start with real lives</h3><p>Listen first. The service model follows the person, not the other way around.</p></article>
+        <article><span aria-hidden="true">02</span><h3>Make it useful</h3><p>Clear guidance and practical next steps matter more than clever technology theatre.</p></article>
+        <article><span aria-hidden="true">03</span><h3>Keep humans in control</h3><p>Safeguards, consent and warm handovers are part of the product—not an afterthought.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section leadership-team" aria-labelledby="leadership-title">
+    <div class="shell">
+      <div class="leadership-team-heading">
+        <div><p class="eyebrow dark">Our leadership team</p><h2 id="leadership-title">Five people. Plenty of opinions. One shared purpose.</h2></div>
+        <p>Hover over a portrait—or use the button—to reveal each person’s unofficial AI alter ego.</p>
+      </div>
+
+      <div class="leader-grid">
+        {leaders.map((leader) => (
+          <article class="leader-card" data-leader-card>
+            <div class="leader-portrait">
+              <img class="leader-photo leader-photo-real" src={leader.photo} alt={`Portrait of ${leader.name}`} width="900" height="900" loading="lazy" />
+              <img class="leader-photo leader-photo-ai" src={leader.aiPhoto} alt={`${leader.name} imagined as ${leader.alterEgo}`} width="1254" height="1254" loading="lazy" />
+              <p class="leader-alter-ego"><span>AI alter ego</span>{leader.alterEgo}</p>
+              <button type="button" data-leader-toggle aria-pressed="false">
+                <span class="leader-toggle-show">Meet the alter ego</span>
+                <span class="leader-toggle-hide">Back to the human</span>
+              </button>
+            </div>
+            <div class="leader-copy">
+              <p class="leader-role">{leader.role}</p>
+              <h3>{leader.name}</h3>
+              <p>{leader.bio}</p>
+              <div class="leader-passion"><span>What lights them up</span><p>{leader.passion}</p></div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section leadership-invite">
+    <div class="shell leadership-invite-inner">
+      <p class="eyebrow">Come and challenge us</p>
+      <h2>The best ideas usually start with a real problem and an honest conversation.</h2>
+      <p>If your service is under pressure, your knowledge is hard to scale or people are falling between different routes, bring us the messy version. We like working it out together.</p>
+      <a class="button button-light" href="#book-a-call">Start a conversation</a>
+    </div>
+  </section>
+
+  <BookingSection
+    title="Bring us the challenge your team keeps talking about."
+    copy="Choose a convenient 30-minute slot with Laura. We’ll listen first, explore whether Bridgit is a good fit and give you a practical next step."
+  />
+
+  <script>
+    document.querySelectorAll("[data-leader-card]").forEach((card) => {
+      const toggle = card.querySelector("[data-leader-toggle]");
+      toggle?.addEventListener("click", () => {
+        const showingAI = card.classList.toggle("is-showing-ai");
+        toggle.setAttribute("aria-pressed", String(showingAI));
+      });
+    });
+  </script>
+</BaseLayout>

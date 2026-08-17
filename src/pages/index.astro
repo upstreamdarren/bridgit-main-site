@@ -91,8 +91,8 @@ const useCases = [
         <img src="/images/homepage-problem-pressure.webp" alt="People balancing connected caring, health, work, housing and money pressures while a small support team handles multiple routes" width="1536" height="1024" loading="lazy" />
         <figcaption class="problem-visual-copy">
           <p class="eyebrow dark">People do not experience one problem at a time</p>
-          <h3>One question can hide a whole chain of need.</h3>
-          <p>A caring role affects work. Poor health affects confidence and income. A housing worry becomes a wellbeing crisis. People are left to join up separate information, services and appointments themselves—often repeating their story at every door.</p>
+          <h3>People rarely arrive with just one problem.</h3>
+          <p>A question about money may also involve caring, housing, work or wellbeing. Yet support is often organised in separate places, leaving people to join everything up and repeat their story at every door.</p>
         </figcaption>
       </figure>
 
@@ -226,30 +226,39 @@ const useCases = [
   <section class="section use-cases" id="support">
     <div class="shell">
       <p class="eyebrow dark">Choose the area you want to improve</p>
-      <div class="section-heading"><h2>Different communities. The same connected model.</h2><p>Explore how Bridgit can support each priority group or partner model. Every card now opens a complete solution page with the challenge, user journey, delivery model and outcomes in one place.</p></div>
-      <div class="usecase-grid">
-        {useCases.map(({ title, copy, image, href }) => (
-          <article class="usecase-card">
-            <img src={image} alt="" loading="lazy" width="500" height="500" />
-            <div class="usecase-card-copy">
-              <h3>{title}</h3>
-              <p>{copy}</p>
-              <div class="usecase-links">
-                <a href={href}>Explore this solution <span aria-hidden="true">→</span></a>
-              </div>
-            </div>
-          </article>
-        ))}
-        <article class="usecase-card usecase-card-bespoke">
-          <div class="bespoke-mark" aria-hidden="true">?</div>
-          <div class="bespoke-copy">
-            <p class="bespoke-kicker">Something different?</p>
-            <h3>Your idea doesn’t need to fit a template.</h3>
-            <p>If you have a different service model, priority or idea, bring it to us. We can create bespoke coaches and digital team members with you in hours.</p>
+      <div class="section-heading usecase-heading"><h2>One connected model, shaped around different lives.</h2><p>Choose the group or partnership closest to your priority. Each page shows the challenge, support journey, delivery model and outcomes clearly.</p></div>
+      <div class="usecase-carousel" data-solution-carousel>
+        <div class="usecase-carousel-controls" aria-label="Browse solutions">
+          <p class="usecase-status" data-solution-status aria-live="polite">Showing solutions 1 to 3 of {useCases.length}</p>
+          <div>
+            <button type="button" data-solution-prev aria-label="Show previous solutions"><span aria-hidden="true">&larr;</span></button>
+            <button type="button" data-solution-next aria-label="Show next solutions"><span aria-hidden="true">&rarr;</span></button>
           </div>
-          <a class="button button-light" href="#book-a-call">Talk through your idea</a>
-        </article>
+        </div>
+        <div class="usecase-rail" data-solution-track tabindex="0" aria-label="Bridgit solutions">
+          {useCases.map(({ title, copy, image, href }) => (
+            <article class="usecase-card">
+              <img src={image} alt="" loading="lazy" width="500" height="500" />
+              <div class="usecase-card-copy">
+                <h3>{title}</h3>
+                <p>{copy}</p>
+                <div class="usecase-links">
+                  <a href={href}>Explore this solution <span aria-hidden="true">&rarr;</span></a>
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
       </div>
+      <article class="usecase-card usecase-card-bespoke">
+        <div class="bespoke-mark" aria-hidden="true">?</div>
+        <div class="bespoke-copy">
+          <p class="bespoke-kicker">Something different?</p>
+          <h3>Your idea doesn’t need to fit a template.</h3>
+          <p>If you have a different service model, priority or idea, bring it to us. We can create bespoke coaches and digital team members with you in hours.</p>
+        </div>
+        <a class="button button-light" href="#book-a-call">Talk through your idea</a>
+      </article>
     </div>
   </section>
 
@@ -261,16 +270,19 @@ const useCases = [
 
   <section class="section teams">
     <div class="shell teams-grid">
-      <div class="teams-copy">
-        <p class="eyebrow">The people behind the AI</p>
-        <h2>Human expertise stays at the centre.</h2>
-        <p>Bridgit is built by a UK social enterprise team working alongside councils, charities, frontline professionals and people with lived experience. Our coaches handle early guidance, repeat questions, check-ins and routine admin so real people can spend more time on relationships, safeguarding, complex decisions and those who need them most.</p>
-        <a class="button button-light" href="#book-a-call">Meet us and share your challenge</a>
-      </div>
       <figure class="team-photo">
         <div class="team-photo-frame"><img src="/images/bridgit-team-peterborough-2026.jpg" alt="Members of the Bridgit team together outside Peterborough Cathedral" loading="lazy" width="2048" height="1365" /></div>
         <figcaption>Some of the Bridgit team at the Peterborough 2026 Partnership Awards.</figcaption>
       </figure>
+      <div class="teams-copy">
+        <p class="eyebrow">The people behind the AI</p>
+        <h2>Human expertise stays at the centre.</h2>
+        <p>Bridgit is built by a UK social enterprise team working alongside councils, charities, frontline professionals and people with lived experience. Our coaches handle early guidance, repeat questions, check-ins and routine admin so real people can spend more time on relationships, safeguarding, complex decisions and those who need them most.</p>
+        <div class="button-row">
+          <a class="button button-light" href="/leadership-team">Meet the leadership team</a>
+          <a class="teams-text-link" href="#book-a-call">Share your challenge <span aria-hidden="true">&rarr;</span></a>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -291,6 +303,41 @@ const useCases = [
   ></elevenlabs-convai>
   <script is:inline src="https://unpkg.com/@elevenlabs/convai-widget-embed" async type="text/javascript"></script>
   <script is:inline>
+    document.querySelectorAll("[data-solution-carousel]").forEach((carousel) => {
+      const track = carousel.querySelector("[data-solution-track]");
+      const cards = Array.from(track?.children || []);
+      const previous = carousel.querySelector("[data-solution-prev]");
+      const next = carousel.querySelector("[data-solution-next]");
+      const status = carousel.querySelector("[data-solution-status]");
+
+      const visibleCards = () => {
+        if (!track || !cards[0]) return 1;
+        return Math.max(1, Math.round(track.clientWidth / cards[0].getBoundingClientRect().width));
+      };
+
+      const updateCarousel = () => {
+        if (!track || !cards[0]) return;
+        const cardWidth = cards[0].getBoundingClientRect().width;
+        const active = Math.min(cards.length - 1, Math.max(0, Math.round(track.scrollLeft / cardWidth)));
+        const visible = visibleCards();
+        if (status) status.textContent = `Showing solutions ${active + 1} to ${Math.min(cards.length, active + visible)} of ${cards.length}`;
+        if (previous) previous.disabled = track.scrollLeft < 8;
+        if (next) next.disabled = track.scrollLeft + track.clientWidth >= track.scrollWidth - 8;
+      };
+
+      const move = (direction) => {
+        if (!track || !cards[0]) return;
+        const gap = parseFloat(getComputedStyle(track).columnGap || "0");
+        track.scrollBy({ left: direction * (cards[0].getBoundingClientRect().width + gap), behavior: "smooth" });
+      };
+
+      previous?.addEventListener("click", () => move(-1));
+      next?.addEventListener("click", () => move(1));
+      track?.addEventListener("scroll", updateCarousel, { passive: true });
+      window.addEventListener("resize", updateCarousel);
+      updateCarousel();
+    });
+
     customElements.whenDefined("elevenlabs-convai").then(() => {
       const widget = document.querySelector("elevenlabs-convai");
       let attempts = 0;
