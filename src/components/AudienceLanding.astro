@@ -135,6 +135,8 @@ const props = Astro.props;
       </div>
     </section>
 
+    <slot name="after-challenge" />
+
     <BeforeAfterStory {...props.story} />
 
     <section class="section audience-solution" id="how-we-help">
@@ -150,6 +152,8 @@ const props = Astro.props;
         </ol>
       </div>
     </section>
+
+    <slot name="after-solution" />
 
     <section class="section audience-gains">
       <div class="shell">

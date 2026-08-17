@@ -276,6 +276,53 @@ html,body{overflow-x:hidden}
 .solution-flow li>span{display:block;margin-bottom:38px;color:#f49de4;font-size:14px;font-weight:900}
 .solution-flow h3{margin:0 0 10px;font-size:24px}
 .solution-flow p{margin:0;color:#e9e1f2;font-size:15px}
+
+/* Council Front Door flagship page */
+.council-system-section{overflow:hidden;background:radial-gradient(circle at 8% 8%,rgba(216,58,174,.09),transparent 25%),radial-gradient(circle at 92% 88%,rgba(30,145,187,.12),transparent 28%),#fff}
+.council-system-map{display:grid;grid-template-columns:minmax(0,1fr) minmax(310px,1.25fr) minmax(0,1fr);grid-template-areas:"community centre universal" "crisis centre targeted";gap:18px;align-items:stretch}
+.council-layer{position:relative;overflow:hidden;padding:25px 24px 24px;border:1px solid #e3d9eb;border-radius:25px;background:#fff;box-shadow:0 13px 34px rgba(45,22,70,.07)}
+.council-layer:before{content:"";position:absolute;inset:0 auto 0 0;width:5px;background:var(--layer-colour)}
+.council-layer-number{position:absolute;right:20px;top:18px;color:var(--layer-colour);font-size:13px;font-weight:900}
+.council-layer>p{margin:0 0 5px;color:var(--layer-colour);font-size:12px;font-weight:900;letter-spacing:.09em;text-transform:uppercase}
+.council-layer h3{margin:0 0 15px;color:var(--ink);font-size:24px}
+.council-layer ul{display:grid;gap:7px;margin:0;padding:0;list-style:none}
+.council-layer li{position:relative;padding-left:17px;color:var(--muted);font-size:14px}
+.council-layer li:before{content:"";position:absolute;left:0;top:.7em;width:6px;height:6px;border-radius:50%;background:var(--layer-colour)}
+.council-layer-community{grid-area:community;--layer-colour:#6331ae}
+.council-layer-universal{grid-area:universal;--layer-colour:#187b65}
+.council-layer-targeted{grid-area:targeted;--layer-colour:#d82d91}
+.council-layer-crisis{grid-area:crisis;--layer-colour:#e35a12}
+.council-system-centre{grid-area:centre;position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:center;min-height:440px;padding:38px;border:1px solid rgba(92,39,159,.24);border-radius:34px;background:radial-gradient(circle at 50% 48%,rgba(255,255,255,.98) 0 31%,rgba(239,231,251,.96) 31.5% 45%,rgba(222,242,249,.92) 45.5% 60%,rgba(253,238,247,.9) 60.5% 73%,transparent 73.5%),linear-gradient(145deg,#f7f2fc,#edf9fb);box-shadow:0 20px 54px rgba(51,20,91,.13);text-align:center}
+.council-system-centre:after{content:"";position:absolute;inset:20px;border:1px dashed rgba(98,40,172,.24);border-radius:28px;pointer-events:none}
+.council-system-centre>*{position:relative;z-index:1}
+.council-system-kicker{color:var(--pink);font-size:12px;font-weight:900;letter-spacing:.1em;text-transform:uppercase}
+.council-system-centre>strong{display:block;max-width:330px;margin:9px auto 23px;color:var(--purple-dark);font-size:clamp(25px,2.5vw,34px);line-height:1.12}
+.council-asset-cloud{display:flex;justify-content:center;flex-wrap:wrap;gap:8px;margin:0 auto 22px}
+.council-asset-cloud span{padding:7px 10px;border:1px solid #ddcfea;border-radius:999px;background:rgba(255,255,255,.92);color:#4d3d62;font-size:11px;font-weight:900;box-shadow:0 5px 13px rgba(48,23,79,.06)}
+.council-system-centre>p{max-width:390px;margin:0 auto;color:var(--muted);font-size:14px}
+.council-journey-line{display:flex;justify-content:center;align-items:center;gap:12px;margin-top:22px;padding:18px 22px;border:1px solid #e3d9eb;border-radius:22px;background:#faf8fc;box-shadow:0 10px 27px rgba(45,22,70,.05)}
+.council-journey-line span{color:var(--purple-dark);font-size:13px;font-weight:900;text-align:center}
+.council-journey-line b{color:var(--pink);font-size:19px}
+.council-activation{color:#fff;background:radial-gradient(circle at 7% 10%,rgba(219,55,176,.32),transparent 28%),radial-gradient(circle at 93% 88%,rgba(32,160,188,.28),transparent 30%),linear-gradient(128deg,#260d4a,#56219a 58%,#145d7c)}
+.council-activation .section-heading>p{color:#eee7f5}
+.council-start-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}
+.council-start-grid article{padding:25px 22px;border:1px solid rgba(255,255,255,.19);border-radius:23px;background:rgba(255,255,255,.09);backdrop-filter:blur(8px)}
+.council-start-grid article>span{display:grid;place-items:center;width:39px;height:39px;margin-bottom:27px;border-radius:13px;background:#fff;color:var(--purple);font-size:12px;font-weight:900;box-shadow:0 9px 22px rgba(16,5,35,.18)}
+.council-start-grid h3{margin:0 0 9px;color:#fff;font-size:22px}
+.council-start-grid p{margin:0;color:#e9e1f2;font-size:14px}
+.council-commercial{display:grid;grid-template-columns:.78fr 1fr 1fr;gap:17px;margin-top:24px;padding:24px;border:1px solid rgba(255,255,255,.17);border-radius:30px;background:rgba(16,5,35,.22)}
+.commercial-intro{align-self:center;padding:17px}
+.commercial-intro .eyebrow{margin-bottom:8px;color:#f2addf}
+.commercial-intro h3{margin:0 0 13px;color:#fff;font-size:30px}
+.commercial-intro>p:last-child{margin:0;color:#ddd4e8;font-size:14px}
+.commercial-card{padding:27px;border-radius:22px;background:#fff;color:var(--ink);box-shadow:0 14px 34px rgba(12,4,27,.2)}
+.commercial-card-primary{background:linear-gradient(145deg,#fff,#f5effd)}
+.commercial-card>span{display:block;color:var(--pink);font-size:12px;font-weight:900;letter-spacing:.07em;text-transform:uppercase}
+.commercial-card>strong{display:block;margin:13px 0 4px;color:var(--purple);font-size:34px;line-height:1}
+.commercial-card>p{margin:0 0 18px;color:var(--muted);font-size:14px;font-weight:800}
+.commercial-card ul{display:grid;gap:7px;margin:0;padding:0;list-style:none}
+.commercial-card li{position:relative;padding-left:19px;color:#50475f;font-size:13px}
+.commercial-card li:before{content:"✓";position:absolute;left:0;color:#328060;font-weight:900}
 .audience-gains{background:#fff}
 .gains-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
 .gains-grid article{display:flex;gap:15px;padding:24px;border:1px solid #e6dced;border-radius:22px;background:#faf8fc}
@@ -316,8 +363,10 @@ html,body{overflow-x:hidden}
 .site-nav details[open] .nav-panel{display:grid}
 .footer-grid{grid-template-columns:1.25fr .9fr .9fr .9fr;gap:48px}
 @media(max-width:1000px){.audience-hero-grid{grid-template-columns:1fr;gap:20px;padding-top:50px}.audience-hero-visual{min-height:500px}.partner-proof-inner,.testimonial-video-grid{grid-template-columns:1fr}.partner-proof-logos{justify-content:flex-start}.before-after-grid{grid-template-columns:1fr}.story-bridge{min-height:92px;gap:8px}.story-bridge svg{transform:rotate(90deg)}.solution-flow{grid-template-columns:repeat(2,1fr)}.solution-flow li:nth-child(2):after{display:none}.gains-grid{grid-template-columns:repeat(2,1fr)}.dual-value{grid-template-columns:1fr 1fr}.dual-value-title{grid-column:1/-1}.case-study-grid,.case-study-grid-single{grid-template-columns:1fr}}
+@media(max-width:1100px){.council-system-map{grid-template-columns:repeat(2,minmax(0,1fr));grid-template-areas:"centre centre" "universal community" "targeted crisis"}.council-system-centre{min-height:390px}.council-start-grid{grid-template-columns:repeat(2,1fr)}.council-commercial{grid-template-columns:1fr 1fr}.commercial-intro{grid-column:1/-1}}
 @media(max-width:900px){.audience-challenge-visual{min-height:650px}.audience-challenge-visual:after{background:linear-gradient(180deg,rgba(249,246,252,.99) 0%,rgba(249,246,252,.94) 42%,rgba(249,246,252,.16) 73%,transparent 100%)}.audience-challenge-visual figcaption{width:100%;padding:42px}}
 @media(max-width:700px){.audience-hero-grid{min-height:0}.audience-hero-visual{min-height:410px}.audience-image-wrap{width:88%}.hero-highlight-list{position:relative;margin-top:-18px}.partner-proof-logos{flex-wrap:wrap;gap:14px}.partner-proof-logos>img{max-width:140px}.partner-proof-logos .logo-seuk{max-width:190px}.challenge-grid,.solution-flow,.gains-grid,.dual-value{grid-template-columns:1fr}.story-panel{padding:23px 19px;border-radius:24px}.story-person{grid-template-columns:82px 1fr;gap:15px}.story-person img{width:82px;height:82px}.story-person h3,.story-after-heading h3{font-size:23px}.story-after-heading{grid-template-columns:48px 1fr}.story-after-heading>span{width:48px;height:48px;border-radius:15px}.solution-flow li:after{display:none}.dual-value-title{grid-column:auto}.case-study-card,.partner-quote{padding:26px}.testimonial-video-grid{gap:30px}}
+@media(max-width:700px){.council-system-map{grid-template-columns:1fr;grid-template-areas:"centre" "universal" "community" "targeted" "crisis"}.council-system-centre{min-height:430px;padding:30px 22px}.council-start-grid,.council-commercial{grid-template-columns:1fr}.commercial-intro{grid-column:auto;padding:6px}.council-journey-line{align-items:stretch;flex-direction:column}.council-journey-line b{transform:rotate(90deg);align-self:center}}
 @media(max-width:600px){.audience-challenge-visual{min-height:700px;border-radius:26px}.audience-challenge-visual>img{object-position:66% center}.audience-challenge-visual figcaption{padding:28px 24px}.audience-challenge-visual figcaption>p:last-child{font-size:16px}}
 @media(max-width:900px){.nav-support-button{padding:8px;text-align:left}.nav-panel,.site-nav details[open] .nav-panel{display:block;width:100%}}
 
