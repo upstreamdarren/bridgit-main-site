@@ -2,18 +2,44 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import BookingSection from "../components/BookingSection.astro";
 
-const evidence = [
-  { number: "68,903", label: "messages reviewed", detail: "The full Bridgit chat export in the evidence review." },
-  { number: "25,640", label: "messages from users", detail: "The user side of those support conversations." },
-  { number: "53", label: "chats with standalone thanks", detail: "A conservative signal of appreciation, not a satisfaction score." },
-  { number: "12", label: "explicit positive outcomes", detail: "High-confidence chats where users described clear value or progress." }
+const caseStudies = [
+  {
+    place: "Peterborough",
+    metric: "10%",
+    label: "more carers supported in a few months",
+    copy: "The service combined direct conversations with GP and health service presentations, local radio and accessible videos in six languages and BSL.",
+    logo: "/images/clients/peterborough-council.png",
+    logoAlt: "Peterborough City Council",
+    href: "https://bridgit.care/supporting-unpaid-carers-peterborough-city-council/blog",
+    link: "Read the Peterborough story"
+  },
+  {
+    place: "North Lincolnshire",
+    metric: "100",
+    label: "additional carers identified in one GP trial",
+    copy: "A simple approach used existing SMS and patient record systems to help a practice identify and code carers, creating an earlier route into support.",
+    logo: "/images/clients/north-lincolnshire-council.svg",
+    logoAlt: "North Lincolnshire Council",
+    href: "https://bridgit.care/carer-identification-scheme-case-study/blog",
+    link: "Read the identification case study"
+  },
+  {
+    place: "Birmingham",
+    metric: "One",
+    label: "approachable local front door",
+    copy: "Brum Chat was co-designed with residents and council teams. Its local digital coaches connect people to preventative help across housing, money, employment and wellbeing.",
+    logo: "/images/clients/birmingham-city-council.png",
+    logoAlt: "Birmingham City Council",
+    href: "https://bridgit.care/wp-content/uploads/2025/10/Local-1pp-Case-Study.pdf",
+    link: "View the Brum Chat case study"
+  }
 ];
 
 const outcomes = [
   { number: "01", title: "Understand", copy: "Turn a complicated situation into clear, manageable parts." },
   { number: "02", title: "Decide", copy: "Compare options and identify the most useful next step." },
   { number: "03", title: "Act", copy: "Prepare questions, send the email, make the call or start the plan." },
-  { number: "04", title: "Progress", copy: "Move forward with greater confidence and the right human support when needed." }
+  { number: "04", title: "Connect", copy: "Reach the right local service or person when more help is needed." }
 ];
 
 const voices = [
@@ -33,55 +59,78 @@ const learning = [
 ---
 
 <BaseLayout
-  title="Our Impact | Evidence from Bridgit Care Support"
-  description="See evidence of how Bridgit helps people understand complex situations, take practical next steps and connect with trusted human support."
-  image="/images/human-expertise-multiplied.webp"
+  title="Our Impact | Client Stories and Carer Evidence | Bridgit Care"
+  description="See how Bridgit helps carers, councils and local services reach people earlier through practical digital support, trusted local pathways and warm human handovers."
+  image="/images/impact-hero-story.webp"
 >
   <section class="impact-hero section">
     <div class="shell impact-hero-grid">
       <div class="impact-hero-copy">
-        <p class="eyebrow dark">Evidence, not just activity</p>
-        <h1>Impact you can see in the <span>next step someone takes.</span></h1>
-        <p class="lead">Bridgit helps people make sense of difficult situations, decide what to do and reach the right human support. We measure progress through the actions, confidence and connections that follow a conversation.</p>
+        <p class="eyebrow dark">People, progress and lasting change</p>
+        <h1>Impact begins when the right support reaches someone <span>sooner.</span></h1>
+        <p class="lead">Bridgit helps people make sense of difficult situations, take a practical next step and connect with trusted human support. The stories on this page show what that looks like for individuals, services and whole communities.</p>
         <div class="button-row">
-          <a class="button" href="#evidence">See the evidence</a>
+          <a class="button" href="#case-studies">See the client stories</a>
           <a class="button button-secondary" href="#book-a-call">Talk to us about impact</a>
         </div>
       </div>
-      <div class="impact-hero-visual" aria-label="The Bridgit impact pathway from understanding a need to making progress">
-        <div class="impact-orbit impact-orbit-one"></div>
-        <div class="impact-orbit impact-orbit-two"></div>
-        <div class="impact-person">
-          <span aria-hidden="true">b</span>
-          <strong>One useful conversation</strong>
-          <small>Clearer next steps</small>
-        </div>
-        <div class="impact-signal impact-signal-one"><strong>Understand</strong><span>Make sense of the situation</span></div>
-        <div class="impact-signal impact-signal-two"><strong>Act</strong><span>Take a practical next step</span></div>
-        <div class="impact-signal impact-signal-three"><strong>Connect</strong><span>Reach the right human help</span></div>
-      </div>
+      <figure class="impact-hero-visual">
+        <img src="/images/impact-hero-story.webp" alt="A family carer moving from a difficult moment to digital guidance and trusted local human support" width="1600" height="1067" fetchpriority="high" />
+        <figcaption>
+          <span>Personal concern</span>
+          <span>Clear next steps</span>
+          <span>Human support</span>
+        </figcaption>
+      </figure>
     </div>
   </section>
 
-  <section class="section impact-evidence" id="evidence" aria-labelledby="evidence-title">
+  <section class="section impact-origin" aria-labelledby="origin-title">
+    <div class="shell impact-origin-grid">
+      <div class="impact-origin-heading">
+        <p class="eyebrow dark">Why Bridgit exists</p>
+        <h2 id="origin-title">It started with one family asking why help was so hard to reach.</h2>
+      </div>
+      <div class="impact-origin-story">
+        <p>Darren’s grandad Doug fell at home and struggled to reach help. Darren’s mum Jacqueline was his main carer, carrying the responsibility families so often absorb quietly.</p>
+        <p>That experience made the gap painfully clear. Useful support existed, but finding it at the right moment was too difficult. Bridgit grew from a simple question: <strong>what if people could find the right support before life reached crisis point?</strong></p>
+        <a href="https://darrencrombie.com/" target="_blank" rel="noreferrer">Read Darren’s founder story →</a>
+      </div>
+      <ol class="impact-origin-moments">
+        <li><span>01</span><strong>A difficult moment</strong><p>A family needs help, often without knowing where to begin.</p></li>
+        <li><span>02</span><strong>A gap made visible</strong><p>Good local support exists, but the route into it is fragmented or unclear.</p></li>
+        <li><span>03</span><strong>A better model</strong><p>Digital coaching provides earlier guidance while keeping people connected to real services.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section impact-case-studies" id="case-studies" aria-labelledby="case-studies-title">
     <div class="shell">
       <div class="section-heading impact-heading">
         <div>
-          <p class="eyebrow dark">What we reviewed</p>
-          <h2 id="evidence-title">A substantial record of real support conversations.</h2>
+          <p class="eyebrow dark">Client spotlights</p>
+          <h2 id="case-studies-title">Local challenges. Practical change people can feel.</h2>
         </div>
-        <p>Our 2025–26 evidence review analysed the full Bridgit chat export from 6 February 2025 to 21 July 2026. The figures below describe that review, not a customer satisfaction survey.</p>
+        <p>Each partnership starts with a real service pressure. The model is then shaped around local people, trusted routes and the outcomes that matter in that place.</p>
       </div>
-      <div class="impact-metrics">
-        {evidence.map(({ number, label, detail }) => (
-          <article>
-            <strong>{number}</strong>
-            <h3>{label}</h3>
-            <p>{detail}</p>
+      <div class="impact-case-grid">
+        {caseStudies.map(({ place, metric, label, copy, logo, logoAlt, href, link }, index) => (
+          <article class:list={[index === 0 && "impact-case-feature"]}>
+            <div class="impact-case-top">
+              <span>{place}</span>
+              <div class="impact-case-logo"><img src={logo} alt={logoAlt} loading="lazy" /></div>
+            </div>
+            <div class="impact-case-number"><strong>{metric}</strong><span>{label}</span></div>
+            <p>{copy}</p>
+            <a href={href} target="_blank" rel="noreferrer">{link} →</a>
           </article>
         ))}
       </div>
-      <p class="impact-method-note"><strong>Why we are careful with these numbers:</strong> feedback was not requested systematically and the export includes apparent test and demonstration traffic. We therefore use conservative indicators and do not present them as a satisfaction rate.</p>
+      <blockquote class="impact-partner-quote">
+        <span aria-hidden="true">“</span>
+        <p>Brum Chat is a linchpin in Birmingham’s prevention strategy, engaging residents before their needs escalate and easing pressure on our teams.</p>
+        <cite>Philip Fletcher, Head of Early Intervention, Birmingham City Council</cite>
+      </blockquote>
     </div>
   </section>
 
@@ -92,7 +141,7 @@ const learning = [
           <p class="eyebrow dark">The impact pathway</p>
           <h2 id="pathway-title">Support should change what happens next.</h2>
         </div>
-        <p>The clearest pattern in the evidence is a practical journey from confusion to action. Bridgit works as a digital front door and preparation layer around local services, not as a replacement for them.</p>
+        <p>The clearest pattern is a practical journey from uncertainty to action. Bridgit gives people a clear digital front door, helps them prepare and connects them to local services. It does not replace those services.</p>
       </div>
       <ol class="impact-flow">
         {outcomes.map(({ number, title, copy }) => (
@@ -105,7 +154,7 @@ const learning = [
   <section class="section impact-story" aria-labelledby="story-title">
     <div class="shell impact-story-grid">
       <div class="impact-story-copy">
-        <p class="eyebrow">A journey visible in the evidence</p>
+        <p class="eyebrow">One person’s journey</p>
         <h2 id="story-title">From a difficult hospital discharge to practical progress at home.</h2>
         <p>One carer used Bridgit to organise questions about discharge, care arrangements and safety equipment. They took those questions to the occupational therapist and care coordinator, then returned with an update.</p>
         <blockquote>“I asked them all the questions you helped me with and they got back to me quickly with answers.”</blockquote>
@@ -126,7 +175,7 @@ const learning = [
           <p class="eyebrow dark">In carers’ own words</p>
           <h2 id="voices-title">What useful support feels like.</h2>
         </div>
-        <p>These are direct, anonymised comments from carers. We have only made minor punctuation corrections for readability and have not added claims that were not in the original feedback.</p>
+        <p>These are direct, anonymised comments from carers. We have only made minor punctuation corrections for readability.</p>
       </div>
       <div class="impact-quotes">
         {voices.map((quote, index) => (
@@ -161,7 +210,7 @@ const learning = [
     <div class="shell impact-validation-grid">
       <div>
         <p class="eyebrow dark">Independent recognition</p>
-        <h2 id="validation-title">Built with scrutiny, partnership and a social purpose.</h2>
+        <h2 id="validation-title">Built with scrutiny, partnership and social purpose.</h2>
         <p>Bridgit’s work has been supported and profiled by national innovation programmes focused on better health, care and inclusion.</p>
       </div>
       <div class="impact-validation-links">
@@ -173,8 +222,8 @@ const learning = [
 
   <section class="section impact-next-voices">
     <div class="shell impact-next-voices-inner">
-      <div><p class="eyebrow dark">Next in our evidence programme</p><h2>More first-person stories are coming.</h2></div>
-      <p>We are preparing a fuller collection of user testimonials so people can hear directly from those who have used Bridgit. Until then, we will keep this page grounded in the evidence we can substantiate today.</p>
+      <div><p class="eyebrow dark">The next chapter</p><h2>More first-person stories are coming.</h2></div>
+      <p>We are preparing a fuller collection of user testimonials so people can hear directly from those who have used Bridgit. Until then, this page will stay grounded in the stories and evidence we can substantiate.</p>
     </div>
   </section>
 

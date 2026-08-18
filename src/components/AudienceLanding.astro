@@ -201,7 +201,7 @@ const props = Astro.props;
         </div>
         <div class="human-scale-promise human-scale-promise-dark">
           <img src="/images/human-expertise-multiplied.webp" alt="One experienced team member extending their knowledge through several digital coaches" width="960" height="640" loading="lazy" />
-          <p><strong>Imagine your best team member could support {props.coreAudience} 24/7, without running out of capacity.</strong> Bridgit turns their knowledge and experience into AI coaches that give people trusted, personalised support whenever they need it.</p>
+          <p><strong>Imagine your best team member could guide {props.coreAudience} around the clock without becoming the bottleneck.</strong> Bridgit turns their trusted knowledge into AI coaches, while your people stay in control of judgement, relationships and risk.</p>
         </div>
         <ol class="solution-flow">
           {props.solutionSteps.map((item, index) => (
@@ -252,7 +252,7 @@ const props = Astro.props;
           {props.gains.map((item) => <article><span aria-hidden="true">✓</span><div><h3>{item.title}</h3><p>{item.copy}</p></div></article>)}
         </div>
         <div class="dual-value">
-          <div class="dual-value-title"><p class="eyebrow">Every conversation creates value twice</p><h3>Better support for people. Better intelligence for services.</h3></div>
+          <div class="dual-value-title"><p class="eyebrow">Each conversation helps twice</p><h3>Better support for people. Better intelligence for services.</h3></div>
           <article><span>For people</span><h4>{props.personValueTitle}</h4><p>{props.personValue}</p></article>
           <article><span>For your organisation</span><h4>{props.organisationValueTitle}</h4><p>{props.organisationValue}</p></article>
         </div>
@@ -262,7 +262,7 @@ const props = Astro.props;
     {props.caseStudies.length > 0 && (
       <section class="section case-study-section">
         <div class="shell">
-          <div class="section-heading audience-heading"><div><p class="eyebrow dark">Evidence in practice</p><h2>Start with what has already worked.</h2></div><p>Use proven delivery patterns, then shape the coaches, pathways and measures around your own service.</p></div>
+          <div class="section-heading audience-heading"><div><p class="eyebrow dark">Evidence in practice</p><h2>See what the model looks like in the real world.</h2></div><p>Start with a delivery pattern that has worked, then shape the coaches, pathways and measures around your own service.</p></div>
           <div class:list={["case-study-grid", { "case-study-grid-single": props.caseStudies.length === 1 && props.quote, "case-study-grid-one": props.caseStudies.length === 1 && !props.quote }]}>
             {props.caseStudies.map((study) => (
               <article class="case-study-card">
