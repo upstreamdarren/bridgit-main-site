@@ -1,0 +1,185 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import BookingSection from "../components/BookingSection.astro";
+
+const evidence = [
+  { number: "68,903", label: "messages reviewed", detail: "The full Bridgit chat export in the evidence review." },
+  { number: "25,640", label: "messages from users", detail: "The user side of those support conversations." },
+  { number: "53", label: "chats with standalone thanks", detail: "A conservative signal of appreciation, not a satisfaction score." },
+  { number: "12", label: "explicit positive outcomes", detail: "High-confidence chats where users described clear value or progress." }
+];
+
+const outcomes = [
+  { number: "01", title: "Understand", copy: "Turn a complicated situation into clear, manageable parts." },
+  { number: "02", title: "Decide", copy: "Compare options and identify the most useful next step." },
+  { number: "03", title: "Act", copy: "Prepare questions, send the email, make the call or start the plan." },
+  { number: "04", title: "Progress", copy: "Move forward with greater confidence and the right human support when needed." }
+];
+
+const voices = [
+  "For carers who have no time, it’s brilliant and makes you feel you’re not alone.",
+  "The website is lovely and clear to understand. No jargon, which is what I like.",
+  "It’s just knowing support is there that is reassuring.",
+  "It was simple to use and full of relevant information. I would strongly recommend it.",
+  "I intend to take their advice and go forward with my plans.",
+  "Great support, understanding and information. So valuable. Thank you."
+];
+
+const learning = [
+  { title: "Listen every month", copy: "Our monthly user group brings carers and services together to tell us what people want next." },
+  { title: "Build what matters", copy: "We turn that feedback into clearer journeys, more useful tools and stronger local connections." },
+  { title: "Keep learning", copy: "We review conversations and service evidence so each iteration is grounded in real use, not assumptions." }
+];
+---
+
+<BaseLayout
+  title="Our Impact | Evidence from Bridgit Care Support"
+  description="See evidence of how Bridgit helps people understand complex situations, take practical next steps and connect with trusted human support."
+  image="/images/human-expertise-multiplied.webp"
+>
+  <section class="impact-hero section">
+    <div class="shell impact-hero-grid">
+      <div class="impact-hero-copy">
+        <p class="eyebrow dark">Evidence, not just activity</p>
+        <h1>Impact you can see in the <span>next step someone takes.</span></h1>
+        <p class="lead">Bridgit helps people make sense of difficult situations, decide what to do and reach the right human support. We measure progress through the actions, confidence and connections that follow a conversation.</p>
+        <div class="button-row">
+          <a class="button" href="#evidence">See the evidence</a>
+          <a class="button button-secondary" href="#book-a-call">Talk to us about impact</a>
+        </div>
+      </div>
+      <div class="impact-hero-visual" aria-label="The Bridgit impact pathway from understanding a need to making progress">
+        <div class="impact-orbit impact-orbit-one"></div>
+        <div class="impact-orbit impact-orbit-two"></div>
+        <div class="impact-person">
+          <span aria-hidden="true">b</span>
+          <strong>One useful conversation</strong>
+          <small>Clearer next steps</small>
+        </div>
+        <div class="impact-signal impact-signal-one"><strong>Understand</strong><span>Make sense of the situation</span></div>
+        <div class="impact-signal impact-signal-two"><strong>Act</strong><span>Take a practical next step</span></div>
+        <div class="impact-signal impact-signal-three"><strong>Connect</strong><span>Reach the right human help</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section impact-evidence" id="evidence" aria-labelledby="evidence-title">
+    <div class="shell">
+      <div class="section-heading impact-heading">
+        <div>
+          <p class="eyebrow dark">What we reviewed</p>
+          <h2 id="evidence-title">A substantial record of real support conversations.</h2>
+        </div>
+        <p>Our 2025–26 evidence review analysed the full Bridgit chat export from 6 February 2025 to 21 July 2026. The figures below describe that review, not a customer satisfaction survey.</p>
+      </div>
+      <div class="impact-metrics">
+        {evidence.map(({ number, label, detail }) => (
+          <article>
+            <strong>{number}</strong>
+            <h3>{label}</h3>
+            <p>{detail}</p>
+          </article>
+        ))}
+      </div>
+      <p class="impact-method-note"><strong>Why we are careful with these numbers:</strong> feedback was not requested systematically and the export includes apparent test and demonstration traffic. We therefore use conservative indicators and do not present them as a satisfaction rate.</p>
+    </div>
+  </section>
+
+  <section class="section impact-pathway" aria-labelledby="pathway-title">
+    <div class="shell">
+      <div class="section-heading impact-heading">
+        <div>
+          <p class="eyebrow dark">The impact pathway</p>
+          <h2 id="pathway-title">Support should change what happens next.</h2>
+        </div>
+        <p>The clearest pattern in the evidence is a practical journey from confusion to action. Bridgit works as a digital front door and preparation layer around local services, not as a replacement for them.</p>
+      </div>
+      <ol class="impact-flow">
+        {outcomes.map(({ number, title, copy }) => (
+          <li><span>{number}</span><h3>{title}</h3><p>{copy}</p></li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <section class="section impact-story" aria-labelledby="story-title">
+    <div class="shell impact-story-grid">
+      <div class="impact-story-copy">
+        <p class="eyebrow">A journey visible in the evidence</p>
+        <h2 id="story-title">From a difficult hospital discharge to practical progress at home.</h2>
+        <p>One carer used Bridgit to organise questions about discharge, care arrangements and safety equipment. They took those questions to the occupational therapist and care coordinator, then returned with an update.</p>
+        <blockquote>“I asked them all the questions you helped me with and they got back to me quickly with answers.”</blockquote>
+      </div>
+      <div class="impact-story-steps">
+        <article><span>01</span><div><h3>Prepared</h3><p>Bridgit helped the carer break the situation down and prepare the right questions.</p></div></article>
+        <article><span>02</span><div><h3>Connected</h3><p>The carer spoke to the professionals responsible for discharge and home safety.</p></div></article>
+        <article><span>03</span><div><h3>Progressed</h3><p>A chair and Zimmer frame were ordered and two additional handrails were arranged.</p></div></article>
+        <p class="impact-story-result">“Thank you for all your advice. I reckon it was the nudge needed.”</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section impact-voices" aria-labelledby="voices-title">
+    <div class="shell">
+      <div class="section-heading impact-heading">
+        <div>
+          <p class="eyebrow dark">In carers’ own words</p>
+          <h2 id="voices-title">What useful support feels like.</h2>
+        </div>
+        <p>These are direct, anonymised comments from carers. We have only made minor punctuation corrections for readability and have not added claims that were not in the original feedback.</p>
+      </div>
+      <div class="impact-quotes">
+        {voices.map((quote, index) => (
+          <blockquote class:list={[index === 0 && "impact-quote-feature"]}>
+            <span aria-hidden="true">“</span>
+            <p>{quote}</p>
+            <cite>Direct carer feedback, anonymised</cite>
+          </blockquote>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section impact-learning" aria-labelledby="learning-title">
+    <div class="shell">
+      <div class="section-heading impact-heading">
+        <div>
+          <p class="eyebrow dark">Built with users and services</p>
+          <h2 id="learning-title">Listen, learn, improve, repeat.</h2>
+        </div>
+        <p>Bridgit is never treated as finished. We continually iterate with the people using it and the services around them, including a monthly user group that helps us understand what people want and get useful changes delivered.</p>
+      </div>
+      <div class="impact-learning-grid">
+        {learning.map(({ title, copy }, index) => (
+          <article><span>{String(index + 1).padStart(2, "0")}</span><h3>{title}</h3><p>{copy}</p></article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section impact-validation" aria-labelledby="validation-title">
+    <div class="shell impact-validation-grid">
+      <div>
+        <p class="eyebrow dark">Independent recognition</p>
+        <h2 id="validation-title">Built with scrutiny, partnership and a social purpose.</h2>
+        <p>Bridgit’s work has been supported and profiled by national innovation programmes focused on better health, care and inclusion.</p>
+      </div>
+      <div class="impact-validation-links">
+        <a href="https://iuk-business-connect.org.uk/projects/inclusive-innovation/bridgit-care/" target="_blank" rel="noreferrer"><span>Innovate UK Business Connect</span><strong>Inclusive Innovation Award</strong><small>Read the external project profile →</small></a>
+        <a href="https://sbrihealthcare.co.uk/impact-case-studies/case-studies/bridgit-care" target="_blank" rel="noreferrer"><span>SBRI Healthcare</span><strong>Health innovation case study</strong><small>Read the external case study →</small></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section impact-next-voices">
+    <div class="shell impact-next-voices-inner">
+      <div><p class="eyebrow dark">Next in our evidence programme</p><h2>More first-person stories are coming.</h2></div>
+      <p>We are preparing a fuller collection of user testimonials so people can hear directly from those who have used Bridgit. Until then, we will keep this page grounded in the evidence we can substantiate today.</p>
+    </div>
+  </section>
+
+  <BookingSection
+    title="Let’s define the impact your service needs to create."
+    copy="Bring us your priority audience, service pressure and existing evidence. We’ll explore a practical measurement approach alongside the coaching offer."
+  />
+</BaseLayout>
