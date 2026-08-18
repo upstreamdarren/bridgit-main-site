@@ -1,3 +1,7 @@
+---
+import SocialLinks from "./SocialLinks.astro";
+---
+
 <footer class="site-footer">
   <div class="shell footer-grid">
     <div>
@@ -5,6 +9,8 @@
         <img class="brand-logo brand-logo-footer" src="/images/bridgit-care-logo.png" alt="Bridgit Care" width="300" height="103" />
       </a>
       <p>AI coaching that helps organisations extend support without losing the human connection.</p>
+      <p class="footer-social-label">Follow Bridgit</p>
+      <SocialLinks class="footer-social-links" labels={false} />
     </div>
     <div>
       <h2>Get in touch</h2>

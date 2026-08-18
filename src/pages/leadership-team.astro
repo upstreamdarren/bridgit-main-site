@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import BookingSection from "../components/BookingSection.astro";
+import SocialLinks from "../components/SocialLinks.astro";
 
 const leaders = [
   {
@@ -109,6 +110,37 @@ const leaders = [
             </div>
           </article>
         ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section leadership-social" aria-labelledby="leadership-social-title">
+    <div class="shell leadership-social-grid">
+      <div class="leadership-social-intro">
+        <p class="eyebrow dark">Follow the work</p>
+        <h2 id="leadership-social-title">What we are learning, building and celebrating.</h2>
+        <p>See the people, partnerships and practical ideas shaping Bridgit. Follow us for new projects, honest lessons from delivery and the occasional glimpse behind the scenes.</p>
+        <SocialLinks class="leadership-social-links" />
+      </div>
+      <div class="leadership-social-cards" aria-label="Bridgit Care social channels">
+        <a href="https://uk.linkedin.com/company/bridgitcare" target="_blank" rel="noopener noreferrer">
+          <span>Partnerships &amp; insight</span>
+          <h3>LinkedIn</h3>
+          <p>Follow our work with councils, charities, social enterprises and purpose-led organisations.</p>
+          <strong>See our latest updates <span aria-hidden="true">→</span></strong>
+        </a>
+        <a href="https://www.instagram.com/bridgitcare/" target="_blank" rel="noopener noreferrer">
+          <span>People &amp; progress</span>
+          <h3>Instagram</h3>
+          <p>Meet the people behind Bridgit and see the moments that make the work feel real.</p>
+          <strong>Follow @bridgitcare <span aria-hidden="true">→</span></strong>
+        </a>
+        <a href="https://www.facebook.com/bridgitcare/" target="_blank" rel="noopener noreferrer">
+          <span>News &amp; community</span>
+          <h3>Facebook</h3>
+          <p>Keep up with Bridgit news, community activity and useful stories from our partners.</p>
+          <strong>Visit Bridgit Care <span aria-hidden="true">→</span></strong>
+        </a>
       </div>
     </div>
   </section>

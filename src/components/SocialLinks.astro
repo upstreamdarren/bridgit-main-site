@@ -1,0 +1,35 @@
+---
+interface Props {
+  class?: string;
+  labels?: boolean;
+}
+
+const { class: className = "", labels = true } = Astro.props;
+
+const socials = [
+  {
+    label: "LinkedIn",
+    href: "https://uk.linkedin.com/company/bridgitcare",
+    path: "M5.5 3.5A2 2 0 1 1 1.5 3.5a2 2 0 0 1 4 0ZM2 8h3v10H2V8Zm5 0h2.9v1.37h.04C10.34 8.6 11.34 7.8 12.83 7.8 15.92 7.8 16.5 9.83 16.5 12.47V18h-3v-4.9c0-1.17-.02-2.68-1.63-2.68-1.63 0-1.88 1.28-1.88 2.6V18H7V8Z"
+  },
+  {
+    label: "Instagram",
+    href: "https://www.instagram.com/bridgitcare/",
+    path: "M6.2 2h7.6A4.2 4.2 0 0 1 18 6.2v7.6a4.2 4.2 0 0 1-4.2 4.2H6.2A4.2 4.2 0 0 1 2 13.8V6.2A4.2 4.2 0 0 1 6.2 2Zm0 1.6a2.6 2.6 0 0 0-2.6 2.6v7.6a2.6 2.6 0 0 0 2.6 2.6h7.6a2.6 2.6 0 0 0 2.6-2.6V6.2a2.6 2.6 0 0 0-2.6-2.6H6.2Zm8.05 1.2a.95.95 0 1 1 0 1.9.95.95 0 0 1 0-1.9ZM10 6.1a3.9 3.9 0 1 1 0 7.8 3.9 3.9 0 0 1 0-7.8Zm0 1.6a2.3 2.3 0 1 0 0 4.6 2.3 2.3 0 0 0 0-4.6Z"
+  },
+  {
+    label: "Facebook",
+    href: "https://www.facebook.com/bridgitcare/",
+    path: "M11.4 18v-7h2.35l.35-2.73h-2.7V6.53c0-.79.22-1.33 1.36-1.33h1.45V2.77c-.25-.03-1.11-.11-2.12-.11-2.1 0-3.54 1.28-3.54 3.64v1.97H6.17V11h2.38v7h2.85Z"
+  }
+];
+---
+
+<nav class:list={["social-links", className]} aria-label="Follow Bridgit Care">
+  {socials.map((social) => (
+    <a href={social.href} target="_blank" rel="noopener noreferrer" aria-label={`Follow Bridgit Care on ${social.label}`}>
+      <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d={social.path}></path></svg>
+      {labels && <span>{social.label}</span>}
+    </a>
+  ))}
+</nav>
