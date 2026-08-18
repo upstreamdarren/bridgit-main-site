@@ -1,0 +1,66 @@
+---
+import UserSiteLayout from "../../layouts/UserSiteLayout.astro";
+import UserPortalPage from "../../components/UserPortalPage.astro";
+
+const primaryUrl = "https://employers.bridgit.care/app/";
+const loginUrl = "https://employers.bridgit.care/login/";
+---
+
+<UserSiteLayout
+  title="Working carer support for employers | Bridgit Care"
+  description="A practical support platform that helps employers recognise and support working carers and connect them to local carer services."
+  siteName="Working carer support"
+  siteUrl="https://employers.bridgit.care/"
+  accent="employer"
+  {loginUrl}
+  {primaryUrl}
+  primaryLabel="Open the platform"
+>
+  <UserPortalPage
+    eyebrow="A practical route to carer-friendly workplaces"
+    title="Help employers support the people who work and care."
+    intro="Bridgit gives local employers a ready-to-use place to recognise working carers, offer clear guidance and connect employees into trusted carer support."
+    note="Make it easier for managers to respond well and for working carers to ask for help before pressure becomes absence or burnout."
+    heroImage="/images/use-cases-v2/employers.webp"
+    heroAlt="A supportive workplace conversation about caring responsibilities"
+    {primaryUrl}
+    primaryLabel="Try the employer platform"
+    {loginUrl}
+    highlights={["Easy for employers to launch", "Private support for employees", "A route into local carer services"]}
+    featuresEyebrow="Support that connects workplaces and communities"
+    featuresTitle="Give every employer a clear way to help."
+    featuresIntro="Many managers want to support working carers but do not know what to say, what adjustments are possible or where local support begins. Bridgit gives them a practical starting point."
+    features={[
+      { icon: "♙", title: "Guidance for managers", copy: "Help managers recognise caring pressures, hold supportive conversations and understand practical workplace options." },
+      { icon: "♥", title: "Private employee support", copy: "Give working carers a confidential place to explore money, wellbeing, rights, planning and local help." },
+      { icon: "↗", title: "Simple local referrals", copy: "Connect employees directly into the local carer service or further digital support when they choose." },
+      { icon: "◎", title: "Visible engagement", copy: "See which employers are active, how support is being used and where more promotion or help may be needed." }
+    ]}
+    steps={[
+      { number: "01", title: "Invite local employers", copy: "Offer a ready-made benefit that works for small businesses as well as larger organisations." },
+      { number: "02", title: "Equip managers", copy: "Provide short training, practical guidance and prompts for supportive workplace conversations." },
+      { number: "03", title: "Support working carers", copy: "Give employees private advice, personal plans and local routes to more help." },
+      { number: "04", title: "Strengthen the network", copy: "Track engagement, referrals and employer activity while building a more carer-friendly local economy." }
+    ]}
+    appTitle="A locally connected benefit employers can offer straight away."
+    appIntro="Employees can use Bridgit privately on mobile or desktop. Employers receive a clear, branded route to guidance without needing to build their own specialist carer service."
+    appPoints={["Working carer advice, plans and wellbeing tools", "Guidance for managers and HR teams", "Local signposting and referrals into carer services", "Engagement insight for the organisation leading the programme"]}
+    ctaTitle="Make working carer support easier to offer and easier to find."
+    ctaCopy="Try the platform or talk to Bridgit about making it available through your local carer service."
+    ctaLabel="Open the employer platform"
+    ctaUrl={primaryUrl}
+  >
+    <section class="portal-section portal-local-cards" id="local-support">
+      <div class="portal-shell">
+        <div class="portal-section-heading">
+          <div><p class="portal-eyebrow portal-eyebrow-dark">Two connected audiences</p><h2>Useful for employers. Personal for carers.</h2></div>
+          <p>Organisations get a simple way to help. Employees get a private service shaped around their own caring role.</p>
+        </div>
+        <div class="portal-choice-grid portal-choice-grid-two">
+          <a href={primaryUrl}><span>For employees</span><h3>I balance work and caring</h3><p>Get private advice, build a plan and connect to trusted carer support.</p><strong>Start support →</strong></a>
+          <a href="https://bridgit.care/carer-services/#book-a-call"><span>For organisations</span><h3>I want to support working carers</h3><p>Bring a practical employer programme to your workplace or local network.</p><strong>Talk to the Bridgit team →</strong></a>
+        </div>
+      </div>
+    </section>
+  </UserPortalPage>
+</UserSiteLayout>

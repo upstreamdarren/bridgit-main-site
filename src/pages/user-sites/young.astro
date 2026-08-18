@@ -1,0 +1,67 @@
+---
+import UserSiteLayout from "../../layouts/UserSiteLayout.astro";
+import UserPortalPage from "../../components/UserPortalPage.astro";
+
+const primaryUrl = "https://bridgit.care/young";
+const loginUrl = "https://young.bridgit.care/login/";
+---
+
+<UserSiteLayout
+  title="Support for young carers | Bridgit Care"
+  description="Friendly, private advice and practical support for young carers. Get help with school, wellbeing, family life and your caring role."
+  siteName="Young carer support"
+  siteUrl="https://young.bridgit.care/"
+  accent="young"
+  {loginUrl}
+  {primaryUrl}
+  primaryLabel="Get support"
+>
+  <UserPortalPage
+    eyebrow="For young people who help care for someone"
+    title="You look after a lot. There is support for you too."
+    intro="Bridgit is a private place to ask questions, understand your caring role and get practical help with school, wellbeing, family life and plans for the future."
+    note="There is no ‘right’ way to be a young carer. You can start with whatever is on your mind today."
+    heroImage="/images/use-cases-v2/young-carers.webp"
+    heroAlt="A young carer receiving friendly support"
+    {primaryUrl}
+    primaryLabel="Find my support service"
+    {loginUrl}
+    highlights={["Private and easy to use", "Advice that makes sense", "Real people when you need them"]}
+    featuresEyebrow="Help for real life"
+    featuresTitle="Support for caring, school and everything in between."
+    featuresIntro="You might help with medicines, appointments, housework, money or emotional support. Bridgit helps you make sense of those responsibilities without judgement."
+    features={[
+      { icon: "☀", title: "Wellbeing and worries", copy: "Talk through stress, sleep, friendships and difficult feelings, with ideas you can try at your own pace." },
+      { icon: "✎", title: "School and college", copy: "Prepare for conversations with teachers, understand the help you can ask for and plan around busy times." },
+      { icon: "⌂", title: "Caring at home", copy: "Find clear information about caring tasks, emergencies, family changes and looking after yourself too." },
+      { icon: "→", title: "Plans for your future", copy: "Explore choices about work, education, money and independence without leaving your caring role behind." }
+    ]}
+    steps={[
+      { number: "01", title: "Choose your local support", copy: "Start through a young carer service in your area so the advice and people are relevant to you." },
+      { number: "02", title: "Share what is happening", copy: "Answer a few simple questions or start with the one thing you want help with today." },
+      { number: "03", title: "Get clear next steps", copy: "Build a personal plan using friendly guidance, useful tools and local opportunities." },
+      { number: "04", title: "Ask for more help", copy: "Connect safely to a trusted adult or young carer team when something needs human support." }
+    ]}
+    appTitle="One place for advice, plans and people who understand."
+    appIntro="Bridgit works on mobile and desktop, so support can fit around school, family and your own time. Save what is useful and come back when you are ready."
+    appPoints={["Friendly explanations without jargon", "Tools for wellbeing, school, caring and future plans", "Local activities, groups and opportunities", "A safe route to your young carer support team"]}
+    ctaTitle="Find the young carer support available to you."
+    ctaCopy="Choose your area to open the right locally supported Bridgit experience."
+    ctaLabel="Find my support service"
+    ctaUrl={primaryUrl}
+  >
+    <section class="portal-section portal-local-cards" id="local-support">
+      <div class="portal-shell">
+        <div class="portal-section-heading">
+          <div><p class="portal-eyebrow portal-eyebrow-dark">Your next step</p><h2>Choose the route that feels right today.</h2></div>
+          <p>You can find your local young carer service, continue an existing plan or share this page with a trusted adult.</p>
+        </div>
+        <div class="portal-choice-grid">
+          <a href={primaryUrl}><span>01</span><h3>Find local young carer support</h3><p>Choose your area and open the right service.</p><strong>Find my service →</strong></a>
+          <a href={loginUrl}><span>02</span><h3>Continue my Bridgit plan</h3><p>Sign in to return to saved advice, tools and conversations.</p><strong>Sign in →</strong></a>
+          <a href="https://bridgit.care/contact-us/"><span>03</span><h3>I’m helping a young carer</h3><p>Learn how a parent, school or professional can help someone access support.</p><strong>Ask Bridgit →</strong></a>
+        </div>
+      </div>
+    </section>
+  </UserPortalPage>
+</UserSiteLayout>

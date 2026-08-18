@@ -1,0 +1,40 @@
+---
+interface Props {
+  siteName: string;
+  loginUrl: string;
+  primaryUrl: string;
+  primaryLabel: string;
+}
+
+const { siteName, loginUrl, primaryUrl, primaryLabel } = Astro.props;
+---
+
+<header class="portal-header" data-portal-header>
+  <div class="portal-shell portal-header-inner">
+    <a class="portal-brand" href="https://bridgit.care/" aria-label="Go to the main Bridgit Care website">
+      <img src="/images/bridgit-care-logo.png" alt="Bridgit Care" width="300" height="103" />
+      <span>{siteName}</span>
+    </a>
+    <button class="portal-menu-button" type="button" aria-expanded="false" aria-controls="portal-menu" data-portal-menu-button>
+      <span class="portal-sr-only">Open navigation</span>
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="portal-nav" id="portal-menu" aria-label="Main navigation" data-portal-menu>
+      <a href="#how-it-works">How it works</a>
+      <a href="#what-you-get">What you get</a>
+      <a href="#local-support">Local support</a>
+      <a class="portal-login" href={loginUrl}>Sign in</a>
+      <a class="portal-button portal-button-small" href={primaryUrl}>{primaryLabel}</a>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const menuButton = document.querySelector("[data-portal-menu-button]");
+  const menu = document.querySelector("[data-portal-menu]");
+  menuButton?.addEventListener("click", () => {
+    const isOpen = menuButton.getAttribute("aria-expanded") === "true";
+    menuButton.setAttribute("aria-expanded", String(!isOpen));
+    menu?.classList.toggle("is-open", !isOpen);
+  });
+</script>

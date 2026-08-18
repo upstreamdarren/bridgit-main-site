@@ -1,0 +1,54 @@
+---
+import "../styles/user-sites.css";
+import UserSiteHeader from "../components/UserSiteHeader.astro";
+import UserSiteFooter from "../components/UserSiteFooter.astro";
+
+interface Props {
+  title: string;
+  description: string;
+  siteName: string;
+  siteUrl: string;
+  accent?: "adult" | "young" | "employer";
+  loginUrl: string;
+  primaryUrl: string;
+  primaryLabel: string;
+}
+
+const {
+  title,
+  description,
+  siteName,
+  siteUrl,
+  accent = "adult",
+  loginUrl,
+  primaryUrl,
+  primaryLabel
+} = Astro.props;
+const canonical = new URL("/", siteUrl);
+---
+
+<!doctype html>
+<html lang="en-GB" class={`portal-${accent}`}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#5d24bb" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <link rel="canonical" href={canonical} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:site_name" content={siteName} />
+    <meta property="og:locale" content="en_GB" />
+    <link rel="preload" href="/fonts/nunito-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <title>{title}</title>
+  </head>
+  <body>
+    <a class="portal-skip" href="#main-content">Skip to content</a>
+    <UserSiteHeader {siteName} {loginUrl} {primaryUrl} {primaryLabel} />
+    <main id="main-content"><slot /></main>
+    <UserSiteFooter {siteName} />
+  </body>
+</html>

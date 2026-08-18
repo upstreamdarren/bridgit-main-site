@@ -1,0 +1,56 @@
+---
+import UserSiteLayout from "../../layouts/UserSiteLayout.astro";
+import UserPortalPage from "../../components/UserPortalPage.astro";
+import CarerAreaFinder from "../../components/CarerAreaFinder.astro";
+
+const primaryUrl = "#local-support";
+const loginUrl = "https://carers.bridgit.care/login/";
+---
+
+<UserSiteLayout
+  title="Support for unpaid carers | Bridgit Care"
+  description="Personalised advice, practical tools and local support for unpaid carers. Find the Bridgit service for your area or sign in to continue your plan."
+  siteName="Adult carer support"
+  siteUrl="https://carers.bridgit.care/"
+  accent="adult"
+  {loginUrl}
+  {primaryUrl}
+  primaryLabel="Find local support"
+>
+  <UserPortalPage
+    eyebrow="Practical support for unpaid carers"
+    title="Caring for someone is a lot. Finding help should be simpler."
+    intro="Bridgit gives you personalised guidance, practical tools and clear next steps for your caring role. Start in your own time, return whenever you need to, and connect with local people when more support would help."
+    note="You do not need to have all the answers or even call yourself a carer to begin."
+    heroImage="/images/use-cases-v2/adult-carers.webp"
+    heroAlt="An adult carer supporting an older family member"
+    {primaryUrl}
+    primaryLabel="Find support in my area"
+    {loginUrl}
+    highlights={["Personal to your caring role", "Available day and night", "Connected to local help"]}
+    featuresEyebrow="Support shaped around you"
+    featuresTitle="A calmer place to work out what to do next."
+    featuresIntro="Caring can affect money, work, health, relationships and plans for the future. Bridgit brings those questions together so you do not have to solve everything at once."
+    features={[
+      { icon: "✦", title: "Personalised guidance", copy: "Answer a few simple questions and receive information that reflects your circumstances and the person you care for." },
+      { icon: "✓", title: "Practical plans and tools", copy: "Turn advice into manageable next steps, save useful resources and come back to your plan whenever you need it." },
+      { icon: "⌁", title: "Local services", copy: "See support, benefits, events and organisations available through the Bridgit service in your area." },
+      { icon: "♥", title: "Your wellbeing matters too", copy: "Find ways to manage pressure, prepare for difficult moments and make space for your own health and life." }
+    ]}
+    steps={[
+      { number: "01", title: "Choose your local service", copy: "Search for your area below so Bridgit can show the right organisations, guidance and pathways." },
+      { number: "02", title: "Tell us what matters", copy: "Share only what you are comfortable with. Your answers help tailor the support you receive." },
+      { number: "03", title: "Build your plan", copy: "Explore advice, tools and practical actions across the parts of caring that matter to you." },
+      { number: "04", title: "Stay connected", copy: "Return to your plan, use check-ins and reach a real local team when you need more personal help." }
+    ]}
+    appTitle="Your support stays together, wherever caring takes you."
+    appIntro="Use Bridgit on a phone, tablet or computer. Your plan, saved guidance and conversations are ready when you return, so you can pick up where you left off."
+    appPoints={["Advice across money, wellbeing, work, assessments and emergencies", "Personal tasks and plans that make next steps easier to manage", "Local services, events, tools and trusted resources", "A private route to your local support team when you need it"]}
+    ctaTitle="Start with the support available where you live."
+    ctaCopy="Choose your area, meet your local Bridgit service and create a free personal plan."
+    ctaLabel="Find my local service"
+    ctaUrl="#local-support"
+  >
+    <CarerAreaFinder />
+  </UserPortalPage>
+</UserSiteLayout>

@@ -1,0 +1,32 @@
+---
+interface Props { siteName: string; }
+const { siteName } = Astro.props;
+---
+
+<footer class="portal-footer">
+  <div class="portal-shell portal-footer-grid">
+    <div>
+      <a class="portal-brand portal-brand-footer" href="https://bridgit.care/" aria-label="Go to the main Bridgit Care website">
+        <img src="/images/bridgit-care-logo.png" alt="Bridgit Care" width="300" height="103" />
+      </a>
+      <p>{siteName} is part of Bridgit Care, providing practical digital support with a clear route to real people.</p>
+    </div>
+    <div>
+      <h2>Your support</h2>
+      <a href="https://carers.bridgit.care/">Adult carer support</a>
+      <a href="https://young.bridgit.care/">Young carer support</a>
+      <a href="https://employers.bridgit.care/">Support at work</a>
+    </div>
+    <div>
+      <h2>About Bridgit</h2>
+      <a href="https://bridgit.care/our-impact/">Our impact</a>
+      <a href="https://bridgit.care/accessibility-statement/">Accessibility</a>
+      <a href="https://bridgit.care/privacy-policy/">Privacy</a>
+      <a href="https://bridgit.care/contact-us/">Contact us</a>
+    </div>
+  </div>
+  <div class="portal-shell portal-footer-bottom">
+    <span>Copyright &copy; 2026 Bridgit Care</span>
+    <span>Here for you, every step.</span>
+  </div>
+</footer>
