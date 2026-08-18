@@ -8,6 +8,8 @@ import HeroExplainer from "./HeroExplainer.astro";
 
 interface ContentItem { title: string; copy: string; }
 interface Logo { src: string; alt: string; className?: string; }
+interface FocusArea { title: string; copy: string; image: string; alt: string; label: string; }
+interface SupportOption { title: string; detail: string; href: string; image: string; }
 interface CaseStudy { eyebrow: string; title: string; copy: string; result: string; href: string; linkLabel: string; }
 interface Story {
   eyebrow: string;
@@ -43,6 +45,8 @@ interface Props {
   };
   supportUrl?: string;
   supportLabel?: string;
+  supportOptions?: SupportOption[];
+  focusAreas?: FocusArea[];
   partnershipLabel: string;
   partnershipText: string;
   partnerLogos: Logo[];
@@ -96,7 +100,13 @@ const props = Astro.props;
             <a class="button button-secondary" href="#how-we-help">See how it works</a>
             <a class="button button-secondary" href="#partner-stories">Hear from our partners</a>
           </div>
-          {props.supportUrl && (
+          {props.supportOptions && props.supportOptions.length > 0 ? (
+            <button class="audience-help-link audience-help-button" type="button" data-carer-support-open aria-haspopup="dialog">
+              <span aria-hidden="true">♥</span>
+              <span><strong>Looking for help?</strong> {props.supportLabel ?? "Choose the right Bridgit support service"}</span>
+              <span aria-hidden="true">→</span>
+            </button>
+          ) : props.supportUrl && (
             <a class="audience-help-link" href={props.supportUrl}>
               <span aria-hidden="true">♥</span>
               <span><strong>Looking for help?</strong> {props.supportLabel ?? "Open the Bridgit support service"}</span>
@@ -120,6 +130,25 @@ const props = Astro.props;
         </div>
       </div>
     </section>
+
+    {props.focusAreas && props.focusAreas.length > 0 && (
+      <section class="section carer-focus" aria-labelledby="carer-focus-title">
+        <div class="shell">
+          <div class="section-heading audience-heading">
+            <div><p class="eyebrow dark">One model, shaped for different caring lives</p><h2 id="carer-focus-title">Support carers at every age and stage.</h2></div>
+            <p>Start with the audience closest to your service, then connect content, pathways, safeguards and handovers around the people you support.</p>
+          </div>
+          <div class="carer-focus-grid">
+            {props.focusAreas.map((area) => (
+              <article class="carer-focus-card">
+                <img src={area.image} alt={area.alt} width="720" height="540" loading="lazy" />
+                <div><span>{area.label}</span><h3>{area.title}</h3><p>{area.copy}</p></div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+    )}
 
     <section class="partner-proof section-compact" aria-label={props.partnershipLabel}>
       <div class="shell partner-proof-inner">
@@ -227,5 +256,43 @@ const props = Astro.props;
         commonQuestions={props.coachQuestions ?? []}
       />
     )}
+
+    {props.supportOptions && props.supportOptions.length > 0 && (
+      <dialog class="support-dialog carer-support-dialog" data-carer-support-dialog aria-labelledby="carer-support-dialog-title">
+        <div class="support-dialog-inner">
+          <div class="support-dialog-heading">
+            <div>
+              <p class="eyebrow dark">Find the right carer support</p>
+              <h2 id="carer-support-dialog-title">Who is the support for?</h2>
+              <p>Choose the service that best matches the person looking for help.</p>
+            </div>
+            <button class="support-dialog-close" type="button" aria-label="Close carer support choices" data-carer-support-close>×</button>
+          </div>
+          <div class="support-option-grid carer-support-grid">
+            {props.supportOptions.map((option) => (
+              <a class="support-option" href={option.href}>
+                <img src={option.image} alt="" width="720" height="540" />
+                <span class="support-option-copy"><strong>{option.title}</strong><small>{option.detail}</small></span>
+              </a>
+            ))}
+          </div>
+        </div>
+      </dialog>
+    )}
   </div>
+
+  {props.supportOptions && props.supportOptions.length > 0 && (
+    <script is:inline>
+      (() => {
+        const dialog = document.querySelector("[data-carer-support-dialog]");
+        const opener = document.querySelector("[data-carer-support-open]");
+        const closer = document.querySelector("[data-carer-support-close]");
+        opener?.addEventListener("click", () => dialog?.showModal());
+        closer?.addEventListener("click", () => dialog?.close());
+        dialog?.addEventListener("click", (event) => {
+          if (event.target === dialog) dialog.close();
+        });
+      })();
+    </script>
+  )}
 </BaseLayout>

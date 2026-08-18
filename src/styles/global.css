@@ -211,6 +211,16 @@ html,body{overflow-x:hidden}
 .audience-help-link:hover{transform:translateY(-2px);box-shadow:0 16px 34px rgba(18,6,35,.24)}
 .audience-help-link>span:first-child{display:grid;place-items:center;width:32px;height:32px;border-radius:10px;background:linear-gradient(135deg,#efe5ff,#dff4ff);color:var(--pink)}
 .audience-help-link>span:last-child{font-size:21px}
+.audience-help-button{font:inherit;text-align:left;cursor:pointer}
+.carer-focus{background:linear-gradient(180deg,#fff,#f8f4fc)}
+.carer-focus-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.carer-focus-card{overflow:hidden;border:1px solid #e8dff1;border-radius:28px;background:#fff;box-shadow:0 16px 38px rgba(42,20,66,.08)}
+.carer-focus-card img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover}
+.carer-focus-card>div{padding:26px}
+.carer-focus-card span{display:inline-flex;margin-bottom:13px;padding:6px 11px;border-radius:999px;background:#f1e8fb;color:var(--purple);font-size:13px;font-weight:900;text-transform:uppercase;letter-spacing:.07em}
+.carer-focus-card h3{margin:0 0 12px;color:var(--purple);font-size:26px}
+.carer-focus-card p{margin:0;color:var(--muted)}
+.carer-support-grid{grid-template-columns:repeat(3,1fr)}
 .audience-hero-visual{position:relative;min-height:520px;display:grid;place-items:center}
 .hero-explainer{position:relative;width:min(100%,590px);aspect-ratio:16/10;overflow:hidden;border:1px solid rgba(255,255,255,.3);border-radius:32px;background:#160b29;box-shadow:0 28px 72px rgba(12,4,28,.32)}
 .hero-explainer iframe{display:block;width:100%;height:100%;border:0}
@@ -453,6 +463,8 @@ html,body{overflow-x:hidden}
 .site-nav details[open] .nav-panel{display:grid}
 .footer-grid{grid-template-columns:1.25fr .9fr .9fr .9fr;gap:48px}
 .site-header a.button.button-small,.site-header a.button.button-small:visited,.site-header a.button.button-small:hover,.site-header a.button.button-small:focus{color:#fff!important}
+@media(max-width:900px){.carer-focus-grid{grid-template-columns:1fr}.carer-focus-card{display:grid;grid-template-columns:minmax(220px,.8fr) 1.2fr}.carer-focus-card img{height:100%;aspect-ratio:auto}}
+@media(max-width:600px){.carer-focus-card{display:block}.carer-focus-card img{height:auto;aspect-ratio:4/3}.carer-support-grid{grid-template-columns:1fr}}
 @media(max-width:1000px){.audience-hero-grid{grid-template-columns:1fr;gap:20px;padding-top:50px}.audience-hero-visual{min-height:500px}.partner-proof-inner{grid-template-columns:1fr}.partner-proof-logos{justify-content:flex-start}.before-after-grid{grid-template-columns:1fr}.story-bridge{min-height:92px;gap:8px}.story-bridge svg{transform:rotate(90deg)}.solution-flow{grid-template-columns:repeat(2,1fr)}.solution-flow li:nth-child(2):after{display:none}.gains-grid{grid-template-columns:repeat(2,1fr)}.dual-value{grid-template-columns:1fr 1fr}.dual-value-title{grid-column:1/-1}.case-study-grid,.case-study-grid-single{grid-template-columns:1fr}.testimonial-feature{grid-template-columns:1.25fr .75fr}.testimonial-selector{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:1100px){.council-stat-grid{grid-template-columns:repeat(2,1fr)}.council-intelligence-grid{grid-template-columns:1fr}.council-system-map{grid-template-columns:repeat(2,minmax(0,1fr));grid-template-areas:"centre centre" "universal community" "targeted crisis"}.council-system-centre{min-height:390px}.council-start-grid{grid-template-columns:repeat(2,1fr)}.council-commercial{grid-template-columns:1fr 1fr}.commercial-intro{grid-column:1/-1}}
 @media(max-width:900px){.audience-challenge-visual{min-height:650px}.audience-challenge-visual:after{background:linear-gradient(180deg,rgba(249,246,252,.99) 0%,rgba(249,246,252,.94) 42%,rgba(249,246,252,.16) 73%,transparent 100%)}.audience-challenge-visual figcaption{width:100%;padding:42px}}
