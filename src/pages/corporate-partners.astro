@@ -171,22 +171,23 @@ const page = {
     </div>
   </section>
 
-  <script is:inline>
-    (() => {
-      const tabs = [...document.querySelectorAll("[data-route-tab]")];
-      const panels = [...document.querySelectorAll("[data-route-panel]")];
-      tabs.forEach((tab) => tab.addEventListener("click", () => {
-        const route = tab.getAttribute("data-route-tab");
-        tabs.forEach((item) => {
-          const active = item === tab;
-          item.classList.toggle("is-active", active);
-          item.setAttribute("aria-selected", String(active));
-        });
-        panels.forEach((panel) => {
-          panel.hidden = panel.getAttribute("data-route-panel") !== route;
-        });
-        document.querySelector(`[data-route-panel="${route}"]`)?.scrollIntoView({ behavior: "smooth", block: "start" });
-      }));
-    })();
-  </script>
 </AudienceLanding>
+
+<script is:inline>
+  (() => {
+    const tabs = [...document.querySelectorAll("[data-route-tab]")];
+    const panels = [...document.querySelectorAll("[data-route-panel]")];
+    tabs.forEach((tab) => tab.addEventListener("click", () => {
+      const route = tab.getAttribute("data-route-tab");
+      tabs.forEach((item) => {
+        const active = item === tab;
+        item.classList.toggle("is-active", active);
+        item.setAttribute("aria-selected", String(active));
+      });
+      panels.forEach((panel) => {
+        panel.hidden = panel.getAttribute("data-route-panel") !== route;
+      });
+      document.querySelector(`[data-route-panel="${route}"]`)?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }));
+  })();
+</script>
