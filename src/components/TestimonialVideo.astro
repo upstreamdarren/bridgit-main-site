@@ -42,7 +42,7 @@ const orderedTestimonials = [featured, ...testimonials.filter((testimonial) => t
       <div class="video-frame testimonial-player">
         <iframe
           src={featured.video}
-          title={`${featured.name}, ${featured.organisation} — Bridgit partner testimonial`}
+          title={`${featured.name}, ${featured.organisation}: Bridgit partner testimonial`}
           allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
           loading="lazy"
           allowfullscreen
@@ -105,7 +105,7 @@ const orderedTestimonials = [featured, ...testimonials.filter((testimonial) => t
       const partner = choice.dataset.organisation;
       if (video && frame.getAttribute("src") !== video) frame.setAttribute("src", video);
       if (person) {
-        frame.setAttribute("title", `${person}, ${partner ?? "Bridgit partner"} — Bridgit partner testimonial`);
+        frame.setAttribute("title", `${person}, ${partner ?? "Bridgit partner"}: Bridgit partner testimonial`);
         if (name) name.textContent = person;
       }
       if (organisation && partner) organisation.textContent = partner;
