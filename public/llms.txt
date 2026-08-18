@@ -5,11 +5,9 @@ Bridgit helps organisations extend trusted human support through accessible AI-p
 ## Main pages
 
 - [Home](https://bridgit.care/)
-- [Adult carer services](https://bridgit.care/carer-services)
+- [Carer services](https://bridgit.care/carer-services)
 - [Council Front Door](https://bridgit.care/local-authorities)
 - [Social enterprises](https://bridgit.care/social-enterprises)
-- [Young carers](https://bridgit.care/young-carers)
-- [Employers](https://bridgit.care/employers)
 - [Care leavers](https://bridgit.care/care-leavers)
 - [Healthy ageing](https://bridgit.care/healthy-ageing)
 - [NHS partners](https://bridgit.care/nhs)
