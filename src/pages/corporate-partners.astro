@@ -2,22 +2,22 @@
 import AudienceLanding from "../components/AudienceLanding.astro";
 
 const page = {
-  title: "Corporate partnerships for measurable social impact | Bridgit Care",
-  description: "Use Bridgit to support your own people or fund social enterprises to deliver measurable, technology-enabled support in communities.",
+  title: "Corporate AI and social-impact partnerships | Bridgit Care",
+  description: "Fund measurable impact through trusted social enterprises or add safe AI coaching capacity to your own organisation and projects with Bridgit.",
   pageClass: "audience-corporate",
   eyebrow: "For corporate partners and social-value leaders",
-  heroTitle: "Put your social impact strategy to work.",
-  heroIntro: "Bridgit gives corporate partners two practical routes to impact: use trusted AI coaches to support your own workforce, customers or communities—or fund social enterprises to extend their services with the same technology.",
-  heroNote: "One governed delivery model. Local expertise stays local. Reach and outcomes become easier to evidence.",
+  heroTitle: "Two ways to turn AI ambition into practical impact.",
+  heroIntro: "Fund a mission-led cohort of social enterprises and receive one clear impact story—or use Bridgit's AI coaching and Responsible AI expertise inside your own organisation, operations and partnership projects.",
+  heroNote: "Choose either route first. The strongest partnerships can combine both.",
   heroImage: "/images/landing/corporate-partners-hero.webp",
   heroAlt: "A corporate social-impact leader connecting support for people inside an organisation with investment in community partners",
-  heroHighlights: ["Support your own people", "Fund member-led delivery", "Report shared outcomes"],
+  heroHighlights: ["Fund a mission cohort", "Add AI coaching capacity", "Design and deploy responsibly"],
   partnershipLabel: "Built for social-enterprise partnerships",
-  partnershipText: "Bridgit is an accredited Social Enterprise UK member. Our partner model helps corporate organisations turn social-value priorities into useful support delivered with credible, mission-led organisations.",
+  partnershipText: "As a Social Enterprise UK Members' Partner, Bridgit connects corporate ambition, trusted member expertise and a configurable AI coaching platform—creating routes to measurable community impact and practical operational value.",
   partnerLogos: [{ src: "/images/landing/social-enterprise-uk-member.webp", alt: "Social Enterprise UK Certified Member", className: "logo-seuk" }],
   challengeEyebrow: "The corporate impact challenge",
-  challengeTitle: "Good intent is easier to fund than it is to turn into repeatable impact.",
-  challengeIntro: "Corporate teams are balancing employee and customer needs, community investment, procurement commitments and ESG reporting—often through separate projects with different measures and little shared delivery infrastructure.",
+  challengeTitle: "AI ambition and social-impact commitments both struggle at the point of delivery.",
+  challengeIntro: "Corporate teams need practical, governed ways to support people at scale. Community programmes can remain fragmented, while internal AI strategies often stop before a safe service journey is designed and deployed.",
   challengeImage: "/images/landing/challenges/corporate-partners.webp",
   challengeImageAlt: "A corporate social-impact lead coordinating internal support, community investment and social-enterprise partners",
   challengeVisualTitle: "Separate programmes do not automatically become a shared impact story.",
@@ -51,14 +51,14 @@ const page = {
     ],
     outcome: "Leah turns a strategic commitment into practical support now and reusable capacity for social enterprises—without replacing the people or organisations communities trust."
   },
-  solutionEyebrow: "Two routes to partnership",
-  solutionTitle: "Deploy directly. Invest through others. Or connect both.",
-  solutionIntro: "Begin with one outcome—such as care, health, homes, financial resilience, work or wellbeing—and choose the route that fits your organisation and social-value commitments.",
+  solutionEyebrow: "One platform, two clear partnership routes",
+  solutionTitle: "Fund impact through the network—or build capacity inside your organisation.",
+  solutionIntro: "Begin with the role most relevant to your priorities today. A corporate can sponsor a mission cohort, buy Bridgit directly, or connect both routes over time.",
   solutionSteps: [
-    { title: "Support your own people", copy: "Deploy a coach for employees, customers, suppliers or communities using your approved guidance, pathways and safeguards." },
-    { title: "Fund member-led delivery", copy: "Sponsor a focused cohort of social enterprises so trusted local organisations can extend their own services with Bridgit." },
-    { title: "Design governance together", copy: "Agree the priority population, partner roles, content ownership, consent, escalation, measures and a focused pilot scope." },
-    { title: "See and scale the impact", copy: "Bring reach, needs, actions, referrals and learning into one comparable report, then grow what proves useful." }
+    { title: "Choose the role", copy: "Decide whether to fund a mission through SEUK members, add AI coaching to your own operation or explore both." },
+    { title: "Name the journey", copy: "Focus on one population, outcome or workflow where repeated guidance, planning and follow-through matter." },
+    { title: "Design it safely", copy: "Agree content ownership, privacy, accessibility, safeguards, human escalation, measures and a focused pilot scope." },
+    { title: "Prove and scale", copy: "Measure reach, engagement, service movement, user outcomes and operational value before expanding." }
   ],
   gainsTitle: "What a Bridgit partnership can deliver",
   gainsIntro: "A practical bridge between corporate capability, social-enterprise trust and measurable support for people.",
@@ -81,12 +81,76 @@ const page = {
   testimonialTitle: "See the kind of partnership we can build together.",
   testimonialCopy: "Hear directly from organisations using partnership and technology to extend practical support, strengthen delivery and create wider social impact.",
   featuredTestimonial: "andy",
-  bookingTitle: "Bring us one outcome you want to move.",
-  bookingCopy: "Book 30 minutes with Laura to explore direct deployment, a sponsored social-enterprise cohort, or a combined model around your customers, workforce, contracts or communities.",
+  bookingTitle: "Which partnership route is most useful to explore first?",
+  bookingCopy: "Book a call to discuss a Mission Cohort Partnership, an AI Coaching & Delivery Partnership, or how the two could connect around your workforce, customers, projects or communities.",
   agentId: "agent_9101m0a09yjkezpvpamtcvdt3p4r",
   coachActionText: "Ask about partnership",
-  coachQuestions: ["How could we support our own workforce?", "How could we fund social-enterprise delivery?", "What impact could a partnership measure?"]
+  coachQuestions: ["How does a Mission Cohort Partnership work?", "Where could AI coaching add capacity in our organisation?", "What does the Responsible AI diagnostic produce?"]
 };
 ---
 
-<AudienceLanding {...page} />
+<AudienceLanding {...page}>
+  <section slot="before-challenge" class="section corporate-route-chooser" aria-labelledby="corporate-route-title">
+    <div class="shell">
+      <div class="section-heading audience-heading">
+        <div><p class="eyebrow dark">Choose your starting point</p><h2 id="corporate-route-title">What role do you want to play?</h2></div>
+        <p>The same organisation can use both routes, but each has a different buyer, budget and first conversation. Choose the one closest to your priority now.</p>
+      </div>
+      <div class="corporate-route-grid">
+        <a class="corporate-route-card route-cohort" href="#mission-cohort">
+          <span>Route 01 · Fund impact</span><h3>Mission Cohort Partnership</h3>
+          <p>Choose one mission. Equip a cohort of trusted social enterprises. Receive one clear report showing collective reach, outcomes and learning.</p>
+          <strong>Explore sponsored cohorts <b aria-hidden="true">→</b></strong>
+        </a>
+        <a class="corporate-route-card route-direct" href="#ai-delivery-partnership">
+          <span>Route 02 · Buy capability</span><h3>AI Coaching &amp; Delivery Partnership</h3>
+          <p>Add safe guided-support capacity to your workforce, customers, operations or projects—with practical Responsible AI consultancy where needed.</p>
+          <strong>Explore direct deployment <b aria-hidden="true">→</b></strong>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section slot="after-solution" class="section mission-cohort-offer" id="mission-cohort" aria-labelledby="mission-cohort-title">
+    <div class="shell">
+      <div class="section-heading audience-heading">
+        <div><p class="eyebrow">Route 01 · Mission Cohort Partnership</p><h2 id="mission-cohort-title">Fund one mission. Equip trusted organisations. See the impact clearly.</h2></div>
+        <p>You choose a population, place, contract outcome or mission. Bridgit and SEUK shape a small cohort of relevant social enterprises around it, while each member keeps ownership of its local expertise and delivery.</p>
+      </div>
+      <div class="mission-cohort-grid">
+        <ol class="mission-cohort-steps">
+          <li><span>01</span><div><h3>Choose the mission</h3><p>Start with care and health equity, secure homes and financial resilience, jobs and skills, community access or another defined outcome.</p></div></li>
+          <li><span>02</span><div><h3>Design the cohort</h3><p>Identify two to five suitable social enterprises, the shared user journey, local configuration, safeguards and realistic budget route.</p></div></li>
+          <li><span>03</span><div><h3>Deploy local coaches</h3><p>Each member receives configured AI coaching, onboarding, training and ongoing optimisation around its own service.</p></div></li>
+          <li><span>04</span><div><h3>Report one impact story</h3><p>A common evidence framework brings member results into one sponsor view without flattening local differences.</p></div></li>
+        </ol>
+        <aside class="sponsor-report-card">
+          <span>What you receive</span><h3>One sponsor report. Clear evidence underneath.</h3>
+          <ul><li><strong>Reach</strong><small>Who accessed support and whether priority groups were reached</small></li><li><strong>Engagement</strong><small>Plans, repeat use, actions and resources accessed</small></li><li><strong>Service movement</strong><small>Referrals, warm handovers and meaningful journey milestones</small></li><li><strong>Outcomes</strong><small>Confidence, stability, wellbeing, progression and operational value</small></li><li><strong>Scale decision</strong><small>What to repeat, expand, integrate or stop next</small></li></ul>
+          <a href="#book-a-call">Design a 2–5 member cohort <span aria-hidden="true">→</span></a>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section slot="after-solution" class="section ai-delivery-offer" id="ai-delivery-partnership" aria-labelledby="ai-delivery-title">
+    <div class="shell">
+      <div class="section-heading audience-heading">
+        <div><p class="eyebrow dark">Route 02 · AI Coaching &amp; Delivery Partnership</p><h2 id="ai-delivery-title">Add support capacity where people repeatedly need guidance and follow-through.</h2></div>
+        <p>Bridgit can design and deploy AI coaches inside your own operations or partnership projects. Where the use case is not yet clear, a bounded Responsible AI diagnostic turns ambition into a safe go—or no-go—decision.</p>
+      </div>
+      <div class="corporate-usecase-grid">
+        <article><span>Workforce</span><h3>Wellbeing, caring, money and progression</h3><p>Confidential guidance, planning and ongoing support that protects manager and specialist capacity.</p></article>
+        <article><span>Projects &amp; contracts</span><h3>Jobs, skills and community outcomes</h3><p>Move people from awareness and referral into actions, appointments and measurable progression.</p></article>
+        <article><span>Customers</span><h3>Vulnerability and service navigation</h3><p>Provide earlier, consistent support with safe handovers into the right human teams.</p></article>
+        <article><span>Operations</span><h3>Policy, process and supplier guidance</h3><p>Reduce repeated explanations and give distributed teams one approved place to begin.</p></article>
+        <article><span>Learning &amp; change</span><h3>Adoption and between-session action</h3><p>Keep people moving between workshops, training or transformation milestones.</p></article>
+        <article><span>Community networks</span><h3>One approachable front door</h3><p>Scale local guidance across sites while retaining a clear route to human help.</p></article>
+      </div>
+      <div class="responsible-ai-path">
+        <div><p class="eyebrow">A practical route to responsible deployment</p><h3>Diagnose. Pilot. Integrate. Scale.</h3><p>No generic AI strategy deck. We identify the real journey, ownership, boundaries, safeguards, measures and implementation route.</p></div>
+        <ol><li><span>01</span><strong>Diagnostic</strong><small>Use case, users, workflow, data and safety owners</small></li><li><span>02</span><strong>Pilot</strong><small>Configured coach, baseline, governance and measures</small></li><li><span>03</span><strong>Integrate</strong><small>Workflow, CRM, outreach and reporting</small></li><li><span>04</span><strong>Scale</strong><small>More teams, sites, populations or contracts</small></li></ol>
+      </div>
+    </div>
+  </section>
+</AudienceLanding>

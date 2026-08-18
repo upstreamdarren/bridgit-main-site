@@ -2,22 +2,22 @@
 import AudienceLanding from "../components/AudienceLanding.astro";
 
 const page = {
-  title: "Scale social impact with digital coaches | Bridgit Care",
-  description: "Bridgit helps social enterprises extend their mission, support more people and turn service activity into measurable social-value evidence.",
+  title: "AI coaching for Social Enterprise UK members | Bridgit Care",
+  description: "Turn your organisation's expertise into trusted 24/7 AI coaching with flexible packages designed for Social Enterprise UK members.",
   pageClass: "audience-social-enterprise",
-  eyebrow: "For social enterprises and mission-led organisations",
-  heroTitle: "Scale your support without scaling away your purpose.",
-  heroIntro: "Bridgit helps social enterprises turn trusted knowledge and service models into digital coaches—reaching more people, creating personalised next steps and turning every conversation into measurable insight.",
-  heroNote: "Reach further. Strengthen your impact. Evidence your social value.",
+  eyebrow: "The AI coaching offer for Social Enterprise UK members",
+  heroTitle: "Your expertise. Our AI. Trusted support, 24/7.",
+  heroIntro: "Bridgit turns the knowledge, resources and service pathways your organisation already trusts into AI coaches that help people understand, plan and act between human contacts.",
+  heroNote: "Easy to start, powerful to scale—and built without asking your team to become AI developers.",
   heroImage: "/images/use-cases-v2/employers.webp",
   heroAlt: "A stylised portrait representing a mission-led service leader",
-  heroHighlights: ["Extend proven service models", "Protect human capacity", "Evidence social value"],
-  partnershipLabel: "A social enterprise, working with social enterprises",
-  partnershipText: "Bridgit is an accredited Social Enterprise UK member. We understand the practical tension between growing reach, protecting quality, winning contracts and proving social value because we work through it too.",
+  heroHighlights: ["Packages from £250 a month", "Launch one focused journey", "Scale when value is proven"],
+  partnershipLabel: "A Social Enterprise UK Members' Partner",
+  partnershipText: "Bridgit is a social enterprise helping other mission-led organisations add guided-support capacity, protect human time and create clearer evidence—without losing ownership of their expertise, relationships or purpose.",
   partnerLogos: [{ src: "/images/landing/social-enterprise-uk-member.webp", alt: "Social Enterprise UK Certified Member", className: "logo-seuk" }],
   challengeEyebrow: "The challenge for social enterprises",
-  challengeTitle: "Doing more with less is not a sustainable growth plan.",
-  challengeIntro: "Mission-led teams are often closest to the people they serve, but funding, workforce capacity and reporting requirements can place a ceiling on the impact they can create.",
+  challengeTitle: "Demand grows. Your most experienced people cannot be everywhere.",
+  challengeIntro: "Mission-led teams hold deep knowledge and trusted relationships, but repeated guidance, follow-up and navigation consume the capacity needed for specialist human work and sustainable growth.",
   challengeImage: "/images/landing/challenges/social-enterprises.webp",
   challengeImageAlt: "A mission-led community team balancing service delivery, incoming requests, administration and impact reporting",
   challengeVisualTitle: "The people closest to the problem are often furthest from spare capacity.",
@@ -52,13 +52,13 @@ const page = {
     outcome: "Maya receives consistent support for longer, and the social enterprise extends its impact without diluting its purpose or replacing its people."
   },
   solutionEyebrow: "How Bridgit helps",
-  solutionTitle: "Turn your service model into a digital team.",
-  solutionIntro: "Your coaches use your approved knowledge, tone, pathways and safeguards. They extend the mission you already deliver rather than imposing a generic technology journey.",
+  solutionTitle: "Start with one support journey. Build from what you already know.",
+  solutionIntro: "Your coaches use your approved knowledge, tone, pathways and safeguards. We configure the technology around the service you already trust rather than imposing a generic AI journey.",
   solutionSteps: [
-    { title: "Choose the expertise to scale", copy: "Start from a library of 60 coaches or create a bespoke role around the priority problem your organisation exists to solve." },
-    { title: "Train it in your approach", copy: "Use approved content, lived experience, service pathways, tone, boundaries and human handover rules." },
-    { title: "Meet people where they are", copy: "Deploy through web, voice, WhatsApp, hosted links, QR codes or the fuller advice and coaching app." },
-    { title: "Turn delivery into evidence", copy: "See needs, engagement, actions, check-ins, referrals, feedback and outcomes in a form that supports learning and reporting." }
+    { title: "Capture your expertise", copy: "Choose one repeatable advice, planning, motivation or navigation journey and identify its trusted content and human owners." },
+    { title: "Build and train the coaches", copy: "Configure approved knowledge, tone, service routes, accessibility, safeguards and escalation around your organisation." },
+    { title: "Launch quickly", copy: "Begin through voice, web or the Bridgit app, then add channels and integrations when the service is ready to grow." },
+    { title: "Learn and improve", copy: "See needs, engagement, actions, referrals, check-ins and outcomes so you can optimise support and evidence value." }
   ],
   gainsTitle: "What Bridgit gives social enterprises",
   gainsIntro: "A way to extend the value of your existing team while keeping people, mission and measurable change at the centre.",
@@ -82,16 +82,57 @@ const page = {
   testimonialTitle: "See how a partnership can turn mission into wider reach.",
   testimonialCopy: "Hear how collaborative delivery can turn trusted expertise into support that reaches further while keeping people, purpose and measurable change at the centre.",
   featuredTestimonial: "andy",
-  bookingTitle: "Bring us the service model you want to scale.",
-  bookingCopy: "Book 30 minutes with Laura to explore the knowledge, delivery bottleneck or social-impact challenge that a Bridgit coach could help you address.",
+  bookingTitle: "Bring one support journey. Leave with a practical starting point.",
+  bookingCopy: "Book a 30-minute impact-pathway diagnostic to choose the right first journey, package, content owner, human handover and pilot measures.",
   agentId: "agent_0301m07t5czxep1tzytceg4wtw1y",
   coachActionText: "Ask about scaling impact",
   coachQuestions: [
+    "Which Bridgit package would fit our organisation?",
     "How could a coach help us reach more people?",
-    "How would Bridgit help us evidence social impact?",
     "What is the simplest first use case to launch?"
   ]
 };
 ---
 
-<AudienceLanding {...page} />
+<AudienceLanding {...page}>
+  <section slot="after-solution" class="section seuk-packages" id="packages" aria-labelledby="seuk-packages-title">
+    <div class="shell">
+      <div class="section-heading audience-heading">
+        <div><p class="eyebrow dark">Flexible options for SEUK members</p><h2 id="seuk-packages-title">Start small. Grow with confidence.</h2></div>
+        <p>Choose the level that matches the support journey you need now. Each package keeps trusted content, human escalation and measurable value at the centre.</p>
+      </div>
+
+      <div class="seuk-package-grid">
+        <article class="seuk-package-card package-base">
+          <p class="package-number">01</p><span class="package-label">Base package</span>
+          <h3>Voice Coach &amp; Phone Support</h3>
+          <p class="package-price"><strong>£250</strong> per month</p>
+          <ul><li>Your own AI voice coach</li><li>A dedicated phone number</li><li>Focused on one clear advice or guidance journey</li><li>A fast, low-friction way to prove engagement</li></ul>
+          <a href="#book-a-call">Explore the Base package <span aria-hidden="true">→</span></a>
+        </article>
+
+        <article class="seuk-package-card package-essentials">
+          <p class="package-number">02</p><span class="package-label">Most popular</span>
+          <h3>Essentials App</h3>
+          <p class="package-price"><strong>£1,000</strong> per month</p>
+          <ul><li>Core advice and coaching app with administration</li><li>Up to three AI voice coaches</li><li>Up to five support areas</li><li>Client lists, secure support, toolkits and resources</li></ul>
+          <a href="#book-a-call">Explore Essentials <span aria-hidden="true">→</span></a>
+        </article>
+
+        <article class="seuk-package-card package-integrated">
+          <p class="package-number">03</p><span class="package-label">Scale and integrate</span>
+          <h3>Fully Integrated</h3>
+          <p class="package-price"><small>From</small> <strong>£2,500</strong> per month</p>
+          <ul><li>Everything in Essentials</li><li>CRM and workflow integration</li><li>Proactive outreach and wellbeing checks</li><li>Advanced reporting and dedicated onboarding</li></ul>
+          <a href="#book-a-call">Discuss an integrated service <span aria-hidden="true">→</span></a>
+        </article>
+      </div>
+      <p class="package-scope-note">Indicative current packages. Final scope depends on the journey, configuration, onboarding, integrations and support required.</p>
+
+      <div class="seuk-fit-check">
+        <div><p class="eyebrow">A strong first use case</p><h3>Where does your team repeatedly advise, guide, plan with or check in on people?</h3></div>
+        <ul><li>Demand is growing faster than staff capacity</li><li>You own trusted content and referral routes</li><li>There is a clear human escalation path</li><li>Progress can be observed during a focused pilot</li></ul>
+      </div>
+    </div>
+  </section>
+</AudienceLanding>
