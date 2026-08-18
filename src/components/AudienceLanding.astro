@@ -63,6 +63,9 @@ interface Props {
   solutionTitle: string;
   solutionIntro: string;
   solutionSteps: ContentItem[];
+  productTitle: string;
+  productIntro: string;
+  productFeatures: ContentItem[];
   gainsTitle: string;
   gainsIntro: string;
   gains: ContentItem[];
@@ -200,6 +203,36 @@ const props = Astro.props;
             <li><span>{String(index + 1).padStart(2, "0")}</span><div><h3>{item.title}</h3><p>{item.copy}</p></div></li>
           ))}
         </ol>
+      </div>
+    </section>
+
+    <section class="section audience-product" aria-labelledby={`${props.pageClass}-product-title`}>
+      <div class="shell audience-product-grid">
+        <div class="audience-product-visual">
+          <svg class="audience-product-device" viewBox="0 0 1432 1432" role="img" aria-labelledby={`${props.pageClass}-product-visual-title`}>
+            <title id={`${props.pageClass}-product-visual-title`}>The Bridgit advice and coaching platform shown on desktop and mobile</title>
+            <defs>
+              <filter id={`${props.pageClass}-remove-green`} color-interpolation-filters="sRGB">
+                <feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  1 -1 1 .8 0" />
+                <feComponentTransfer><feFuncA type="linear" slope="2" intercept="-.3" /></feComponentTransfer>
+              </filter>
+            </defs>
+            <image href="/images/bridgit-app-channels.webp" width="1432" height="1432" filter={`url(#${props.pageClass}-remove-green)`} />
+          </svg>
+          <span class="product-signal product-signal-one">Voice &amp; web</span>
+          <span class="product-signal product-signal-two">Plans &amp; check-ins</span>
+          <span class="product-signal product-signal-three">Insight &amp; handover</span>
+        </div>
+        <div class="audience-product-copy">
+          <p class="eyebrow dark">The technology behind the service</p>
+          <h2 id={`${props.pageClass}-product-title`}>{props.productTitle}</h2>
+          <p class="audience-product-intro">{props.productIntro}</p>
+          <div class="audience-product-features">
+            {props.productFeatures.map((feature, index) => (
+              <article><span>{String(index + 1).padStart(2, "0")}</span><div><h3>{feature.title}</h3><p>{feature.copy}</p></div></article>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
 
