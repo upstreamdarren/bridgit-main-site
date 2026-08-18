@@ -1,14 +1,50 @@
 ---
 const solutionLinks = [
-  ["Carer services", "/carer-services"],
-  ["Council Front Door", "/local-authorities"],
-  ["Care leavers", "/care-leavers"],
-  ["Healthy ageing", "/healthy-ageing"],
-  ["Social enterprises", "/social-enterprises"],
-  ["NHS partners", "/nhs"],
-  ["Corporate AI coaching", "/corporate-partners"],
-  ["Social investors", "/social-investors"],
-  ["Responsible AI consultancy", "/responsible-ai"]
+  {
+    label: "Carer services",
+    href: "/carer-services",
+    description: "For organisations supporting adult, young and working carers."
+  },
+  {
+    label: "Councils and neighbourhoods",
+    href: "/local-authorities",
+    description: "For councils connecting residents with local and VCSE support."
+  },
+  {
+    label: "Care leaving services",
+    href: "/care-leavers",
+    description: "For teams helping care-experienced young people move forward."
+  },
+  {
+    label: "Healthy ageing services",
+    href: "/healthy-ageing",
+    description: "For organisations helping older people stay independent and connected."
+  },
+  {
+    label: "Social enterprises",
+    href: "/social-enterprises",
+    description: "For purpose-led organisations ready to scale their support and impact."
+  },
+  {
+    label: "NHS partners",
+    href: "/nhs",
+    description: "For NHS teams extending preventative, non-clinical support."
+  },
+  {
+    label: "Corporate partners",
+    href: "/corporate-partners",
+    description: "For organisations using AI coaches to strengthen delivery."
+  },
+  {
+    label: "Social investors",
+    href: "/social-investors",
+    description: "For funders growing measurable impact through trusted delivery partners."
+  },
+  {
+    label: "Responsible AI consultancy",
+    href: "/responsible-ai",
+    description: "For organisations building safe, practical and socially responsible AI."
+  }
 ];
 ---
 
@@ -26,7 +62,12 @@ const solutionLinks = [
       <details>
         <summary>Who we help</summary>
         <div class="nav-panel">
-          {solutionLinks.map(([label, href]) => <a href={href}>{label}</a>)}
+          {solutionLinks.map(({ label, href, description }) => (
+            <a href={href}>
+              <strong>{label}</strong>
+              <span>{description}</span>
+            </a>
+          ))}
         </div>
       </details>
       <a href="/our-impact">Our impact</a>
