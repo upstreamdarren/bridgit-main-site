@@ -19,21 +19,22 @@ const useCases = [
   { title: "Care leavers", copy: "Keep practical guidance close while young adults navigate housing, money, health, education and work.", image: "/images/use-cases-v2/care-leavers.webp", href: "/care-leavers" },
   { title: "Healthy ageing", copy: "Help older adults stay active, connected and independent through earlier practical support.", image: "/images/use-cases-v2/healthy-ageing.webp", href: "/healthy-ageing" },
   { title: "NHS partners", copy: "Extend preventative, practical support around appointments and community pathways.", image: "/images/landing/challenges/nhs.webp", href: "/nhs" },
-  { title: "Corporate partners", copy: "Support your own people or invest in social enterprises to extend community impact.", image: "/images/landing/corporate-partners-hero.webp", href: "/corporate-partners" }
+  { title: "Corporate AI coaching", copy: "Give employees, customers or communities trusted support built around your organisation's expertise.", image: "/images/landing/challenges/corporate-partners.webp", href: "/corporate-partners" },
+  { title: "Social investors", copy: "Fund a cohort of trusted social enterprises around one mission and one clear view of impact.", image: "/images/landing/corporate-partners-hero.webp", href: "/social-investors" }
 ];
 ---
 
 <BaseLayout
-  title="Bridgit Care | Extend human support with trusted AI coaches"
-  description="Bridgit helps councils, NHS partners, charities, social enterprises and responsible businesses extend trusted support with safe, accessible AI coaches."
+  title="AI Coaching Platform for Public Services | Bridgit Care"
+  description="Bridgit turns trusted expertise into responsible AI coaches for councils, NHS teams, charities and social enterprises, extending personalised support 24/7."
+  image="/images/homepage-hero-human-support.webp"
 >
   <section class="hero section">
     <div class="shell hero-grid">
       <div class="hero-copy">
         <p class="eyebrow dark">Extend human support. Reach people earlier.</p>
         <h1>Turn the knowledge of your best people into support that <span>never switches off.</span></h1>
-        <p class="lead">Bridgit turns the knowledge, services and local pathways you trust into digital coaches that give people earlier guidance, practical next steps and preventative support, while your team concentrates on relationships, risk and the work only people can do.</p>
-        <p class="home-core-promise"><strong>Imagine your best team member could support your employees, customers or communities 24/7, without running out of capacity.</strong> Bridgit turns their knowledge and experience into AI coaches that give people trusted, personalised support whenever they need it.</p>
+        <p class="lead">Bridgit is an AI coaching platform for public services, charities and purpose-led organisations. It turns trusted knowledge and local pathways into personalised guidance, practical next steps and preventative support, while your team concentrates on relationships, risk and the work only people can do.</p>
         <div class="button-row">
           <a class="button" href="#how-it-works">See how Bridgit works</a>
           <a class="button button-secondary" href="#book-a-call">Book a discovery call</a>
@@ -46,9 +47,11 @@ const useCases = [
         </button>
       </div>
       <div class="hero-media">
-        <img src="/images/homepage-hero-human-support.webp" alt="A support professional extending trusted guidance through phone, messaging and digital coaching before a warm handover to a colleague" width="1536" height="864" />
-        <span class="hero-visual-note hero-visual-note-one">Earlier support, around the clock</span>
-        <span class="hero-visual-note hero-visual-note-two">Human help when it matters most</span>
+        <div class="hero-media-visual">
+          <img src="/images/homepage-hero-human-support.webp" alt="A support professional extending trusted guidance through phone, messaging and digital coaching before a warm handover to a colleague" width="1536" height="864" />
+          <span class="hero-visual-note hero-visual-note-one">Earlier support, around the clock</span>
+          <span class="hero-visual-note hero-visual-note-two">Human help when it matters most</span>
+        </div>
       </div>
     </div>
   </section>
@@ -126,6 +129,10 @@ const useCases = [
     <div class="shell">
       <p class="eyebrow dark">The Bridgit response</p>
       <div class="section-heading"><h2>Build a digital team around, not instead of, your people.</h2><p>Turn the knowledge you already trust into earlier help, consistent follow-up and clearer handovers. Your people stay in control; Bridgit extends when and where their support can reach.</p></div>
+      <div class="human-scale-promise">
+        <img src="/images/human-expertise-multiplied.webp" alt="One experienced team member extending their knowledge through several digital coaches" width="960" height="640" loading="lazy" />
+        <p><strong>Imagine your best team member could support your employees, customers or communities 24/7, without running out of capacity.</strong> Bridgit turns their knowledge and experience into AI coaches that give people trusted, personalised support whenever they need it.</p>
+      </div>
       <ol class="steps">
         {steps.map(([number, title, copy]) => (
           <li><span>{number}</span><h3>{title}</h3><p>{copy}</p></li>

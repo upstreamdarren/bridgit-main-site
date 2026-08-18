@@ -1,6 +1,6 @@
 # Bridgit Care
 
-Bridgit helps organisations extend trusted human support through accessible AI-powered digital coaches, preventative guidance, practical plans and warm handovers.
+Bridgit is a UK social enterprise and AI coaching platform. It helps councils, NHS teams, charities, social enterprises and responsible businesses extend trusted human support through personalised guidance, practical plans, service insight and warm handovers.
 
 ## Main pages
 
@@ -11,6 +11,8 @@ Bridgit helps organisations extend trusted human support through accessible AI-p
 - [Care leavers](https://bridgit.care/care-leavers)
 - [Healthy ageing](https://bridgit.care/healthy-ageing)
 - [NHS partners](https://bridgit.care/nhs)
-- [Corporate partners](https://bridgit.care/corporate-partners)
+- [Corporate AI coaching](https://bridgit.care/corporate-partners)
+- [Social investors](https://bridgit.care/social-investors)
+- [Responsible AI consultancy](https://bridgit.care/responsible-ai)
 - [Leadership team](https://bridgit.care/leadership-team)
 - [Contact and book a call](https://bridgit.care/#book-a-call)

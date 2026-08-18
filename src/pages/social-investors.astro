@@ -1,0 +1,113 @@
+---
+import AudienceLanding from "../components/AudienceLanding.astro";
+
+const page = {
+  title: "Social Impact Investment Partnerships | Bridgit Care",
+  description: "Fund a mission cohort of social enterprises, extend community support with AI coaching and receive one clear view of reach, outcomes and social value.",
+  pageClass: "audience-corporate audience-social-investors",
+  eyebrow: "For social investors, funders and corporate foundations",
+  heroTitle: "Fund one mission. Equip a cohort. See the impact clearly.",
+  heroIntro: "Bridgit helps social investors back a group of trusted social enterprises around one shared outcome. Each organisation keeps its identity and expertise, gains responsible AI coaching capacity and contributes to one joined up impact story.",
+  coreAudience: "communities through trusted social enterprises",
+  heroNote: "A practical way to turn corporate social investment into additional delivery capacity, measurable social value and reusable infrastructure.",
+  heroImage: "/images/landing/corporate-partners-hero.webp",
+  heroAlt: "A social investment leader connecting trusted organisations with communities and shared impact",
+  heroHighlights: ["One shared mission", "Two to five social enterprises", "One impact view"],
+  partnershipLabel: "Delivered with the social enterprise sector",
+  partnershipText: "As a Social Enterprise UK Members' Partner and a social enterprise ourselves, Bridgit combines mission led delivery, working technology and practical impact measurement.",
+  partnerLogos: [{ src: "/images/landing/social-enterprise-uk-member.webp", alt: "Social Enterprise UK Certified Member", className: "logo-seuk" }],
+  challengeEyebrow: "The social investment challenge",
+  challengeTitle: "Funding valuable activity is easier than building lasting delivery capacity.",
+  challengeIntro: "Short projects can reach people, but trusted organisations may still lack reusable digital infrastructure and investors may receive several disconnected reports rather than one clear account of collective impact.",
+  challengeImage: "/images/landing/corporate-two-routes.webp",
+  challengeImageAlt: "Social enterprises and an investor working together around a shared mission and impact dashboard",
+  challengeVisualTitle: "One mission can involve several trusted organisations.",
+  challengeVisualCopy: "The opportunity is to preserve local expertise while sharing the technology, measures and learning that make support easier to scale.",
+  challenges: [
+    { title: "Delivery is fragmented", copy: "Strong social enterprises work on related needs but use different technology, measures and reporting approaches." },
+    { title: "Capacity disappears with the grant", copy: "A time limited project may fund activity without leaving the organisation with a service it can continue to use and grow." },
+    { title: "Collective impact is hard to see", copy: "Investors need a clear, credible view of who was reached, what support changed and what should happen next." }
+  ],
+  story: {
+    eyebrow: "A typical social investment journey",
+    title: "Meet Leah. She wants one investment to strengthen several trusted organisations.",
+    intro: "Leah represents a corporate foundation, social investor or funder focused on a mission such as financial resilience, employment, caring, health equity or secure homes.",
+    personName: "Leah, social investment lead",
+    personContext: "Responsible for turning a strategic commitment into practical community support and credible evidence.",
+    personImage: "/images/landing/corporate-leah.webp",
+    personAlt: "Illustrated portrait representing Leah, a social investment lead",
+    beforeTitle: "Leah funds good work but receives separate delivery stories",
+    beforeItems: ["Each organisation starts with different digital capacity.", "Short grants can create activity without reusable infrastructure.", "Measures vary, making collective impact difficult to compare.", "People still experience disconnected routes into support."],
+    afterTitle: "Leah funds a connected mission cohort",
+    afterItems: ["Two to five social enterprises receive configured AI coaching capacity.", "Each member keeps its own identity, knowledge and relationships.", "A shared evidence framework captures reach, action and outcomes.", "Learning informs the next investment, expansion or integration decision."],
+    outcome: "Leah's investment supports people now, strengthens trusted organisations and produces one useful account of collective impact."
+  },
+  solutionEyebrow: "The Mission Cohort Partnership",
+  solutionTitle: "One investor. One priority. Several trusted delivery organisations.",
+  solutionIntro: "Bridgit shapes a focused cohort around a population, place, contract outcome or social mission, then provides the platform, onboarding and shared learning needed to deliver at scale.",
+  solutionSteps: [
+    { title: "Choose the mission", copy: "Start with care, health equity, secure homes, financial resilience, jobs and skills or another defined outcome." },
+    { title: "Design the cohort", copy: "Identify two to five social enterprises, the shared user journey, local differences, safeguards and realistic measures." },
+    { title: "Deploy local coaches", copy: "Each member receives configured AI coaching, training and continued improvement around its own trusted service." },
+    { title: "Report collective impact", copy: "Bring reach, engagement, actions, referrals and outcomes together without hiding local differences." }
+  ],
+  productTitle: "Shared infrastructure that protects local expertise.",
+  productIntro: "Each cohort member receives a branded support experience shaped around its own service. The investor receives a joined up evidence view across the shared mission.",
+  productFeatures: [
+    { title: "Local AI coaches", copy: "Configure each service around the member's knowledge, identity, pathways and human team." },
+    { title: "Multiple access channels", copy: "Reach people through web, voice, WhatsApp, QR codes or the full Bridgit app." },
+    { title: "Ongoing support journeys", copy: "Help people act through plans, practical tools, follow ups and warm handovers." },
+    { title: "Shared impact reporting", copy: "See collective reach, need, action, connection and outcomes across the cohort." }
+  ],
+  gainsTitle: "What social investors gain",
+  gainsIntro: "A focused delivery model that creates immediate support, stronger organisations and evidence for the next investment decision.",
+  gains: [
+    { title: "More people supported", copy: "Extend trusted services beyond one to one capacity and office hours." },
+    { title: "Stronger social enterprises", copy: "Leave each organisation with reusable digital coaching capacity and learning." },
+    { title: "One impact story", copy: "Bring cohort reach, needs, actions, referrals and outcomes into one clear report." },
+    { title: "Local expertise retained", copy: "Members keep ownership of their knowledge, relationships and delivery identity." },
+    { title: "A scalable investment model", copy: "Start with a small cohort, learn what works and expand across places or missions." },
+    { title: "Clear next decisions", copy: "Use evidence to decide what to repeat, improve, integrate, expand or stop." }
+  ],
+  personValueTitle: "Support that stays local and becomes easier to reach",
+  personValue: "People receive personalised guidance from organisations they trust, plus a clear route to human help when they need more.",
+  organisationValueTitle: "Investment that builds delivery capability",
+  organisationValue: "Cohort members gain practical technology and shared learning, while the investor sees collective impact clearly.",
+  caseStudies: [
+    { eyebrow: "Social enterprise delivery", title: "See how Bridgit helps mission led organisations scale.", copy: "The Social Enterprises page explains the direct offer for organisations that want to turn their own expertise into AI coaching.", result: "A flexible route from one focused coach to a complete integrated service.", href: "/social-enterprises", linkLabel: "Explore AI coaching for social enterprises" },
+    { eyebrow: "Need support inside your organisation?", title: "Procure AI coaches for employees, customers or communities.", copy: "Corporate partners can deploy Bridgit directly around their own approved knowledge, policies and service pathways.", result: "One focused journey, safe human handovers and measurable service insight.", href: "/corporate-partners", linkLabel: "Explore corporate AI coaching" }
+  ],
+  testimonialTitle: "Hear from organisations creating practical social impact.",
+  testimonialCopy: "Our partners explain what it feels like to extend trusted support while keeping real people and relationships at the centre.",
+  featuredTestimonial: "andy",
+  bookingTitle: "Which mission could a cohort help you scale?",
+  bookingCopy: "Book a call to discuss the population, outcome, potential delivery partners, investment range and evidence your organisation needs.",
+  agentId: "agent_9101m0a09yjkezpvpamtcvdt3p4r",
+  coachActionText: "Ask about social investment",
+  coachQuestions: ["How does a mission cohort work?", "What evidence would we receive?", "How many social enterprises should we fund?"]
+};
+---
+
+<AudienceLanding {...page}>
+  <section slot="after-solution" class="section corporate-choice-panel mission-cohort-offer">
+    <div class="shell">
+      <div class="section-heading audience-heading">
+        <div><p class="eyebrow">What the sponsor receives</p><h2>One clear report with useful evidence underneath.</h2></div>
+        <p>We agree the evidence framework before delivery begins, then show both the shared picture and the differences that matter locally.</p>
+      </div>
+      <div class="mission-cohort-grid">
+        <ol class="mission-cohort-steps">
+          <li><span>01</span><div><h3>Reach</h3><p>Who accessed support and whether priority groups were reached.</p></div></li>
+          <li><span>02</span><div><h3>Engagement</h3><p>Plans, repeat use, actions and trusted resources accessed.</p></div></li>
+          <li><span>03</span><div><h3>Service movement</h3><p>Referrals, warm handovers and meaningful journey milestones.</p></div></li>
+          <li><span>04</span><div><h3>Outcomes and learning</h3><p>Confidence, stability, wellbeing, progression, operational value and the next decision.</p></div></li>
+        </ol>
+        <aside class="sponsor-report-card">
+          <span>Start focused</span><h3>Design a two to five member mission cohort.</h3>
+          <ul><li><strong>One mission</strong><small>A clear population, place or outcome</small></li><li><strong>Trusted members</strong><small>Relevant social enterprises with real expertise</small></li><li><strong>Shared infrastructure</strong><small>AI coaches, onboarding and continued support</small></li><li><strong>Proportionate evidence</strong><small>Useful measures without burdensome reporting</small></li></ul>
+          <a href="#book-a-call">Discuss a cohort <span aria-hidden="true">→</span></a>
+        </aside>
+      </div>
+    </div>
+  </section>
+</AudienceLanding>

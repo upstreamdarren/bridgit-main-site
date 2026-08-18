@@ -90,7 +90,7 @@ interface Props {
 const props = Astro.props;
 ---
 
-<BaseLayout title={props.title} description={props.description}>
+<BaseLayout title={props.title} description={props.description} image={props.heroImage}>
   <div class:list={["audience-page", props.pageClass]}>
     <section class="section audience-hero">
       <div class="shell audience-hero-grid">
@@ -98,7 +98,6 @@ const props = Astro.props;
           <p class="eyebrow">{props.eyebrow}</p>
           <h1>{props.heroTitle}</h1>
           <p class="lead">{props.heroIntro}</p>
-          <p class="audience-core-promise"><strong>Imagine your best team member could support {props.coreAudience} 24/7, without running out of capacity.</strong> Bridgit turns their knowledge and experience into AI coaches that give people trusted, personalised support whenever they need it.</p>
           <p class="audience-hero-note">{props.heroNote}</p>
           <div class="button-row">
             <a class="button button-pink" href="#book-a-call">Book a discovery call</a>
@@ -199,6 +198,10 @@ const props = Astro.props;
         <div class="section-heading audience-heading">
           <div><p class="eyebrow">{props.solutionEyebrow}</p><h2>{props.solutionTitle}</h2></div>
           <p>{props.solutionIntro}</p>
+        </div>
+        <div class="human-scale-promise human-scale-promise-dark">
+          <img src="/images/human-expertise-multiplied.webp" alt="One experienced team member extending their knowledge through several digital coaches" width="960" height="640" loading="lazy" />
+          <p><strong>Imagine your best team member could support {props.coreAudience} 24/7, without running out of capacity.</strong> Bridgit turns their knowledge and experience into AI coaches that give people trusted, personalised support whenever they need it.</p>
         </div>
         <ol class="solution-flow">
           {props.solutionSteps.map((item, index) => (

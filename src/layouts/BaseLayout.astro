@@ -7,10 +7,45 @@ import SupportSelector from "../components/SupportSelector.astro";
 interface Props {
   title: string;
   description: string;
+  image?: string;
 }
 
-const { title, description } = Astro.props;
+const { title, description, image = "/images/homepage-hero-human-support.webp" } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site);
+const socialImage = new URL(image, Astro.site);
+const structuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://bridgit.care/#organisation",
+      name: "Bridgit Care",
+      url: "https://bridgit.care/",
+      logo: "https://bridgit.care/images/bridgit-care-logo.png",
+      email: "contact@bridgit.care",
+      telephone: "+44 345 548 1654",
+      description: "A UK social enterprise that turns trusted human expertise into responsible AI coaches for public services, charities and purpose-led organisations."
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://bridgit.care/#website",
+      url: "https://bridgit.care/",
+      name: "Bridgit Care",
+      publisher: { "@id": "https://bridgit.care/#organisation" },
+      inLanguage: "en-GB"
+    },
+    {
+      "@type": "WebPage",
+      "@id": `${canonical}#webpage`,
+      url: canonical.toString(),
+      name: title,
+      description,
+      isPartOf: { "@id": "https://bridgit.care/#website" },
+      about: { "@id": "https://bridgit.care/#organisation" },
+      inLanguage: "en-GB"
+    }
+  ]
+};
 ---
 
 <!doctype html>
@@ -19,13 +54,24 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <meta name="description" content={description} />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
     <meta name="theme-color" content="#5d24bb" />
     <link rel="canonical" href={canonical} />
+    <link rel="alternate" hreflang="en-GB" href={canonical} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonical} />
+    <meta property="og:site_name" content="Bridgit Care" />
+    <meta property="og:locale" content="en_GB" />
+    <meta property="og:image" content={socialImage} />
+    <meta property="og:image:alt" content="Bridgit Care AI coaching and digital support" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={socialImage} />
     <link rel="preload" href="/fonts/nunito-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData)}></script>
     <title>{title}</title>
   </head>
   <body>
