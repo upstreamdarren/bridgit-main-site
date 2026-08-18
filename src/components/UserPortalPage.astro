@@ -29,6 +29,7 @@ interface Props {
   appPoints: string[];
   supportArtwork: string;
   supportArtworkAlt: string;
+  showAppTour?: boolean;
   ctaTitle: string;
   ctaCopy: string;
   ctaLabel: string;
@@ -40,6 +41,7 @@ const {
   highlights, featuresEyebrow, featuresTitle, featuresIntro, features, steps,
   coachesTitle, coachesIntro, coaches, appTitle, appIntro, appPoints,
   supportArtwork, supportArtworkAlt,
+  showAppTour = true,
   ctaTitle, ctaCopy, ctaLabel, ctaUrl
 } = Astro.props;
 ---
@@ -128,17 +130,19 @@ const {
   </div>
 </section>
 
-<PortalVideoFeature
-  eyebrow="See the app in action"
-  title="Advice, coaches and practical tools in one friendly place."
-  copy="This short tour shows how Bridgit brings personalised guidance, specialist coaches, saved plans and local support together on mobile and desktop."
-  points={["Choose the support area that matters today", "Chat with a coach and receive clear next steps", "Save useful advice, tasks and plans for later"]}
-  videoId="1219312452"
-  videoHash="709b38d662"
-  poster="/images/portal-app-explainer.jpg"
-  posterAlt="Preview of the Bridgit app on desktop and mobile with a team of digital coaches"
-  buttonLabel="Watch the 1 minute 45 second app tour"
-/>
+{showAppTour && (
+  <PortalVideoFeature
+    eyebrow="See the app in action"
+    title="Advice, coaches and practical tools in one friendly place."
+    copy="This short tour shows how Bridgit brings personalised guidance, specialist coaches, saved plans and local support together on mobile and desktop."
+    points={["Choose the support area that matters today", "Chat with a coach and receive clear next steps", "Save useful advice, tasks and plans for later"]}
+    videoId="1219312452"
+    videoHash="709b38d662"
+    poster="/images/portal-app-explainer.jpg"
+    posterAlt="Preview of the Bridgit app on desktop and mobile with a team of digital coaches"
+    buttonLabel="Watch the 1 minute 45 second app tour"
+  />
+)}
 
 <slot />
 
