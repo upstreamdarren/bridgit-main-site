@@ -102,21 +102,8 @@ const props = Astro.props;
           <div class="button-row">
             <a class="button button-pink" href="#book-a-call">Book a discovery call</a>
             <a class="button button-secondary" href="#how-we-help">See how it works</a>
-            <a class="button button-secondary" href="#partner-stories">Hear from our partners</a>
           </div>
-          {props.supportOptions && props.supportOptions.length > 0 ? (
-            <button class="audience-help-link audience-help-button" type="button" data-carer-support-open aria-haspopup="dialog">
-              <span aria-hidden="true">♥</span>
-              <span><strong>Looking for help?</strong> {props.supportLabel ?? "Choose the right Bridgit support service"}</span>
-              <span aria-hidden="true">→</span>
-            </button>
-          ) : props.supportUrl && (
-            <a class="audience-help-link" href={props.supportUrl}>
-              <span aria-hidden="true">♥</span>
-              <span><strong>Looking for help?</strong> {props.supportLabel ?? "Open the Bridgit support service"}</span>
-              <span aria-hidden="true">→</span>
-            </a>
-          )}
+          <a class="hero-stories-link" href="#partner-stories">Hear from our partners <span aria-hidden="true">→</span></a>
         </div>
         <div class="audience-hero-visual">
           {props.heroVideo ? (
@@ -132,6 +119,19 @@ const props = Astro.props;
             {props.heroHighlights.map((item, index) => <span><b>{String(index + 1).padStart(2, "0")}</b>{item}</span>)}
           </div>
         </div>
+        {props.supportOptions && props.supportOptions.length > 0 ? (
+          <button class="audience-help-link audience-help-button hero-support-wide" type="button" data-carer-support-open aria-haspopup="dialog">
+            <span aria-hidden="true">♥</span>
+            <span><strong>Looking for help?</strong> {props.supportLabel ?? "Choose the right Bridgit support service"}</span>
+            <span aria-hidden="true">→</span>
+          </button>
+        ) : props.supportUrl && (
+          <a class="audience-help-link hero-support-wide" href={props.supportUrl}>
+            <span aria-hidden="true">♥</span>
+            <span><strong>Looking for help?</strong> {props.supportLabel ?? "Open the Bridgit support service"}</span>
+            <span aria-hidden="true">→</span>
+          </a>
+        )}
       </div>
     </section>
 
