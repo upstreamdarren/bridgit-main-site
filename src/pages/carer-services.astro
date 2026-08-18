@@ -27,11 +27,11 @@ const page = {
   ],
   focusAreas: [
     { label: "Adult carers", title: "Help hidden carers recognise their role and act earlier.", copy: "Personalised guidance across assessments, money, wellbeing, work and local support—with a warm route into your team when deeper help is needed.", image: "/images/use-cases-v2/adult-carers.webp", alt: "An adult carer supporting an older family member" },
-    { label: "Young carers", title: "Offer safe support that fits around school and family life.", copy: "Age-appropriate guidance, clear safeguarding boundaries and manageable next steps help young people find support without feeling that their family is being judged.", image: "/images/use-cases-v2/young-carers.webp", alt: "A young carer receiving support with school and caring responsibilities" },
+    { label: "Young carers", title: "Reach young carers through the people and places they already trust.", copy: "Use case studies, partner campaigns and age-appropriate guidance across schools, GPs and VCSE networks—then provide a safe route into digital support or your young carer team.", image: "/images/use-cases-v2/young-carers.webp", alt: "A young carer receiving support with school and caring responsibilities" },
     { label: "Working carers", title: "Help employees balance work and care before pressure escalates.", copy: "Bring workplace policies, benefits and external carer support together so employees can prepare better conversations and managers can focus on human decisions.", image: "/images/use-cases-v2/employers.webp", alt: "An employee discussing caring responsibilities with a supportive manager" }
   ],
   partnershipLabel: "Working in partnership",
-  partnershipText: "Bridgit Care works with Carers Trust, local carer services, schools, employers and network partners to develop carer-led digital support that can be shaped around each audience while sharing one proven delivery model.",
+  partnershipText: "Bridgit Care works with Carers Trust, local carer services, schools, GPs, employers and VCSE networks to promote carer awareness, equip trusted partners and create simple routes into digital and human support.",
   partnerLogos: [{ src: "/images/landing/carers-trust-logo.png", alt: "Carers Trust", className: "logo-carers-trust" }],
   challengeEyebrow: "The challenge for carer services",
   challengeTitle: "Caring stays hidden in families, schools and workplaces.",
@@ -73,10 +73,10 @@ const page = {
   solutionTitle: "One digital model, configured around each carer audience.",
   solutionIntro: "Choose the carers you want to reach, train specialist coaches in the right language, content, pathways and safeguards, and give every group a simple place to begin—without building three disconnected services.",
   solutionSteps: [
-    { title: "Identify and welcome", copy: "Help people recognise their caring role through friendly questions, partner campaigns, QR codes and trusted community routes." },
+    { title: "Identify and welcome", copy: "Use case studies, partner campaigns, QR codes and trusted routes through schools, GPs, employers and VCSE networks to help people recognise their caring role." },
     { title: "Guide appropriately", copy: "Adapt language and guidance across wellbeing, money, assessments, school, work, family life and local services." },
     { title: "Stay alongside", copy: "Create practical support plans and use check-ins to help carers act on advice rather than leaving them with another list of links." },
-    { title: "Connect to people", copy: "Where more help is needed, use agreed referral and escalation routes to bring the right member of your team into the journey." }
+    { title: "Connect to people", copy: "Use the integrated signposting and referral portal to connect carers to further Bridgit support or bring the right member of your service into the journey." }
   ],
   gainsTitle: "What Bridgit gives carer services",
   gainsIntro: "More reach and consistency across adult, young and workplace carers, alongside better information for the people planning and delivering support.",
@@ -84,7 +84,7 @@ const page = {
     { title: "Reach hidden carers earlier", copy: "Help people identify themselves and find support before pressure becomes crisis." },
     { title: "Support outside office hours", copy: "Give carers somewhere trusted to turn during evenings, weekends and moments of stress." },
     { title: "Reduce repetitive enquiries", copy: "Answer common questions consistently while preserving staff time for judgement and relationships." },
-    { title: "Connect different pathways", copy: "Connect carers to assessments, schools, workplace support, local services, wellbeing help and financial guidance." },
+    { title: "Equip trusted partners", copy: "Give schools, GPs, employers and VCSE organisations targeted guidance and a simple referral route into your service." },
     { title: "Evidence your impact", copy: "Show who you reached, what carers needed, which actions followed and what changed." },
     { title: "Grow affordably", copy: "Start with a focused service and expand coaches, channels and integrations as adoption grows." }
   ],
@@ -113,4 +113,34 @@ const page = {
 };
 ---
 
-<AudienceLanding {...page} />
+<AudienceLanding {...page}>
+  <section slot="after-solution" class="section carer-partner-network" aria-labelledby="carer-partner-network-title">
+    <div class="shell">
+      <div class="section-heading audience-heading">
+        <div>
+          <p class="eyebrow dark">Promotion, signposting and referral</p>
+          <h2 id="carer-partner-network-title">Turn every trusted partner into a doorway to carer support.</h2>
+        </div>
+        <p>Bridgit helps schools, GPs, employers and VCSE organisations recognise carers, respond confidently and connect them into your service—without expecting every partner to become a carer specialist.</p>
+      </div>
+
+      <div class="carer-partner-layout">
+        <ol class="carer-partner-flow">
+          <li><span>01</span><div><h3>Promote and identify</h3><p>Share real case studies, campaign materials, QR codes and audience-specific messages through the networks carers already trust.</p></div></li>
+          <li><span>02</span><div><h3>Train the wider network</h3><p>The partner portal explains caring roles, common signs and the practical steps a school, GP, employer or community organisation can take.</p></div></li>
+          <li><span>03</span><div><h3>Guide the immediate response</h3><p>Partners receive targeted advice for the specific carer in front of them, helping them respond appropriately while staying within their role.</p></div></li>
+          <li><span>04</span><div><h3>Signpost or refer</h3><p>An integrated referral route connects the carer to additional digital support through Bridgit or directly to your team when personal help is needed.</p></div></li>
+        </ol>
+
+        <aside class="carer-partner-portal" aria-label="Illustrative Bridgit partner portal">
+          <div class="partner-portal-header"><span>Bridgit partner portal</span><strong>Young carer support</strong></div>
+          <div class="partner-portal-card"><small>Learn</small><h3>Could this young person be a carer?</h3><p>Recognise common signs and understand how caring can affect school, wellbeing and family life.</p></div>
+          <div class="partner-portal-card"><small>Act</small><h3>How can we help today?</h3><p>Receive practical, role-appropriate guidance shaped around the young person’s situation.</p></div>
+          <div class="partner-portal-referral"><span aria-hidden="true">→</span><div><strong>Connect to further support</strong><p>Refer into Bridgit or request support from the carer service.</p></div></div>
+        </aside>
+      </div>
+
+      <div class="carer-partner-outcome"><strong>Partners are empowered to act.</strong><span>Carers receive help earlier.</span><span>Your service remains connected to every journey.</span></div>
+    </div>
+  </section>
+</AudienceLanding>
