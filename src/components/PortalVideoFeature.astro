@@ -1,0 +1,77 @@
+---
+interface Props {
+  eyebrow: string;
+  title: string;
+  copy: string;
+  points?: string[];
+  videoId: string;
+  videoHash?: string;
+  poster: string;
+  posterAlt: string;
+  buttonLabel?: string;
+  tone?: "light" | "colour";
+}
+
+const {
+  eyebrow,
+  title,
+  copy,
+  points = [],
+  videoId,
+  videoHash,
+  poster,
+  posterAlt,
+  buttonLabel = "Play video",
+  tone = "light"
+} = Astro.props;
+
+const playerUrl = `https://player.vimeo.com/video/${videoId}${videoHash ? `?h=${videoHash}&` : "?"}autoplay=1&title=0&byline=0&portrait=0`;
+---
+
+<section class:list={["portal-section", "portal-video-feature", tone === "colour" && "portal-video-colour"]}>
+  <div class="portal-shell portal-video-grid">
+    <div class="portal-video-copy">
+      <p class:list={["portal-eyebrow", tone === "light" && "portal-eyebrow-dark"]}>{eyebrow}</p>
+      <h2>{title}</h2>
+      <p>{copy}</p>
+      {points.length > 0 && (
+        <ul>
+          {points.map(point => <li><span aria-hidden="true">✓</span>{point}</li>)}
+        </ul>
+      )}
+    </div>
+    <div class="portal-video-shell">
+      <button
+        class="portal-video-launch"
+        type="button"
+        data-vimeo-launch
+        data-video-src={playerUrl}
+        data-video-title={title}
+        aria-label={`${buttonLabel}: ${title}`}
+      >
+        <img src={poster} alt={posterAlt} width="1280" height="720" loading="lazy" />
+        <span class="portal-video-shade"></span>
+        <span class="portal-video-play" aria-hidden="true">▶</span>
+        <span class="portal-video-label">{buttonLabel}</span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.querySelectorAll("[data-vimeo-launch]").forEach(button => {
+    if (button.getAttribute("data-video-ready") === "true") return;
+    button.setAttribute("data-video-ready", "true");
+    button.addEventListener("click", () => {
+      const src = button.getAttribute("data-video-src");
+      if (!src) return;
+      const iframe = document.createElement("iframe");
+      iframe.src = src;
+      iframe.title = button.getAttribute("data-video-title") || "Bridgit video";
+      iframe.allow = "autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share";
+      iframe.referrerPolicy = "strict-origin-when-cross-origin";
+      iframe.allowFullscreen = true;
+      button.replaceWith(iframe);
+    });
+  });
+</script>

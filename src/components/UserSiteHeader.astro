@@ -11,7 +11,7 @@ const { siteName, loginUrl, primaryUrl, primaryLabel } = Astro.props;
 
 <header class="portal-header" data-portal-header>
   <div class="portal-shell portal-header-inner">
-    <a class="portal-brand" href="https://bridgit.care/" aria-label="Go to the main Bridgit Care website">
+    <a class="portal-brand" href="https://bridgit.care/" aria-label={`Bridgit Care, ${siteName}. Go to the main website`}>
       <img src="/images/bridgit-care-logo.png" alt="Bridgit Care" width="300" height="103" />
       <span>{siteName}</span>
     </a>

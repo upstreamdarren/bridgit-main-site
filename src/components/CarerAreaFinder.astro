@@ -1,5 +1,25 @@
 ---
-import { carerRegions } from "../data/carerRegions";
+import { carerRegions as defaultRegions, type CarerRegion } from "../data/carerRegions";
+
+interface Props {
+  regions?: CarerRegion[];
+  title?: string;
+  intro?: string;
+  mapLabel?: string;
+  searchPlaceholder?: string;
+  generalSupportUrl?: string;
+  generalSupportLabel?: string;
+}
+
+const {
+  regions = defaultRegions,
+  title = "Find your local Bridgit service.",
+  intro = "Search by town, council area or delivery organisation to open the right locally branded service.",
+  mapLabel = "adult carer",
+  searchPlaceholder = "Try Sandwell, Devon or Carers Network",
+  generalSupportUrl = "https://carers.bridgit.care/app/",
+  generalSupportLabel = "Use general carer support"
+} = Astro.props;
 ---
 
 <section class="portal-section portal-area-section" id="local-support" aria-labelledby="area-finder-title">
@@ -7,26 +27,26 @@ import { carerRegions } from "../data/carerRegions";
     <div class="portal-section-heading">
       <div>
         <p class="portal-eyebrow portal-eyebrow-dark">Support where you live</p>
-        <h2 id="area-finder-title">Find your local Bridgit service.</h2>
+        <h2 id="area-finder-title">{title}</h2>
       </div>
-      <p>Search by town, council area or delivery organisation. Choose a pin or a result to open the right locally branded service.</p>
+      <p>{intro}</p>
     </div>
 
     <div class="area-finder" data-area-finder>
       <div class="area-map-panel">
         <div class="area-map-copy">
           <span class="area-map-kicker">Bridgit across the UK</span>
-          <strong>{carerRegions.filter(region => !region.comingSoon).length} local routes live</strong>
+          <strong>{regions.filter(region => !region.comingSoon).length} local routes live</strong>
           <p>Each service connects national carer guidance with the organisations and pathways available in your area.</p>
         </div>
-        <div class="uk-map" aria-label="Map of Bridgit adult carer service areas">
+        <div class="uk-map" aria-label={`Map of Bridgit ${mapLabel} service areas`}>
           <svg class="uk-map-shape" viewBox="0 0 300 520" role="img" aria-label="Stylised map of the United Kingdom">
             <path d="M137 18l29 18 5 34-18 25 22 22-4 38 22 20-17 34 9 35 30 28-5 42 28 34-4 38-33 21-19 44-34 25-20 47-35 20-18-29 10-39-23-30 13-39-16-31 10-45-18-37 19-34-2-42 24-31-2-34 25-25 5-40 25-28z" fill="url(#mapGradient)" stroke="currentColor" stroke-width="3" />
             <path d="M65 354l-29 17-15-17 14-25 27-4zM238 442l30 19-15 24-27-9z" fill="#ece4f8" stroke="currentColor" stroke-width="3" />
             <defs><linearGradient id="mapGradient" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#efe4ff"/><stop offset="1" stop-color="#dff4fb"/></linearGradient></defs>
           </svg>
-          {carerRegions.filter(region => !region.comingSoon).map(region => (
-            <button class="area-pin" type="button" style={`--pin-x:${region.x}%;--pin-y:${region.y}%;`} data-area-pin={region.area} aria-label={`Show ${region.area}`} title={region.area}><span></span></button>
+          {regions.filter(region => !region.comingSoon).map(region => (
+            <span class="area-pin" style={`--pin-x:${region.x}%;--pin-y:${region.y}%;`} aria-hidden="true" title={region.area}></span>
           ))}
         </div>
       </div>
@@ -35,11 +55,11 @@ import { carerRegions } from "../data/carerRegions";
         <label class="area-search-label" for="area-search">Search for your area</label>
         <div class="area-search-wrap">
           <svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-4-4"></path></svg>
-          <input id="area-search" type="search" placeholder="Try Sandwell, Devon or Carers Network" autocomplete="postal-code" data-area-search />
+          <input id="area-search" type="search" placeholder={searchPlaceholder} autocomplete="postal-code" data-area-search />
         </div>
         <p class="area-result-summary" role="status" data-area-summary>Showing featured local services</p>
         <div class="area-card-list" data-area-list>
-          {carerRegions.map((region, index) => (
+          {regions.map((region, index) => (
             <article class:list={["area-card", index >= 7 && "area-card-extra"]} data-area-card data-search={`${region.area} ${region.organisation}`.toLowerCase()}>
               <div class="area-logo">
                 {region.logo ? <img src={region.logo} alt="" width="180" height="80" loading="lazy" /> : <span>{region.organisation.split(/\s+/).slice(0, 2).map(word => word[0]).join("")}</span>}
@@ -54,11 +74,11 @@ import { carerRegions } from "../data/carerRegions";
             </article>
           ))}
         </div>
-        <button class="area-show-all" type="button" data-area-show-all>Show all {carerRegions.length} areas</button>
+        <button class="area-show-all" type="button" data-area-show-all>Show all {regions.length} areas</button>
         <div class="area-help" id="area-help">
           <strong>Can’t find your area?</strong>
           <p>You can still use Bridgit’s general support or contact us and we’ll help you find the right route.</p>
-          <a href="https://carers.bridgit.care/app/">Use general carer support</a>
+          <a href={generalSupportUrl}>{generalSupportLabel}</a>
         </div>
       </div>
     </div>
@@ -90,13 +110,6 @@ import { carerRegions } from "../data/carerRegions";
 
     search?.addEventListener("input", event => filterCards(event.target.value));
     showAll?.addEventListener("click", () => { expanded = true; filterCards(search?.value || ""); });
-    finder.querySelectorAll("[data-area-pin]").forEach(pin => pin.addEventListener("click", () => {
-      const area = pin.getAttribute("data-area-pin") || "";
-      if (search) search.value = area;
-      filterCards(area);
-      finder.querySelector(".area-results-panel")?.scrollIntoView({ behavior: "smooth", block: "nearest" });
-      search?.focus();
-    }));
     filterCards();
   }
 </script>

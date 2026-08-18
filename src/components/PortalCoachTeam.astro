@@ -1,0 +1,57 @@
+---
+interface Coach {
+  name: string;
+  role: string;
+  image: string;
+  alt: string;
+  copy: string;
+  topics: string[];
+}
+
+interface Props {
+  eyebrow?: string;
+  title: string;
+  intro: string;
+  coaches: Coach[];
+}
+
+const {
+  eyebrow = "Meet some of your support team",
+  title,
+  intro,
+  coaches
+} = Astro.props;
+---
+
+<section class="portal-section portal-coaches" id="meet-your-coaches">
+  <div class="portal-shell">
+    <div class="portal-section-heading">
+      <div>
+        <p class="portal-eyebrow portal-eyebrow-dark">{eyebrow}</p>
+        <h2>{title}</h2>
+      </div>
+      <p>{intro}</p>
+    </div>
+
+    <div class="portal-coach-grid">
+      {coaches.map((coach, index) => (
+        <article class={`portal-coach-card portal-coach-card-${index + 1}`}>
+          <div class="portal-coach-portrait">
+            <span class="portal-coach-spark" aria-hidden="true">✦</span>
+            <img src={coach.image} alt={coach.alt} width="640" height="640" loading="lazy" />
+          </div>
+          <div class="portal-coach-copy">
+            <p class="portal-coach-role">{coach.role}</p>
+            <h3>{coach.name}</h3>
+            <p>{coach.copy}</p>
+            <ul aria-label={`${coach.name} support areas`}>
+              {coach.topics.map(topic => <li>{topic}</li>)}
+            </ul>
+          </div>
+        </article>
+      ))}
+    </div>
+
+    <p class="portal-coach-more"><span aria-hidden="true">+</span> These are just a few of the coaches available. Your Bridgit service brings together more specialist support around your needs.</p>
+  </div>
+</section>

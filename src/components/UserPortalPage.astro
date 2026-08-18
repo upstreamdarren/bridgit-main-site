@@ -1,6 +1,10 @@
 ---
+import PortalCoachTeam from "./PortalCoachTeam.astro";
+import PortalVideoFeature from "./PortalVideoFeature.astro";
+
 interface Feature { icon: string; title: string; copy: string; }
 interface Step { number: string; title: string; copy: string; }
+interface Coach { name: string; role: string; image: string; alt: string; copy: string; topics: string[]; }
 interface Props {
   eyebrow: string;
   title: string;
@@ -16,6 +20,9 @@ interface Props {
   featuresTitle: string;
   featuresIntro: string;
   features: Feature[];
+  coachesTitle: string;
+  coachesIntro: string;
+  coaches: Coach[];
   steps: Step[];
   appTitle: string;
   appIntro: string;
@@ -29,7 +36,8 @@ interface Props {
 const {
   eyebrow, title, intro, note, heroImage, heroAlt, primaryUrl, primaryLabel, loginUrl,
   highlights, featuresEyebrow, featuresTitle, featuresIntro, features, steps,
-  appTitle, appIntro, appPoints, ctaTitle, ctaCopy, ctaLabel, ctaUrl
+  coachesTitle, coachesIntro, coaches, appTitle, appIntro, appPoints,
+  ctaTitle, ctaCopy, ctaLabel, ctaUrl
 } = Astro.props;
 ---
 
@@ -79,6 +87,8 @@ const {
   </div>
 </section>
 
+<PortalCoachTeam title={coachesTitle} intro={coachesIntro} {coaches} />
+
 <section class="portal-section portal-how" id="how-it-works">
   <div class="portal-shell">
     <div class="portal-section-heading portal-section-heading-light">
@@ -110,6 +120,18 @@ const {
     </div>
   </div>
 </section>
+
+<PortalVideoFeature
+  eyebrow="See the app in action"
+  title="Advice, coaches and practical tools in one friendly place."
+  copy="This short tour shows how Bridgit brings personalised guidance, specialist coaches, saved plans and local support together on mobile and desktop."
+  points={["Choose the support area that matters today", "Chat with a coach and receive clear next steps", "Save useful advice, tasks and plans for later"]}
+  videoId="1219312452"
+  videoHash="709b38d662"
+  poster="/images/portal-app-explainer.jpg"
+  posterAlt="Preview of the Bridgit app on desktop and mobile with a team of digital coaches"
+  buttonLabel="Watch the 1 minute 45 second app tour"
+/>
 
 <slot />
 

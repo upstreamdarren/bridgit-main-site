@@ -1,6 +1,7 @@
 ---
 import UserSiteLayout from "../../layouts/UserSiteLayout.astro";
 import UserPortalPage from "../../components/UserPortalPage.astro";
+import PortalVideoFeature from "../../components/PortalVideoFeature.astro";
 
 const primaryUrl = "https://employers.bridgit.care/app/";
 const loginUrl = "https://employers.bridgit.care/login/";
@@ -36,6 +37,13 @@ const loginUrl = "https://employers.bridgit.care/login/";
       { icon: "↗", title: "Simple local referrals", copy: "Connect employees directly into the local carer service or further digital support when they choose." },
       { icon: "◎", title: "Visible engagement", copy: "See which employers are active, how support is being used and where more promotion or help may be needed." }
     ]}
+    coachesTitle="Meet your carer-friendly workplace team."
+    coachesIntro="Employers, managers and working carers can go straight to a specialist coach instead of searching through a long policy library."
+    coaches={[
+      { name: "Policy Priya", role: "Rights and policy", image: "/images/portal-coaches/employer-policy-priya.webp", alt: "Policy Priya, a Bridgit workplace coach", copy: "Practical guidance on the policies and adjustments that help working carers stay and thrive at work.", topics: ["Carer rights", "Flexible working", "Data protection"] },
+      { name: "Awareness Alec", role: "Culture and confidence", image: "/images/portal-coaches/employer-awareness-alec.webp", alt: "Awareness Alec, a Bridgit workplace coach", copy: "Ideas and ready-to-use resources that make caring visible and help managers respond well.", topics: ["Manager training", "Carer champions", "Internal campaigns"] },
+      { name: "Insight Isla", role: "Recognition and progress", image: "/images/portal-coaches/employer-insight-isla.webp", alt: "Insight Isla, a Bridgit workplace coach", copy: "Help to identify hidden carers, measure progress and turn good intentions into a stronger workplace offer.", topics: ["Annual review", "Disclosure", "Impact and trends"] }
+    ]}
     steps={[
       { number: "01", title: "Invite local employers", copy: "Offer a ready-made benefit that works for small businesses as well as larger organisations." },
       { number: "02", title: "Equip managers", copy: "Provide short training, practical guidance and prompts for supportive workplace conversations." },
@@ -44,12 +52,63 @@ const loginUrl = "https://employers.bridgit.care/login/";
     ]}
     appTitle="A locally connected benefit employers can offer straight away."
     appIntro="Employees can use Bridgit privately on mobile or desktop. Employers receive a clear, branded route to guidance without needing to build their own specialist carer service."
-    appPoints={["Working carer advice, plans and wellbeing tools", "Guidance for managers and HR teams", "Local signposting and referrals into carer services", "Engagement insight for the organisation leading the programme"]}
+    appPoints={["Private working carer advice, wellbeing tools and personal action plans", "Specialist policy, awareness and insight coaches for managers and HR teams", "Short training, campaign resources and an annual Carer Friendly Charter review", "Local signposting, consent-based referrals and engagement insight for the carer service"]}
     ctaTitle="Make working carer support easier to offer and easier to find."
     ctaCopy="Try the platform or talk to Bridgit about making it available through your local carer service."
     ctaLabel="Open the employer platform"
     ctaUrl={primaryUrl}
   >
+    <PortalVideoFeature
+      eyebrow="See Bridgit Employers in action"
+      title="A ready-made employer programme, connected to your carer service."
+      copy="See how the platform helps local organisations recognise working carers, improve manager confidence and create a simple route into trusted support."
+      points={["Branded for the carer service leading the local programme", "Useful for small employers as well as larger organisations", "Referrals, annual reviews, recognition and local engagement in one place"]}
+      videoId="1196022151"
+      poster="/images/employers-explainer.jpg"
+      posterAlt="Preview of the Bridgit Employers explainer video"
+      buttonLabel="Watch the 1 minute 57 second employer explainer"
+      tone="colour"
+    />
+
+    <section class="portal-section portal-employer-programme" id="carer-friendly-programme">
+      <div class="portal-shell">
+        <div class="portal-included-banner">
+          <span aria-hidden="true">✓</span>
+          <div><strong>Included with Bridgit Essentials and Integrated.</strong><p>Carer services on either package can offer Bridgit Employers to their local employer network at no additional platform cost.</p></div>
+        </div>
+
+        <div class="portal-section-heading">
+          <div><p class="portal-eyebrow portal-eyebrow-dark">Recognition that leads to action</p><h2>A simple annual route to a more carer-friendly workplace.</h2></div>
+          <p>Employers build confidence at their own pace. The programme combines practical support with visible Bronze, Silver and Gold progress.</p>
+        </div>
+
+        <div class="portal-award-grid" aria-label="Carer Friendly Charter levels">
+          <article><span>Bronze</span><h3>Start well</h3><p>Recognise working carers, make support visible and equip managers for a first helpful conversation.</p></article>
+          <article><span>Silver</span><h3>Put support into practice</h3><p>Review policies, train managers, appoint champions and create a clear referral route.</p></article>
+          <article><span>Gold</span><h3>Lead and give back</h3><p>Complete the annual review, show sustained action and optionally donate to the local carer service delivering support.</p></article>
+        </div>
+
+        <div class="portal-table-heading">
+          <p class="portal-eyebrow portal-eyebrow-dark">A clearer comparison</p>
+          <h2>More than a library of employer resources.</h2>
+          <p>Bridgit combines always-available coaching, guided action and local connections in the same experience.</p>
+        </div>
+        <div class="portal-table-scroll" tabindex="0" aria-label="Scrollable comparison table">
+          <table class="portal-comparison-table">
+            <thead><tr><th scope="col">What employers need</th><th scope="col">Bridgit Employers</th><th scope="col">Resource membership</th><th scope="col">General HR or wellbeing tools</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Support at the moment of need</th><td><strong>Yes.</strong> Specialist AI coaches are available day and night.</td><td>Usually relies on guides, events and office-hours support.</td><td>Often broad rather than focused on working carers.</td></tr>
+              <tr><th scope="row">Practical next steps</th><td><strong>Yes.</strong> Guided conversations create actions, plans and useful outputs.</td><td>Resources may still need interpretation and internal delivery.</td><td>Advice and templates vary by provider.</td></tr>
+              <tr><th scope="row">Employee-facing help</th><td><strong>Yes.</strong> Private advice, plans, check-ins and local support.</td><td>May be available through eligible membership.</td><td>Usually part of a broader EAP or wellbeing offer.</td></tr>
+              <tr><th scope="row">Local carer-service referrals</th><td><strong>Yes.</strong> A clear consent-based route into local human support.</td><td>Usually centred on national resources.</td><td>Limited unless separately integrated.</td></tr>
+              <tr><th scope="row">Progress and recognition</th><td><strong>Built in.</strong> Annual Bronze, Silver and Gold Carer Friendly Charter journey.</td><td>Benchmarking may be a separate programme.</td><td>Recognition is not normally included.</td></tr>
+              <tr><th scope="row">Local fundraising</th><td><strong>Optional.</strong> Gold recognition can include a donation to the local carer service.</td><td>Not normally connected to local delivery.</td><td>Not normally included.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
     <section class="portal-section portal-local-cards" id="local-support">
       <div class="portal-shell">
         <div class="portal-section-heading">
