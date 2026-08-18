@@ -14,6 +14,13 @@ const loginUrl = "https://agewell.bridgit.care/login/";
   {loginUrl}
   {primaryUrl}
   primaryLabel="Get started"
+  supportHeading="Age Well support"
+  supportLinks={[
+    { label: "Create your Age Well plan", href: primaryUrl },
+    { label: "Meet the digital coaches", href: "#meet-your-team" },
+    { label: "Explore the Five Pillars", href: "#five-pillars" },
+    { label: "Sign in to your plan", href: loginUrl }
+  ]}
 >
   <ServiceExperiencePage
     eyebrow="Healthy ageing, shaped around you"
@@ -63,7 +70,28 @@ const loginUrl = "https://agewell.bridgit.care/login/";
     <section slot="after-hero" class="portal-partner-band">
       <div class="portal-shell portal-partner-band-inner">
         <img src="/images/user-sites/agewell/logo.webp" alt="Age Well" />
-        <p><strong>Support that respects your experience.</strong> Choose a calm or classic visual style while keeping the same practical, personalised help underneath.</p>
+        <p><strong>Built with contributions from Age UK and The Open University.</strong> Age Well turns the Open University’s evidence-informed Five Pillars approach into practical, personalised actions people can use in everyday life.</p>
+      </div>
+    </section>
+    <section class="portal-section agewell-pillars" id="five-pillars" aria-labelledby="five-pillars-title">
+      <div class="portal-shell">
+        <div class="portal-section-heading">
+          <div><p class="portal-eyebrow portal-eyebrow-dark">The Open University Five Pillars</p><h2 id="five-pillars-title">Five connected habits that help us live well for longer.</h2></div>
+          <p>The Open University model brings together nutrition, hydration, physical activity, social connection and cognitive stimulation. Age Well helps you turn those themes into small actions that suit your life.</p>
+        </div>
+        <div class="agewell-pillar-grid">
+          <article><span>01</span><h3>Nutrition</h3><p>Enjoy varied food and build realistic eating habits.</p></article>
+          <article><span>02</span><h3>Hydration</h3><p>Notice what helps you drink enough throughout the day.</p></article>
+          <article><span>03</span><h3>Physical activity</h3><p>Keep moving in ways that feel safe, useful and enjoyable.</p></article>
+          <article><span>04</span><h3>Social connection</h3><p>Stay involved with people, groups and the places around you.</p></article>
+          <article><span>05</span><h3>Cognitive stimulation</h3><p>Keep learning, thinking and trying things that engage your mind.</p></article>
+        </div>
+        <div class="agewell-resource-links">
+          <a href="https://wels.open.ac.uk/research/projects/take-five-age-well/take-5-case-studies/agewell-bridgitcare" target="_blank" rel="noreferrer"><strong>AgeWell by BridgitCare</strong><span>Read the Open University partnership case study →</span></a>
+          <a href="https://www.open.edu/openlearn/health-sports-psychology/mental-health/five-pillars-ageing-well" target="_blank" rel="noreferrer"><strong>Five Pillars guide</strong><span>Explore the model and practical advice →</span></a>
+          <a href="https://www.open.edu/openlearn/health-sports-psychology/health/the-ageing-well-public-talks" target="_blank" rel="noreferrer"><strong>Ageing Well public talks</strong><span>Watch talks and use free supporting resources →</span></a>
+          <a href="https://www.open.edu/openlearn/health-sports-psychology/ageing-well-collection" target="_blank" rel="noreferrer"><strong>OpenLearn collection</strong><span>Browse healthy-ageing articles, videos and toolkits →</span></a>
+        </div>
       </div>
     </section>
     <section class="portal-section portal-community-section">

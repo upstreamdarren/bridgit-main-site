@@ -18,6 +18,9 @@ interface Props {
   footerCopy?: string;
   copyrightLabel?: string;
   whiteLabel?: boolean;
+  supportHeading?: string;
+  supportLinks?: { label: string; href: string }[];
+  showSiteName?: boolean;
 }
 
 const {
@@ -34,7 +37,10 @@ const {
   brandHomeUrl,
   footerCopy,
   copyrightLabel,
-  whiteLabel = false
+  whiteLabel = false,
+  supportHeading,
+  supportLinks,
+  showSiteName = true
 } = Astro.props;
 const canonical = new URL("/", siteUrl);
 ---
@@ -59,8 +65,8 @@ const canonical = new URL("/", siteUrl);
   </head>
   <body>
     <a class="portal-skip" href="#main-content">Skip to content</a>
-    <UserSiteHeader {siteName} {loginUrl} {primaryUrl} {primaryLabel} {brandLogo} {brandLogoAlt} {brandHomeUrl} {whiteLabel} />
+    <UserSiteHeader {siteName} {loginUrl} {primaryUrl} {primaryLabel} {brandLogo} {brandLogoAlt} {brandHomeUrl} {whiteLabel} {showSiteName} />
     <main id="main-content"><slot /></main>
-    <UserSiteFooter {siteName} {brandLogo} {brandLogoAlt} {brandHomeUrl} {footerCopy} {copyrightLabel} {whiteLabel} />
+    <UserSiteFooter {siteName} {brandLogo} {brandLogoAlt} {brandHomeUrl} {footerCopy} {copyrightLabel} {whiteLabel} {supportHeading} {supportLinks} />
   </body>
 </html>

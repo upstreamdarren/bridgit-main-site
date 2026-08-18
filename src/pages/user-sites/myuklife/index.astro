@@ -14,9 +14,17 @@ const loginUrl = "https://ai.myuk.life/login/";
   {loginUrl}
   {primaryUrl}
   primaryLabel="Choose my region"
-  brandLogo="/images/user-sites/myuklife/logo.png"
-  brandLogoAlt="My UK Life"
+  brandLogo="/images/user-sites/myuklife/bridgit-myuklife-lockup.svg"
+  brandLogoAlt="Bridgit My UK Life"
   brandHomeUrl="https://ai.myuk.life/"
+  showSiteName={false}
+  supportHeading="My UK Life"
+  supportLinks={[
+    { label: "Choose your region", href: "#choose-region" },
+    { label: "West Midlands support", href: "https://ai.myuk.life/wm/" },
+    { label: "South East support", href: "https://ai.myuk.life/se/" },
+    { label: "Sign in to your plan", href: loginUrl }
+  ]}
 >
   <ServiceExperiencePage
     eyebrow="Live well, work well and feel at home"

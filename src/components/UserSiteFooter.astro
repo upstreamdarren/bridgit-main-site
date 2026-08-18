@@ -7,6 +7,8 @@ interface Props {
   footerCopy?: string;
   copyrightLabel?: string;
   whiteLabel?: boolean;
+  supportHeading?: string;
+  supportLinks?: { label: string; href: string }[];
 }
 const {
   siteName,
@@ -15,33 +17,33 @@ const {
   brandHomeUrl = "https://bridgit.care/",
   footerCopy = `${siteName} is part of Bridgit Care, providing practical digital support with a clear route to real people.`,
   copyrightLabel = "Bridgit Care",
-  whiteLabel = false
+  whiteLabel = false,
+  supportHeading = whiteLabel ? "Birmingham support" : "Your support",
+  supportLinks
 } = Astro.props;
+
+const links = supportLinks ?? (whiteLabel ? [
+  { label: "Explore support", href: "#what-you-get" },
+  { label: "Meet the coaches", href: "#meet-your-team" },
+  { label: "Warm Welcome partners", href: "#community-partners" }
+] : [
+  { label: "Adult carer support", href: "https://carers.bridgit.care/" },
+  { label: "Young carer support", href: "https://young.bridgit.care/" },
+  { label: "Support at work", href: "https://employers.bridgit.care/" }
+]);
 ---
 
 <footer class="portal-footer">
   <div class="portal-shell portal-footer-grid">
     <div>
-      <a class:list={["portal-brand", "portal-brand-footer", whiteLabel && "portal-brand-custom"]} href={brandHomeUrl} aria-label={`${siteName} home`}>
+      <a class:list={["portal-brand", "portal-brand-footer", (whiteLabel || brandLogo !== "/images/bridgit-care-logo.png") && "portal-brand-custom"]} href={brandHomeUrl} aria-label={`${siteName} home`}>
         <img src={brandLogo} alt={brandLogoAlt} width="300" height="103" />
       </a>
       <p>{footerCopy}</p>
     </div>
     <div>
-      <h2>{whiteLabel ? "Birmingham support" : "Your support"}</h2>
-      {whiteLabel ? (
-        <>
-          <a href="#what-you-get">Explore support</a>
-          <a href="#meet-your-team">Meet the coaches</a>
-          <a href="#community-partners">Warm Welcome partners</a>
-        </>
-      ) : (
-        <>
-          <a href="https://carers.bridgit.care/">Adult carer support</a>
-          <a href="https://young.bridgit.care/">Young carer support</a>
-          <a href="https://employers.bridgit.care/">Support at work</a>
-        </>
-      )}
+      <h2>{supportHeading}</h2>
+      {links.map((link) => <a href={link.href}>{link.label}</a>)}
     </div>
     <div>
       <h2>Key information</h2>

@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="190" viewBox="0 0 760 190" role="img" aria-labelledby="title desc">
+  <title id="title">Bridgit My UK Life</title>
+  <desc id="desc">A combined Bridgit and My UK Life logo in Bridgit pink, British red, white and blue.</desc>
+  <g font-family="Arial Rounded MT Bold, Arial, Helvetica, sans-serif" font-weight="800">
+    <text x="12" y="105" font-size="76" letter-spacing="-5" fill="#df3db5">brid</text>
+    <text x="151" y="105" font-size="76" letter-spacing="-5" fill="#8428c8">git</text>
+    <path d="M18 128c67 10 154 3 284-1" fill="none" stroke="#18a9c6" stroke-width="9" stroke-linecap="round"/>
+  </g>
+  <rect x="333" y="29" width="3" height="126" rx="1.5" fill="#ded7e8"/>
+  <g transform="translate(365 26)">
+    <circle cx="68" cy="66" r="54" fill="#123b77"/>
+    <path d="M24 32 112 100M112 32 24 100" fill="none" stroke="#fff" stroke-width="19"/>
+    <path d="M24 32 112 100M112 32 24 100" fill="none" stroke="#dc2b3e" stroke-width="7"/>
+    <path d="M68 12v108M14 66h108" fill="none" stroke="#fff" stroke-width="25"/>
+    <path d="M68 12v108M14 66h108" fill="none" stroke="#dc2b3e" stroke-width="12"/>
+    <circle cx="68" cy="66" r="54" fill="none" stroke="#123b77" stroke-width="6"/>
+    <path d="M68 128c-22-23-33-43-33-58h66c0 15-11 35-33 58Z" fill="#123b77"/>
+  </g>
+  <g font-family="Arial, Helvetica, sans-serif">
+    <text x="500" y="80" font-size="42" font-weight="800" letter-spacing="1" fill="#123b77">MY UK</text>
+    <text x="644" y="80" font-size="42" font-weight="800" letter-spacing="1" fill="#dc2b3e">LIFE</text>
+    <text x="501" y="111" font-size="15" font-weight="700" letter-spacing="4" fill="#3d4970">LIVE · WORK · BELONG</text>
+    <path d="M501 131h219" stroke="#18a9c6" stroke-width="8" stroke-linecap="round"/>
+    <path d="M624 131h96" stroke="#dc2b3e" stroke-width="8" stroke-linecap="round"/>
+  </g>
+</svg>

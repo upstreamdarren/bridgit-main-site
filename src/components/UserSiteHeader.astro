@@ -8,6 +8,7 @@ interface Props {
   brandLogoAlt?: string;
   brandHomeUrl?: string;
   whiteLabel?: boolean;
+  showSiteName?: boolean;
 }
 
 const {
@@ -18,15 +19,16 @@ const {
   brandLogo = "/images/bridgit-care-logo.png",
   brandLogoAlt = "Bridgit Care",
   brandHomeUrl = "https://bridgit.care/",
-  whiteLabel = false
+  whiteLabel = false,
+  showSiteName = true
 } = Astro.props;
 ---
 
 <header class="portal-header" data-portal-header>
   <div class="portal-shell portal-header-inner">
-    <a class:list={["portal-brand", whiteLabel && "portal-brand-custom"]} href={brandHomeUrl} aria-label={`${siteName} home`}>
+    <a class:list={["portal-brand", (whiteLabel || brandLogo !== "/images/bridgit-care-logo.png") && "portal-brand-custom"]} href={brandHomeUrl} aria-label={`${siteName} home`}>
       <img src={brandLogo} alt={brandLogoAlt} width="300" height="103" />
-      {!whiteLabel && <span>{siteName}</span>}
+      {!whiteLabel && showSiteName && <span>{siteName}</span>}
     </a>
     <button class="portal-menu-button" type="button" aria-expanded="false" aria-controls="portal-menu" data-portal-menu-button>
       <span class="portal-sr-only">Open navigation</span>

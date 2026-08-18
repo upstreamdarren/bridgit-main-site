@@ -1,0 +1,96 @@
+---
+import AudienceLanding from "../components/AudienceLanding.astro";
+
+const page = {
+  title: "International Recruit Support for Adult Social Care | Bridgit",
+  description: "Help international care recruits settle, progress and stay connected with a regional or organisational digital support service from Bridgit and My UK Life.",
+  pageClass: "audience-international-recruits",
+  eyebrow: "For ADASS regions, councils, care providers and workforce partnerships",
+  heroTitle: "Help international care recruits build a secure working life and a life beyond work.",
+  heroIntro: "Bridgit turns trusted workforce, employment and local information into a personalised support service for international recruits. People can get practical help with work, housing, wellbeing, money, training, family life and community, while programme teams see where needs and pathways are changing.",
+  coreAudience: "international recruits",
+  heroNote: "A regional or organisational front door that supports retention, progression and belonging without adding another queue for your team.",
+  heroImage: "/images/support-selector/moving-to-uk.webp",
+  heroAlt: "An international recruit receiving practical support for work and life in the UK",
+  heroHighlights: ["Work and life support", "Localised across every area", "Needs and pathway insight"],
+  supportUrl: "https://ai.myuk.life/",
+  supportLabel: "Open My UK Life and choose your region",
+  partnershipLabel: "Already supporting two adult social care regions",
+  partnershipText: "My UK Life provides one connected support experience across all 14 West Midlands and 18 South East local-authority areas, shaped with regional adult social care partners.",
+  partnerLogos: [
+    { src: "/images/clients/west-midlands-adass.png", alt: "West Midlands ADASS" },
+    { src: "/images/clients/sesca.webp", alt: "South East Social Care Alliance" }
+  ],
+  challengeEyebrow: "The workforce support challenge",
+  challengeTitle: "Recruitment is only the first step. Retention depends on the life around the job.",
+  challengeIntro: "A recruit may be learning a role, understanding a visa, finding housing, supporting family and adapting to unfamiliar services at the same time. Separate helplines and documents rarely reflect how those pressures connect.",
+  challengeImage: "/images/user-sites/myuklife/coach-team.webp",
+  challengeImageAlt: "A team of My UK Life coaches for housing, health, community and employment questions",
+  challengeVisualTitle: "A workplace question may really be about housing, confidence or belonging.",
+  challengeVisualCopy: "When practical worries go unresolved, they can affect wellbeing, performance and whether somebody sees a future in the region. Earlier, joined-up guidance helps people act before a manageable issue becomes a reason to leave.",
+  challenges: [
+    { title: "Support is fragmented", copy: "Employment, housing, immigration, health and community information sit across different organisations and websites." },
+    { title: "Needs are hard to see", copy: "Regional leaders may know retention is difficult without seeing what recruits are trying to solve or which pathways are failing." },
+    { title: "Human capacity is limited", copy: "Programme and provider teams cannot answer every repeat question across every place and shift pattern." }
+  ],
+  story: {
+    eyebrow: "A typical international recruit journey",
+    title: "Meet Priya. She is committed to care work, but several practical pressures are building.",
+    intro: "Priya represents an international care recruit who wants to stay and progress, but needs a clearer route through work and life in the UK.",
+    personName: "Priya, care worker",
+    personContext: "Recently moved to the UK, works changing shifts and is building a new support network.",
+    personImage: "/images/support-selector/moving-to-uk.webp",
+    personAlt: "Illustrated portrait representing Priya, an international care worker",
+    beforeTitle: "Priya is trying to join everything up alone",
+    beforeItems: ["She is unsure which training will support progression.", "A housing change and travel costs are affecting her confidence at work.", "Information is spread across employer documents, council pages and community groups.", "She avoids asking repeat questions because she does not want to appear difficult."],
+    afterTitle: "Priya has one place for work, life and local support",
+    afterItems: ["A coach helps her explain the whole situation in plain language.", "She receives relevant actions for training, housing, money and wellbeing.", "Regional and local opportunities match where she lives.", "A real partner or service receives the right context when personal help is needed."],
+    outcome: "Priya can make informed decisions and build confidence, while the programme sees emerging needs and can improve the routes people rely on."
+  },
+  solutionEyebrow: "The Bridgit and My UK Life model",
+  solutionTitle: "Create one trusted support service across work, life and place.",
+  solutionIntro: "Start with your approved resources and partner pathways, then deploy a locally branded service across web, mobile, voice or messaging. Each conversation produces useful support for the recruit and practical intelligence for the programme.",
+  solutionSteps: [
+    { title: "Bring knowledge together", copy: "Connect workforce guidance, local services, training, housing, health, money and community resources." },
+    { title: "Shape regional coaches", copy: "Train coaches around your tone, policies, geographies, safeguards and handover rules." },
+    { title: "Reach people anywhere", copy: "Launch through employers, councils, QR codes, hosted links, voice and the full My UK Life app." },
+    { title: "Learn and improve", copy: "See recurring needs, actions, pathway use, service gaps and where extra human support is required." }
+  ],
+  productTitle: "A personalised app for recruits and a clearer evidence view for partners.",
+  productIntro: "My UK Life combines private digital coaching, local opportunities, personal plans and warm handovers. Regional teams receive aggregated insight that helps improve workforce and community support.",
+  productFeatures: [
+    { title: "Work and progression", copy: "Support workplace questions, qualifications, training, CVs, interviews and career planning." },
+    { title: "Housing, money and family", copy: "Help people understand everyday systems, costs, responsibilities and relevant services." },
+    { title: "Wellbeing and belonging", copy: "Connect health guidance, community groups, volunteering, events and peer networks." },
+    { title: "Regional service insight", copy: "Understand what people need, what they act on, where they connect and where pathways break down." }
+  ],
+  gainsTitle: "What international-recruit support organisations gain",
+  gainsIntro: "A scalable support route for recruits and a stronger evidence base for workforce planning, retention and regional partnership decisions.",
+  gains: [
+    { title: "Support across shift patterns", copy: "Give people a trusted place to begin beyond office hours and appointments." },
+    { title: "Consistent regional guidance", copy: "Use approved information while localising services and opportunities to each area." },
+    { title: "Better retention support", copy: "Address the work and life pressures that can undermine confidence and commitment." },
+    { title: "Visible unmet need", copy: "See recurring questions and emerging pressures rather than relying only on formal referrals." },
+    { title: "Clearer pathway performance", copy: "Understand what people are connected to and where routes are unclear, unavailable or unused." },
+    { title: "Protected team capacity", copy: "Handle routine navigation digitally and involve real people for judgement, advocacy and risk." }
+  ],
+  personValueTitle: "A more secure and connected UK life",
+  personValue: "Recruits receive practical, understandable support that connects employment with the housing, wellbeing, family and community factors around it.",
+  organisationValueTitle: "Retention insight and support at regional scale",
+  organisationValue: "Partners can extend capacity across every area while learning what people need and which pathways deserve attention.",
+  caseStudies: [
+    { eyebrow: "West Midlands", title: "One support programme across 14 local-authority areas.", copy: "My UK Life brings career, training, housing, wellbeing and local opportunity into one regional experience for international care workers.", result: "A consistent regional offer that can still tailor guidance to the person and place.", href: "https://ai.myuk.life/wm/", linkLabel: "See the West Midlands service" },
+    { eyebrow: "South East", title: "Digital guidance connected to community support across 18 areas.", copy: "The South East service combines personalised coaching with local information and real community connections through regional partners.", result: "A practical route from a private question to useful local and human support.", href: "https://ai.myuk.life/se/", linkLabel: "See the South East service" }
+  ],
+  testimonialTitle: "See how Bridgit works alongside real delivery partners.",
+  testimonialCopy: "Our partners describe how digital coaching can extend trusted support while keeping human relationships and local expertise at the centre.",
+  featuredTestimonial: "andy" as const,
+  bookingTitle: "Let’s design the support experience your recruits need.",
+  bookingCopy: "Book a call to map the population, geography, employer routes, content, safeguards and evidence for a focused first deployment.",
+  agentId: "agent_9001k5y0ara8ej0tqx19x61wcqkq",
+  coachActionText: "Ask about recruit support",
+  coachQuestions: ["How can this improve retention?", "What insight would regional partners see?", "How quickly can a service launch?"]
+};
+---
+
+<AudienceLanding {...page} />

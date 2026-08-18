@@ -14,9 +14,17 @@ const loginUrl = "https://ai.myuk.life/login/";
   {loginUrl}
   {primaryUrl}
   primaryLabel="Open the app"
-  brandLogo="/images/user-sites/myuklife/logo.png"
-  brandLogoAlt="My UK Life"
+  brandLogo="/images/user-sites/myuklife/bridgit-myuklife-lockup.svg"
+  brandLogoAlt="Bridgit My UK Life"
   brandHomeUrl="https://ai.myuk.life/"
+  showSiteName={false}
+  supportHeading="South East support"
+  supportLinks={[
+    { label: "Open the South East app", href: primaryUrl },
+    { label: "Choose another region", href: "https://ai.myuk.life/" },
+    { label: "West Midlands support", href: "https://ai.myuk.life/wm/" },
+    { label: "Sign in to your plan", href: loginUrl }
+  ]}
 >
   <ServiceExperiencePage
     eyebrow="My UK Life in the South East"
