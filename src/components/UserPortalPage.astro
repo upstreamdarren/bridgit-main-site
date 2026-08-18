@@ -27,6 +27,8 @@ interface Props {
   appTitle: string;
   appIntro: string;
   appPoints: string[];
+  supportArtwork: string;
+  supportArtworkAlt: string;
   ctaTitle: string;
   ctaCopy: string;
   ctaLabel: string;
@@ -37,6 +39,7 @@ const {
   eyebrow, title, intro, note, heroImage, heroAlt, primaryUrl, primaryLabel, loginUrl,
   highlights, featuresEyebrow, featuresTitle, featuresIntro, features, steps,
   coachesTitle, coachesIntro, coaches, appTitle, appIntro, appPoints,
+  supportArtwork, supportArtworkAlt,
   ctaTitle, ctaCopy, ctaLabel, ctaUrl
 } = Astro.props;
 ---
@@ -91,12 +94,16 @@ const {
 
 <section class="portal-section portal-how" id="how-it-works">
   <div class="portal-shell">
-    <div class="portal-section-heading portal-section-heading-light">
+    <div class="portal-how-heading portal-section-heading-light">
       <div>
         <p class="portal-eyebrow">Simple to start</p>
         <h2>Support that turns questions into practical next steps.</h2>
+        <p class="portal-how-intro">Bridgit helps you understand what matters, find useful guidance and connect with the right people when you need more help.</p>
       </div>
-      <p>Bridgit helps you understand what matters, find useful guidance and connect with the right people when you need more help.</p>
+      <div class="portal-how-art">
+        <span class="portal-how-art-glow" aria-hidden="true"></span>
+        <img src={supportArtwork} alt={supportArtworkAlt} width="1152" height="768" loading="lazy" decoding="async" />
+      </div>
     </div>
     <ol class="portal-steps">
       {steps.map(step => <li><span>{step.number}</span><h3>{step.title}</h3><p>{step.copy}</p></li>)}
