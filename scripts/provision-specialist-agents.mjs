@@ -18,6 +18,16 @@ if (!apiKey || !leadSecret) {
 
 const definitions = [
   {
+    slug: "homepage",
+    agentId: BASE_AGENT_ID,
+    name: "Bridgit - Main Site",
+    promptFile: "../docs/elevenlabs/prompts/homepage.md",
+    knowledgeFile: "../docs/elevenlabs/knowledge/homepage.md",
+    knowledgeName: "Bridgit Sales Knowledge - Main Website v2",
+    firstMessage: "Hi, I'm Bridgit. I can explain how our digital coaches help councils, health services, charities, social enterprises and employers extend trusted human support. You could ask what Bridgit does, how a first project works, or which solution fits your organisation. What would you like to explore?",
+    widgetLabel: "Ask Bridgit"
+  },
+  {
     slug: "adult-carers",
     name: "Bridgit - Adult Carer Services",
     promptFile: "../docs/elevenlabs/prompts/adult-carers.md",
@@ -46,10 +56,64 @@ const definitions = [
     firstMessage:
       "Hi, I'm Bridgit. I can help you explore how a digital coach could extend your social enterprise's service model without losing its purpose or human relationships. You could ask: How could a coach help us reach more people? How could we evidence social impact? Or what is the simplest first use case to launch? What would be most useful to explore?",
     widgetLabel: "Ask about scaling impact"
+  },
+  {
+    slug: "young-carers",
+    name: "Bridgit - Young Carers",
+    promptFile: "../docs/elevenlabs/prompts/young-carers.md",
+    knowledgeFile: "../docs/elevenlabs/knowledge/young-carers.md",
+    knowledgeName: "Bridgit Sales Knowledge - Young Carers v1",
+    firstMessage: "Hi, I'm Bridgit. I can explain how age-appropriate digital coaching helps young-carer services reach young people earlier while keeping safeguarding and trusted adults central. What would you like to explore?",
+    widgetLabel: "Ask about young carers"
+  },
+  {
+    slug: "employers",
+    name: "Bridgit - Employers",
+    promptFile: "../docs/elevenlabs/prompts/employers.md",
+    knowledgeFile: "../docs/elevenlabs/knowledge/employers.md",
+    knowledgeName: "Bridgit Sales Knowledge - Employers v1",
+    firstMessage: "Hi, I'm Bridgit. I can show how private, early digital support can help employees manage caring and life pressures while complementing managers and people teams. What would be useful to explore?",
+    widgetLabel: "Ask about workplace support"
+  },
+  {
+    slug: "care-leavers",
+    name: "Bridgit - Care Leavers",
+    promptFile: "../docs/elevenlabs/prompts/care-leavers.md",
+    knowledgeFile: "../docs/elevenlabs/knowledge/care-leavers.md",
+    knowledgeName: "Bridgit Sales Knowledge - Care Leavers v1",
+    firstMessage: "Hi, I'm Bridgit. I can explain how digital coaching gives care leavers consistent guidance between appointments while strengthening the relationship with personal advisers. What would you like to explore?",
+    widgetLabel: "Ask about care-leaver support"
+  },
+  {
+    slug: "healthy-ageing",
+    name: "Bridgit - Healthy Ageing",
+    promptFile: "../docs/elevenlabs/prompts/healthy-ageing.md",
+    knowledgeFile: "../docs/elevenlabs/knowledge/healthy-ageing.md",
+    knowledgeName: "Bridgit Sales Knowledge - Healthy Ageing v1",
+    firstMessage: "Hi, I'm Bridgit. I can explain how accessible digital coaching connects older adults to earlier practical and community support through voice, web and messaging. What would you like to explore?",
+    widgetLabel: "Ask about healthy ageing"
+  },
+  {
+    slug: "nhs",
+    name: "Bridgit - NHS Partners",
+    promptFile: "../docs/elevenlabs/prompts/nhs.md",
+    knowledgeFile: "../docs/elevenlabs/knowledge/nhs.md",
+    knowledgeName: "Bridgit Sales Knowledge - NHS Partners v1",
+    firstMessage: "Hi, I'm Bridgit. I can explain how digital coaches extend safe, preventative and non-clinical support around NHS appointments and community pathways. What would be most useful to explore?",
+    widgetLabel: "Ask about NHS partnerships"
+  },
+  {
+    slug: "corporate-partners",
+    name: "Bridgit - Corporate Partners",
+    promptFile: "../docs/elevenlabs/prompts/corporate-partners.md",
+    knowledgeFile: "../docs/elevenlabs/knowledge/corporate-partners.md",
+    knowledgeName: "Bridgit Sales Knowledge - Corporate Partners v1",
+    firstMessage: "Hi, I'm Bridgit. I can explain two partnership routes: extending support for your own people, or helping social enterprises deliver more impact using Bridgit technology. Which route would you like to explore?",
+    widgetLabel: "Ask about partnership"
   }
 ];
 
-async function request(path, { method = "GET", body } = {}) {
+async function request(path, { method = "GET", body } = {}, attempt = 1) {
   const response = await fetch(`${API_ROOT}${path}`, {
     method,
     headers: {
@@ -69,6 +133,10 @@ async function request(path, { method = "GET", body } = {}) {
   }
 
   if (!response.ok) {
+    if (response.status >= 500 && attempt < 4) {
+      await new Promise((resolve) => setTimeout(resolve, attempt * 1000));
+      return request(path, { method, body }, attempt + 1);
+    }
     const detail = result?.detail?.message || result?.detail || result?.message || result;
     throw new Error(`${method} ${path} failed (${response.status}): ${JSON.stringify(detail)}`);
   }
@@ -97,12 +165,7 @@ async function ensureLeadTool(secretId) {
   const existing = (result.tools ?? []).find(
     (tool) => tool.tool_config?.name === TOOL_NAME
   );
-  if (existing) return existing.id;
-
-  const created = await request("/convai/tools", {
-    method: "POST",
-    body: {
-      tool_config: {
+  const toolConfig = {
         type: "webhook",
         name: TOOL_NAME,
         description:
@@ -144,7 +207,7 @@ async function ensureLeadTool(secretId) {
                 "A short business-only summary. Exclude health, safeguarding, beneficiary and service-user personal information."
               ),
               source_page: literal("string", "Landing page where the enquiry started.", {
-                enum: ["adult-carers", "local-support", "social-enterprises"]
+                enum: ["homepage", "adult-carers", "local-support", "social-enterprises", "young-carers", "employers", "care-leavers", "healthy-ageing", "nhs", "corporate-partners"]
               }),
               consent: literal(
                 "boolean",
@@ -162,8 +225,16 @@ async function ensureLeadTool(secretId) {
             }
           }
         }
-      }
-    }
+      };
+
+  if (existing) {
+    await request(`/convai/tools/${existing.id}`, { method: "PATCH", body: { tool_config: toolConfig } });
+    return existing.id;
+  }
+
+  const created = await request("/convai/tools", {
+    method: "POST",
+    body: { tool_config: toolConfig }
   });
 
   return created.id;
@@ -176,9 +247,15 @@ async function ensureKnowledge(definition) {
   const existing = (result.documents ?? []).find(
     (document) => document.name === definition.knowledgeName
   );
-  if (existing) return existing.id;
-
   const text = await readFile(new URL(definition.knowledgeFile, import.meta.url), "utf8");
+  if (existing) {
+    await request(`/convai/knowledge-base/${existing.id}`, {
+      method: "PATCH",
+      body: { name: definition.knowledgeName, text }
+    });
+    return existing.id;
+  }
+
   const created = await request("/convai/knowledge-base/text", {
     method: "POST",
     body: { name: definition.knowledgeName, text }
@@ -194,7 +271,9 @@ async function listAgents() {
 }
 
 async function ensureAgent(definition, knowledgeId, leadToolId, agents) {
-  let agent = agents.find((candidate) => candidate.name === definition.name);
+  let agent = definition.agentId
+    ? { agent_id: definition.agentId, name: definition.name }
+    : agents.find((candidate) => candidate.name === definition.name);
   if (!agent) {
     const created = await request(`/convai/agents/${BASE_AGENT_ID}/duplicate`, {
       method: "POST",
@@ -217,7 +296,6 @@ async function ensureAgent(definition, knowledgeId, leadToolId, agents) {
           prompt: {
             prompt,
             tool_ids: [leadToolId],
-            tools: [],
             knowledge_base: [
               {
                 type: "text",
