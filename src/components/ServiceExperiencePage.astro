@@ -1,0 +1,149 @@
+---
+interface Feature { icon: string; title: string; copy: string; }
+interface Coach { name: string; role: string; copy: string; topics: string[]; }
+interface Step { number: string; title: string; copy: string; }
+interface Props {
+  eyebrow: string;
+  title: string;
+  intro: string;
+  note: string;
+  heroImage: string;
+  heroAlt: string;
+  heroImageFit?: "cover" | "contain";
+  primaryUrl: string;
+  primaryLabel: string;
+  loginUrl: string;
+  highlights: string[];
+  featuresEyebrow: string;
+  featuresTitle: string;
+  featuresIntro: string;
+  features: Feature[];
+  coachTitle: string;
+  coachIntro: string;
+  coachImage: string;
+  coachImageAlt: string;
+  coaches: Coach[];
+  steps: Step[];
+  appImage: string;
+  appImageAlt: string;
+  appTitle: string;
+  appIntro: string;
+  appPoints: string[];
+  ctaTitle: string;
+  ctaCopy: string;
+  ctaLabel: string;
+  ctaUrl: string;
+}
+
+const {
+  eyebrow, title, intro, note, heroImage, heroAlt, heroImageFit = "contain",
+  primaryUrl, primaryLabel, loginUrl, highlights,
+  featuresEyebrow, featuresTitle, featuresIntro, features,
+  coachTitle, coachIntro, coachImage, coachImageAlt, coaches, steps,
+  appImage, appImageAlt, appTitle, appIntro, appPoints,
+  ctaTitle, ctaCopy, ctaLabel, ctaUrl
+} = Astro.props;
+---
+
+<section class="portal-hero portal-experience-hero">
+  <div class="portal-shell portal-hero-grid">
+    <div class="portal-hero-copy">
+      <p class="portal-eyebrow">{eyebrow}</p>
+      <h1>{title}</h1>
+      <p class="portal-lead">{intro}</p>
+      <p class="portal-hero-note"><span aria-hidden="true">♥</span>{note}</p>
+      <div class="portal-actions">
+        <a class="portal-button" href={primaryUrl}>{primaryLabel}</a>
+        <a class="portal-button portal-button-outline" href={loginUrl}>I already have an account</a>
+      </div>
+    </div>
+    <div class:list={["portal-hero-art", "portal-experience-art", heroImageFit === "cover" && "portal-art-cover"]} aria-label={heroAlt} role="img">
+      <span class="portal-orbit portal-orbit-one"></span>
+      <span class="portal-orbit portal-orbit-two"></span>
+      <img src={heroImage} alt={heroAlt} width="840" height="720" fetchpriority="high" />
+      <span class="portal-float portal-float-one">Support shaped around you</span>
+      <span class="portal-float portal-float-two">Real people when you need them</span>
+    </div>
+  </div>
+  <div class="portal-shell portal-highlight-row" aria-label="Key benefits">
+    {highlights.map((item, index) => <div><span>{String(index + 1).padStart(2, "0")}</span><strong>{item}</strong></div>)}
+  </div>
+</section>
+
+<slot name="after-hero" />
+
+<section class="portal-section portal-feature-section" id="what-you-get">
+  <div class="portal-shell">
+    <div class="portal-section-heading">
+      <div><p class="portal-eyebrow portal-eyebrow-dark">{featuresEyebrow}</p><h2>{featuresTitle}</h2></div>
+      <p>{featuresIntro}</p>
+    </div>
+    <div class="portal-feature-grid">
+      {features.map(feature => (
+        <article><span class="portal-feature-icon" aria-hidden="true">{feature.icon}</span><h3>{feature.title}</h3><p>{feature.copy}</p></article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<section class="portal-section portal-team-showcase" id="meet-your-team">
+  <div class="portal-shell portal-team-showcase-grid">
+    <div class="portal-team-visual">
+      <span class="portal-team-glow" aria-hidden="true"></span>
+      <img src={coachImage} alt={coachImageAlt} width="900" height="720" loading="lazy" decoding="async" />
+      <p>Choose the coach that fits what matters today.</p>
+    </div>
+    <div class="portal-team-copy">
+      <p class="portal-eyebrow portal-eyebrow-dark">A team around you</p>
+      <h2>{coachTitle}</h2>
+      <p class="portal-team-intro">{coachIntro}</p>
+      <div class="portal-coach-summary-grid">
+        {coaches.map(coach => (
+          <article>
+            <div><span aria-hidden="true">✦</span><div><p>{coach.role}</p><h3>{coach.name}</h3></div></div>
+            <p>{coach.copy}</p>
+            <ul>{coach.topics.map(topic => <li>{topic}</li>)}</ul>
+          </article>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="portal-section portal-how" id="how-it-works">
+  <div class="portal-shell">
+    <div class="portal-section-heading portal-section-heading-light">
+      <div><p class="portal-eyebrow">Simple to start</p><h2>From one question to a plan you can use.</h2></div>
+      <p>Share only what you are comfortable with. Your answers shape the guidance, useful tools and local connections you see next.</p>
+    </div>
+    <ol class="portal-steps portal-steps-three">
+      {steps.map(step => <li><span>{step.number}</span><h3>{step.title}</h3><p>{step.copy}</p></li>)}
+    </ol>
+  </div>
+</section>
+
+<section class="portal-section portal-app portal-app-service">
+  <div class="portal-shell portal-app-grid">
+    <div class="portal-app-visual portal-app-visual-service">
+      <span class="portal-app-glow"></span>
+      <img src={appImage} alt={appImageAlt} width="1100" height="900" loading="lazy" decoding="async" />
+    </div>
+    <div>
+      <p class="portal-eyebrow portal-eyebrow-dark">Support that stays with you</p>
+      <h2>{appTitle}</h2>
+      <p class="portal-app-intro">{appIntro}</p>
+      <ul class="portal-check-list">
+        {appPoints.map(point => <li><span aria-hidden="true">✓</span>{point}</li>)}
+      </ul>
+    </div>
+  </div>
+</section>
+
+<slot />
+
+<section class="portal-section portal-cta">
+  <div class="portal-shell portal-cta-inner">
+    <div><p class="portal-eyebrow">Ready when you are</p><h2>{ctaTitle}</h2><p>{ctaCopy}</p></div>
+    <a class="portal-button portal-button-light" href={ctaUrl}>{ctaLabel}</a>
+  </div>
+</section>

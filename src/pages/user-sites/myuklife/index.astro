@@ -1,0 +1,102 @@
+---
+import UserSiteLayout from "../../../layouts/UserSiteLayout.astro";
+import ServiceExperiencePage from "../../../components/ServiceExperiencePage.astro";
+const primaryUrl = "#choose-region";
+const loginUrl = "https://ai.myuk.life/login/";
+---
+
+<UserSiteLayout
+  title="My UK Life | Support for international care recruits"
+  description="Trusted guidance for international care recruits living and working across the West Midlands and South East of England."
+  siteName="International recruit support"
+  siteUrl="https://ai.myuk.life/"
+  accent="myuk"
+  {loginUrl}
+  {primaryUrl}
+  primaryLabel="Choose my region"
+  brandLogo="/images/user-sites/myuklife/logo.png"
+  brandLogoAlt="My UK Life"
+  brandHomeUrl="https://ai.myuk.life/"
+>
+  <ServiceExperiencePage
+    eyebrow="Live well, work well and feel at home"
+    title="Your UK life, with practical support beside you."
+    intro="My UK Life helps international care recruits understand work, housing, wellbeing, money, training and local life. Choose your region for trusted information and support shaped around where you live."
+    note="Created with regional social care partners and available across 32 local-authority areas in two regions."
+    heroImage="/images/user-sites/myuklife/coach-team.webp"
+    heroAlt="The My UK Life support coach team"
+    {primaryUrl}
+    primaryLabel="Choose my region"
+    {loginUrl}
+    highlights={["32 local-authority areas", "Two regional programmes", "Support for work, life and community"]}
+    featuresEyebrow="Settle, grow and stay connected"
+    featuresTitle="Useful answers for work and life in the UK."
+    featuresIntro="Moving country can make everyday questions feel more complicated. My UK Life brings trusted information together and helps you find a practical route forward."
+    features={[
+      { icon: "↗", title: "Work and training", copy: "Find guidance on workplace life, professional development, job changes, qualifications and training." },
+      { icon: "⌂", title: "Home and money", copy: "Understand housing, household costs, benefits, budgeting and the services available where you live." },
+      { icon: "♥", title: "Health and family", copy: "Explore physical and mental wellbeing, family life, education and how to access local support." },
+      { icon: "⌁", title: "Community and belonging", copy: "Discover local events, volunteering, support groups and ways to build connections in your area." }
+    ]}
+    coachTitle="A team that understands the questions behind settling in."
+    coachIntro="Your coaches help with the practical details of living and working in the UK, while keeping a route open to regional partners and real community support."
+    coachImage="/images/user-sites/myuklife/coach-trio.webp"
+    coachImageAlt="My UK Life coaches for community, health and housing"
+    coaches={[
+      { name: "Community Carmen", role: "Belonging and local life", copy: "Find welcoming places, useful groups and opportunities to build a network where you live.", topics: ["Local events", "Volunteering", "Support groups"] },
+      { name: "Health Holly", role: "Health and wellbeing", copy: "Practical guidance for looking after your physical and emotional health and using UK services.", topics: ["NHS access", "Mental wellbeing", "Healthy routines"] },
+      { name: "Housing Haile", role: "Home and security", copy: "Understand renting, household responsibilities and where to turn if your accommodation changes.", topics: ["Tenancies", "Bills", "Housing help"] }
+    ]}
+    steps={[
+      { number: "01", title: "Choose your region", copy: "Open the South East or West Midlands service so local guidance and pathways match your area." },
+      { number: "02", title: "Tell us what you need", copy: "Start with work, housing, wellbeing, family life or any question that is making life harder." },
+      { number: "03", title: "Build your UK Life plan", copy: "Save advice, actions and local connections, then return whenever you need another step." }
+    ]}
+    appImage="/images/user-sites/myuklife/app.gif"
+    appImageAlt="The My UK Life app on desktop and mobile"
+    appTitle="Localised support on mobile and desktop."
+    appIntro="My UK Life is more than a list of links. It brings personalised guidance, practical plans and regional services into one place you can return to."
+    appPoints={["Guidance tailored to the local-authority area where you live", "Coaches for work, health, housing, money, family and community", "Practical tools, saved actions and useful reminders", "Links into regional programmes and real people when you need more support"]}
+    ctaTitle="Choose the service built for your region."
+    ctaCopy="Open My UK Life for the South East or West Midlands and start with the question that matters today."
+    ctaLabel="Choose my region"
+    ctaUrl="#choose-region"
+  >
+    <section slot="after-hero" class="portal-region-chooser" id="choose-region">
+      <div class="portal-shell">
+        <div class="portal-region-heading"><p class="portal-eyebrow portal-eyebrow-dark">Choose your regional service</p><h2>Two regions. One practical route into support.</h2><p>Select where you live or work to open the right local information, partners and app experience.</p></div>
+        <div class="portal-region-grid">
+          <a class="portal-region-card" href="https://ai.myuk.life/wm/">
+            <img src="/images/clients/west-midlands-adass.png" alt="West Midlands ADASS" />
+            <div><h3>West Midlands</h3><p>My UK Life for international care workers across <strong>14 local-authority areas</strong>.</p><strong>Open the West Midlands service →</strong></div>
+          </a>
+          <a class="portal-region-card" href="https://ai.myuk.life/se/">
+            <img src="/images/clients/sesca.webp" alt="South East Social Care Alliance" />
+            <div><h3>South East</h3><p>My UK Life for international recruits across <strong>18 local-authority areas</strong>.</p><strong>Open the South East service →</strong></div>
+          </a>
+        </div>
+        <div class="portal-stat-strip" style="margin-top:24px">
+          <div><strong>32</strong><span>local-authority areas covered</span></div>
+          <div><strong>2</strong><span>regional programmes</span></div>
+          <div><strong>1</strong><span>connected support experience</span></div>
+        </div>
+      </div>
+    </section>
+    <section class="portal-section portal-community-section">
+      <div class="portal-shell portal-community-grid">
+        <div class="portal-community-copy">
+          <p class="portal-eyebrow portal-eyebrow-dark">Build a life, not just a work record</p>
+          <h2>Feel informed, connected and more at home.</h2>
+          <p>Find local groups, understand UK systems, strengthen your confidence and explore opportunities for yourself and your family. Support is available in the moments between formal appointments too.</p>
+          <div class="portal-community-list">
+            <article><h3>Local events</h3><p>Meet people and discover what is happening nearby.</p></article>
+            <article><h3>Volunteering</h3><p>Build skills, give back and grow your network.</p></article>
+            <article><h3>Support groups</h3><p>Connect with people who understand your experience.</p></article>
+            <article><h3>Skills and social clubs</h3><p>Develop interests and confidence outside work.</p></article>
+          </div>
+        </div>
+        <div class="portal-community-visual"><img src="/images/user-sites/myuklife/community-carmen.webp" alt="Community Carmen, a My UK Life coach" loading="lazy" /></div>
+      </div>
+    </section>
+  </ServiceExperiencePage>
+</UserSiteLayout>

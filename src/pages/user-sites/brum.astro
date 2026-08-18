@@ -1,0 +1,93 @@
+---
+import UserSiteLayout from "../../layouts/UserSiteLayout.astro";
+import ServiceExperiencePage from "../../components/ServiceExperiencePage.astro";
+
+const primaryUrl = "https://brum.chat/app/web";
+const loginUrl = "https://brum.chat/login/";
+---
+
+<UserSiteLayout
+  title="Brum Chat | Support in Birmingham, made simple"
+  description="Free, confidential support for Birmingham residents across housing, money, wellbeing, work and local services."
+  siteName="Brum Chat"
+  siteUrl="https://brum.chat/"
+  accent="brum"
+  {loginUrl}
+  {primaryUrl}
+  primaryLabel="Access help now"
+  brandLogo="/images/user-sites/brum/logo.jpg"
+  brandLogoAlt="Brum Chat"
+  brandHomeUrl="https://brum.chat/"
+  footerCopy="Brum Chat helps Birmingham residents find clear advice, useful local services and practical next steps in one confidential place."
+  copyrightLabel="Brum Chat"
+  whiteLabel={true}
+>
+  <ServiceExperiencePage
+    eyebrow="Free, confidential support for Birmingham"
+    title="Support in Birmingham, made simple."
+    intro="Get personalised advice on social care, housing, money, wellbeing, work and local services. Ask a question, understand your options and build a clear plan for what to do next."
+    note="You can use Brum Chat at any time and share only what you are comfortable with."
+    heroImage="/images/user-sites/brum/coach-team.webp"
+    heroAlt="The Brum Chat digital support coach team"
+    {primaryUrl}
+    primaryLabel="Access help now"
+    {loginUrl}
+    highlights={["Free to use", "Confidential and personal", "Connected to Birmingham support"]}
+    featuresEyebrow="Help across everyday life"
+    featuresTitle="Start with what matters to you today."
+    featuresIntro="You do not need to know which council team or community organisation to contact. Brum Chat helps you make sense of the issue first, then connects you with useful Birmingham support."
+    features={[
+      { icon: "⌂", title: "Housing", copy: "Find clear guidance on tenancy rights, housing benefits, rent arrears, homelessness and urgent help." },
+      { icon: "£", title: "Money", copy: "Explore council tax, benefits, budgeting, grants, bills and routes to specialist financial support." },
+      { icon: "♥", title: "Wellbeing", copy: "Get practical ideas for mental and physical wellbeing and find trusted local services." },
+      { icon: "⌁", title: "Community", copy: "Discover Warm Welcome Spaces, neighbourhood activities, volunteering and organisations near you." }
+    ]}
+    coachTitle="Meet the Birmingham support team in your pocket."
+    coachIntro="Each coach focuses on a different part of life and uses trusted Birmingham information to give you relevant guidance and a clearer next step."
+    coachImage="/images/user-sites/brum/coach-team.webp"
+    coachImageAlt="Brum Chat coaches for housing, money and community support"
+    coaches={[
+      { name: "Housing Harry", role: "Housing and homelessness", copy: "Understand your rights, explore housing options and find the right route when your situation is urgent.", topics: ["Tenancy rights", "Rent arrears", "Emergency help"] },
+      { name: "Financial Francesca", role: "Money and benefits", copy: "Straightforward guidance on bills, benefits and keeping household finances under control.", topics: ["Council tax", "Benefits", "Budgeting"] },
+      { name: "Community Caroline", role: "People and places", copy: "Find welcoming spaces, local groups and opportunities to connect in your neighbourhood.", topics: ["Warm Welcome", "Local events", "Volunteering"] }
+    ]}
+    steps={[
+      { number: "01", title: "Create your personal plan", copy: "Answer a few simple questions so Brum Chat can understand what may help." },
+      { number: "02", title: "Explore Birmingham support", copy: "See practical guidance, useful local services and manageable actions in one place." },
+      { number: "03", title: "Reach the right people", copy: "Use your support team and local pathways when you need more personal or specialist help." }
+    ]}
+    appImage="/images/user-sites/brum/app.gif"
+    appImageAlt="The Brum Chat app showing personalised Birmingham support"
+    appTitle="A Birmingham support plan you can take with you."
+    appIntro="Open Brum Chat on a phone, tablet or computer. Save useful guidance, return to your plan and stay connected to the services and people that can help."
+    appPoints={["Advice in plain language based on your situation", "Local Birmingham services, resources and Warm Welcome Spaces", "Practical tasks and next steps you can save", "A clear route to human support when you need it"]}
+    ctaTitle="Take the first step in your own time."
+    ctaCopy="Open Brum Chat, tell us what is happening and create a clear, personal plan for your next step."
+    ctaLabel="Open Brum Chat"
+    ctaUrl={primaryUrl}
+  >
+    <section slot="after-hero" class="portal-partner-band">
+      <div class="portal-shell portal-partner-band-inner portal-white-label-mark">
+        <img src="/images/user-sites/brum/birmingham-city-council.png" alt="Birmingham City Council" />
+        <p><strong>Made for Birmingham.</strong> Brum Chat works alongside Birmingham City Council, community organisations and Warm Welcome Spaces to help residents reach trusted local support.</p>
+      </div>
+    </section>
+    <section class="portal-section portal-community-section" id="community-partners">
+      <div class="portal-shell portal-community-grid">
+        <div class="portal-community-copy">
+          <p class="portal-eyebrow portal-eyebrow-dark">Supporting Birmingham together</p>
+          <h2>Local partners make support easier to find.</h2>
+          <p>Community organisations and Warm Welcome Spaces can join the Brum Chat network, help residents discover support and show people what is available in their neighbourhood.</p>
+          <div class="portal-community-list">
+            <article><h3>Share your service</h3><p>Make useful local help easier for Birmingham residents to discover.</p></article>
+            <article><h3>Promote Brum Chat</h3><p>Use ready-made social content, brochures and community materials.</p></article>
+            <article><h3>See engagement</h3><p>Understand how residents are using support and what they are trying to solve.</p></article>
+            <article><h3>Strengthen neighbourhoods</h3><p>Connect people into Warm Welcome Spaces and trusted community activity.</p></article>
+          </div>
+          <div class="portal-actions"><a class="portal-button portal-button-outline" href="https://brum.chat/app">Warm Welcome partner information</a></div>
+        </div>
+        <div class="portal-community-visual"><img src="/images/user-sites/brum/coach-team.webp" alt="Brum Chat coaches connecting Birmingham residents with local support" loading="lazy" /></div>
+      </div>
+    </section>
+  </ServiceExperiencePage>
+</UserSiteLayout>

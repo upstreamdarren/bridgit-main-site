@@ -4,16 +4,29 @@ interface Props {
   loginUrl: string;
   primaryUrl: string;
   primaryLabel: string;
+  brandLogo?: string;
+  brandLogoAlt?: string;
+  brandHomeUrl?: string;
+  whiteLabel?: boolean;
 }
 
-const { siteName, loginUrl, primaryUrl, primaryLabel } = Astro.props;
+const {
+  siteName,
+  loginUrl,
+  primaryUrl,
+  primaryLabel,
+  brandLogo = "/images/bridgit-care-logo.png",
+  brandLogoAlt = "Bridgit Care",
+  brandHomeUrl = "https://bridgit.care/",
+  whiteLabel = false
+} = Astro.props;
 ---
 
 <header class="portal-header" data-portal-header>
   <div class="portal-shell portal-header-inner">
-    <a class="portal-brand" href="https://bridgit.care/" aria-label={`Bridgit Care, ${siteName}. Go to the main website`}>
-      <img src="/images/bridgit-care-logo.png" alt="Bridgit Care" width="300" height="103" />
-      <span>{siteName}</span>
+    <a class:list={["portal-brand", whiteLabel && "portal-brand-custom"]} href={brandHomeUrl} aria-label={`${siteName} home`}>
+      <img src={brandLogo} alt={brandLogoAlt} width="300" height="103" />
+      {!whiteLabel && <span>{siteName}</span>}
     </a>
     <button class="portal-menu-button" type="button" aria-expanded="false" aria-controls="portal-menu" data-portal-menu-button>
       <span class="portal-sr-only">Open navigation</span>
@@ -22,7 +35,7 @@ const { siteName, loginUrl, primaryUrl, primaryLabel } = Astro.props;
     <nav class="portal-nav" id="portal-menu" aria-label="Main navigation" data-portal-menu>
       <a href="#how-it-works">How it works</a>
       <a href="#what-you-get">What you get</a>
-      <a href="#local-support">Local support</a>
+      <a href="#meet-your-team">Meet your coaches</a>
       <a class="portal-login" href={loginUrl}>Sign in</a>
       <a class="portal-button portal-button-small" href={primaryUrl}>{primaryLabel}</a>
     </nav>

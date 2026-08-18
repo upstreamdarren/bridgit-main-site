@@ -1,0 +1,86 @@
+---
+import UserSiteLayout from "../../layouts/UserSiteLayout.astro";
+import ServiceExperiencePage from "../../components/ServiceExperiencePage.astro";
+
+const primaryUrl = "https://local.bridgit.care/signup/";
+const loginUrl = "https://local.bridgit.care/login/";
+---
+
+<UserSiteLayout
+  title="Local support, advice and practical next steps | Bridgit Local"
+  description="Personalised local guidance for housing, money, work, wellbeing, community life and everyday challenges."
+  siteName="Local support"
+  siteUrl="https://local.bridgit.care/"
+  accent="local"
+  {loginUrl}
+  {primaryUrl}
+  primaryLabel="Create my plan"
+>
+  <ServiceExperiencePage
+    eyebrow="Trusted support in your community"
+    title="Local help for the things life puts in your way."
+    intro="Ask about housing, money, work, wellbeing or what is happening nearby. Bridgit turns local knowledge into clear advice, practical next steps and a route to the right service."
+    note="Start with one question. Your plan can grow as your needs change."
+    heroImage="/images/user-sites/local/coach-team.webp"
+    heroAlt="A varied team of Bridgit local support coaches"
+    {primaryUrl}
+    primaryLabel="Get local support"
+    {loginUrl}
+    highlights={["Advice shaped around you", "Useful local connections", "Available day and night"]}
+    featuresEyebrow="Help with everyday life"
+    featuresTitle="One place to make sense of your options."
+    featuresIntro="Life does not arrive in tidy categories. Bridgit helps you look across connected needs and take the next useful step without having to know which service to ask first."
+    features={[
+      { icon: "⌂", title: "Housing", copy: "Understand tenancy rights, housing benefits, rent arrears, homelessness support and what to do in an emergency." },
+      { icon: "£", title: "Money", copy: "Find help with benefits, bills, budgeting, debt and the cost of living in straightforward language." },
+      { icon: "↗", title: "Work and skills", copy: "Build a CV, prepare for interviews, explore training and find opportunities that match your goals." },
+      { icon: "♥", title: "Health and community", copy: "Look after your wellbeing, build confidence and connect with local groups, activities and support." }
+    ]}
+    coachTitle="Different questions. The right coach for each one."
+    coachIntro="Your digital coaches bring trusted guidance together, help you understand your options and point you towards real local support when that is the better next step."
+    coachImage="/images/user-sites/local/team-peaky.webp"
+    coachImageAlt="Bridgit local support coaches"
+    coaches={[
+      { name: "Housing Harry", role: "A safe place to live", copy: "Practical housing guidance when you need to understand rights, choices or urgent routes to help.", topics: ["Tenancy rights", "Rent arrears", "Emergency housing"] },
+      { name: "Employment Ernie", role: "Work and opportunity", copy: "Support with job searching, applications, interviews, training and building confidence at work.", topics: ["CVs", "Interviews", "Training"] },
+      { name: "Financial Francesca", role: "Money made clearer", copy: "Simple explanations and next steps for benefits, bills, budgeting and finding specialist support.", topics: ["Benefits", "Budgeting", "Debt help"] }
+    ]}
+    steps={[
+      { number: "01", title: "Tell us what is happening", copy: "Answer a few simple questions or start with the issue that feels most important today." },
+      { number: "02", title: "See clear next steps", copy: "Receive personalised guidance, useful tools and trusted local services in one plan." },
+      { number: "03", title: "Keep moving forward", copy: "Save your plan, return when things change and connect with a real person for more support." }
+    ]}
+    appImage="/images/user-sites/local/coach-team.webp"
+    appImageAlt="A local Bridgit coaching team available through the app"
+    appTitle="Your plan brings local support together."
+    appIntro="Use Bridgit on mobile or desktop to explore guidance, save useful information and keep practical actions in one place."
+    appPoints={["Personalised guidance across housing, money, work, wellbeing and community life", "Checklists, goals and useful tasks you can return to", "Local services, events and trusted organisations", "A clear handover to real support when you need more help"]}
+    ctaTitle="A useful next step can start with one question."
+    ctaCopy="Create your free plan and see the local support, guidance and practical tools available to you."
+    ctaLabel="Create my local plan"
+    ctaUrl={primaryUrl}
+  >
+    <section slot="after-hero" class="portal-partner-band">
+      <div class="portal-shell portal-partner-band-inner">
+        <p><strong>Built with local services and community partners.</strong> Advice and pathways can be tailored to the area where you live.</p>
+        <img src="/images/user-sites/local/supported-by.png" alt="Organisations supporting Bridgit Local" loading="lazy" />
+      </div>
+    </section>
+    <section class="portal-section portal-community-section">
+      <div class="portal-shell portal-community-grid">
+        <div class="portal-community-copy">
+          <p class="portal-eyebrow portal-eyebrow-dark">More than a directory</p>
+          <h2>Guidance that helps you act, not just search.</h2>
+          <p>Bridgit can help you understand information, compare your options and turn advice into manageable actions. If your situation needs specialist or urgent help, it points you towards the right human support.</p>
+          <div class="portal-community-list">
+            <article><h3>Life skills</h3><p>Cooking, digital confidence, organisation and everyday independence.</p></article>
+            <article><h3>Education</h3><p>Courses, qualifications, training and routes back into learning.</p></article>
+            <article><h3>Community</h3><p>Groups, activities, volunteering and ways to feel more connected.</p></article>
+            <article><h3>Wellbeing</h3><p>Practical tools for stress, sleep, healthy habits and confidence.</p></article>
+          </div>
+        </div>
+        <div class="portal-community-visual"><img src="/images/user-sites/local/housing-harry.webp" alt="Housing Harry, a Bridgit local support coach" loading="lazy" /></div>
+      </div>
+    </section>
+  </ServiceExperiencePage>
+</UserSiteLayout>

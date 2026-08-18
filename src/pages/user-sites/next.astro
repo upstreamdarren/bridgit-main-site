@@ -1,0 +1,86 @@
+---
+import UserSiteLayout from "../../layouts/UserSiteLayout.astro";
+import ServiceExperiencePage from "../../components/ServiceExperiencePage.astro";
+const primaryUrl = "https://next.bridgit.care/signup/";
+const loginUrl = "https://next.bridgit.care/login/";
+---
+
+<UserSiteLayout
+  title="Next | Practical support after leaving care"
+  description="Personalised guidance, tools and coaching for care-experienced young people navigating housing, money, work, health and independence."
+  siteName="Next for care leavers"
+  siteUrl="https://next.bridgit.care/"
+  accent="next"
+  {loginUrl}
+  {primaryUrl}
+  primaryLabel="Get started"
+>
+  <ServiceExperiencePage
+    eyebrow="Your future after leaving care, your way"
+    title="Work out what comes next, with support that stays close."
+    intro="Next gives care-experienced young people practical guidance on housing, money, work, education, health and everyday independence. Build a plan around your goals and return whenever you need another step."
+    note="No judgement and no need to have everything worked out before you begin."
+    heroImage="/images/use-cases-v2/care-leavers.webp"
+    heroAlt="A care-experienced young person planning their next step"
+    heroImageFit="cover"
+    {primaryUrl}
+    primaryLabel="Start my plan"
+    {loginUrl}
+    highlights={["Built around your goals", "Practical tools for independence", "Support whenever you need it"]}
+    featuresEyebrow="Your life, in one clearer plan"
+    featuresTitle="Help with the things nobody teaches all at once."
+    featuresIntro="Leaving care can mean making important decisions quickly. Next breaks complex information into practical steps and helps you connect each part of life rather than managing it alone."
+    features={[
+      { icon: "⌂", title: "A place to live", copy: "Understand tenancy rights, bills, housing options and where to turn if your home feels uncertain." },
+      { icon: "£", title: "Money and benefits", copy: "Build a budget, understand financial support and make confident decisions about everyday costs." },
+      { icon: "↗", title: "Work and learning", copy: "Explore jobs, apprenticeships, courses and practical ways to build skills and confidence." },
+      { icon: "♥", title: "Health and wellbeing", copy: "Find support for mental health, physical wellbeing, routines, confidence and feeling connected." }
+    ]}
+    coachTitle="Choose a coach for the next thing you want to solve."
+    coachIntro="Some questions need facts, others need a plan or a confidence boost. Your coaches help you move between those needs without starting again."
+    coachImage="/images/user-sites/next/coach-team.webp"
+    coachImageAlt="Next digital coaches for care-experienced young people"
+    coaches={[
+      { name: "Finance Fumiko", role: "Money and independence", copy: "Friendly help to understand benefits, build a budget and stay on top of household costs.", topics: ["Budgeting", "Benefits", "Bills"] },
+      { name: "Health Helen", role: "Health and wellbeing", copy: "A steady place to think about stress, sleep, physical health and getting the right support.", topics: ["Mental health", "Healthy routines", "Health costs"] },
+      { name: "Life Skills Logan", role: "Everyday confidence", copy: "Practical support for goals, routines, digital skills and the everyday jobs that come with independence.", topics: ["Goal setting", "Digital skills", "Life admin"] }
+    ]}
+    steps={[
+      { number: "01", title: "Choose what matters", copy: "Start with housing, money, work, wellbeing or any question that is getting in the way." },
+      { number: "02", title: "Build your next steps", copy: "Use personalised guidance, checklists and tools to turn a big goal into manageable actions." },
+      { number: "03", title: "Keep support close", copy: "Save your plan, check in on progress and reach a real person when you need more help." }
+    ]}
+    appImage="/images/bridgit-app-channels.webp"
+    appImageAlt="The Next advice and coaching app on desktop and mobile"
+    appTitle="Your advice, goals and support stay together."
+    appIntro="Use Next on mobile or desktop. Save important guidance, keep track of what you want to do and come back when life changes."
+    appPoints={["Personalised plans for housing, money, education, work and wellbeing", "Guided checklists and confidence-building tools", "Up-to-date resources and useful local services", "A route to your leaving-care team when you need personal support"]}
+    ctaTitle="Your next step does not have to be a big one."
+    ctaCopy="Create your free plan, choose your coaches and start with the question that matters today."
+    ctaLabel="Start with Next"
+    ctaUrl={primaryUrl}
+  >
+    <section slot="after-hero" class="portal-partner-band">
+      <div class="portal-shell portal-partner-band-inner">
+        <img src="/images/user-sites/next/supported-by.png" alt="Next" />
+        <p><strong>A flexible space that feels like yours.</strong> Choose a calmer professional style or a brighter illustrated experience, while keeping the same trusted guidance underneath.</p>
+      </div>
+    </section>
+    <section class="portal-section portal-community-section">
+      <div class="portal-shell portal-community-grid">
+        <div class="portal-community-visual"><img src="/images/user-sites/next/finance-fumiko.webp" alt="Finance Fumiko, a Next coach" loading="lazy" /></div>
+        <div class="portal-community-copy">
+          <p class="portal-eyebrow portal-eyebrow-dark">Confidence through action</p>
+          <h2>Big plans become easier when you can see the next move.</h2>
+          <p>Explore career ideas, learn how to manage a tenancy, build healthy routines or break a personal goal into steps. Next is designed to help you feel more informed and in control.</p>
+          <div class="portal-community-list">
+            <article><h3>Your pathway</h3><p>Compare work, training, college and apprenticeship options.</p></article>
+            <article><h3>Technology</h3><p>Use digital tools for applications, money and staying connected.</p></article>
+            <article><h3>Goals</h3><p>Turn the future you want into realistic, trackable actions.</p></article>
+            <article><h3>Personal growth</h3><p>Build habits, resilience and the confidence to move forward.</p></article>
+          </div>
+        </div>
+      </div>
+    </section>
+  </ServiceExperiencePage>
+</UserSiteLayout>

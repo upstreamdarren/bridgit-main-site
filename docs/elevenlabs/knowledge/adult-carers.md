@@ -34,7 +34,7 @@ Coaches can be available through web, voice, WhatsApp, hosted links, QR codes an
 
 ## Evidence and partnership
 
-Bridgit works with organisations across the UK and reports more than 200,000 people supported across 40 local-authority areas. Peterborough combined Bridgit with frontline engagement, local radio and accessible videos made with community champions in six languages and British Sign Language. The published case study reports a 10% increase in previously unidentified unpaid carers being supported within a few months.
+Bridgit works with organisations across the UK and reports more than 200,000 people supported across 60 local-authority areas. This includes regional My UK Life programmes spanning the 14 West Midlands and 18 South East adult social care authorities. Peterborough combined Bridgit with frontline engagement, local radio and accessible videos made with community champions in six languages and British Sign Language. The published case study reports a 10% increase in previously unidentified unpaid carers being supported within a few months.
 
 Bridgit Care and Carers Trust are working with network partners to develop carer-led digital solutions that scale support, demonstrate impact and respond to rising demand.
 

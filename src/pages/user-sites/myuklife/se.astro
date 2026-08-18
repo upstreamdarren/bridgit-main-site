@@ -1,0 +1,79 @@
+---
+import UserSiteLayout from "../../../layouts/UserSiteLayout.astro";
+import ServiceExperiencePage from "../../../components/ServiceExperiencePage.astro";
+const primaryUrl = "https://ai.myuk.life/app/se/default";
+const loginUrl = "https://ai.myuk.life/login/";
+---
+
+<UserSiteLayout
+  title="My UK Life South East | Support for international recruits"
+  description="Practical, localised support for international care recruits living and working across the South East."
+  siteName="South East international recruit support"
+  siteUrl="https://ai.myuk.life/se/"
+  accent="myuk"
+  {loginUrl}
+  {primaryUrl}
+  primaryLabel="Open the app"
+  brandLogo="/images/user-sites/myuklife/logo.png"
+  brandLogoAlt="My UK Life"
+  brandHomeUrl="https://ai.myuk.life/"
+>
+  <ServiceExperiencePage
+    eyebrow="My UK Life in the South East"
+    title="Trusted support for work, life and your local community."
+    intro="Get practical advice, local information and personalised support for everyday life in the UK. Explore work, wellbeing, housing, training, travel and community connections across the South East."
+    note="Delivered with South East social care partners across 18 local-authority areas."
+    heroImage="/images/user-sites/myuklife/coach-team.webp"
+    heroAlt="My UK Life coaches for international recruits in the South East"
+    {primaryUrl}
+    primaryLabel="Open the South East app"
+    {loginUrl}
+    highlights={["18 local-authority areas", "Trusted South East information", "Digital and community support"]}
+    featuresEyebrow="Support for your whole UK life"
+    featuresTitle="Understand your options and feel more connected."
+    featuresIntro="The South East is a large and varied region. My UK Life uses your area and circumstances to make guidance more relevant and help you find the right local route."
+    features={[
+      { icon: "↗", title: "Work and development", copy: "Explore workplace questions, training, qualifications, career planning and employment support." },
+      { icon: "⌂", title: "Housing and travel", copy: "Understand renting, bills, local transport and practical choices around where you live." },
+      { icon: "♥", title: "Wellbeing and family", copy: "Find trusted health information, family support, education guidance and ways to look after yourself." },
+      { icon: "⌁", title: "Community connections", copy: "Connect with local groups, events, volunteering and the wider Tresacare community." }
+    ]}
+    coachTitle="Local guidance, backed by wider community support."
+    coachIntro="Use digital coaches for private, practical questions at any time, then connect into real community networks and partner support when that is what you need."
+    coachImage="/images/user-sites/myuklife/coach-trio.webp"
+    coachImageAlt="Three My UK Life digital coaches"
+    coaches={[
+      { name: "Community Carmen", role: "Local life and belonging", copy: "Discover events, groups and ways to build stronger connections where you live.", topics: ["Local events", "Volunteering", "Social groups"] },
+      { name: "Health Holly", role: "Health and wellbeing", copy: "Understand UK health routes and find practical ways to look after your wellbeing.", topics: ["NHS access", "Mental health", "Healthy routines"] },
+      { name: "Housing Haile", role: "Housing and stability", copy: "Get clear guidance on renting, household responsibilities and finding help.", topics: ["Tenancies", "Bills", "Housing support"] }
+    ]}
+    steps={[
+      { number: "01", title: "Open your South East service", copy: "Your app uses regional information and can tailor local support to where you live." },
+      { number: "02", title: "Explore what matters", copy: "Ask about work, housing, wellbeing, family life, travel or your local community." },
+      { number: "03", title: "Stay supported", copy: "Save your plan, use check-ins and connect with Tresacare or other real support when helpful." }
+    ]}
+    appImage="/images/user-sites/myuklife/app.gif"
+    appImageAlt="The My UK Life South East app on desktop and mobile"
+    appTitle="Advice that reflects the place where you live."
+    appIntro="The app combines personalised coaching with local South East information, useful services and practical tools you can return to."
+    appPoints={["Area-based information across 18 South East local authorities", "Personalised advice for work, housing, health, money and family life", "Saved actions, useful guides and ongoing check-ins", "Connections into Tresacare and wider community support"]}
+    ctaTitle="Open your South East support."
+    ctaCopy="Start your personal plan and bring your questions about work, life and your local community into one place."
+    ctaLabel="Open the South East app"
+    ctaUrl={primaryUrl}
+  >
+    <section slot="after-hero" class="portal-partner-band">
+      <div class="portal-shell portal-partner-band-inner">
+        <img src="/images/clients/sesca.webp" alt="South East Social Care Alliance" />
+        <img src="/images/user-sites/myuklife/tresacare.png" alt="Tresacare" />
+        <p><strong>Connected digital and community support.</strong> My UK Life works alongside South East partners and Tresacare, including access to real community connections such as its WhatsApp group.</p>
+      </div>
+    </section>
+    <section class="portal-section portal-community-section">
+      <div class="portal-shell portal-community-grid">
+        <div class="portal-community-copy"><p class="portal-eyebrow portal-eyebrow-dark">Feel part of your community</p><h2>Support for the life around your job too.</h2><p>Find events, volunteering, skills groups and communities of people who understand the experience of building a life in a new country.</p><div class="portal-community-list"><article><h3>Professional networks</h3><p>Meet people and grow your confidence at work.</p></article><article><h3>Local events</h3><p>Discover cultural, social and family activities nearby.</p></article><article><h3>Tresacare community</h3><p>Stay connected to real people as well as digital support.</p></article><article><h3>Skills and interests</h3><p>Find groups where you can learn, contribute and belong.</p></article></div></div>
+        <div class="portal-community-visual"><img src="/images/user-sites/myuklife/community-carmen.webp" alt="Community Carmen, a My UK Life coach" loading="lazy" /></div>
+      </div>
+    </section>
+  </ServiceExperiencePage>
+</UserSiteLayout>

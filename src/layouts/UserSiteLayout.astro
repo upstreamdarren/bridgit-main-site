@@ -8,10 +8,16 @@ interface Props {
   description: string;
   siteName: string;
   siteUrl: string;
-  accent?: "adult" | "young" | "employer";
+  accent?: string;
   loginUrl: string;
   primaryUrl: string;
   primaryLabel: string;
+  brandLogo?: string;
+  brandLogoAlt?: string;
+  brandHomeUrl?: string;
+  footerCopy?: string;
+  copyrightLabel?: string;
+  whiteLabel?: boolean;
 }
 
 const {
@@ -22,7 +28,13 @@ const {
   accent = "adult",
   loginUrl,
   primaryUrl,
-  primaryLabel
+  primaryLabel,
+  brandLogo,
+  brandLogoAlt,
+  brandHomeUrl,
+  footerCopy,
+  copyrightLabel,
+  whiteLabel = false
 } = Astro.props;
 const canonical = new URL("/", siteUrl);
 ---
@@ -47,8 +59,8 @@ const canonical = new URL("/", siteUrl);
   </head>
   <body>
     <a class="portal-skip" href="#main-content">Skip to content</a>
-    <UserSiteHeader {siteName} {loginUrl} {primaryUrl} {primaryLabel} />
+    <UserSiteHeader {siteName} {loginUrl} {primaryUrl} {primaryLabel} {brandLogo} {brandLogoAlt} {brandHomeUrl} {whiteLabel} />
     <main id="main-content"><slot /></main>
-    <UserSiteFooter {siteName} />
+    <UserSiteFooter {siteName} {brandLogo} {brandLogoAlt} {brandHomeUrl} {footerCopy} {copyrightLabel} {whiteLabel} />
   </body>
 </html>

@@ -1,0 +1,79 @@
+---
+import UserSiteLayout from "../../../layouts/UserSiteLayout.astro";
+import ServiceExperiencePage from "../../../components/ServiceExperiencePage.astro";
+const primaryUrl = "https://ai.myuk.life/signup/";
+const loginUrl = "https://ai.myuk.life/login/";
+---
+
+<UserSiteLayout
+  title="My UK Life West Midlands | Support for international care workers"
+  description="Personalised advice, training, employment and community support for international care workers across the West Midlands."
+  siteName="West Midlands international recruit support"
+  siteUrl="https://ai.myuk.life/wm/"
+  accent="myuk"
+  {loginUrl}
+  {primaryUrl}
+  primaryLabel="Explore opportunities"
+  brandLogo="/images/user-sites/myuklife/logo.png"
+  brandLogoAlt="My UK Life"
+  brandHomeUrl="https://ai.myuk.life/"
+>
+  <ServiceExperiencePage
+    eyebrow="My UK Life in the West Midlands"
+    title="Build your career, confidence and community."
+    intro="Personalised support for international care workers across the West Midlands. Get help with employment, training, housing, wellbeing, family life and connecting with the community around you."
+    note="A regional support programme spanning all 14 West Midlands local-authority areas."
+    heroImage="/images/user-sites/myuklife/coach-team.webp"
+    heroAlt="My UK Life coaches supporting international care workers"
+    {primaryUrl}
+    primaryLabel="Explore opportunities"
+    {loginUrl}
+    highlights={["14 local-authority areas", "Career and training support", "Local community connections"]}
+    featuresEyebrow="Your pathway to opportunity"
+    featuresTitle="Practical help for the next chapter of your UK life."
+    featuresIntro="Whether you are settling into a role, looking for a new sponsor, building your skills or supporting your family, My UK Life helps you see relevant options and act with confidence."
+    features={[
+      { icon: "↗", title: "Jobs and progression", copy: "Get help with CVs, interviews, applications, workplace questions and finding new opportunities." },
+      { icon: "✓", title: "Training and qualifications", copy: "Understand learning options, compare qualifications and plan practical professional development." },
+      { icon: "⌂", title: "Housing and daily life", copy: "Explore renting, bills, travel, budgeting and local services across the West Midlands." },
+      { icon: "♥", title: "Wellbeing and community", copy: "Look after your health, support your family and build relationships beyond the workplace." }
+    ]}
+    coachTitle="A digital support team for work and life in the region."
+    coachIntro="Ask a private question at any time, get guidance matched to your circumstances and see a clearer route into regional programmes or real people."
+    coachImage="/images/user-sites/myuklife/coach-trio.webp"
+    coachImageAlt="My UK Life coaches for community, health and housing"
+    coaches={[
+      { name: "Community Carmen", role: "Connections and belonging", copy: "Find groups, events and community opportunities across the West Midlands.", topics: ["Local events", "Volunteering", "Networks"] },
+      { name: "Health Holly", role: "Health and wellbeing", copy: "Understand health services and create practical habits that support life and work.", topics: ["NHS access", "Mental health", "Healthy routines"] },
+      { name: "Housing Haile", role: "Home and stability", copy: "Clear information about renting, bills and getting support when housing becomes uncertain.", topics: ["Tenancies", "Bills", "Housing help"] }
+    ]}
+    steps={[
+      { number: "01", title: "Tell us what you want to change", copy: "Start with work, training, housing, wellbeing or any practical question about UK life." },
+      { number: "02", title: "See your options", copy: "Receive relevant guidance, tools and local or regional opportunities in a personal plan." },
+      { number: "03", title: "Take the next step", copy: "Save actions, return for check-ins and connect with real support when you need it." }
+    ]}
+    appImage="/images/user-sites/myuklife/app.gif"
+    appImageAlt="The My UK Life West Midlands app on desktop and mobile"
+    appTitle="Your regional opportunities in one place."
+    appIntro="Use My UK Life to bring together career guidance, training, local support and practical next steps across the West Midlands."
+    appPoints={["Information and pathways across all 14 West Midlands local authorities", "Guidance for jobs, training, housing, wellbeing, money and family life", "Personal tasks, saved resources and useful check-ins", "Connections into regional and local support when your situation needs more help"]}
+    ctaTitle="Explore your next opportunity."
+    ctaCopy="Create your My UK Life plan and start with the work or life question that matters most today."
+    ctaLabel="Start my West Midlands plan"
+    ctaUrl={primaryUrl}
+  >
+    <section slot="after-hero" class="portal-partner-band">
+      <div class="portal-shell portal-partner-band-inner">
+        <img src="/images/clients/west-midlands-adass.png" alt="West Midlands ADASS" />
+        <img src="/images/user-sites/myuklife/wm-ir-social-care.png" alt="West Midlands International Recruitment Social Care" />
+        <p><strong>One regional programme across 14 councils.</strong> My UK Life brings employment, training and community support closer to international care workers throughout the West Midlands.</p>
+      </div>
+    </section>
+    <section class="portal-section portal-community-section">
+      <div class="portal-shell portal-community-grid">
+        <div class="portal-community-visual"><img src="/images/user-sites/myuklife/community-carmen.webp" alt="Community Carmen, a My UK Life coach" loading="lazy" /></div>
+        <div class="portal-community-copy"><p class="portal-eyebrow portal-eyebrow-dark">Opportunity and belonging</p><h2>A stronger working life starts with a more secure life around it.</h2><p>Career support works best when housing, health, confidence and community are considered too. My UK Life helps you connect those parts and move forward with a plan.</p><div class="portal-community-list"><article><h3>Career planning</h3><p>Prepare for roles, interviews and progression.</p></article><article><h3>Professional learning</h3><p>Find training and make sense of qualifications.</p></article><article><h3>Local life</h3><p>Understand travel, housing and services nearby.</p></article><article><h3>Community</h3><p>Build networks and feel more connected.</p></article></div></div>
+      </div>
+    </section>
+  </ServiceExperiencePage>
+</UserSiteLayout>

@@ -1,0 +1,86 @@
+---
+import UserSiteLayout from "../../layouts/UserSiteLayout.astro";
+import ServiceExperiencePage from "../../components/ServiceExperiencePage.astro";
+const primaryUrl = "https://agewell.bridgit.care/signup/";
+const loginUrl = "https://agewell.bridgit.care/login/";
+---
+
+<UserSiteLayout
+  title="Age Well | Personalised support for healthy ageing"
+  description="Practical guidance, tools and local connections to help you stay active, confident, connected and independent."
+  siteName="Age Well"
+  siteUrl="https://agewell.bridgit.care/"
+  accent="agewell"
+  {loginUrl}
+  {primaryUrl}
+  primaryLabel="Get started"
+>
+  <ServiceExperiencePage
+    eyebrow="Healthy ageing, shaped around you"
+    title="Stay active, connected and confident in the life you choose."
+    intro="Age Well brings practical tools, friendly coaching and trusted guidance together. Explore your health, hobbies, routines and local opportunities, then build a plan that feels realistic for you."
+    note="Healthy ageing looks different for everyone. Start with the part of life you want to strengthen."
+    heroImage="/images/user-sites/agewell/hero.jpg"
+    heroAlt="An older couple enjoying food and time together at home"
+    heroImageFit="cover"
+    {primaryUrl}
+    primaryLabel="Create my Age Well plan"
+    {loginUrl}
+    highlights={["Support for your whole wellbeing", "Simple tools and check-ins", "Ideas and connections near you"]}
+    featuresEyebrow="Own your ageing journey"
+    featuresTitle="Small changes that help life feel fuller."
+    featuresIntro="Age Well helps you focus on the things that keep you feeling well and independent. You can explore one area today and come back to others whenever you are ready."
+    features={[
+      { icon: "♥", title: "Health and energy", copy: "Explore movement, sleep, nutrition, health checks and practical ways to feel stronger day to day." },
+      { icon: "☀", title: "Purpose and confidence", copy: "Set personal goals, try new routines and build the confidence to keep doing the things you value." },
+      { icon: "⌁", title: "People and community", copy: "Find groups, activities, volunteering and welcoming places where you can stay connected." },
+      { icon: "✓", title: "Everyday independence", copy: "Use simple planners, check-ins and trusted information to make informed decisions about daily life." }
+    ]}
+    coachTitle="Friendly coaches for food, connection and clear thinking."
+    coachIntro="Choose the coach whose support fits your day. Each one offers practical ideas without pressure, and your plan changes as your priorities do."
+    coachImage="/images/user-sites/agewell/coach-team.webp"
+    coachImageAlt="The Age Well digital coaching team"
+    coaches={[
+      { name: "Eat Well Emma", role: "Food and nutrition", copy: "Simple, affordable ideas for colourful meals, planning ahead and getting the energy you need.", topics: ["Easy recipes", "Meal planning", "Food support"] },
+      { name: "Engaging Evelyn", role: "Connection and purpose", copy: "Find activities, people and opportunities that make it easier to stay involved and interested.", topics: ["Local groups", "Hobbies", "Volunteering"] },
+      { name: "Thinking Trey", role: "Mind and confidence", copy: "Practical prompts for memory, confidence, routines and looking after your emotional wellbeing.", topics: ["Confidence", "Mental wellbeing", "Daily routines"] }
+    ]}
+    steps={[
+      { number: "01", title: "Tell us what matters", copy: "Choose the part of your health, routine or social life you would like to explore." },
+      { number: "02", title: "Create a realistic plan", copy: "See personalised ideas, trusted information and small actions that fit your life." },
+      { number: "03", title: "Stay connected", copy: "Check in, notice progress and reach local or human support whenever that would help." }
+    ]}
+    appImage="/images/bridgit-app-channels.webp"
+    appImageAlt="The Age Well advice and coaching app on desktop and mobile"
+    appTitle="Your goals, ideas and progress in one friendly place."
+    appIntro="Use Age Well at home or on the move. Save what is useful, set gentle reminders and return to your plan without having to start again."
+    appPoints={["Personalised ideas for food, movement, confidence and connection", "Goals, planners and check-ins that keep progress manageable", "Trusted guides and local opportunities", "A clear route to real services and people when you want more support"]}
+    ctaTitle="Age well in a way that feels right for you."
+    ctaCopy="Create your free plan and discover practical ideas, useful tools and friendly support for the life you want to keep living."
+    ctaLabel="Start my Age Well plan"
+    ctaUrl={primaryUrl}
+  >
+    <section slot="after-hero" class="portal-partner-band">
+      <div class="portal-shell portal-partner-band-inner">
+        <img src="/images/user-sites/agewell/logo.webp" alt="Age Well" />
+        <p><strong>Support that respects your experience.</strong> Choose a calm or classic visual style while keeping the same practical, personalised help underneath.</p>
+      </div>
+    </section>
+    <section class="portal-section portal-community-section">
+      <div class="portal-shell portal-community-grid">
+        <div class="portal-community-copy">
+          <p class="portal-eyebrow portal-eyebrow-dark">Everyday wellbeing</p>
+          <h2>Healthy living should feel enjoyable, not like another job.</h2>
+          <p>Age Well focuses on useful, realistic changes. You might plan a few meals, find a local group, try a new routine or simply understand what support is available nearby.</p>
+          <div class="portal-community-list">
+            <article><h3>Eat the rainbow</h3><p>Build simple, colourful meals with food you enjoy.</p></article>
+            <article><h3>Plan with confidence</h3><p>Use easy shopping, meal and activity planners.</p></article>
+            <article><h3>Stay connected</h3><p>Find groups, events and ways to share your interests.</p></article>
+            <article><h3>Ask for help</h3><p>Reach local services when costs, health or daily life get harder.</p></article>
+          </div>
+        </div>
+        <div class="portal-community-visual"><img src="/images/user-sites/agewell/eat-well-emma.webp" alt="Eat Well Emma, an Age Well digital coach" loading="lazy" /></div>
+      </div>
+    </section>
+  </ServiceExperiencePage>
+</UserSiteLayout>
