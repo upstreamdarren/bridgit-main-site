@@ -1,6 +1,7 @@
 ---
 import UserSiteLayout from "../../layouts/UserSiteLayout.astro";
 import ServiceExperiencePage from "../../components/ServiceExperiencePage.astro";
+import ElevenLabsCoach from "../../components/ElevenLabsCoach.astro";
 
 const primaryUrl = "https://brum.chat/app/web";
 const loginUrl = "https://brum.chat/login/";
@@ -90,4 +91,16 @@ const loginUrl = "https://brum.chat/login/";
       </div>
     </section>
   </ServiceExperiencePage>
+
+  <ElevenLabsCoach
+    agentId="agent_1001kn243z2se77s03sz192er6fm"
+    coachName="Charlie"
+    actionText="Ask Charlie"
+    commonQuestions={[
+      "How can I find support for my family?",
+      "I’m worried about my child. Where do I start?",
+      "What help is available through Birmingham Children’s Services?",
+      "Can you help me find local activities and support?"
+    ]}
+  />
 </UserSiteLayout>
