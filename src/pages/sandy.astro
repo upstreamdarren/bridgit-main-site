@@ -1,0 +1,84 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ElevenLabsCoach from "../components/ElevenLabsCoach.astro";
+
+const steps = [
+  ["01", "Line up", "Agree the purpose, what is genuinely open to influence and who needs to be involved."],
+  ["02", "Invite people to the floor", "Bring lived experience in early and remove barriers created by language, timing, access, confidence or caring responsibilities."],
+  ["03", "Listen to the beat", "Hear the voices that are often missed and build shared understanding before jumping to a solution."],
+  ["04", "Move in sync", "Make decisions together, name responsibilities and share power wherever you can."],
+  ["05", "Check the rhythm", "Pause, test what is working and adapt the approach with participants."],
+  ["06", "Finish with a recap", "Close the loop with: you said, we did, we could not do, and why."],
+];
+---
+
+<BaseLayout title="Sandy Co-production Coach | Free Co-production Planning Tool" description="Talk to Sandy, Bridgit's free co-production coach. Build an inclusive co-production plan using trusted SCIE, TLAP and NHS England guidance, then receive the plan by email." image="https://bridgit.care/wp-content/uploads/2026/07/sandy-welcome.png">
+  <section class="section sandy-hero">
+    <div class="shell sandy-hero-grid">
+      <div class="sandy-copy">
+        <p class="eyebrow dark">Free co-production planning tool</p>
+        <h1>Meet Sandy. Plan co-production people can feel part of.</h1>
+        <p class="lead">Tell Sandy what you are trying to change. She will help you involve the right people, make participation accessible, share decisions and close the feedback loop.</p>
+        <div class="button-row"><a class="button" href="#talk-to-sandy">Build my plan</a><a class="button button-secondary" href="#sandy-steps">See Sandy's steps</a></div>
+        <p class="sandy-email-note"><span>✉</span><strong>Finish with something useful.</strong> After the conversation, Sandy can email your tailored co-production plan to you.</p>
+      </div>
+      <figure class="sandy-visual"><img src="https://bridgit.care/wp-content/uploads/2026/07/sandy-welcome.png" alt="Sandy, the co-production coach, sharing memorable line-dancing steps for inclusive co-production" width="1536" height="1024" /></figure>
+    </div>
+  </section>
+
+  <section class="section sandy-talk" id="talk-to-sandy">
+    <div class="shell sandy-talk-grid">
+      <div><p class="eyebrow">Talk or type</p><h2>Bring the messy starting point. Sandy will help you find the next step.</h2><p>You do not need a finished brief. Sandy asks one simple question at a time, adapts to your stage and helps turn good intentions into a practical plan.</p></div>
+      <ol><li><span>1</span><p><strong>Describe the change</strong>What are you trying to co-produce?</p></li><li><span>2</span><p><strong>Shape the approach</strong>Work through people, power, access, methods and decisions.</p></li><li><span>3</span><p><strong>Receive your plan</strong>Review it in the conversation, confirm your email and choose whether to have it sent.</p></li></ol>
+    </div>
+  </section>
+
+  <section class="section sandy-steps" id="sandy-steps">
+    <div class="shell">
+      <div class="section-heading"><div><p class="eyebrow dark">Good co-production is like line dancing</p><h2>People learn the steps together.</h2></div><p>Sandy uses a light line-dancing metaphor to make good practice easier to remember, without turning co-production into a tick-box exercise.</p></div>
+      <div class="sandy-step-grid">{steps.map(([number,title,copy]) => <article><span>{number}</span><h3>{title}</h3><p>{copy}</p></article>)}</div>
+    </div>
+  </section>
+
+  <section class="section sandy-trust">
+    <div class="shell sandy-trust-grid">
+      <figure><img src="https://bridgit.care/wp-content/uploads/2026/07/sandy-brain.png" alt="Trusted UK co-production guidance informing Sandy's advice" width="1536" height="1024" loading="lazy" /></figure>
+      <div><p class="eyebrow dark">Trusted guidance, translated into practical questions</p><h2>Sandy does not make up a method as she goes.</h2><p>Her advice is grounded in established UK co-production guidance and designed to help people use it in real work.</p><ul><li><a href="https://www.scie.org.uk/co-production/">SCIE co-production guidance</a></li><li><a href="https://thinklocalactpersonal.org.uk/our-hubs/co-production/">Think Local Act Personal co-production hub</a></li><li><a href="https://www.england.nhs.uk/get-involved/resources/working-in-partnership-with-people-and-communities-statutory-guidance/">NHS England working with people and communities</a></li></ul><p class="sandy-boundary">Sandy offers planning support, not emergency, legal, medical or safeguarding advice. Do not share confidential case information.</p></div>
+    </div>
+  </section>
+
+  <ElevenLabsCoach agentId="agent_0701kw99sgynegx9pgsdmd2kh3dh" coachName="Sandy" actionText="Plan with Sandy" commonQuestions={["What decisions are genuinely open to influence?", "Who might we be missing from this work?", "Help me plan an inclusive co-production session", "How should we close the feedback loop?"]} />
+</BaseLayout>
+
+<style>
+  .sandy-hero{overflow:hidden;background:radial-gradient(circle at 85% 10%,rgba(131,170,119,.28),transparent 34%),radial-gradient(circle at 4% 90%,rgba(225,183,113,.18),transparent 30%),linear-gradient(145deg,#fffdf7,#eef5e9)}
+  .sandy-hero-grid{display:grid;grid-template-columns:.83fr 1.17fr;gap:clamp(40px,7vw,90px);align-items:center}
+  .sandy-copy h1{color:#192232;font-size:clamp(48px,6vw,76px)}
+  .sandy-copy .lead{color:#596361}
+  .sandy-copy .button-secondary{border-color:#b9c6ae;color:#3d6339}
+  .sandy-email-note{display:grid;grid-template-columns:38px 1fr;column-gap:12px;align-items:center;max-width:590px;margin-top:25px;padding:17px 19px;border:1px solid #cbd8c2;border-radius:18px;background:rgba(255,255,255,.72);color:#4b5948}
+  .sandy-email-note span{grid-row:1/3;display:grid;place-items:center;width:38px;height:38px;border-radius:13px;background:#e2edd9}
+  .sandy-email-note strong{color:#34562f}
+  .sandy-visual{overflow:hidden;margin:0;border:1px solid #d5dfcd;border-radius:38px;background:#fff;box-shadow:0 28px 70px rgba(39,68,33,.14);transform:rotate(1deg)}
+  .sandy-visual img{display:block;width:100%}
+  .sandy-talk{background:linear-gradient(135deg,#2f4f35,#5f7a4e);color:#fff}
+  .sandy-talk-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(40px,7vw,90px);align-items:center}
+  .sandy-talk h2{margin:10px 0 18px;font-size:clamp(40px,5vw,64px)}
+  .sandy-talk-grid>div>p:not(.eyebrow){color:#eaf1e6}
+  .sandy-talk ol{display:grid;gap:13px;margin:0;padding:0;list-style:none}
+  .sandy-talk li{display:grid;grid-template-columns:48px 1fr;gap:16px;padding:20px;border:1px solid rgba(255,255,255,.22);border-radius:20px;background:rgba(255,255,255,.1)}
+  .sandy-talk li>span{display:grid;place-items:center;width:48px;height:48px;border-radius:15px;background:#fff;color:#426040;font-weight:900}
+  .sandy-talk li p{display:grid;gap:2px;margin:0;color:#e7eee3}.sandy-talk li strong{color:#fff;font-size:18px}
+  .sandy-steps{background:#fff}
+  .sandy-step-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+  .sandy-step-grid article{padding:28px;border:1px solid #dde6d8;border-radius:26px;background:linear-gradient(145deg,#fff,#f5f8f2);box-shadow:0 16px 38px rgba(45,74,40,.07)}
+  .sandy-step-grid span{display:grid;place-items:center;width:46px;height:46px;border-radius:14px;background:#e2eedb;color:#376132;font-weight:900}
+  .sandy-step-grid h3{margin:18px 0 9px;color:#365c34;font-size:24px}.sandy-step-grid p{margin:0;color:#626b61}
+  .sandy-trust{background:#f7f4ed}.sandy-trust-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(42px,8vw,100px);align-items:center}
+  .sandy-trust figure{overflow:hidden;margin:0;border-radius:34px;background:#fff;box-shadow:0 24px 62px rgba(50,62,41,.12)}.sandy-trust figure img{display:block;width:100%}
+  .sandy-trust h2{margin:10px 0 18px;font-size:clamp(38px,5vw,58px)}.sandy-trust li{margin:10px 0}.sandy-trust a{color:#446c3d;font-weight:900}
+  .sandy-boundary{margin-top:22px;padding:15px 18px;border-left:4px solid #6d8a59;background:#fff;color:#5e665a}
+  @media(max-width:900px){.sandy-hero-grid,.sandy-talk-grid,.sandy-trust-grid{grid-template-columns:1fr}.sandy-step-grid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:600px){.sandy-step-grid{grid-template-columns:1fr}.sandy-visual,.sandy-trust figure{border-radius:25px}}
+</style>
+

@@ -126,6 +126,25 @@ const packages = [
       </div>
     </section>
 
+    <section class="section rai-tools" aria-labelledby="rai-tools-title">
+      <div class="shell">
+        <div class="section-heading">
+          <div><p class="eyebrow dark">Try a guided tool</p><h2 id="rai-tools-title">Put responsible practice into the conversation.</h2></div>
+          <p>Use a focused Bridgit coach to work through two common starting points. Both tools use trusted public-service guidance and can email you a practical plan at the end.</p>
+        </div>
+        <div class="rai-tool-grid">
+          <a href="/sandy">
+            <img src="https://bridgit.care/wp-content/uploads/2026/07/sandy-welcome.png" alt="Sandy, Bridgit's co-production coach" width="1536" height="1024" loading="lazy" />
+            <span><small>Co-production</small><strong>Build an inclusive co-production plan with Sandy</strong><em>Open the free tool →</em></span>
+          </a>
+          <a href="/commissioners-digital-toolkit">
+            <img src="/images/tools/commissioner-toolkit-hero.webp" alt="Commissioners exploring community needs and digital options" width="1536" height="1024" loading="lazy" />
+            <span><small>Digital commissioning</small><strong>Turn a service challenge into a confident digital brief</strong><em>Open the free tool →</em></span>
+          </a>
+        </div>
+      </div>
+    </section>
+
     <BookingSection title="Bring us the AI question your organisation is trying to answer." copy="Book a call to discuss the opportunity, the people affected and the safest useful next step. We will tell you honestly whether that should be a review, a design sprint, a pilot or no AI at all." />
   </main>
 </BaseLayout>
@@ -172,6 +191,16 @@ const packages = [
   .rai-impact-points p{display:grid;grid-template-columns:180px 1fr;gap:20px;margin:0;padding:19px;border:1px solid #e4daec;border-radius:18px;background:#fbf9fd}
   .rai-impact-points strong{color:#571896}
   .rai-impact-points span{color:#5f586b}
+  .rai-tools{background:#faf8fc}
+  .rai-tool-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+  .rai-tool-grid>a{display:grid;grid-template-columns:42% 1fr;overflow:hidden;border:1px solid #e3d8eb;border-radius:28px;background:#fff;color:inherit;text-decoration:none;box-shadow:0 18px 44px rgba(45,16,73,.08);transition:transform .2s ease,box-shadow .2s ease}
+  .rai-tool-grid>a:hover{transform:translateY(-4px);box-shadow:0 24px 54px rgba(45,16,73,.13)}
+  .rai-tool-grid img{width:100%;height:100%;min-height:250px;object-fit:cover}
+  .rai-tool-grid span{display:flex;flex-direction:column;align-items:flex-start;justify-content:center;padding:28px}
+  .rai-tool-grid small{color:#c12ca8;font-size:12px;font-style:normal;font-weight:900;letter-spacing:.1em;text-transform:uppercase}
+  .rai-tool-grid strong{margin:12px 0 20px;color:#48117f;font-size:23px;line-height:1.15}
+  .rai-tool-grid em{color:#43116f;font-size:14px;font-style:normal;font-weight:900}
   @media(max-width:980px){.rai-hero-grid,.rai-method-grid,.rai-impact-grid{grid-template-columns:1fr}.rai-risk-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+  @media(max-width:760px){.rai-tool-grid{grid-template-columns:1fr}.rai-tool-grid>a{grid-template-columns:1fr}.rai-tool-grid img{height:230px;min-height:0}}
   @media(max-width:680px){.rai-risk-grid,.rai-method ol,.rai-package-grid{grid-template-columns:1fr}.rai-hero-visual{border-radius:25px}.rai-impact-points p{grid-template-columns:1fr;gap:6px}}
 </style>

@@ -1,0 +1,70 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ElevenLabsCoach from "../components/ElevenLabsCoach.astro";
+
+const routes = [
+  ["Improve", "Fix content, forms, directories, handovers and analytics before adding another platform."],
+  ["Configure", "Use an enterprise platform you already own where CRM, workflow, identity and internal capability are strong."],
+  ["Buy specialist", "Choose a focused product when one population, journey and body of trusted expertise need deeper support."],
+  ["Buy a front door", "Use a broad contact or digital-front-door platform for high-volume information, routing and transactions."],
+  ["Discover and pilot", "Commission service discovery or a contained pilot where the need, integration or risk still needs testing."],
+];
+const sources = [
+  ["AI Playbook for the UK Government", "https://www.gov.uk/government/publications/ai-playbook-for-the-uk-government"],
+  ["Digital, Data and Technology Playbook", "https://www.gov.uk/government/publications/the-digital-data-and-technology-playbook"],
+  ["Technology Code of Practice", "https://www.gov.uk/guidance/the-technology-code-of-practice"],
+  ["GOV.UK Service Standard", "https://www.gov.uk/service-manual/service-standard"],
+  ["Data and AI Ethics Framework", "https://www.gov.uk/government/publications/data-ethics-framework/data-and-ai-ethics-framework"],
+  ["ICO AI and data-protection guidance", "https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/artificial-intelligence/"],
+  ["Algorithmic Transparency Recording Standard", "https://www.gov.uk/government/collections/algorithmic-transparency-recording-standard-hub"],
+];
+---
+
+<BaseLayout title="Digital Commissioning Toolkit for UK Public Services | Bridgit Care" description="A free guided toolkit for UK commissioners exploring digital and AI support. Define community need, compare routes and suppliers, plan a pilot and receive a recommendation report." image="/images/tools/commissioner-toolkit-hero.webp">
+  <section class="section commission-hero">
+    <div class="shell commission-hero-grid">
+      <div><p class="eyebrow dark">Free digital commissioning toolkit</p><h1>Commission the outcome, not the technology trend.</h1><p class="lead">Start with your community and the problem people are trying to solve. Compare sensible digital and AI routes, test the market fairly and receive a tailored recommendation report.</p><div class="button-row"><a class="button" href="#start-toolkit">Start the guided toolkit</a><a class="button button-secondary" href="#commissioning-routes">Explore the routes</a></div><p class="commission-note"><strong>Bridgit is one option, not the only option.</strong> The guide explains where we fit, names representative alternatives and will tell you when improving what you already have is the better answer.</p></div>
+      <figure><img src="/images/tools/commissioner-toolkit-hero.webp" alt="A commissioner mapping community needs, frontline knowledge and service options into a measured digital recommendation" width="1536" height="1024" /></figure>
+    </div>
+  </section>
+
+  <section class="section commission-start" id="start-toolkit">
+    <div class="shell commission-start-grid">
+      <div><p class="eyebrow">A guided conversation, not another blank template</p><h2>Leave with a recommendation you can take into your next meeting.</h2><p>Talk or type. The guide asks one question at a time and adapts the depth to your service, population, current systems and risk.</p></div>
+      <ol><li><span>01</span><p><strong>Understand the need</strong>Community, journey, demand, exclusion and staff pressure.</p></li><li><span>02</span><p><strong>Define the outcome</strong>What should improve, for whom and how will you know?</p></li><li><span>03</span><p><strong>Compare routes</strong>Improve, configure, buy specialist, buy a platform, discover or pilot.</p></li><li><span>04</span><p><strong>Build the safeguards</strong>Access, privacy, security, human control and accountability.</p></li><li><span>05</span><p><strong>Email the report</strong>Receive your recommended route, supplier questions and next actions.</p></li></ol>
+    </div>
+  </section>
+
+  <section class="section commission-routes" id="commissioning-routes">
+    <div class="shell">
+      <div class="section-heading"><div><p class="eyebrow dark">Choose a proportionate route</p><h2>Digital commissioning is rarely just “buy or build”.</h2></div><p>The right route depends on the user need, what you already own, the depth of support, integration, risk and the capability you can sustain after launch.</p></div>
+      <div class="commission-route-grid">{routes.map(([title,copy], index) => <article><span>{String(index+1).padStart(2,"0")}</span><h3>{title}</h3><p>{copy}</p></article>)}</div>
+    </div>
+  </section>
+
+  <section class="section commission-journey">
+    <div class="shell commission-journey-grid"><figure><img src="/images/tools/commissioning-journey.webp" alt="Community voices becoming a shortlist, pilot and digital commissioning recommendation report" width="1536" height="1024" loading="lazy" /></figure><div><p class="eyebrow dark">What the report covers</p><h2>A practical bridge from need to market.</h2><ul><li>Your community, problem and desired outcomes</li><li>Current service and pathway gaps</li><li>The recommended route and why</li><li>Solution categories and representative suppliers to explore</li><li>A focused discovery or pilot outline</li><li>Accessibility, data, security, AI and human-control requirements</li><li>Supplier questions, evaluation criteria and next five actions</li></ul><p class="report-boundary">The report is decision support, not legal or procurement advice. Verify current frameworks, supplier claims and organisational requirements.</p></div></div>
+  </section>
+
+  <section class="section commission-market">
+    <div class="shell"><div class="section-heading"><div><p class="eyebrow dark">A balanced market view</p><h2>Compare capability, not just confident demos.</h2></div><p>The guide can discuss Bridgit alongside representative public-service and enterprise options. Examples are starting points for market engagement, never an endorsement or complete supplier list.</p></div><div class="market-grid"><article><h3>Specialist support journeys</h3><p>Bridgit is relevant where people need trusted personalised guidance, practical plans, follow-ups, local pathways, warm handovers and insight into unmet need.</p></article><article><h3>Local digital front doors</h3><p>LGA-published examples include Futr AI, Mortar Hoop'd, Beebot AI, AIDA and ICS.AI. Check current capability and procurement routes.</p></article><article><h3>Enterprise platforms</h3><p>Microsoft Copilot Studio, ServiceNow, Salesforce, Amazon and Google ecosystems may fit organisations with the architecture and capability to configure and govern them.</p></article><article><h3>Reusable public platforms</h3><p>Consider GOV.UK Notify, Pay and other shared components before duplicating common capability.</p></article></div></div>
+  </section>
+
+  <section class="section commission-trust">
+    <div class="shell"><div class="section-heading"><div><p class="eyebrow dark">Built on trusted sources</p><h2>Use current public-service standards as the spine.</h2></div><p>The knowledge base brings together the guidance commissioners should be using to frame need, market engagement, evaluation, AI assurance and delivery.</p></div><div class="source-grid">{sources.map(([name,href]) => <a href={href} target="_blank" rel="noreferrer"><span>Official guidance</span><strong>{name}</strong><b aria-hidden="true">↗</b></a>)}</div></div>
+  </section>
+
+  <ElevenLabsCoach agentId="agent_3001m0cvpq9mftm8bn5bhap9e7bt" coachName="the Digital Commissioning Guide" actionText="Start the toolkit" commonQuestions={["Help me turn our service pressure into a clear problem statement", "Should we improve, configure, buy or build?", "What should we ask AI suppliers to evidence?", "Design a safe 8-week discovery and pilot"]} />
+</BaseLayout>
+
+<style>
+  .commission-hero{overflow:hidden;background:radial-gradient(circle at 90% 10%,rgba(76,173,203,.18),transparent 32%),radial-gradient(circle at 5% 92%,rgba(207,49,169,.15),transparent 30%),linear-gradient(145deg,#fff,#f8f3fb)}
+  .commission-hero-grid{display:grid;grid-template-columns:.88fr 1.12fr;gap:clamp(42px,7vw,92px);align-items:center}.commission-hero h1{color:#171b2f;font-size:clamp(48px,5.6vw,74px)}.commission-hero .lead{color:#5d5869}.commission-hero .button-secondary{border-color:#d8c9e6;color:#591895}.commission-hero figure{overflow:hidden;margin:0;border:1px solid #eadfee;border-radius:38px;background:#f8f1e7;box-shadow:0 28px 70px rgba(48,23,79,.14);transform:rotate(1deg)}.commission-hero figure img{display:block;width:100%}.commission-note{margin-top:22px;padding:17px 19px;border-left:4px solid #c02fad;border-radius:4px 16px 16px 4px;background:#fff;color:#5d5665}.commission-note strong{color:#501184}
+  .commission-start{background:linear-gradient(135deg,#31105b,#6426ab 58%,#17617f);color:#fff}.commission-start-grid{display:grid;grid-template-columns:.82fr 1.18fr;gap:clamp(42px,7vw,90px);align-items:center}.commission-start h2{margin:10px 0 18px;font-size:clamp(40px,5vw,64px)}.commission-start-grid>div>p:not(.eyebrow){color:#ede6f4}.commission-start ol{display:grid;gap:11px;margin:0;padding:0;list-style:none}.commission-start li{display:grid;grid-template-columns:52px 1fr;gap:14px;padding:17px 19px;border:1px solid rgba(255,255,255,.2);border-radius:18px;background:rgba(255,255,255,.09)}.commission-start li>span{display:grid;place-items:center;width:48px;height:48px;border-radius:14px;background:#fff;color:#6523ac;font-size:12px;font-weight:900}.commission-start li p{display:grid;gap:2px;margin:0;color:#e9e0f1}.commission-start li strong{color:#fff;font-size:18px}
+  .commission-routes{background:#fff}.commission-route-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px}.commission-route-grid article{padding:23px 20px;border:1px solid #e5dbec;border-radius:23px;background:linear-gradient(145deg,#fff,#faf7fc)}.commission-route-grid span{display:grid;place-items:center;width:42px;height:42px;border-radius:13px;background:#f1e8f8;color:#6a20b1;font-weight:900}.commission-route-grid h3{margin:18px 0 9px;color:#54158e;font-size:21px}.commission-route-grid p{margin:0;color:#655e6e;font-size:14px}
+  .commission-journey{background:#f8f4ee}.commission-journey-grid{display:grid;grid-template-columns:1.12fr .88fr;gap:clamp(40px,7vw,88px);align-items:center}.commission-journey figure{overflow:hidden;margin:0;border-radius:34px;box-shadow:0 24px 62px rgba(49,25,70,.12)}.commission-journey figure img{display:block;width:100%}.commission-journey h2{margin:10px 0 20px;font-size:clamp(38px,5vw,58px)}.commission-journey ul{display:grid;gap:9px;padding-left:22px}.report-boundary{margin-top:20px;padding:15px 17px;border-left:4px solid #6c2eb1;background:#fff;color:#625a6a}
+  .commission-market{background:#fff}.market-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}.market-grid article{padding:28px;border:1px solid #e4d9ec;border-radius:24px;background:#fbf9fc}.market-grid h3{margin:0 0 10px;color:#571692;font-size:24px}.market-grid p{margin:0;color:#625b6b}
+  .commission-trust{background:linear-gradient(145deg,#f7f1fb,#eef8fb)}.source-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.source-grid a{position:relative;display:grid;gap:8px;min-height:150px;padding:22px 48px 22px 22px;border:1px solid #ded1e8;border-radius:21px;background:#fff;text-decoration:none;box-shadow:0 13px 32px rgba(48,24,76,.06)}.source-grid span{color:#a32ca8;font-size:11px;font-weight:900;letter-spacing:.1em;text-transform:uppercase}.source-grid strong{color:#27113a;font-size:18px;line-height:1.25}.source-grid b{position:absolute;right:20px;top:19px;color:#6b22b3}
+  @media(max-width:1050px){.commission-hero-grid,.commission-start-grid,.commission-journey-grid{grid-template-columns:1fr}.commission-route-grid{grid-template-columns:repeat(3,1fr)}.source-grid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:700px){.commission-route-grid,.market-grid,.source-grid{grid-template-columns:1fr}.commission-hero figure,.commission-journey figure{border-radius:25px}}
+</style>

@@ -74,6 +74,8 @@ async function getAgent(agentId) {
         branch_id: agent.branch_id,
         knowledge_base:
           agent.conversation_config?.agent?.prompt?.knowledge_base ?? [],
+        prompt: agent.conversation_config?.agent?.prompt?.prompt,
+        tool_ids: agent.conversation_config?.agent?.prompt?.tool_ids ?? [],
         voice_id: agent.conversation_config?.tts?.voice_id,
         language: agent.conversation_config?.agent?.language,
         widget: agent.platform_settings?.widget
