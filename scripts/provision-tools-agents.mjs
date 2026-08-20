@@ -42,7 +42,7 @@ async function ensureReportTool(secretId) {
   const toolConfig = {
     type: "webhook",
     name: TOOL_NAME,
-    description: "Email a completed co-production plan or digital commissioning recommendation report to the user. Call only after the report has been summarised, the email address has been confirmed and the user has explicitly consented. Never include case data or special-category personal information.",
+    description: "Email a completed co-production plan or digital commissioning recommendation report after the user has heard what will be sent and then supplied an email address to request delivery. Do not ask for a second confirmation. Call immediately once the required name and email are available, then confirm delivery and end the conversation. Never include case data or special-category personal information.",
     response_timeout_secs: 20,
     interruption_mode: "disable_during_tool",
     pre_tool_speech: "off",
@@ -58,7 +58,7 @@ async function ensureReportTool(secretId) {
         required: ["name", "email", "toolkit_type", "context", "recommendation", "actions", "consent"],
         properties: {
           name: literal("string", "Recipient's full name."),
-          email: literal("string", "Recipient's confirmed email address."),
+          email: literal("string", "Recipient's email address, supplied after the delivery explanation."),
           organisation: literal(["string", "null"], "Organisation, or null when not provided."),
           toolkit_type: literal("string", "Type of report.", { enum: ["co-production", "digital-commissioning", "digital-readiness", "demand-capacity", "pathway-mapper", "responsible-ai", "partnership-builder", "social-impact"] }),
           context: literal("string", "A concise, non-sensitive summary of the context and intended outcome."),
@@ -66,7 +66,7 @@ async function ensureReportTool(secretId) {
           actions: literal("string", "Numbered practical next steps."),
           considerations: literal(["string", "null"], "Accessibility, inclusion, safety, data, governance and delivery considerations."),
           options: literal(["string", "null"], "Engagement, solution or supplier options to explore."),
-          consent: literal("boolean", "True only after explicit consent to email the report.")
+          consent: literal("boolean", "True when the recipient supplies their email after being told what report will be sent.")
         }
       },
       response_body_schema: {
@@ -96,8 +96,10 @@ async function ensureCommissionerKnowledge() {
 async function updateSandy(reportToolId) {
   const agent = await request(`/convai/agents/${SANDY_AGENT_ID}`);
   const current = agent.conversation_config?.agent?.prompt?.prompt ?? "";
-  const addition = `${SANDY_MARKER}\nAfter helping the user shape a plan, offer to email it to them. First summarise the plan in the conversation using Purpose, People to involve, What is open to influence, Engagement method, Accessibility, Questions, Capturing feedback, Decision making, Feedback loop and Measures. If they want an email, ask for their name, confirmed email and optional organisation. Explain what will be sent, repeat the email and obtain explicit consent. Only then call send_bridgit_toolkit_report once with toolkit_type=co-production. Put the tailored plan in recommendation, numbered actions in actions, access and power considerations in considerations, and engagement methods in options. Never send participant names, case details, health, safeguarding or other sensitive information. Confirm success only when the tool reports it. On failure, keep the plan on screen and offer contact@bridgit.care.`;
-  const prompt = current.includes(SANDY_MARKER) ? current : `${current}\n\n${addition}`;
+  const addition = `${SANDY_MARKER}\nAfter helping the user shape a plan, offer to email it to them. First summarise the plan in the conversation using Purpose, People to involve, What is open to influence, Engagement method, Accessibility, Questions, Capturing feedback, Decision making, Feedback loop and Measures. Before asking for contact details, explain what will be emailed and that providing an email address after this explanation means they want the plan sent there. Ask for their name and email; use their organisation only if already known. Do not repeat the email, ask for a second confirmation or continue asking questions once the email is supplied. Immediately call send_bridgit_toolkit_report once with toolkit_type=co-production and consent=true. Put the tailored plan in recommendation, numbered actions in actions, access and power considerations in considerations, and engagement methods in options. Never send participant names, case details, health, safeguarding or other sensitive information. Confirm success only when the tool reports it, then end the conversation. On failure, keep the plan on screen, offer contact@bridgit.care and wrap up.`;
+  const markerIndex = current.indexOf(SANDY_MARKER);
+  const basePrompt = markerIndex >= 0 ? current.slice(0, markerIndex).trimEnd() : current.trimEnd();
+  const prompt = `${basePrompt}\n\n${addition}`;
   const toolIds = [...new Set([...(agent.conversation_config?.agent?.prompt?.tool_ids ?? []), reportToolId])];
   await request(`/convai/agents/${SANDY_AGENT_ID}`, {
     method: "PATCH",

@@ -169,7 +169,7 @@ async function ensureLeadTool(secretId) {
         type: "webhook",
         name: TOOL_NAME,
         description:
-          "Send a consented business enquiry to the Bridgit team. Call only after the visitor has supplied the required contact details, heard what will be sent, confirmed the details and explicitly agreed to the follow-up. Never include health, safeguarding, beneficiary or service-user case information.",
+          "Send a business enquiry to the Bridgit team after the visitor has heard what will be shared and then supplied their email to request the follow-up. Do not ask for a second confirmation. Call immediately once the required business details are available, then confirm the handover and end the conversation. Never include health, safeguarding, beneficiary or service-user case information.",
         response_timeout_secs: 20,
         interruption_mode: "disable_during_tool",
         pre_tool_speech: "off",
@@ -197,7 +197,7 @@ async function ensureLeadTool(secretId) {
             ],
             properties: {
               name: literal("string", "Visitor's full name."),
-              email: literal("string", "Visitor's confirmed work email address."),
+              email: literal("string", "Visitor's work email address, supplied after the follow-up explanation."),
               organisation: literal("string", "Visitor's organisation."),
               role: literal(["string", "null"], "Visitor's role, or null when not provided."),
               phone: literal(["string", "null"], "Visitor's phone number, or null when not provided."),
@@ -211,7 +211,7 @@ async function ensureLeadTool(secretId) {
               }),
               consent: literal(
                 "boolean",
-                "True only when the visitor explicitly agrees that these details can be sent to Bridgit for follow-up."
+                "True when the visitor supplies their email after being told the business details will be sent to Bridgit for follow-up."
               )
             }
           },
@@ -290,9 +290,13 @@ async function ensureAgent(definition, knowledgeId, leadToolId, agents) {
       tags: ["bridgit-website", "sales", definition.slug],
       version_description: "Specialist landing-page coach with consented lead handover",
       conversation_config: {
+        conversation: {
+          max_duration_seconds: 1200
+        },
         agent: {
           first_message: definition.firstMessage,
           language: "en",
+          max_conversation_duration_message: "We have reached the 20 minute conversation limit. You can start another conversation whenever you are ready.",
           prompt: {
             prompt,
             tool_ids: [leadToolId],
