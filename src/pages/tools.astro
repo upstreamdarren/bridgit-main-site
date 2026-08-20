@@ -17,15 +17,63 @@ const tools = [
     href: "/commissioners-digital-toolkit",
     image: "/images/tools/commissioner-toolkit-hero.webp",
     alt: "A commissioner mapping community needs into digital service options"
+  },
+  {
+    eyebrow: "Digital strategy",
+    title: "Digital Readiness Review",
+    copy: "Identify the people, journeys, systems and safeguards that shape a safe first digital step for your organisation.",
+    href: "/digital-readiness-review",
+    image: "/images/landing/responsible-ai-consultancy.webp",
+    alt: "A team discussing a responsible digital service"
+  },
+  {
+    eyebrow: "Service improvement",
+    title: "Demand and Capacity Planner",
+    copy: "Map repeat contact, pressure points and opportunities to give people clearer help earlier, while freeing time for complex work.",
+    href: "/demand-capacity-planner",
+    image: "/images/landing/challenges/local-authorities.webp",
+    alt: "A community support team mapping demand"
+  },
+  {
+    eyebrow: "Connected support",
+    title: "Pathway Mapper",
+    copy: "Follow a person's route from first question to the right help and find where information, handovers or momentum break down.",
+    href: "/pathway-mapper",
+    image: "/images/tools/commissioning-journey.webp",
+    alt: "A connected support journey"
+  },
+  {
+    eyebrow: "Responsible AI",
+    title: "Responsible AI Action Plan",
+    copy: "Turn an AI idea into a proportionate, people-centred plan with human oversight, data and inclusion in view.",
+    href: "/responsible-ai-action-plan",
+    image: "/images/landing/responsible-ai-consultancy.webp",
+    alt: "A team planning responsible use of AI"
+  },
+  {
+    eyebrow: "Partnership working",
+    title: "Partnership Builder",
+    copy: "Build a shared plan with the right people, roles, decisions and learning around a common community outcome.",
+    href: "/partnership-builder",
+    image: "/images/landing/seuk-expertise-journey.webp",
+    alt: "Partners working together around social impact"
+  },
+  {
+    eyebrow: "Delivered with SEUK",
+    title: "Social Impact Advisor",
+    copy: "Understand the change you create, choose meaningful measures and build a practical plan to grow your social impact.",
+    href: "/social-impact-advisor",
+    image: "/images/landing/social-enterprise-uk-member.webp",
+    alt: "A social enterprise team planning community impact"
   }
 ];
 ---
 
-<BaseLayout title="Free Tools for Co-production and Digital Commissioning | Bridgit Care" description="Use Bridgit's free guided tools to build a co-production plan or explore a responsible digital commissioning approach for public services and communities." image="/images/tools/commissioner-toolkit-hero.webp">
+<BaseLayout title="Free Guided Tools for Services and Social Impact | Bridgit Care" description="Use Bridgit's free guided tools to strengthen co-production, digital commissioning, responsible AI, social impact and service improvement." image="/images/tools/commissioner-toolkit-hero.webp">
   <section class="section tools-hero">
     <div class="shell tools-hero-grid">
       <div><p class="eyebrow dark">Practical tools from Bridgit</p><h1>Turn a difficult starting point into a plan you can use.</h1></div>
-      <p>These guided coaches combine trusted public-service guidance with the questions our team uses in real projects. Talk or type, work at your own pace and ask for a copy of your plan when you finish.</p>
+      <p>Eight guided coaches combine trusted public-service and social-impact guidance with the questions our team uses in real projects. Talk or type, work at your own pace and ask for a copy of your plan when you finish.</p>
     </div>
   </section>
 
@@ -56,17 +104,16 @@ const tools = [
   .tools-hero h1{max-width:820px;color:#171b2f;font-size:clamp(48px,6vw,76px)}
   .tools-hero-grid>p{margin:0;color:#5f5970;font-size:21px}
   .tools-list{background:#fff}
-  .tools-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+  .tools-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
   .tool-card{overflow:hidden;border:1px solid #e4d9ec;border-radius:34px;background:#fff;box-shadow:0 22px 58px rgba(47,19,76,.11)}
-  .tool-card-visual{height:310px;overflow:hidden;background:#f5f1f8}
+  .tool-card-visual{height:230px;overflow:hidden;background:#f5f1f8}
   .tool-card-visual img{width:100%;height:100%;object-fit:cover;object-position:center}
   .tool-card-sandy .tool-card-visual img{object-position:center 15%}
   .tool-card-copy{padding:34px}
-  .tool-card h2{margin:10px 0 16px;color:#251039;font-size:clamp(30px,3.4vw,44px)}
-  .tool-card-copy>p:not(.eyebrow){min-height:100px;color:#625b6e}
+  .tool-card h2{margin:10px 0 16px;color:#251039;font-size:clamp(27px,2.7vw,38px)}
+  .tool-card-copy>p:not(.eyebrow){min-height:112px;color:#625b6e}
   .tools-note{display:grid;grid-template-columns:auto 1fr;gap:22px;margin-top:26px;padding:22px 26px;border-radius:20px;background:linear-gradient(100deg,#f4eef9,#eef8fb);color:#51475c}
   .tools-note strong{color:#52158f}
-  @media(max-width:850px){.tools-hero-grid,.tools-grid{grid-template-columns:1fr}.tool-card-copy>p:not(.eyebrow){min-height:0}}
+  @media(max-width:1050px){.tools-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:850px){.tools-hero-grid,.tools-grid{grid-template-columns:1fr}.tool-card-copy>p:not(.eyebrow){min-height:0}}
   @media(max-width:560px){.tool-card{border-radius:25px}.tool-card-visual{height:230px}.tool-card-copy{padding:25px}.tools-note{grid-template-columns:1fr;gap:6px}}
 </style>
-

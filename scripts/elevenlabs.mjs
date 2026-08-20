@@ -107,15 +107,36 @@ async function listKnowledge() {
   );
 }
 
+function collectDurationSettings(value, path = "agent", matches = []) {
+  if (!value || typeof value !== "object") return matches;
+
+  for (const [key, child] of Object.entries(value)) {
+    const childPath = `${path}.${key}`;
+    if (/(duration|timeout|limit)/i.test(key)) {
+      matches.push({ setting: childPath, value: child });
+    }
+    if (child && typeof child === "object") collectDurationSettings(child, childPath, matches);
+  }
+
+  return matches;
+}
+
+async function inspectLimits(agentId) {
+  if (!agentId) throw new Error("Usage: elevenlabs.mjs inspect-limits <agent_id>");
+  const agent = await request(`/convai/agents/${encodeURIComponent(agentId)}`);
+  console.table(collectDurationSettings(agent));
+}
+
 const commands = {
   verify,
   "list-agents": listAgents,
   "get-agent": () => getAgent(argument),
-  "list-knowledge": listKnowledge
+  "list-knowledge": listKnowledge,
+  "inspect-limits": () => inspectLimits(argument)
 };
 
 if (!commands[command]) {
-  console.error("Commands: verify, list-agents, get-agent <agent_id>, list-knowledge");
+  console.error("Commands: verify, list-agents, get-agent <agent_id>, list-knowledge, inspect-limits <agent_id>");
   process.exit(1);
 }
 

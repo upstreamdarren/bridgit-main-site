@@ -1,0 +1,68 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ElevenLabsCoach from "./ElevenLabsCoach.astro";
+
+interface Props {
+  title: string;
+  description: string;
+  eyebrow: string;
+  heading: string;
+  lead: string;
+  coachName: string;
+  agentId: string;
+  actionText: string;
+  questions: string[];
+  outcomes: string[];
+  steps: [string, string][];
+  sources: [string, string][];
+  image?: string;
+  imageAlt?: string;
+  partnerLabel?: string;
+  accent?: "purple" | "blue" | "green" | "pink";
+}
+
+const { title, description, eyebrow, heading, lead, coachName, agentId, actionText, questions, outcomes, steps, sources, image, imageAlt, partnerLabel, accent = "purple" } = Astro.props;
+---
+
+<BaseLayout title={title} description={description} image={image ?? "/images/tools/commissioner-toolkit-hero.webp"}>
+  <section class:list={["section", "guided-hero", `guided-${accent}`]}>
+    <div class="shell guided-hero-grid">
+      <div>
+        <p class="eyebrow dark">{eyebrow}</p>
+        {partnerLabel && <p class="partner-label">{partnerLabel}</p>}
+        <h1>{heading}</h1>
+        <p class="lead">{lead}</p>
+        <div class="button-row"><a class="button" href="#start-tool">{actionText}</a><a class="button button-secondary" href="#how-it-works">See how it works</a></div>
+      </div>
+      <div class="tool-orbit" aria-hidden="true">
+        {image ? <img src={image} alt={imageAlt ?? ""} width="1536" height="1024" /> : <><span class="orbit-core">✦</span><span class="orbit-card orbit-one">Listen</span><span class="orbit-card orbit-two">Plan</span><span class="orbit-card orbit-three">Act</span><span class="orbit-line orbit-line-one"></span><span class="orbit-line orbit-line-two"></span></>}
+      </div>
+    </div>
+  </section>
+
+  <section class="section guided-outcomes">
+    <div class="shell"><div class="section-heading"><div><p class="eyebrow dark">What you will leave with</p><h2>A useful starting point, not another generic checklist.</h2></div><p>Work through the questions that matter now. The coach turns the conversation into a clear, proportionate plan you can share and improve.</p></div><div class="outcome-grid">{outcomes.map((outcome, index) => <article><span>{String(index + 1).padStart(2, "0")}</span><p>{outcome}</p></article>)}</div></div>
+  </section>
+
+  <section class="section guided-steps" id="how-it-works">
+    <div class="shell guided-steps-grid"><div><p class="eyebrow">A guided conversation</p><h2>Start with what you know. Build from there.</h2><p>There is no need for a finished brief, perfect data or specialist vocabulary. Talk or type, take your time, then ask for the plan by email when it is ready.</p></div><ol>{steps.map(([step, copy], index) => <li><span>{String(index + 1).padStart(2, "0")}</span><p><strong>{step}</strong>{copy}</p></li>)}</ol></div>
+  </section>
+
+  <section class="section guided-trust">
+    <div class="shell"><div class="section-heading"><div><p class="eyebrow dark">Grounded in trusted practice</p><h2>Good questions, clear boundaries and sources you can check.</h2></div><p>The tool supports judgement. It does not replace professional, legal, procurement, safeguarding or data-protection advice.</p></div><div class="source-grid">{sources.map(([name, href]) => <a href={href} target="_blank" rel="noreferrer"><span>Reference</span><strong>{name}</strong><b aria-hidden="true">↗</b></a>)}</div></div>
+  </section>
+
+  <ElevenLabsCoach agentId={agentId} coachName={coachName} actionText={actionText} commonQuestions={questions} />
+</BaseLayout>
+
+<style>
+  .guided-hero{overflow:hidden;background:radial-gradient(circle at 90% 8%,rgba(75,170,207,.2),transparent 29%),radial-gradient(circle at 6% 93%,rgba(205,46,174,.17),transparent 31%),linear-gradient(145deg,#fff,#f8f4fb)}
+  .guided-hero-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(40px,8vw,100px);align-items:center}.guided-hero h1{max-width:760px;color:#171b2f;font-size:clamp(48px,5.7vw,76px)}.guided-hero .lead{max-width:680px;color:#5b5667}.partner-label{display:inline-block;margin:-8px 0 14px;padding:7px 11px;border:1px solid #d8c5ea;border-radius:999px;background:#fff;color:#5a178e;font-size:12px;font-weight:900;letter-spacing:.05em;text-transform:uppercase}.guided-hero .button-secondary{border-color:#d7c9e8;color:#591895}
+  .tool-orbit{position:relative;display:grid;place-items:center;min-height:420px;border-radius:42px;background:radial-gradient(circle at 50% 50%,rgba(255,255,255,.92),rgba(230,220,245,.57) 49%,rgba(213,241,249,.8));box-shadow:0 30px 72px rgba(46,19,72,.12);overflow:hidden}.tool-orbit:before,.tool-orbit:after{content:"";position:absolute;border:1px solid rgba(101,42,181,.19);border-radius:50%}.tool-orbit:before{width:78%;aspect-ratio:1;transform:rotate(-14deg)}.tool-orbit:after{width:54%;aspect-ratio:1;transform:rotate(35deg)}.tool-orbit img{position:relative;z-index:1;display:block;width:100%;height:100%;min-height:420px;object-fit:cover}.orbit-core{position:relative;z-index:2;display:grid;place-items:center;width:140px;height:140px;border-radius:42px;background:linear-gradient(140deg,#52209b,#c432ab);box-shadow:0 16px 34px rgba(82,32,155,.28);color:#fff;font-size:72px}.orbit-card{position:absolute;z-index:3;padding:11px 16px;border:1px solid rgba(95,35,166,.14);border-radius:999px;background:#fff;color:#432075;font-size:14px;font-weight:900;box-shadow:0 11px 26px rgba(48,21,72,.1)}.orbit-one{top:20%;left:12%}.orbit-two{right:11%;top:32%}.orbit-three{bottom:18%;left:20%}.orbit-line{position:absolute;z-index:1;width:160px;height:1px;background:linear-gradient(90deg,#6a2ab6,transparent);transform-origin:left}.orbit-line-one{transform:rotate(-30deg)}.orbit-line-two{transform:rotate(44deg)}
+  .guided-outcomes{background:#fff}.outcome-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}.outcome-grid article{padding:23px 20px;border:1px solid #e5dced;border-radius:23px;background:linear-gradient(145deg,#fff,#faf7fc);box-shadow:0 12px 28px rgba(47,19,76,.05)}.outcome-grid span{display:grid;place-items:center;width:42px;height:42px;border-radius:13px;background:#eee4f8;color:#6a20b1;font-size:12px;font-weight:900}.outcome-grid p{margin:16px 0 0;color:#3c3345;font-size:17px;line-height:1.45;font-weight:800}
+  .guided-steps{background:linear-gradient(135deg,#31105b,#6426ab 58%,#17617f);color:#fff}.guided-steps-grid{display:grid;grid-template-columns:.82fr 1.18fr;gap:clamp(40px,7vw,90px);align-items:center}.guided-steps h2{margin:10px 0 18px;font-size:clamp(40px,5vw,62px)}.guided-steps-grid>div>p:not(.eyebrow){color:#eee6f4}.guided-steps ol{display:grid;gap:12px;margin:0;padding:0;list-style:none}.guided-steps li{display:grid;grid-template-columns:50px 1fr;gap:15px;padding:17px 19px;border:1px solid rgba(255,255,255,.2);border-radius:19px;background:rgba(255,255,255,.09)}.guided-steps li span{display:grid;place-items:center;width:48px;height:48px;border-radius:14px;background:#fff;color:#6523ac;font-size:12px;font-weight:900}.guided-steps li p{display:grid;gap:3px;margin:0;color:#ebe2f3}.guided-steps li strong{color:#fff;font-size:18px}
+  .guided-trust{background:linear-gradient(145deg,#f7f1fb,#eef8fb)}.source-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.source-grid a{position:relative;display:grid;gap:8px;min-height:145px;padding:22px 48px 22px 22px;border:1px solid #ded1e8;border-radius:21px;background:#fff;text-decoration:none;box-shadow:0 13px 32px rgba(48,24,76,.06)}.source-grid span{color:#a32ca8;font-size:11px;font-weight:900;letter-spacing:.1em;text-transform:uppercase}.source-grid strong{color:#27113a;font-size:18px;line-height:1.25}.source-grid b{position:absolute;right:20px;top:19px;color:#6b22b3}
+  .guided-blue .tool-orbit{background:radial-gradient(circle at 45% 45%,rgba(255,255,255,.9),rgba(209,238,248,.8))}.guided-green .tool-orbit{background:radial-gradient(circle at 45% 45%,rgba(255,255,255,.9),rgba(217,239,220,.8))}.guided-pink .tool-orbit{background:radial-gradient(circle at 45% 45%,rgba(255,255,255,.9),rgba(255,224,240,.8))}
+  @media(max-width:950px){.guided-hero-grid,.guided-steps-grid{grid-template-columns:1fr}.outcome-grid{grid-template-columns:repeat(2,1fr)}.source-grid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:600px){.tool-orbit,.tool-orbit img{min-height:300px;border-radius:28px}.outcome-grid,.source-grid{grid-template-columns:1fr}.guided-hero h1{font-size:clamp(44px,13vw,64px)}}
+</style>

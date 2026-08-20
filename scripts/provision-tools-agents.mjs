@@ -60,7 +60,7 @@ async function ensureReportTool(secretId) {
           name: literal("string", "Recipient's full name."),
           email: literal("string", "Recipient's confirmed email address."),
           organisation: literal(["string", "null"], "Organisation, or null when not provided."),
-          toolkit_type: literal("string", "Type of report.", { enum: ["co-production", "digital-commissioning"] }),
+          toolkit_type: literal("string", "Type of report.", { enum: ["co-production", "digital-commissioning", "digital-readiness", "demand-capacity", "pathway-mapper", "responsible-ai", "partnership-builder", "social-impact"] }),
           context: literal("string", "A concise, non-sensitive summary of the context and intended outcome."),
           recommendation: literal("string", "The tailored plan or recommended route and rationale."),
           actions: literal("string", "Numbered practical next steps."),
@@ -104,7 +104,7 @@ async function updateSandy(reportToolId) {
     body: {
       tags: [...new Set([...(agent.tags ?? []), "bridgit-tools", "co-production"])],
       version_description: "Adds consented email delivery for completed co-production plans",
-      conversation_config: { agent: { prompt: { prompt, tool_ids: toolIds, knowledge_base: agent.conversation_config?.agent?.prompt?.knowledge_base ?? [] } } },
+      conversation_config: { conversation: { max_duration_seconds: 1200 }, agent: { max_conversation_duration_message: "We have reached the 20 minute conversation limit. Your plan is still available in this chat, and you can start another conversation whenever you are ready.", prompt: { prompt, tool_ids: toolIds, knowledge_base: agent.conversation_config?.agent?.prompt?.knowledge_base ?? [] } } },
       platform_settings: { widget: { disable_banner: true, supports_text_only: true, text_input_enabled: true, transcript_enabled: true, text_contents: { main_label: "Plan co-production with Sandy", start_call: "Start with Sandy", input_placeholder: "Tell Sandy what you want to co-produce..." } } }
     }
   });
@@ -126,7 +126,9 @@ async function ensureCommissionerAgent(knowledgeId, reportToolId) {
       tags: ["bridgit-tools", "commissioning", "public-sector"],
       version_description: "Evidence-led digital commissioning guide with emailed recommendation reports",
       conversation_config: {
+        conversation: { max_duration_seconds: 1200 },
         agent: {
+          max_conversation_duration_message: "We have reached the 20 minute conversation limit. Your recommendation is still available in this chat, and you can start another conversation whenever you are ready.",
           first_message: "Hello, I'm Bridgit's Digital Commissioning Guide. I can help you turn a community need into a proportionate digital brief, compare routes and suppliers, and email you a recommendation report. What community or service are you thinking about?",
           language: "en",
           prompt: { prompt, tool_ids: [reportToolId], knowledge_base: [{ type: "text", name: COMMISSIONER_KNOWLEDGE, id: knowledgeId, usage_mode: "auto" }] }
@@ -144,4 +146,3 @@ const knowledgeId = await ensureCommissionerKnowledge();
 const sandyAgentId = await updateSandy(reportToolId);
 const commissionerAgentId = await ensureCommissionerAgent(knowledgeId, reportToolId);
 console.log(JSON.stringify({ report_tool_id: reportToolId, sandy_agent_id: sandyAgentId, commissioner_agent_id: commissionerAgentId }, null, 2));
-
