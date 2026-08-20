@@ -37,9 +37,10 @@ const outputs = [
         <p class="lead">You already know your work matters. The harder part is explaining who benefits, what changes, how you know and what to improve next.</p>
         <p>Talk it through with Bridgit’s Social Impact Advisor. It will help you build a practical impact story, a proportionate way to measure it and a focused plan for what comes next.</p>
         <div class="button-row">
-          <a class="button" href="#start-review">Start my impact review</a>
+          <button class="button" type="button" data-open-coach aria-controls="elevenlabs-coach-agent_7401m0f1k7zsfm9953k0pq0fvn8s">Start my impact review</button>
           <a class="button button-secondary" href="#what-you-create">See what I’ll create</a>
         </div>
+        <p class="coach-launch-note"><span aria-hidden="true">↘</span> Click <strong>Start my impact review</strong> to open the advisor in the bottom-right corner, then choose voice or text to start.</p>
       </div>
 
       <div class="impact-visual-column">
@@ -78,7 +79,7 @@ const outputs = [
         <p class="eyebrow">What you will create</p>
         <h2>A useful starting point, not another weighty report.</h2>
         <p>The advisor asks one clear question at a time and adapts to your organisation. Bring an early idea, an existing framework or a reporting challenge you cannot quite untangle.</p>
-        <a class="text-link" href="#start-review">Talk it through with the advisor <span aria-hidden="true">→</span></a>
+        <button class="text-link" type="button" data-open-coach aria-controls="elevenlabs-coach-agent_7401m0f1k7zsfm9953k0pq0fvn8s">Talk it through with the advisor <span aria-hidden="true">→</span></button>
       </div>
       <div class="output-cards">
         {outputs.map(([title, copy], index) => <article><span aria-hidden="true">{["◎", "◇", "↗", "✉"][index]}</span><div><h3>{title}</h3><p>{copy}</p></div></article>)}
@@ -175,7 +176,7 @@ const outputs = [
   .challenge-grid article{padding:28px;border:1px solid #e8ddea;border-radius:27px;background:linear-gradient(145deg,#fff,#fcf7fc);box-shadow:0 17px 45px rgba(68,33,81,.07)}
   .challenge-grid span{display:grid;place-items:center;width:46px;height:46px;border-radius:14px;background:#f4ddf0;color:#b91d8a;font-weight:900}.challenge-grid h3{margin:19px 0 9px;color:#3d1d68;font-size:23px}.challenge-grid p{margin:0;color:#626a7c}
   .impact-output{background:linear-gradient(135deg,#321061,#6a26b3 58%,#244f96);color:#fff}
-  .output-grid{display:grid;grid-template-columns:.78fr 1.22fr;gap:clamp(44px,8vw,105px);align-items:center}.output-intro h2{margin:10px 0 20px;font-size:clamp(40px,5vw,65px)}.output-intro p:not(.eyebrow){color:#eee7f8}.text-link{display:inline-flex;gap:10px;margin-top:12px;color:#fff;font-weight:900;text-decoration:underline;text-underline-offset:5px}
+  .output-grid{display:grid;grid-template-columns:.78fr 1.22fr;gap:clamp(44px,8vw,105px);align-items:center}.output-intro h2{margin:10px 0 20px;font-size:clamp(40px,5vw,65px)}.output-intro p:not(.eyebrow){color:#eee7f8}.text-link{display:inline-flex;gap:10px;margin-top:12px;padding:0;border:0;background:none;color:#fff;font:inherit;font-weight:900;cursor:pointer;text-decoration:underline;text-underline-offset:5px}
   .output-cards{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}.output-cards article{display:grid;grid-template-columns:52px 1fr;gap:14px;padding:22px;border:1px solid rgba(255,255,255,.2);border-radius:22px;background:rgba(255,255,255,.11);backdrop-filter:blur(8px)}.output-cards article>span{display:grid;place-items:center;width:52px;height:52px;border-radius:16px;background:#fff;color:#b82791;font-size:25px;font-weight:900}.output-cards h3{margin:2px 0 6px;color:#fff;font-size:21px}.output-cards p{margin:0;color:#eee7f8;font-size:16px}
   .impact-journey{overflow:hidden;background:linear-gradient(150deg,#faf7ff,#f0f8fa)}
   .journey-grid{position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:17px}.journey-grid:before{position:absolute;top:39px;right:8%;left:8%;height:3px;background:linear-gradient(90deg,#be2799,#6e2fc0,#2ca7bb);content:""}

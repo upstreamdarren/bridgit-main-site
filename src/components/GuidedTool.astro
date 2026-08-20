@@ -40,7 +40,8 @@ const { title, description, eyebrow, heading, lead, coachName, agentId, actionTe
         <p class="eyebrow dark">{eyebrow}</p>
         <h1>{heading}</h1>
         <p class="lead">{lead}</p>
-        <div class="button-row"><a class="button" href="#start-tool">{actionText}</a><a class="button button-secondary" href="#how-it-works">See how it works</a></div>
+        <div class="button-row"><button class="button" type="button" data-open-coach aria-controls={`elevenlabs-coach-${agentId}`}>{actionText}</button><a class="button button-secondary" href="#how-it-works">See how it works</a></div>
+        <p class="coach-launch-note"><span aria-hidden="true">↘</span> Click the button to open {coachName} in the bottom-right corner, then choose voice or text to start.</p>
       </div>
       <div class="guided-visual-column">
         {partnerLabel && <p class="partner-label">{partnerLabel}</p>}

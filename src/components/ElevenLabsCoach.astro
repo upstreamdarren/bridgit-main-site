@@ -75,6 +75,8 @@ const widgetConfig = {
     const starterPanel = starters?.querySelector("[data-coach-starters-panel]");
     const starterClose = starters?.querySelector("[data-coach-starters-close]");
     const copyButtons = starters?.querySelectorAll("[data-coach-copy]") ?? [];
+    const externalLaunchers = document.querySelectorAll("[data-open-coach]");
+    const dock = launcher?.closest(".coach-dock");
     if (!launcher || !container) return;
 
     const config = JSON.parse(launcher.dataset.widgetConfig || "{}");
@@ -142,8 +144,19 @@ const widgetConfig = {
       });
     };
 
+    const expandWidget = () => {
+      widget?.dispatchEvent(new CustomEvent("elevenlabs-agent:expand", {
+        detail: { action: "expand" }
+      }));
+    };
+
     const launchWidget = async () => {
-      if (widget) return widget;
+      if (widget) {
+        expandWidget();
+        dock?.classList.remove("coach-dock-attention");
+        requestAnimationFrame(() => dock?.classList.add("coach-dock-attention"));
+        return widget;
+      }
       launcher.setAttribute("aria-busy", "true");
 
       try {
@@ -173,6 +186,7 @@ const widgetConfig = {
         launcher.hidden = true;
         if (starters) starters.hidden = true;
         connectCustomisation();
+        dock?.classList.add("coach-dock-attention");
         return widget;
       } catch (error) {
         console.error("Unable to load the Bridgit coach", error);
@@ -182,6 +196,14 @@ const widgetConfig = {
     };
 
     launcher.addEventListener("click", launchWidget);
+    externalLaunchers.forEach((trigger) => {
+      trigger.addEventListener("click", async (event) => {
+        event.preventDefault();
+        trigger.setAttribute("aria-busy", "true");
+        await launchWidget();
+        trigger.removeAttribute("aria-busy");
+      });
+    });
     copyButtons.forEach((button) => {
       button.addEventListener("click", async () => {
         const question = button.dataset.coachCopy;
