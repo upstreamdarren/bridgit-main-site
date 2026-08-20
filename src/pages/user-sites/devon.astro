@@ -1,0 +1,178 @@
+---
+import UserSiteLayout from "../../layouts/UserSiteLayout.astro";
+
+const loginUrl = "https://carers.bridgit.care/login/";
+const services = [
+  {
+    key: "torbay",
+    area: "Torbay",
+    organisation: "Torbay Council",
+    logo: "/images/clients/torbay-council.webp",
+    href: "https://carers.bridgit.care/app/torbay/default",
+    agent: "agent_6801k8bcttc4eak863t65g6xt15d",
+    colour: "#c218a5",
+    copy: "Open the Torbay service for personalised guidance, practical plans and local routes to support."
+  },
+  {
+    key: "devon",
+    area: "Devon",
+    organisation: "Devon Carers",
+    logo: "/images/clients/devon-county-council.webp",
+    href: "https://carers.bridgit.care/app/devon/ca",
+    agent: "agent_6901k8aty0t0exgv7fa7ybzmfd8d",
+    colour: "#238eb2",
+    copy: "Open the Devon service to explore advice, local carer support and useful next steps at your own pace."
+  },
+  {
+    key: "plymouth",
+    area: "Plymouth",
+    organisation: "Plymouth City Council",
+    logo: "/images/clients/plymouth-city-council.svg",
+    href: "https://carers.bridgit.care/app/ply/ca",
+    agent: "agent_5301k8ax5hw4etj9swys623n6zf5",
+    colour: "#8f3899",
+    copy: "Open the Plymouth service for trusted guidance, practical tools and support connected to your area."
+  }
+];
+---
+
+<UserSiteLayout
+  title="Carer support across Devon, Torbay and Plymouth | Bridgit Care"
+  description="Choose the Bridgit carer service for Devon, Torbay or Plymouth and get personalised guidance, practical tools and local support."
+  siteName="Carer support across Devon"
+  siteUrl="https://carers.bridgit.care/devon/"
+  accent="adult"
+  {loginUrl}
+  primaryUrl="#choose-your-area"
+  primaryLabel="Choose your area"
+  footerCopy="Bridgit provides practical digital support for unpaid carers across Devon, Torbay and Plymouth, with clear routes into local services."
+  supportLinks={services.map((service) => ({ label: `${service.area} carer support`, href: service.href }))}
+>
+  <section class="devon-hero" aria-labelledby="devon-title">
+    <div class="portal-shell devon-hero-grid">
+      <div class="devon-hero-copy">
+        <p class="devon-eyebrow">Online support for unpaid carers across Devon</p>
+        <h1 id="devon-title">The right carer support, connected to where you live.</h1>
+        <p class="devon-intro">Choose Devon, Torbay or Plymouth to open the correct local Bridgit service. You can find clear advice, practical tools and personalised next steps whenever you need them.</p>
+        <div class="devon-actions">
+          <a class="portal-button" href="#choose-your-area">Choose my area</a>
+          <a class="devon-text-link" href={loginUrl}>Already using Bridgit? Sign in <span aria-hidden="true">→</span></a>
+        </div>
+        <div class="devon-trust" aria-label="Local partners">
+          {services.map((service) => (
+            <div><img src={service.logo} alt={service.organisation} loading="eager" /></div>
+          ))}
+        </div>
+      </div>
+      <div class="devon-hero-art" aria-label="Personalised support connected to local services">
+        <img src="/images/user-sites/adult-support-cutout.webp" alt="An unpaid carer and the person they support" width="900" height="760" />
+        <span class="devon-art-label devon-art-label-one">Available day and night</span>
+        <span class="devon-art-label devon-art-label-two">Local people when you need them</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="devon-choice" id="what-you-get" aria-labelledby="choose-area-title">
+    <div class="portal-shell">
+      <span class="devon-anchor" id="choose-your-area" aria-hidden="true"></span>
+      <div class="devon-section-heading">
+        <div>
+          <p class="devon-eyebrow">Start in the right place</p>
+          <h2 id="choose-area-title">Which area do you live in?</h2>
+        </div>
+        <p>Each service contains local information and pathways. Choose your area to open the right app, or select its coach if you would prefer to ask a quick question first.</p>
+      </div>
+      <div class="devon-service-grid">
+        {services.map((service) => (
+          <article class="devon-service-card" style={`--service-colour:${service.colour}`}>
+            <div class="devon-service-logo"><img src={service.logo} alt={service.organisation} loading="lazy" /></div>
+            <p>{service.organisation}</p>
+            <h3>{service.area} carer support</h3>
+            <p class="devon-service-copy">{service.copy}</p>
+            <div class="devon-service-actions">
+              <a href={service.href}>Open {service.area} support <span aria-hidden="true">→</span></a>
+              <button type="button" data-devon-coach data-agent={service.agent} data-area={service.area}>Ask the {service.area} coach</button>
+            </div>
+          </article>
+        ))}
+      </div>
+      <div class="devon-coach-note" id="meet-your-team" role="status" data-devon-coach-note>
+        <span aria-hidden="true">✦</span>
+        <div><strong>Want to talk it through first?</strong><p>Choose an area’s coach above. Its Bridgit button will appear in the bottom-right corner, ready for a text or voice conversation.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="devon-benefits" id="how-it-works" aria-labelledby="devon-benefits-title">
+    <div class="portal-shell">
+      <div class="devon-section-heading">
+        <div><p class="devon-eyebrow">Support shaped around you</p><h2 id="devon-benefits-title">One simple place to work out what comes next.</h2></div>
+        <p>You do not need to know exactly what to ask. Bridgit helps you explore the parts of caring that matter and connects you to more personal support when you need it.</p>
+      </div>
+      <div class="devon-benefit-grid">
+        <article><span>01</span><h3>Personalised guidance</h3><p>Answer a few simple questions and receive information that reflects your caring role.</p></article>
+        <article><span>02</span><h3>Practical plans</h3><p>Turn advice into manageable actions, useful checklists and plans you can return to.</p></article>
+        <article><span>03</span><h3>Money and wellbeing</h3><p>Explore benefits, household costs, breaks, stress and ways to look after yourself too.</p></article>
+        <article><span>04</span><h3>Local connections</h3><p>Find the organisations, events and human support available through your local service.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="devon-final">
+    <div class="portal-shell devon-final-card">
+      <div><p class="devon-eyebrow">Ready when you are</p><h2>Choose your area and start your personal support plan.</h2></div>
+      <a class="portal-button" href="#choose-your-area">Find my local service</a>
+    </div>
+  </section>
+
+  <div data-devon-widget-root aria-live="polite"></div>
+  <script is:inline src="https://unpkg.com/@elevenlabs/convai-widget-embed" async type="text/javascript"></script>
+</UserSiteLayout>
+
+<script>
+  const coachButtons = [...document.querySelectorAll("[data-devon-coach]")];
+  const widgetRoot = document.querySelector("[data-devon-widget-root]");
+  const coachNote = document.querySelector("[data-devon-coach-note]");
+
+  const selectCoach = (button) => {
+    const agent = button.getAttribute("data-agent");
+    const area = button.getAttribute("data-area");
+    if (!agent || !widgetRoot) return;
+
+    widgetRoot.replaceChildren();
+    const widget = document.createElement("elevenlabs-convai");
+    widget.setAttribute("agent-id", agent);
+    widgetRoot.appendChild(widget);
+    coachButtons.forEach((item) => item.classList.toggle("is-selected", item === button));
+    if (coachNote) {
+      coachNote.innerHTML = `<span aria-hidden="true">✓</span><div><strong>${area} coach selected</strong><p>Use the Bridgit coach button in the bottom-right corner to start your text or voice conversation.</p></div>`;
+    }
+  };
+
+  coachButtons.forEach((button) => button.addEventListener("click", () => selectCoach(button)));
+</script>
+
+<style>
+  .devon-hero{overflow:hidden;padding:72px 0 64px;background:radial-gradient(circle at 90% 20%,rgba(95,204,225,.22),transparent 30%),linear-gradient(135deg,#fbf8ff,#fff 52%,#eef9fc)}
+  .devon-hero-grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(440px,1.1fr);gap:64px;align-items:center}
+  .devon-eyebrow{margin:0 0 16px;color:#6928bd;font-size:13px;font-weight:950;letter-spacing:.14em;text-transform:uppercase}
+  .devon-hero h1,.devon-section-heading h2,.devon-final h2{margin:0;color:#172036;letter-spacing:-.045em}
+  .devon-hero h1{max-width:700px;font-size:clamp(50px,5.5vw,82px);line-height:.98}
+  .devon-intro{max-width:680px;margin:28px 0 0;color:#59627a;font-size:20px;line-height:1.65}
+  .devon-actions{display:flex;align-items:center;gap:24px;margin-top:30px;flex-wrap:wrap}
+  .devon-text-link{color:#4d158f;font-weight:900;text-decoration:none}.devon-text-link:hover{text-decoration:underline}
+  .devon-trust{display:flex;align-items:center;gap:12px;margin-top:34px;flex-wrap:wrap}.devon-trust div{display:grid;place-items:center;width:112px;height:66px;padding:10px;border:1px solid #e7dded;border-radius:15px;background:#fff;box-shadow:0 8px 20px rgba(46,24,76,.06)}.devon-trust img{max-width:92px;max-height:46px;object-fit:contain}
+  .devon-hero-art{position:relative;display:grid;place-items:center;min-height:560px;border:1px solid #e7dced;border-radius:42px;background:radial-gradient(circle at 48% 42%,#fff 0 18%,#eee4ff 19% 48%,#dff4fa 49% 70%,transparent 71%);box-shadow:0 30px 70px rgba(54,25,86,.12)}
+  .devon-hero-art img{position:absolute;left:50%;bottom:0;width:min(100%,720px);height:94%;object-fit:contain;object-position:center bottom;transform:translateX(-50%)}
+  .devon-art-label{position:absolute;padding:13px 18px;border:1px solid #ded2e8;border-radius:999px;background:rgba(255,255,255,.94);color:#351064;font-size:13px;font-weight:950;box-shadow:0 12px 28px rgba(53,18,88,.12)}.devon-art-label-one{left:6%;top:8%}.devon-art-label-two{right:4%;bottom:8%}
+  .devon-choice,.devon-benefits{padding:96px 0}.devon-choice{background:#fff}.devon-benefits{background:linear-gradient(145deg,#f6f0fc,#eef8fb)}
+  .devon-choice{position:relative}.devon-anchor{position:absolute;top:-100px}
+  .devon-section-heading{display:grid;grid-template-columns:1.1fr .9fr;gap:60px;align-items:end;margin-bottom:42px}.devon-section-heading h2,.devon-final h2{font-size:clamp(38px,4vw,62px);line-height:1.04}.devon-section-heading>p{margin:0;color:#626b81;font-size:18px;line-height:1.65}
+  .devon-service-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}.devon-service-card{position:relative;display:flex;flex-direction:column;min-height:430px;padding:28px;border:1px solid #e8dfed;border-top:6px solid var(--service-colour);border-radius:28px;background:#fff;box-shadow:0 18px 46px rgba(49,23,78,.08)}.devon-service-logo{display:grid;place-items:center;width:138px;height:76px;padding:10px;border-radius:17px;background:#f9f7fb}.devon-service-logo img{max-width:112px;max-height:54px;object-fit:contain}.devon-service-card>p:first-of-type{margin:22px 0 5px;color:var(--service-colour);font-size:12px;font-weight:950;letter-spacing:.1em;text-transform:uppercase}.devon-service-card h3{margin:0;color:#24103e;font-size:29px;line-height:1.08}.devon-service-copy{margin:17px 0 24px;color:#626b81;line-height:1.55}.devon-service-actions{display:grid;gap:10px;margin-top:auto}.devon-service-actions a,.devon-service-actions button{display:flex;align-items:center;justify-content:center;min-height:52px;padding:12px 15px;border-radius:15px;font:inherit;font-size:14px;font-weight:950;text-align:center;cursor:pointer}.devon-service-actions a{background:var(--service-colour);color:#fff;text-decoration:none}.devon-service-actions button{border:1px solid color-mix(in srgb,var(--service-colour),white 58%);background:#fff;color:var(--service-colour)}.devon-service-actions button:hover,.devon-service-actions button.is-selected{background:color-mix(in srgb,var(--service-colour),white 90%);box-shadow:inset 0 0 0 2px var(--service-colour)}
+  .devon-coach-note{display:flex;align-items:center;gap:16px;margin-top:24px;padding:20px 24px;border:1px solid #dfd2e8;border-radius:20px;background:linear-gradient(100deg,#f5effc,#eef9fc);color:#3b1b61}.devon-coach-note>span{display:grid;place-items:center;flex:0 0 42px;height:42px;border-radius:50%;background:#fff;color:#8f2eb4;font-weight:950}.devon-coach-note strong{font-size:17px}.devon-coach-note p{margin:3px 0 0;color:#687086}
+  .devon-benefit-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}.devon-benefit-grid article{min-height:230px;padding:26px;border:1px solid #e3d9eb;border-radius:24px;background:rgba(255,255,255,.9)}.devon-benefit-grid span{display:grid;place-items:center;width:46px;height:46px;border-radius:14px;background:linear-gradient(135deg,#eadcff,#dff4fb);color:#6424b4;font-weight:950}.devon-benefit-grid h3{margin:24px 0 8px;color:#2f1055;font-size:22px}.devon-benefit-grid p{margin:0;color:#626b81;line-height:1.55}
+  .devon-final{padding:88px 0;background:#fff}.devon-final-card{display:grid;grid-template-columns:1fr auto;gap:38px;align-items:center;padding:48px 54px;border-radius:32px;background:linear-gradient(125deg,#391067,#7027bd 55%,#2f759e);color:#fff;box-shadow:0 24px 55px rgba(48,20,85,.2)}.devon-final .devon-eyebrow{color:#e9b8df}.devon-final h2{max-width:850px;color:#fff}.devon-final .portal-button{background:#fff;color:#5c20a9}
+  [data-devon-widget-root] elevenlabs-convai{z-index:999999}
+  @media(max-width:1000px){.devon-hero-grid,.devon-section-heading{grid-template-columns:1fr}.devon-hero-art{min-height:500px}.devon-service-grid{grid-template-columns:1fr}.devon-service-card{min-height:0}.devon-benefit-grid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:650px){.devon-hero{padding:44px 0 48px}.devon-hero-grid{gap:38px}.devon-hero h1{font-size:46px}.devon-intro{font-size:17px}.devon-actions .portal-button,.devon-text-link{width:100%;text-align:center}.devon-hero-art{min-height:390px;border-radius:28px}.devon-art-label{font-size:10px;padding:9px 11px}.devon-trust{display:grid;grid-template-columns:repeat(3,1fr)}.devon-trust div{width:auto}.devon-choice,.devon-benefits{padding:70px 0}.devon-section-heading{gap:18px}.devon-section-heading h2,.devon-final h2{font-size:38px}.devon-benefit-grid{grid-template-columns:1fr}.devon-final{padding:64px 0}.devon-final-card{grid-template-columns:1fr;padding:34px 26px}.devon-final .portal-button{width:100%}}
+</style>

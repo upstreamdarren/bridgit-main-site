@@ -19,7 +19,7 @@ export const carerRegions: CarerRegion[] = [
   { area: "Camden", organisation: "Camden Carers", href: "https://carers.bridgit.care/app/camc/ca", logo: "/images/clients/camden-carers.jpeg", x: 61, y: 72 },
   { area: "Coventry", organisation: "Coventry City Council", href: "https://bridgit.care/support/coventry", logo: "/images/clients/coventry-city-council.jpg", x: 50, y: 61 },
   { area: "Derbyshire", organisation: "Derbyshire Carers Association", href: "https://carers.bridgit.care/app/dca/ca", logo: "/images/clients/derbyshire-carers.png", x: 52, y: 49 },
-  { area: "Devon", organisation: "Devon Carers", href: "https://carers.bridgit.care/devon/", logo: "/images/clients/devon-county-council.webp", x: 32, y: 88 },
+  { area: "Devon", organisation: "Devon Carers", href: "https://carers.bridgit.care/app/devon/ca", logo: "/images/clients/devon-county-council.webp", x: 32, y: 88 },
   { area: "Dorset", organisation: "Dorset Council", href: "https://bridgit.care/support/dorset", logo: "/images/clients/dorset-council.png", x: 42, y: 86 },
   { area: "Dudley", organisation: "Dudley Metropolitan Borough Council", href: "https://carers.bridgit.care/app/dud/ca", logo: "/images/clients/dudley-council.png", x: 46, y: 61 },
   { area: "Durham", organisation: "Durham County Carers Support", href: "#area-help", logo: "/images/clients/durham-county-carers-support.png", x: 58, y: 31, comingSoon: true },
@@ -35,11 +35,11 @@ export const carerRegions: CarerRegion[] = [
   { area: "Newcastle", organisation: "Newcastle Carers", href: "#area-help", logo: "/images/clients/newcastle-carers.svg", x: 58, y: 27, comingSoon: true },
   { area: "Northamptonshire", organisation: "Northamptonshire Carers", href: "https://carers.bridgit.care/app/ncass/ca", logo: "/images/clients/north-northamptonshire-council.png", x: 57, y: 57 },
   { area: "Peterborough", organisation: "Peterborough City Council", href: "https://carers.bridgit.care/app/ptbc/ca", logo: "/images/clients/peterborough-council.png", x: 62, y: 53 },
-  { area: "Plymouth", organisation: "Plymouth City Council", href: "https://carers.bridgit.care/devon/", logo: "/images/clients/plymouth-city-council.svg", x: 29, y: 92 },
+  { area: "Plymouth", organisation: "Plymouth City Council", href: "https://carers.bridgit.care/app/ply/ca", logo: "/images/clients/plymouth-city-council.svg", x: 29, y: 92 },
   { area: "Sandwell", organisation: "Sandwell Metropolitan Borough Council", href: "https://carers.bridgit.care/app/sandwell/live", logo: "/images/clients/sandwell-council.webp", x: 47, y: 59 },
   { area: "Solihull", organisation: "Carers Trust", href: "https://carers.bridgit.care/app/ctsol/ca", logo: "/images/clients/solihull-council.png", x: 49, y: 62 },
   { area: "Somerset", organisation: "Thrive Somerset", href: "https://carers.bridgit.care/app/somerset/ca", logo: "/images/clients/thrive.png", x: 38, y: 78 },
-  { area: "Torbay", organisation: "Torbay Council", href: "https://carers.bridgit.care/devon/", logo: "/images/clients/torbay-council.webp", x: 32, y: 90 },
+  { area: "Torbay", organisation: "Torbay Council", href: "https://carers.bridgit.care/app/torbay/default", logo: "/images/clients/torbay-council.webp", x: 32, y: 90 },
   { area: "Warwickshire", organisation: "Warwickshire County Council", href: "https://bridgit.care/support/warwickshire", logo: "/images/clients/warwickshire-county-council.svg", x: 51, y: 62 },
   { area: "Wolverhampton", organisation: "Wolverhampton City Council", href: "#area-help", logo: "/images/clients/wolverhampton-city-council.svg", x: 46, y: 58, comingSoon: true }
 ];
