@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import ElevenLabsCoach from "../components/ElevenLabsCoach.astro";
+import ToolNextSteps from "../components/ToolNextSteps.astro";
 
 const routes = [
   ["Improve", "Fix content, forms, directories, handovers and analytics before adding another platform."],
@@ -53,6 +54,15 @@ const sources = [
   <section class="section commission-trust">
     <div class="shell"><div class="section-heading"><div><p class="eyebrow dark">Built on trusted sources</p><h2>Use current public-service standards as the spine.</h2></div><p>The knowledge base brings together the guidance commissioners should be using to frame need, market engagement, evaluation, AI assurance and delivery.</p></div><div class="source-grid">{sources.map(([name,href]) => <a href={href} target="_blank" rel="noreferrer"><span>Official guidance</span><strong>{name}</strong><b aria-hidden="true">↗</b></a>)}</div></div>
   </section>
+
+  <ToolNextSteps
+    title="Move from a digital brief to a service people can use."
+    links={[
+      { title: "Council Front Door", copy: "Connect residents to council, VCSE and neighbourhood support.", href: "/local-authorities" },
+      { title: "Responsible AI consultancy", copy: "Build the governance, safeguards and delivery plan around your AI use case.", href: "/responsible-ai" },
+      { title: "NHS partners", copy: "Extend preventative support around NHS and community pathways.", href: "/nhs" },
+    ]}
+  />
 
   <ElevenLabsCoach agentId="agent_3001m0cvpq9mftm8bn5bhap9e7bt" coachName="the Digital Commissioning Guide" actionText="Start the toolkit" commonQuestions={["Help me turn our service pressure into a clear problem statement", "Should we improve, configure, buy or build?", "What should we ask AI suppliers to evidence?", "Design a safe 8-week discovery and pilot"]} />
 </BaseLayout>

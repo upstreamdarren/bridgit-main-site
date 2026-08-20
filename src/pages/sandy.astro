@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import ElevenLabsCoach from "../components/ElevenLabsCoach.astro";
+import ToolNextSteps from "../components/ToolNextSteps.astro";
 
 const steps = [
   ["01", "Line up", "Agree the purpose, what is genuinely open to influence and who needs to be involved."],
@@ -46,6 +47,15 @@ const steps = [
       <div><p class="eyebrow dark">Trusted guidance, translated into practical questions</p><h2>Sandy does not make up a method as she goes.</h2><p>Her advice is grounded in established UK co-production guidance and designed to help people use it in real work.</p><ul><li><a href="https://www.scie.org.uk/co-production/">SCIE co-production guidance</a></li><li><a href="https://thinklocalactpersonal.org.uk/our-hubs/co-production/">Think Local Act Personal co-production hub</a></li><li><a href="https://www.england.nhs.uk/get-involved/resources/working-in-partnership-with-people-and-communities-statutory-guidance/">NHS England working with people and communities</a></li></ul><p class="sandy-boundary">Sandy offers planning support, not emergency, legal, medical or safeguarding advice. Do not share confidential case information.</p></div>
     </div>
   </section>
+
+  <ToolNextSteps
+    title="Take co-production from a good plan into real service change."
+    links={[
+      { title: "Responsible AI consultancy", copy: "Design AI with people, safeguards and social impact at the centre.", href: "/responsible-ai" },
+      { title: "Council Front Door", copy: "Shape connected resident support with councils and community partners.", href: "/local-authorities" },
+      { title: "Social enterprises", copy: "Build accessible support around the knowledge your organisation already holds.", href: "/social-enterprises" },
+    ]}
+  />
 
   <ElevenLabsCoach agentId="agent_0701kw99sgynegx9pgsdmd2kh3dh" coachName="Sandy" actionText="Plan with Sandy" commonQuestions={["What decisions are genuinely open to influence?", "Who might we be missing from this work?", "Help me plan an inclusive co-production session", "How should we close the feedback loop?"]} />
 </BaseLayout>

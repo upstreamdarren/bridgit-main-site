@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import ElevenLabsCoach from "../components/ElevenLabsCoach.astro";
+import ToolNextSteps from "../components/ToolNextSteps.astro";
 
 const challenges = [
   ["Plenty of activity. No simple story.", "You are doing valuable work, but the evidence sits across reports, spreadsheets, conversations and people’s heads."],
@@ -135,6 +136,14 @@ const outputs = [
       <a class="button" href="https://bridgit-main-site.pages.dev/downloads/social-impact-advisor-guide.png" download>Download the A4 guide</a>
     </div>
   </section>
+
+  <ToolNextSteps
+    title="Build on your impact plan with support designed for social purpose."
+    links={[
+      { title: "AI coaching for social enterprises", copy: "Turn trusted expertise into support that reaches more people.", href: "/social-enterprises" },
+      { title: "Social investors", copy: "Fund and measure shared impact across a cohort of delivery partners.", href: "/social-investors" },
+    ]}
+  />
 
   <ElevenLabsCoach
     agentId="agent_7401m0f1k7zsfm9953k0pq0fvn8s"

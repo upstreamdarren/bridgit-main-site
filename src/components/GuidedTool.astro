@@ -1,6 +1,13 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import ElevenLabsCoach from "./ElevenLabsCoach.astro";
+import ToolNextSteps from "./ToolNextSteps.astro";
+
+interface SupportLink {
+  title: string;
+  copy: string;
+  href: string;
+}
 
 interface Props {
   title: string;
@@ -19,9 +26,11 @@ interface Props {
   imageAlt?: string;
   partnerLabel?: string;
   accent?: "purple" | "blue" | "green" | "pink";
+  supportLinks: SupportLink[];
+  supportTitle?: string;
 }
 
-const { title, description, eyebrow, heading, lead, coachName, agentId, actionText, questions, outcomes, steps, sources, image, imageAlt, partnerLabel, accent = "purple" } = Astro.props;
+const { title, description, eyebrow, heading, lead, coachName, agentId, actionText, questions, outcomes, steps, sources, image, imageAlt, partnerLabel, accent = "purple", supportLinks, supportTitle } = Astro.props;
 ---
 
 <BaseLayout title={title} description={description} image={image ?? "/images/tools/commissioner-toolkit-hero.webp"}>
@@ -62,6 +71,8 @@ const { title, description, eyebrow, heading, lead, coachName, agentId, actionTe
   <section class="section guided-trust">
     <div class="shell"><div class="section-heading"><div><p class="eyebrow dark">Grounded in trusted practice</p><h2>Good questions, clear boundaries and sources you can check.</h2></div><p>The tool supports judgement. It does not replace professional, legal, procurement, safeguarding or data-protection advice.</p></div><div class="source-grid">{sources.map(([name, href]) => <a href={href} target="_blank" rel="noreferrer"><span>Reference</span><strong>{name}</strong><b aria-hidden="true">↗</b></a>)}</div></div>
   </section>
+
+  <ToolNextSteps links={supportLinks} title={supportTitle} />
 
   <ElevenLabsCoach agentId={agentId} coachName={coachName} actionText={actionText} commonQuestions={questions} />
 </BaseLayout>
