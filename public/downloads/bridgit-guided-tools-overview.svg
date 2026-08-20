@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1240" height="1754" viewBox="0 0 1240 1754" role="img" aria-labelledby="title desc">
+  <title id="title">Bridgit guided tools overview</title>
+  <desc id="desc">A one-page guide to eight free Bridgit tools and how to use them.</desc>
+  <defs>
+    <linearGradient id="header" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#3b126d"/><stop offset=".55" stop-color="#7629b7"/><stop offset="1" stop-color="#287fae"/></linearGradient>
+    <linearGradient id="button" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#4ca6ce"/><stop offset="1" stop-color="#bf21ac"/></linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="160%"><feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#2c153e" flood-opacity=".12"/></filter>
+    <style>
+      text{font-family:Arial,'Helvetica Neue',sans-serif}.small{font-size:18px;letter-spacing:3px;font-weight:800}.title{font-size:64px;font-weight:800}.intro{font-size:25px}.card-title{font-size:25px;font-weight:800}.body{font-size:18px}.step-title{font-size:21px;font-weight:800}.step-copy{font-size:16px}.footer{font-size:21px;font-weight:800}
+    </style>
+  </defs>
+  <rect width="1240" height="1754" fill="#fbf9fd"/>
+  <rect width="1240" height="360" fill="url(#header)"/>
+  <circle cx="1120" cy="80" r="220" fill="#fff" opacity=".06"/><circle cx="1030" cy="310" r="180" fill="#e62bb5" opacity=".11"/>
+  <text x="72" y="68" class="small" fill="#f6d8f5">FREE GUIDED TOOLS FROM BRIDGIT</text>
+  <text x="72" y="155" class="title" fill="#fff">Turn a difficult starting point</text>
+  <text x="72" y="225" class="title" fill="#fff">into a plan you can use.</text>
+  <text x="72" y="286" class="intro" fill="#eee7f8">Eight practical tools for social impact, service improvement,</text>
+  <text x="72" y="322" class="intro" fill="#eee7f8">digital commissioning, partnership working and responsible AI.</text>
+
+  <g transform="translate(60 405)">
+    <g filter="url(#shadow)"><rect width="550" height="220" rx="28" fill="#fff" stroke="#dfd2e9"/><rect width="11" height="220" rx="6" fill="#c229a5"/></g>
+    <circle cx="60" cy="56" r="28" fill="#f5dff0"/><text x="60" y="63" text-anchor="middle" font-size="18" font-weight="800" fill="#a9238d">01</text>
+    <text x="108" y="64" class="card-title" fill="#321653">Social Impact Advisor</text>
+    <text x="38" y="112" class="body" fill="#5e5870"><tspan x="38" dy="0">Clarify the difference you make, choose</tspan><tspan x="38" dy="28">useful evidence and create a 90-day plan.</tspan></text>
+    <text x="38" y="194" class="small" fill="#a9238d">DELIVERED WITH SEUK</text>
+  </g>
+  <g transform="translate(630 405)">
+    <g filter="url(#shadow)"><rect width="550" height="220" rx="28" fill="#fff" stroke="#dfd2e9"/><rect width="11" height="220" rx="6" fill="#647f52"/></g>
+    <circle cx="60" cy="56" r="28" fill="#e5eedf"/><text x="60" y="63" text-anchor="middle" font-size="18" font-weight="800" fill="#4e6c3e">02</text>
+    <text x="108" y="64" class="card-title" fill="#321653">Co-production with Sandy</text>
+    <text x="38" y="112" class="body" fill="#5e5870"><tspan x="38" dy="0">Build an inclusive plan around lived experience,</tspan><tspan x="38" dy="28">access, shared decisions and feedback.</tspan></text>
+    <text x="38" y="194" class="small" fill="#4e6c3e">CO-PRODUCTION</text>
+  </g>
+
+  <g transform="translate(60 650)">
+    <rect width="550" height="194" rx="26" fill="#fff" stroke="#dfd2e9"/><circle cx="55" cy="52" r="25" fill="#e2eef7"/><text x="55" y="59" text-anchor="middle" font-size="17" font-weight="800" fill="#337ca8">03</text>
+    <text x="98" y="60" class="card-title" fill="#321653">Digital Commissioning Toolkit</text>
+    <text x="36" y="108" class="body" fill="#5e5870"><tspan x="36">Turn community need into a clear brief, compare</tspan><tspan x="36" dy="28">routes and receive a recommendation report.</tspan></text>
+  </g>
+  <g transform="translate(630 650)">
+    <rect width="550" height="194" rx="26" fill="#fff" stroke="#dfd2e9"/><circle cx="55" cy="52" r="25" fill="#f0e4fa"/><text x="55" y="59" text-anchor="middle" font-size="17" font-weight="800" fill="#7028b2">04</text>
+    <text x="98" y="60" class="card-title" fill="#321653">Digital Readiness Review</text>
+    <text x="36" y="108" class="body" fill="#5e5870"><tspan x="36">Find the people, journeys, systems and safeguards</tspan><tspan x="36" dy="28">that shape a safe first digital step.</tspan></text>
+  </g>
+  <g transform="translate(60 864)">
+    <rect width="550" height="194" rx="26" fill="#fff" stroke="#dfd2e9"/><circle cx="55" cy="52" r="25" fill="#f8e5ec"/><text x="55" y="59" text-anchor="middle" font-size="17" font-weight="800" fill="#bf326f">05</text>
+    <text x="98" y="60" class="card-title" fill="#321653">Demand and Capacity Planner</text>
+    <text x="36" y="108" class="body" fill="#5e5870"><tspan x="36">Map repeat contact and pressure points, then find</tspan><tspan x="36" dy="28">ways to give clearer help earlier.</tspan></text>
+  </g>
+  <g transform="translate(630 864)">
+    <rect width="550" height="194" rx="26" fill="#fff" stroke="#dfd2e9"/><circle cx="55" cy="52" r="25" fill="#def1f2"/><text x="55" y="59" text-anchor="middle" font-size="17" font-weight="800" fill="#258a91">06</text>
+    <text x="98" y="60" class="card-title" fill="#321653">Pathway Mapper</text>
+    <text x="36" y="108" class="body" fill="#5e5870"><tspan x="36">Follow the journey from first question to the right</tspan><tspan x="36" dy="28">help and find where momentum breaks down.</tspan></text>
+  </g>
+  <g transform="translate(60 1078)">
+    <rect width="550" height="194" rx="26" fill="#fff" stroke="#dfd2e9"/><circle cx="55" cy="52" r="25" fill="#eee6fb"/><text x="55" y="59" text-anchor="middle" font-size="17" font-weight="800" fill="#5f2abd">07</text>
+    <text x="98" y="60" class="card-title" fill="#321653">Responsible AI Action Plan</text>
+    <text x="36" y="108" class="body" fill="#5e5870"><tspan x="36">Turn an AI idea into a proportionate plan with</tspan><tspan x="36" dy="28">human oversight, data and inclusion in view.</tspan></text>
+  </g>
+  <g transform="translate(630 1078)">
+    <rect width="550" height="194" rx="26" fill="#fff" stroke="#dfd2e9"/><circle cx="55" cy="52" r="25" fill="#e7f1e2"/><text x="55" y="59" text-anchor="middle" font-size="17" font-weight="800" fill="#52743f">08</text>
+    <text x="98" y="60" class="card-title" fill="#321653">Partnership Builder</text>
+    <text x="36" y="108" class="body" fill="#5e5870"><tspan x="36">Create a shared plan with clear people, roles,</tspan><tspan x="36" dy="28">decisions and learning around one outcome.</tspan></text>
+  </g>
+
+  <rect x="60" y="1320" width="1120" height="290" rx="34" fill="#29104d"/>
+  <text x="96" y="1375" class="small" fill="#e8cfee">HOW TO USE ANY TOOL</text>
+  <g transform="translate(96 1410)">
+    <circle cx="38" cy="38" r="38" fill="#c52aa8"/><text x="38" y="46" text-anchor="middle" font-size="24" font-weight="800" fill="#fff">1</text><text x="0" y="105" class="step-title" fill="#fff">Choose</text><text x="0" y="133" class="step-copy" fill="#e8dff0">Pick the tool closest</text><text x="0" y="156" class="step-copy" fill="#e8dff0">to your challenge.</text>
+  </g>
+  <g transform="translate(355 1410)">
+    <circle cx="38" cy="38" r="38" fill="#8a31c2"/><text x="38" y="46" text-anchor="middle" font-size="24" font-weight="800" fill="#fff">2</text><text x="0" y="105" class="step-title" fill="#fff">Talk or type</text><text x="0" y="133" class="step-copy" fill="#e8dff0">Answer one clear</text><text x="0" y="156" class="step-copy" fill="#e8dff0">question at a time.</text>
+  </g>
+  <g transform="translate(630 1410)">
+    <circle cx="38" cy="38" r="38" fill="#3f88bd"/><text x="38" y="46" text-anchor="middle" font-size="24" font-weight="800" fill="#fff">3</text><text x="0" y="105" class="step-title" fill="#fff">Create a draft</text><text x="0" y="133" class="step-copy" fill="#e8dff0">Ask for your tailored</text><text x="0" y="156" class="step-copy" fill="#e8dff0">plan by email.</text>
+  </g>
+  <g transform="translate(920 1410)">
+    <circle cx="38" cy="38" r="38" fill="#43a5ae"/><text x="38" y="46" text-anchor="middle" font-size="24" font-weight="800" fill="#fff">4</text><text x="0" y="105" class="step-title" fill="#fff">Use it together</text><text x="0" y="133" class="step-copy" fill="#e8dff0">Review with the people</text><text x="0" y="156" class="step-copy" fill="#e8dff0">affected and improve it.</text>
+  </g>
+  <rect x="60" y="1640" width="1120" height="74" rx="28" fill="url(#button)"/>
+  <text x="96" y="1687" class="footer" fill="#fff">Explore the free tools at bridgit.care/tools</text>
+  <text x="1140" y="1687" text-anchor="end" font-size="24" font-weight="800" fill="#fff">bridgit</text>
+</svg>

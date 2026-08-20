@@ -7,7 +7,7 @@ const tools = [
     title: "Social Impact Advisor",
     copy: "Understand the change you create, choose meaningful measures and build a practical 90-day plan to strengthen your social impact.",
     href: "/social-impact-advisor",
-    image: "/images/tools/social-impact-advisor-hero.jpg",
+    image: "/images/tools/social-impact-advisor-watercolour.jpg",
     alt: "A social impact advisor helping a team connect people's experiences, evidence and community outcomes"
   },
   {
@@ -15,7 +15,7 @@ const tools = [
     title: "Build a co-production plan with Sandy",
     copy: "Turn an idea, service change or engagement challenge into a practical plan shaped around lived experience, access, shared decisions and a clear feedback loop.",
     href: "/sandy",
-    image: "https://bridgit.care/wp-content/uploads/2026/07/sandy-welcome.png",
+    image: "/images/tools/sandy-coproduction-watercolour.jpg",
     alt: "Sandy, Bridgit's co-production coach"
   },
   {
@@ -94,6 +94,10 @@ const tools = [
         ))}
       </div>
       <aside class="tools-note"><strong>Designed to support judgement, not replace it.</strong><span>Use the outputs as a working draft. Involve the people affected and check your organisation's governance, commercial and safeguarding requirements.</span></aside>
+      <aside class="tools-download">
+        <div><p class="eyebrow dark">Share the library</p><h2>All eight tools on one useful page.</h2><p>Download the A4 guide for colleagues, partners or anyone deciding which guided tool to try first.</p></div>
+        <a class="button" href="/downloads/bridgit-guided-tools-overview.png" download>Download the tools guide</a>
+      </aside>
     </div>
   </section>
 </BaseLayout>
@@ -118,6 +122,9 @@ const tools = [
   .tool-card-copy>p:not(.eyebrow){min-height:112px;color:#625b6e}
   .tools-note{display:grid;grid-template-columns:auto 1fr;gap:22px;margin-top:26px;padding:22px 26px;border-radius:20px;background:linear-gradient(100deg,#f4eef9,#eef8fb);color:#51475c}
   .tools-note strong{color:#52158f}
+  .tools-download{display:grid;grid-template-columns:1fr auto;gap:34px;align-items:center;margin-top:26px;padding:34px;border:1px solid #e4d9ec;border-radius:28px;background:radial-gradient(circle at 92% 15%,rgba(78,174,199,.18),transparent 31%),linear-gradient(135deg,#fbf7fe,#f0f7fb);box-shadow:0 16px 38px rgba(47,19,76,.07)}
+  .tools-download h2{margin:8px 0 8px;color:#251039;font-size:clamp(28px,3vw,42px)}.tools-download p:not(.eyebrow){max-width:760px;margin:0;color:#625b6e}.tools-download .button{white-space:nowrap}
   @media(max-width:1050px){.tools-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:850px){.tools-hero-grid,.tools-grid{grid-template-columns:1fr}.tool-card-featured{grid-column:auto;grid-template-columns:1fr}.tool-card-featured .tool-card-visual{min-height:280px}.tool-card-copy>p:not(.eyebrow){min-height:0}}
-  @media(max-width:560px){.tool-card{border-radius:25px}.tool-card-visual{height:230px}.tool-card-copy{padding:25px}.tools-note{grid-template-columns:1fr;gap:6px}}
+  @media(max-width:760px){.tools-download{grid-template-columns:1fr}.tools-download .button{justify-self:start}}
+  @media(max-width:560px){.tool-card{border-radius:25px}.tool-card-visual{height:230px}.tool-card-copy{padding:25px}.tools-note{grid-template-columns:1fr;gap:6px}.tools-download{padding:25px}}
 </style>

@@ -272,6 +272,7 @@ html,body{overflow-x:hidden}
 .partner-proof-logos>img:first-child{max-width:155px}
 .partner-proof-logos>span{color:#b8a9c6;font-size:30px;font-weight:900}
 .partner-proof-logos .logo-seuk{max-width:230px;max-height:82px}
+.partner-proof-logos .logo-seuk-recommended{width:108px;max-width:108px;max-height:108px;border-radius:50%;box-shadow:0 10px 26px rgba(20,18,22,.12)}
 .partner-proof-logos .logo-birmingham{max-width:210px}
 .audience-challenge{background:#f8f5fb}
 .audience-heading{align-items:end}
